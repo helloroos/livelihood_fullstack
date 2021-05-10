@@ -1,6 +1,6 @@
 class Api::SessionsController < ApplicationController
 
-  before_action :require_logged_in, only: [:destroy]
+  # before_action :ensure_logged_in, only: [:destroy]
 
   def create 
     user = User.find_by_credentials(
@@ -9,7 +9,7 @@ class Api::SessionsController < ApplicationController
     )
     if user
       login(user)
-      render json: 'api/user/show' # should this be users/?
+      render json: 'api/users/show' 
     else
       render json: ['Incorrect or incomplete credentials.'], status: 401
     end
