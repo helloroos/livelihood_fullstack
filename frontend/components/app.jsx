@@ -1,10 +1,12 @@
 import React from "react";
 import { Link } from 'react-router-dom';
 
+import log_in_form from "./log_in_form";
+
+
 const App = () => (
     <div>
-        <Link to="/login">Log In</Link>
-        <Link to="/signup">Sign Up</Link>
+        <log_in_form />
     </div>
 );
 
