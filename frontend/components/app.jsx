@@ -1,9 +1,9 @@
-// import React from "react";
+import React from "react";
 
-// const App = () => (
-//     <div>
-//         This is the app
-//     </div>
-// );
+const App = () => (
+    <div>
+        This is the app
+    </div>
+);
 
-// export default App;
+export default App;
