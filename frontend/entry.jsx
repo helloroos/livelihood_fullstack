@@ -7,6 +7,7 @@ import { logIn, logOut, signUp } from "./actions/session_actions";
 document.addEventListener('DOMContentLoaded', () => {
     const root = document.getElementById('root');
     const test = <div>This is the DOM</div>;
+    const image = <div><img src={window.cannabisURL} /></div>
     // const store = configureStore();
 
     // window.store = store;
@@ -15,5 +16,5 @@ document.addEventListener('DOMContentLoaded', () => {
     window.logOut = logOut;
 
     // ReactDOM.render(<Root store={store} />, root);
-    ReactDOM.render(test, root);
+    ReactDOM.render(image, root);
 })
