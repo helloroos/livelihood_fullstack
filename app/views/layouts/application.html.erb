@@ -1,17 +1,12 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Robinhodl</title>
+    <title>Commisson-free Cryptocurrency Exchange | Robinhodl</title>
+
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
     <%= stylesheet_link_tag    'application', media: 'all' %>
     <%= javascript_include_tag 'application' %>
-    
-    <script type="text/javascript">
-      window.robinhood_favicon = "<%= image_url('robinhood_favicon.png') %>";
-    </script>
-
     <%= favicon_link_tag asset_path('robinhood_favicon.png') %>
   </head>
 
@@ -26,6 +21,11 @@
         };
       </script>       
     <% end %>
+
+    <script type="text/javascript">
+      window.robinhood_favicon = "<%= image_url('robinhood_favicon.png') %>";
+      window.robinhood_favicon_black = "<%= image_url('robinhood_favicon_black.png') %>";
+    </script>
 
   </body>
 </html>
