@@ -20,6 +20,7 @@ class Greeting extends React.Component {
                 <Link to="/login">Cash</Link>
                 <Link to="/signup">Messages</Link>
                 <Link to="/signup">Account</Link>
+                <button onClick={this.props.logOut}>Log Out</button>
             </div>
         )   
         }
