@@ -1,12 +1,13 @@
 import React from "react";
 import { Link } from 'react-router-dom';
-import LogInForm from "./log_in_form";
+import GreetingContainer from "./greeting_container";
 
 
 const App = () => (
     <div>
         <header>
             <h2>Robinhodl</h2>
+            <GreetingContainer/>
         </header>
     </div>
 );
