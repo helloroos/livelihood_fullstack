@@ -1,11 +1,11 @@
 import React from 'react';
-import { connect } from 'react-redux';
-import { logIn } from '../actions/session_actions';
+import { signUp } from '../../actions/session_actions';
 import SessionForm from './session_form';
+import { connect } from 'react-redux';
 
 const mSTP = (state, ownProps) => {
     return {
-        formType: "Log In",
+        formType: "Sign Up",
         errors: state.errors.session
     }
 }
@@ -13,7 +13,7 @@ const mSTP = (state, ownProps) => {
 const mDTP = (dispatch) => {
     return {
         processForm: (user) => {
-            return dispatch(logIn(user))
+            return dispatch(signUp(user))
         }
     }
 }

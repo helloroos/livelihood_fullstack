@@ -1,10 +1,10 @@
 import React from "react";
-import { Link, Route, Switch } from 'react-router-dom';
-import { AuthRoute, ProtectedRoute } from "../util/route_util";
-import GreetingContainer from "./greeting_container";
-import LogInFormContainer from "./log_in_from_container";
-import SignUpFormContainer from "./sign_up_from_container";
-import SplashContainer from "./splash/splash_container";
+import { Switch } from 'react-router-dom';
+import { AuthRoute } from "../util/route_util";
+
+import LogInFormContainer from "./session/log_in_form_container";
+import SignUpFormContainer from "./session/sign_up_form_container";
+import SplashContainer from "./splash_container";
 
 const App = () => (
     <div>

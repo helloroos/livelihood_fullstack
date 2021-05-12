@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { logOut } from '../actions/session_actions';
+import { logOut } from '../../actions/session_actions';
 import Greeting from './greeting';
 
 // const mSTP = ({ session, entities: { users } }) => {

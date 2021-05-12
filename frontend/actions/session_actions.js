@@ -30,16 +30,16 @@ const receiveErrors = (errors) => {
 export const signUp = (user) => (dispatch) => {
     return SessionAPIUtil.signUp(user)
         .then(
-            res => dispatch(receiveCurrentUser(res))),
-            errors => dispatch(receiveErrors(errors.respomseJSON))
+            (res) => dispatch(receiveCurrentUser(res))),
+            (errors) => dispatch(receiveErrors(errors.respomseJSON))
         // .fail((err) => dispatch(receiveErrors(err.responseJSON))
 };
 
 export const logIn = (user) => (dispatch) => {
     return SessionAPIUtil.logIn(user)
         .then(
-            res => dispatch(receiveCurrentUser(res))),
-            errors => dispatch(receiveErrors(errors.respomseJSON))
+            (res) => dispatch(receiveCurrentUser(res))),
+            (errors) => dispatch(receiveErrors(errors.respomseJSON))
         // .fail((err) => dispatch(receiveErrors(err.responseJSON))
 };
 
