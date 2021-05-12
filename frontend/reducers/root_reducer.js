@@ -7,8 +7,39 @@ import errorsReducer from './errors_reducer';
 
 const rootReducer = combineReducers({
     entities: entitiesReducer, 
-    session: sessionReducer,
     errors: errorsReducer,
+    session: sessionReducer,
 });
 
 export default rootReducer;
+
+let emptyState = {
+    entities: {
+        users: {}
+    },
+    session: {
+        // id: null,
+        currentUser: null,
+    },
+    errors: {
+        session: ["Invalid credentials"]
+    }
+}
+
+let populatedState = {
+    entities: {
+        users: {
+            1: {
+                id: 1,
+                username: 'breakfast'
+            }
+        }
+    },
+    session: {
+        // id: 1
+        currentUser: 1
+    },
+    errors: {
+        session: []
+    }
+}

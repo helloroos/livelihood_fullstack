@@ -12,6 +12,7 @@ const App = () => (
             <AuthRoute exact path="/" component={ SplashContainer } />
             <AuthRoute path="/login" component={ LogInFormContainer } />
             <AuthRoute path="/signup" component={ SignUpFormContainer } />
+            {/* Create a route to the dashboard */}
         </Switch>
     </div>
 );

@@ -13,7 +13,7 @@ class Api::SessionsController < ApplicationController
     else
       # render json: @user.errors.full_messages, status: 422
       # 422: unprocessable
-      render json: ['Incorrect or incomplete credentials.'], status: 401
+      render json: ['Incorrect or incomplete credentials.'], status: 422
       # 401: unauthorized
     end
   end
