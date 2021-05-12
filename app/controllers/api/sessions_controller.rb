@@ -11,7 +11,10 @@ class Api::SessionsController < ApplicationController
       log_in!(@user)
       render "api/users/show"
     else
+      # render json: @user.errors.full_messages, status: 422
+      # 422: unprocessable
       render json: ['Incorrect or incomplete credentials.'], status: 401
+      # 401: unauthorized
     end
   end
 
@@ -20,8 +23,10 @@ class Api::SessionsController < ApplicationController
     if @user
         log_out!
         render "api/users/show"
+        # render {}
     else
-        render json: ["No user signed in"], status: 404
+        render json: ["No user is signed in"], status: 404
+        # 404: not found
     end
   end
 end
