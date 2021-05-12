@@ -7,21 +7,22 @@ class Greeting extends React.Component {
     }
 
     render() {
+        let currentUser = this.props.currentUser;
         if (currentUser) {
+            return(
+            <div>
+                <Link to="/cash">Cash</Link>
+                <Link to="/portfolio">Portfolio</Link>
+                <Link to="/account">Account</Link>
+                <button onClick={this.props.logOut}>Log Out</button>
+            </div>
+            )
+        } else {
             return(
                 <div>
                     <Link to="/login">Log In</Link>
                     <Link to="/signup">Sign Up</Link>
                 </div>
-            )
-        } else {
-            return(
-            <div>
-                <Link to="/login">Cash</Link>
-                <Link to="/signup">Messages</Link>
-                <Link to="/signup">Account</Link>
-                <button onClick={this.props.logOut}>Log Out</button>
-            </div>
         )   
         }
     }
