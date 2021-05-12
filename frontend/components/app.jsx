@@ -5,7 +5,9 @@ import LogInForm from "./log_in_form";
 
 const App = () => (
     <div>
-        <LogInForm />
+        <header>
+            <h2>Robinhodl</h2>
+        </header>
     </div>
 );
 
