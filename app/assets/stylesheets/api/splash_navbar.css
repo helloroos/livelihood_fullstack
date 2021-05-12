@@ -30,11 +30,12 @@
 }
 
 .inner-navbar {
-    overflow: hidden;
+    /* overflow: hidden; */
+    display: flex;
+    flex-direction: row;
 }
 
 .navbar-list {
-    display: flex;
     /* align-items: center; */
     /* padding: 0px 23px; */
     /* flex-direction: row; */
