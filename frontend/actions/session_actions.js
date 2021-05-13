@@ -4,6 +4,7 @@ import * as SessionAPIUtil from "../util/session_api_util";
 export const RECEIVE_CURRENT_USER = 'RECEIVE_CURRENT_USER';
 export const LOGOUT_CURRENT_USER = 'LOGOUT_CURRENT_USER';
 export const RECEIVE_SESSION_ERRORS = 'RECEIVE_SESSION_ERRORS';
+export const RESET_ERRORS = "RESET_ERRORS";
 
 // ACTION CREATORS
 const receiveCurrentUser = (currentUser) => {
@@ -26,6 +27,12 @@ const receiveErrors = (errors) => {
     }
 };
 
+const resetErrors = () => {
+    return {
+        type: RESET_ERRORS
+    }
+}
+
 // THUNK ACTION CREATORS
 export const signUp = (user) => (dispatch) => {
     return SessionAPIUtil.signUp(user)
@@ -47,3 +54,7 @@ export const logOut = () => (dispatch) => {
     return SessionAPIUtil.logOut()
         .then((res) => dispatch(logoutCurrentUser()))
 };
+
+export const resetErrors = () => (dispatch) => {
+    return dispatch(resetErrors());
+}
