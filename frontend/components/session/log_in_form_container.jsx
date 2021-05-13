@@ -12,7 +12,7 @@ const mSTP = (state, ownProps) => {
 
 const mDTP = (dispatch) => {
     return {
-        processForm: (user) => {
+        logIn: (user) => {
             return dispatch(logIn(user))
         }
     }
