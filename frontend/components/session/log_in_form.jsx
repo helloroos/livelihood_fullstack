@@ -33,14 +33,6 @@ class LogInForm extends React.Component {
             [field]: e.currentTarget.value
         });
     }
-    
-    // logInDemo(field) {
-    //     let email = "iamgroot@marvel.com";
-    //     let password = "password";
-    //     return (e) => this.setState({
-    //         [field]: e.currentTarget.value
-    //     });
-    // }
 
     renderErrors() {
         return (
@@ -56,31 +48,38 @@ class LogInForm extends React.Component {
 
     render() {
         return(
-            <div>
-                <h3>Welcome to Robinhodl</h3>
-                <br />
-                <form onSubmit={this.handleSubmit}>
-                    <label>Email
-                        <input 
-                            type="email"
-                            value={this.state.email}
-                            onChange={this.update('email')}/>
-                    </label>
+            <div className="log-in">
+                <div className="left">
+                    <img src="https://cdn.robinhood.com/assets/generated_assets/632fcb3e7ed928b2a960f3e003d10b44.jpg" />
+                </div>
+                <div className="right">
+                    <div className="header">
+                        <h3>Welcome to Robinhodl</h3>
+                    </div>
                     <br />
-                    <label>Password
-                        <input 
-                            type="password"
-                            value={this.state.password}
-                            onChange={this.update('password')}/>
-                    </label>
-                    <br />
-                    <p>Forgot your email or password?</p>
-                            {this.renderErrors()}
-                    <button type="submit">Log In</button>
-                </form>
-                <form onSubmit={this.logInDemo}>
-                    <button type="submit">Demo</button>
-                </form>
+                    <form onSubmit={this.handleSubmit}>
+                        <label>Email
+                            <input 
+                                type="email"
+                                value={this.state.email}
+                                onChange={this.update('email')}/>
+                        </label>
+                        <br />
+                        <label>Password
+                            <input 
+                                type="password"
+                                value={this.state.password}
+                                onChange={this.update('password')}/>
+                        </label>
+                        <br />
+                        <p>Forgot your email or password?</p>
+                                {this.renderErrors()}
+                        <button type="submit">Log In</button>
+                    </form>
+                    <form onSubmit={this.logInDemo}>
+                        <button type="submit">Demo</button>
+                    </form>
+                </div>
             </div>
         )
     }

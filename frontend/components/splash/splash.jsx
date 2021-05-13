@@ -28,19 +28,19 @@ class Splash extends React.Component {
           <div className="navbar-container">
             <div className="logo">
               <Link to="/">
-              <h2>Robinhodl </h2>
-              <img src={window.robinhood_favicon_black} />
+                <h2>Robinhodl </h2>
+                <img src={window.robinhood_favicon_black} />
               </Link>
             </div>
 
-            <div className="navbar">
+            <nav className="navbar">
               <ul className="navbar-list">
-                <li>Products</li>
-                <li>Learn</li>
-                <li>Support</li>
-                <li>Who we are</li>
+                <li><Link to="products">Products</Link></li>
+                <li><Link to="learn">Learn</Link></li>
+                <li><Link to="support">Support</Link></li>
+                <li><Link to="whoweare">Who we are</Link></li>
               </ul>
-            </div>
+            </nav>
 
             <div className="session-links">
               <span className="log-in-btn"><Link to="/login">Log In</Link></span>
@@ -48,7 +48,7 @@ class Splash extends React.Component {
             </div>
           </div>
 
-          <div className="mktng-msg">
+          <div className="sign-up-offer">
             <div className="header">
               <h1>Investing For Everyone</h1>
             </div>
@@ -63,9 +63,18 @@ class Splash extends React.Component {
             <div>
               <p> ⓘ Commissions and Free Coin Disclosure</p>
             </div>
-            <div className="mktng-img">
+            <div className="sign-up-offer-img">
               <p>IMAGE</p>
             </div>
+            <div>
+              <p>See our fee schedule to learn more about cost.</p>
+            </div>
+          </div>
+
+          <div className="superbowl-campaign">
+            <span>VIDEO</span>
+            <h1>We are all investors</h1>
+            <p>See the campaign ➔</p>
           </div>
         </div>
       )
