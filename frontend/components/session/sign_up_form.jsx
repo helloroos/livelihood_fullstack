@@ -1,9 +1,9 @@
 import React from 'react';
 
-class SessionForm extends React.Component {
+class SignUpForm extends React.Component {
     constructor(props) {
         super(props)
-        this.state = { email: "", password: ""}
+        this.state = { email: "", password: "" }
         this.handleSubmit = this.handleSubmit.bind(this);
         this.update = this.update.bind(this);
     }
@@ -12,32 +12,33 @@ class SessionForm extends React.Component {
         e.preventDefault();
         const user = Object.assign({}, this.state);
         this.props.processForm(user);
+        this.props.history.push('/')
     }
 
     update(field) {
-        return e => this.setState({
+        return (e) => this.setState({
             [field]: e.currentTarget.value
         });
     }
 
     render() {
-        return(
+        return (
             <div>
                 <h3>{this.props.formType}</h3>
                 <br />
                 <form onSubmit={this.handleSubmit}>
                     <label>Email
-                        <input 
+                        <input
                             type="email"
                             value={this.state.email}
-                            onChange={this.update('email')}/>
+                            onChange={this.update('email')} />
                     </label>
                     <br />
                     <label>Password
-                        <input 
+                        <input
                             type="password"
                             value={this.state.password}
-                            onChange={this.update('password')}/>
+                            onChange={this.update('password')} />
                     </label>
                     <br />
                     <p>Forgot your email or password?</p>
@@ -48,4 +49,4 @@ class SessionForm extends React.Component {
     }
 }
 
-export default SessionForm;
+export default SignUpForm;

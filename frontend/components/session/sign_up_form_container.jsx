@@ -1,6 +1,6 @@
 import React from 'react';
 import { signUp } from '../../actions/session_actions';
-import SessionForm from './session_form';
+import SignUpForm from './sign_up_form';
 import { connect } from 'react-redux';
 
 const mSTP = (state, ownProps) => {
@@ -18,4 +18,4 @@ const mDTP = (dispatch) => {
     }
 }
 
-export default connect(mSTP, mDTP)(SessionForm);
+export default connect(mSTP, mDTP)(SignUpForm);

@@ -2,19 +2,21 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { Route, Redirect, withRouter } from 'react-router-dom';
 
-const Auth = ({ component: Component, path, logged_in, exact }) => (
+// PUBLIC the user can't be logged in to view any of these
+const Auth = ({ component: Component, path, loggedIn, exact }) => (
     <Route path={path} exact={exact} render={(props) => (
-        !logged_in ? (
-            <Component {...props} />
-        ) : (
+        loggedIn ? (
             <Redirect to="/" />
+            ) : (
+            <Component {...props} />
         )
     )} />
 );
 
-const Protected = ({ component: Component, path, logged_in, exact }) => (
+// PRIVATE the user MUST be logged in to view any of these
+const Protected = ({ component: Component, path, loggedIn, exact }) => (
     <Route path={path} exact={exact} render={(props) => (
-        logged_in ? (
+        loggedIn ? (
             <Component {...props} />
         ) : (
             <Redirect to="/login" />
@@ -22,8 +24,8 @@ const Protected = ({ component: Component, path, logged_in, exact }) => (
     )} />
 );
 
-const mSTP = state => (
-    { logged_in: Boolean(state.session.id) }
+const mSTP = (state) => (
+    { loggedIn: Boolean(state.session.id) }
 );
 
 export const AuthRoute = withRouter(connect(mSTP)(Auth));
