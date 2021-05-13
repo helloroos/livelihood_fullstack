@@ -1,7 +1,7 @@
 import React from 'react';
-import { signUp } from '../../actions/session_actions';
-import SignUpForm from './sign_up_form';
 import { connect } from 'react-redux';
+import { resetErrors, signUp } from '../../actions/session_actions';
+import SignUpForm from './sign_up_form';
 
 const mSTP = (state, ownProps) => {
     return {
@@ -12,8 +12,11 @@ const mSTP = (state, ownProps) => {
 
 const mDTP = (dispatch) => {
     return {
-        processForm: (user) => {
+        signUp: (user) => {
             return dispatch(signUp(user))
+        },
+        resetErrors: () => {
+            return dispatch(resetErrors())
         }
     }
 }

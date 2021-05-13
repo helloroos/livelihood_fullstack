@@ -4,7 +4,12 @@ import { Link } from 'react-router-dom';
 class Splash extends React.Component {
   constructor(props) {
       super(props)
-      // console.log(props);
+    this.handleLogOut = this.handleLogOut.bind(this);
+  }
+
+  handleLogOut() {
+    this.props.logOut;
+    this.props.resetErrors;
   }
 
   render() {
@@ -20,13 +25,15 @@ class Splash extends React.Component {
     } else {
       return(
         <div>
-          <div className="outer-navbar">
+          <div className="navbar-container">
             <div className="logo">
-              <span><h2>Robinhodl </h2></span>
-              <span><img src={window.robinhood_favicon_black} /></span>
+              <Link to="/">
+              <h2>Robinhodl </h2>
+              <img src={window.robinhood_favicon_black} />
+              </Link>
             </div>
 
-            <div className="inner-navbar">
+            <div className="navbar">
               <ul className="navbar-list">
                 <li>Products</li>
                 <li>Learn</li>

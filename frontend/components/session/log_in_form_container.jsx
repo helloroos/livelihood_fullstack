@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { logIn } from '../../actions/session_actions';
+import { logIn, resetErrors } from '../../actions/session_actions';
 import LogInForm from './log_in_form';
 
 const mSTP = (state, ownProps) => {
@@ -14,6 +14,9 @@ const mDTP = (dispatch) => {
     return {
         logIn: (user) => {
             return dispatch(logIn(user))
+        },
+        resetErrors: () => {
+            return dispatch(resetErrors())
         }
     }
 }

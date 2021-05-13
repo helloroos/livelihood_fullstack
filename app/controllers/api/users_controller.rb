@@ -6,8 +6,8 @@ class Api::UsersController < ApplicationController
             log_in!(@user)
             render :show
         else
-            render json: @user.errors.full_messages, status: 422
-            # render json: ['Incomplete or incorrect information'], status: 422
+            # render json: @user.errors.full_messages, status: 422
+            render json: ['Incomplete or incorrect information'], status: 422
             # 422: not processable
         end
     end

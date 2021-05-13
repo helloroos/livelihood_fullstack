@@ -11,14 +11,30 @@ class SignUpForm extends React.Component {
     handleSubmit(e) {
         e.preventDefault();
         const user = Object.assign({}, this.state);
-        this.props.processForm(user);
-        this.props.history.push('/')
+        this.props.signUp(user)
+            .then(() => {
+                this.props.history.push('/')})
+            .then(() => {
+                this.props.resetErrors
+            })
     }
 
     update(field) {
         return (e) => this.setState({
             [field]: e.currentTarget.value
         });
+    }
+
+    renderErrors() {
+        return (
+            <ul>
+                {this.props.errors.map((error, i) => (
+                    <li key={`error-${i}`}>
+                        {error}
+                    </li>
+                ))}
+            </ul>
+        );
     }
 
     render() {
@@ -42,6 +58,7 @@ class SignUpForm extends React.Component {
                     </label>
                     <br />
                     <p>Forgot your email or password?</p>
+                            {this.renderErrors()}
                     <button type="submit">{this.props.formType}</button>
                 </form>
             </div>

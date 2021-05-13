@@ -4,7 +4,7 @@ import configureStore from "./store/store";
 import Root from "./components/root";
 
 // TESTING -- TO BE REMOVED
-import { logIn, logOut, signUp } from "./actions/session_actions";
+import { logIn, logOut, resetErrors, signUp } from "./actions/session_actions";
 // import { logIn, logOut, signUp } from "./util/session_api_util";
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -39,6 +39,7 @@ document.addEventListener('DOMContentLoaded', () => {
     window.signUp = signUp;
     window.logIn = logIn;
     window.logOut = logOut;
+    window.resetErrors = resetErrors;
     // TESTING END
 
     const root = document.getElementById('root');

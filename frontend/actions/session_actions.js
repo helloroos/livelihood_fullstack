@@ -27,7 +27,7 @@ const receiveErrors = (errors) => {
     }
 };
 
-const resetErrors = () => {
+const clearErrors = () => {
     return {
         type: RESET_ERRORS
     }
@@ -56,5 +56,5 @@ export const logOut = () => (dispatch) => {
 };
 
 export const resetErrors = () => (dispatch) => {
-    return dispatch(resetErrors());
+    return dispatch(clearErrors());
 }
