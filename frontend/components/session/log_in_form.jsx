@@ -49,11 +49,11 @@ class LogInForm extends React.Component {
     render() {
         return(
             <div className="log-in">
-                <div className="left">
+                <div className="image">
                     <img src="https://cdn.robinhood.com/assets/generated_assets/632fcb3e7ed928b2a960f3e003d10b44.jpg" />
                 </div>
-                <div className="right">
-                    <div className="header">
+                <div className="form">
+                    <div>
                         <h3>Welcome to Robinhodl</h3>
                     </div>
                     <br />

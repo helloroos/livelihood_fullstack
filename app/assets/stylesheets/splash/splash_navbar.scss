@@ -1,0 +1,73 @@
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: white;
+    height: 60px;
+    width: 100%;
+    position: sticky;
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.2);
+
+    .logo {
+        display: block;
+        font-size: 22px;
+        padding-left: 15px;
+        align-items: center;
+
+        img {
+            width: auto;
+            height: 25px;
+        }
+    }
+
+    .navbar {
+        width: 800px;
+        font-size: 18px;
+        box-shadow: none;
+
+        li {
+           display: inline-block;
+            margin: 15px;
+            transition: all 0.1s ease 0s;
+            
+            :hover {
+                color: rgb(0, 180, 5);
+            }
+        }
+    }
+
+    .session-links {
+        padding-right: 15px;
+
+        a {
+            padding-right: 15px;
+            font-size: 17px;
+            font-weight: bold;
+            text-align: center;
+            transition: all 0.1s ease 0s;
+            
+            :hover {
+                color: rgb(0, 180, 5);
+            }
+        }
+
+        button {
+            font-size: 17px;
+            font-weight: bold;
+            padding: 0px 36px;
+            background-color: rgb(00, 200, 5);
+            border-radius: 50px;
+            transition: all 0.1s ease 0s;
+            height: 43px;
+        }
+        .sign-up-btn-1:hover {
+            background-color: rgba(00, 200, 5, 3);
+        }
+    }
+
+    a, button {
+        color: black;
+        text-decoration: none;    
+    }
+    
+}

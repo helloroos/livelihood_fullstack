@@ -1,0 +1,87 @@
+.sign-up-offer {
+    background-color: rgb(195,245,60);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 750px;
+
+    .offer {
+        width: 480px;
+
+        h1 {
+            font-size: 52px;
+            font-weight: 500;
+            margin-bottom: 18px;
+            margin-top: 18px;
+        }
+    
+        p {
+            // font-weight: 24px;
+            line-height: 30px;
+            margin-bottom: 18px;
+            margin-top: 18px;
+        }
+        
+         button {
+            font-size: 17px;
+            font-weight: bold;
+            padding: 0px 36px;
+            background-color: black;
+            color: white;
+            border-radius: 50px;
+            transition: all 0.1s ease 0s;
+            height: 43px;
+        }
+
+        .sign-up-btn {
+            margin-bottom: 18px;
+            margin-top: 18px;
+        }
+    }
+
+    .offer-image {
+        height: 603px;
+        width: auto;
+        margin-top: 18px;
+        // height: 80%;
+        // display: flex;
+        // justify-content: center;
+        // align-items: center;
+        // flex-direction: column;
+        // margin-left:350px;
+
+        // .offer-image {
+        //     position:absolute;
+        //     z-index:1;
+        //     width: 657px;
+        // }
+
+        // .offer-video{
+        //     width: 653px;
+        //     background-color: transparent;
+        //     position: absolute;
+        //     z-index:0;
+        //     margin-left:2px;
+        // }
+    }
+
+}
+
+.disclaimer {
+    background-color: white;
+    height: 65px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-bottom-color: rgb(0,0,0);
+    border-bottom-style: solid;
+    border-bottom-width: 1px;
+    border-top-color: rgb(0,0,0);
+    border-top-style: solid;
+    border-top-width: 1px;
+    text-align: center;
+    
+    p {
+        display: block;
+    }
+}
