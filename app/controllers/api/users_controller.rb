@@ -6,9 +6,17 @@ class Api::UsersController < ApplicationController
             log_in!(@user)
             render :show
         else
-            # render json: @user.errors.full_messages, status: 422
-            render json: ['Incomplete or incorrect information'], status: 422
+            render json: @user.errors.full_messages, status: 422
+            # render json: ['ⓘ Unable to log in with provided credentials.'], status: 422
             # 422: not processable
+
+            # Add error "Please fill out this field."
+            
+            # BULLET POINTED ERRORS
+            # Please enter your first name.
+            # Please enter your last name.
+            # Please enter your email.
+            # Your password must be at least 10 characters.
         end
     end
 
