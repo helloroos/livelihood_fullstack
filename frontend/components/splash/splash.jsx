@@ -15,17 +15,33 @@ class Splash extends React.Component {
   render() {
     if (this.props.currentUser) {
       return(
-        <div>
-          <Link to="/cash">Cash</Link>
-          <Link to="/portfolio">Portfolio</Link>
-          <Link to="/account">Account</Link>
-          <button onClick={this.props.logOut}>Log Out</button>
+        <div className="inner-navbar">
+          <div className="logo">
+            <Link to="/">
+              <h2>Robinhodl</h2>
+              {/* <img src={window.robinhood_favicon_black} /> */}
+              </Link>
+          </div>
+
+          <span>
+            <input />
+          </span>
+
+          <nav>
+            <ul className="navbar">
+                <li><Link to="/cash">Cash</Link></li>
+                <li><Link to="/portfolio">Portfolio</Link></li>
+                <li><Link to="/account">Account</Link></li>
+                <button onClick={this.props.logOut}>Log Out</button>
+            </ul>
+          </nav>
+            
         </div>
         )
     } else {
       return(
         <div>
-          <div className="navbar">
+          <div className="outer-navbar">
             <div className="logo">
               <Link to="/">
                 <h2>Robinhodl </h2>

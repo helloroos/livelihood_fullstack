@@ -1,0 +1,15 @@
+.outer-portfolio {
+    display: flex;
+
+    .portfolio-row {
+        display: flex;
+
+        .feed {
+            display: block;
+        }
+
+        .side-panel {
+            display: block;
+        }
+    }
+}

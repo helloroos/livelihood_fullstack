@@ -59,6 +59,7 @@ class LogInForm extends React.Component {
                     <br />
                     <form onSubmit={this.handleSubmit}>
                         <label>Email
+                            <br />
                             <input 
                                 type="email"
                                 value={this.state.email}
@@ -66,6 +67,7 @@ class LogInForm extends React.Component {
                         </label>
                         <br />
                         <label>Password
+                            <br />
                             <input 
                                 type="password"
                                 value={this.state.password}
