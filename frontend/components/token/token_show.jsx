@@ -1,6 +1,6 @@
 import React from 'react';
 
-class Token extends React.Component {
+class TokenShow extends React.Component {
     constructor(props) {
         super(props)
         console.log(props);
@@ -12,7 +12,7 @@ class Token extends React.Component {
                 <div className="details-row">
                     <div className="details">
                         <header>
-                            <h1>BitCoin</h1>
+                            <h1>{this.props.token}</h1>
                             <h1>$456</h1>
                             <p>+$194.51 (+103.16%) Past 5 Years</p>
                         </header>
@@ -55,4 +55,4 @@ class Token extends React.Component {
     }
 }
 
-export default Token;
+export default TokenShow;

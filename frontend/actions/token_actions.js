@@ -22,8 +22,9 @@ const receiveToken = (token) => {
 const simplify = (res) => {
     return {
         id: res.id,
-        token_symbol: res.symbol,
-        token: res.name
+        token_symbol: res.symbol.toUpperCase(),
+        token: res.name.toUpperCase(),
+        market_price: res.market_data.current_price.usd
     }
 }
 
@@ -33,18 +34,19 @@ const simplify = (res) => {
 // };
 
 export const fetchTokens = () => (dispatch) => {
-    return CoinGeckoClient.coins.all()
-        .then((res) => simplify(res))
-        .then((res) => dispatch(receiveTokens(res)))
+    return fetch(`https://api.coingecko.com/api/v3/coins/list?include_platform=false`)
+        .then(response => response.json())
+        .then((res) => dispatch(receiveTokens(res)),
+        (errors) => dispatch(receiveErrors(errors.responseJSON)))
 };
 
 export const fetchToken = (tokenID) => (dispatch) => {
-    // return CoinGeckoClient.coins.fetch(tokenID)
     return fetch(`https://api.coingecko.com/api/v3/coins/${tokenID}?localization=false&tickers=false&community_data=false&developer_data=false&sparkline=false`
 )
     .then(response => response.json())
     .then((res) => simplify(res))
-    .then((res) => dispatch(receiveTokens(res)))
+    .then((res) => dispatch(receiveToken(res)),
+    (errors) => dispatch(receiveErrors(errors.responseJSON)))
 };
 
 // export const fetchToken = (tokenID) => (dispatch) => {

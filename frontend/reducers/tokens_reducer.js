@@ -5,6 +5,7 @@ const tokensReducer = (state = {}, action) => {
     switch (action.type) {
         case RECEIVE_TOKENS:
             return action.tokens;
+            // return Object.assign({}, state, { [action.tokens.id]: action.tokens });
         case RECEIVE_TOKEN:
             return Object.assign({}, state, { [action.token.id]: action.token });
         default:

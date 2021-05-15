@@ -7,7 +7,8 @@ import LogInFormContainer from "./session/log_in_form_container";
 import SignUpFormContainer from "./session/sign_up_form_container";
 import SplashContainer from "./splash/splash_container";
 import PortfolioContainer from "./portfolio/portfolio_container";
-import TokenContainer from "./token/token_container";
+import TokenContainer from "./token/token_index_container";
+import TokenShowContainer from "./token/token_show_container";
 import NavBarContainer from "./navbar.jsx/navbar_container";
 
 
@@ -22,7 +23,8 @@ const App = () => {
             <AuthRoute exact path="/login" component={ LogInFormContainer } />
             <AuthRoute exact path="/signup" component={ SignUpFormContainer } />
             <Route path="/portfolio" component={PortfolioContainer} />
-            <Route path="/token" component={TokenContainer} />
+            {/* <Route path="/tokens" component={TokenContainer} /> */}
+            <Route path="/tokens/bitcoin" component={TokenShowContainer} /> {/** Add in tokenId */}
             <Route exact path="/" component={ SplashContainer } />
         </Switch>
     </div>

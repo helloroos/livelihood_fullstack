@@ -59,18 +59,20 @@ class LogInForm extends React.Component {
                         </div>
                         <br />
                         <form onSubmit={this.handleSubmit}>
-                            <label>Email
-                            <br />
+                            <label>
+                                <p>Email</p>
                                 <input
                                     type="email"
+                                    required
                                     value={this.state.email}
                                     onChange={this.update('email')} />
                             </label>
                             <br />
-                            <label>Password
-                            <br />
+                            <label>
+                                <p>Password</p>
                                 <input
                                     type="password"
+                                    required
                                     value={this.state.password}
                                     onChange={this.update('password')} />
                             </label>
@@ -79,6 +81,7 @@ class LogInForm extends React.Component {
                             {this.renderErrors()}
                             <button type="submit">Log In</button>
                         </form>
+                        <br />
                         <form onSubmit={this.logInDemo}>
                             <button type="submit">Demo</button>
                         </form>

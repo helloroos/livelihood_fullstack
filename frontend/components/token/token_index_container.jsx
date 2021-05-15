@@ -1,12 +1,10 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import Token from './token';
+import Token from './token_index';
 
 const mSTP = (state) => {
     return {
-        id: state.entities.tokens.id,
-        token: state.entities.tokens.token,
-        symbol: state.entities.tokens.symbol,
+
     }
 }
 
