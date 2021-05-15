@@ -1,5 +1,24 @@
 .outer-navbar {
     box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.2);
+
+        button {
+        display: inline-block;
+        font-size: 18px;
+        font-weight: bold;
+        padding: 0px 36px;
+        background-color: rgb(00, 200, 5);
+        border-radius: 50px;
+        transition: all 0.1s ease 0s;
+        height: 43px;
+    }
+}
+
+.inner-navbar {
+    
+    .navbar {
+        font-size: 13px;
+        font-weight: bold;
+    }
 }
 
 .outer-navbar, .inner-navbar {
@@ -8,7 +27,7 @@
     align-items: center;
     background-color: white;
     position: sticky;
-
+    top: 0;
     height: 60px;
     width: 100%;
 
@@ -75,16 +94,7 @@
         }
     }
     
-    button {
-        display: inline-block;
-        font-size: 18px;
-        font-weight: bold;
-        padding: 0px 36px;
-        background-color: rgb(00, 200, 5);
-        border-radius: 50px;
-        transition: all 0.1s ease 0s;
-        height: 43px;
-    }
+
 
     a, button {
         color: black;
@@ -94,6 +104,15 @@
 
     li>a:hover {
         color: rgb(0, 180, 5);
+    }
+
+    input {
+        display: block;
+        width: 100%;
+        width: 380px;
+        border: 1px solid lightgrey;
+        border-radius: 3px;
+        height: 25px;
     }
 
 }

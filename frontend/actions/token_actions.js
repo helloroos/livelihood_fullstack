@@ -22,7 +22,7 @@ const receiveToken = (token) => {
 const simplify = (res) => {
     return {
         id: res.id,
-        token_symbol: res.symbol.toUpperCase(),
+        symbol: res.symbol.toUpperCase(),
         token: res.name.toUpperCase(),
         market_price: res.market_data.current_price.usd
     }

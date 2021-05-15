@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { fetchToken } from '../../util/token_api_util';
 import TokenShow from './token_show';
 
 const mSTP = (state) => {
@@ -12,7 +13,9 @@ const mSTP = (state) => {
 
 const mDTP = (dispatch) => {
     return {
-
+        fetchToken: (tokenId) => {
+            dispatch(fetchToken(tokenId))
+        }
     }
 }
 

@@ -21,13 +21,13 @@ class NavBar extends React.Component {
           <div className="inner-navbar">
               <div className="logo">
                   <Link to="/">
-                      <h2>Robinhodl</h2>
-                      {/* <img src={window.robinhood_favicon_black} /> */}
+                      {/* <h2>Robinhodl</h2> */}
+                      <img src={window.robinhood_favicon_black} />
                   </Link>
               </div>
 
               <span>
-                  <input />
+                  <input type="search" placeholder="Search"/>
               </span>
 
               <nav>

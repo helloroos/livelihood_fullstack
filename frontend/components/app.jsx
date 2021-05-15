@@ -10,10 +10,11 @@ import PortfolioContainer from "./portfolio/portfolio_container";
 import TokenContainer from "./token/token_index_container";
 import TokenShowContainer from "./token/token_show_container";
 import NavBarContainer from "./navbar.jsx/navbar_container";
-
+import TokenIndexContainer from "./token/token_index_container";
 
 const App = () => {
     const NavBarContainerWithRouter = withRouter(NavBarContainer);
+    const TokenContainerWithRouter = withRouter(TokenShowContainer);
 
     return(
     <div>
@@ -23,8 +24,9 @@ const App = () => {
             <AuthRoute exact path="/login" component={ LogInFormContainer } />
             <AuthRoute exact path="/signup" component={ SignUpFormContainer } />
             <Route path="/portfolio" component={PortfolioContainer} />
+            <Route exact path="/tokens" component={TokenIndexContainer} />
             {/* <Route path="/tokens" component={TokenContainer} /> */}
-            <Route path="/tokens/bitcoin" component={TokenShowContainer} /> {/** Add in tokenId */}
+            <Route exact path="/tokens/bitcoin" component={TokenShowContainer} /> {/** Add in tokenId */}
             <Route exact path="/" component={ SplashContainer } />
         </Switch>
     </div>
