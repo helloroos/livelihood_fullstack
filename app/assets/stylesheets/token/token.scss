@@ -1,0 +1,20 @@
+.outer-token-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    width: 1036px;
+
+    .details-row {
+
+    }
+
+    h1 {
+        font-size: 32px;
+    }
+
+    p {
+        font-size: 13px;
+    }
+
+}

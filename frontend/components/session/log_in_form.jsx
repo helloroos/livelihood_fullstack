@@ -52,35 +52,38 @@ class LogInForm extends React.Component {
                 <div className="image">
                     <img src="https://cdn.robinhood.com/assets/generated_assets/632fcb3e7ed928b2a960f3e003d10b44.jpg" />
                 </div>
-                <div className="form">
-                    <div>
-                        <h3>Welcome to Robinhodl</h3>
+                <div className="form-container">
+                    <div className="form">
+                        <div className="header">
+                            <h3>Welcome to Robinhodl</h3>
+                        </div>
+                        <br />
+                        <form onSubmit={this.handleSubmit}>
+                            <label>Email
+                            <br />
+                                <input
+                                    type="email"
+                                    value={this.state.email}
+                                    onChange={this.update('email')} />
+                            </label>
+                            <br />
+                            <label>Password
+                            <br />
+                                <input
+                                    type="password"
+                                    value={this.state.password}
+                                    onChange={this.update('password')} />
+                            </label>
+                            <br />
+                            <p>Forgot your email or password?</p>
+                            {this.renderErrors()}
+                            <button type="submit">Log In</button>
+                        </form>
+                        <form onSubmit={this.logInDemo}>
+                            <button type="submit">Demo</button>
+                        </form>
                     </div>
-                    <br />
-                    <form onSubmit={this.handleSubmit}>
-                        <label>Email
-                            <br />
-                            <input 
-                                type="email"
-                                value={this.state.email}
-                                onChange={this.update('email')}/>
-                        </label>
-                        <br />
-                        <label>Password
-                            <br />
-                            <input 
-                                type="password"
-                                value={this.state.password}
-                                onChange={this.update('password')}/>
-                        </label>
-                        <br />
-                        <p>Forgot your email or password?</p>
-                                {this.renderErrors()}
-                        <button type="submit">Log In</button>
-                    </form>
-                    <form onSubmit={this.logInDemo}>
-                        <button type="submit">Demo</button>
-                    </form>
+                    
                 </div>
             </div>
         )

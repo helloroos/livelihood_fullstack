@@ -1,75 +1,101 @@
+.outer-navbar {
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.2);
+}
+
 .outer-navbar, .inner-navbar {
     display: flex;
     justify-content: space-between;
     align-items: center;
     background-color: white;
+    position: sticky;
+
     height: 60px;
     width: 100%;
-    position: sticky;
-    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.2);
+
+    font-size: 18px;
 
     .logo {
-        display: block;
+        display: inline-block;
         font-size: 22px;
         padding-left: 15px;
         align-items: center;
-
+        // order: 2;
+        // margin-right: auto;
+        
         img {
+            display: inline-block;
             width: auto;
             height: 25px;
         }
     }
-
+    
     .navbar {
-        width: 800px;
-        font-size: 18px;
+        // width: 800px;
+        // font-size: 18px;
         box-shadow: none;
+        // order: 1;
+        // margin-right: auto;
 
         li {
-           display: inline-block;
+            display: inline-block;
             margin: 15px;
-            transition: all 0.1s ease 0s;
             
-            :hover {
-                color: rgb(0, 180, 5);
-            }
+            // a {
+            //     transition: all 0.1s ease 0s;
+                
+            // }
+            
+            // :hover {
+            //     color: rgb(0, 180, 5);
+            // }
         }
     }
 
     .session-links {
         padding-right: 15px;
+        order: 3;
+        // font-size: 17px;
 
-        a {
+        li {
+            display: inline-block;
             padding-right: 15px;
-            font-size: 17px;
+            // font-size: 17px;
             font-weight: bold;
             text-align: center;
             transition: all 0.1s ease 0s;
-            
-            :hover {
-                color: rgb(0, 180, 5);
-            }
+
+            // :hover {
+            //     color: rgb(0, 180, 5);
+            // }
         }
 
-        button {
-            font-size: 17px;
-            font-weight: bold;
-            padding: 0px 36px;
-            background-color: rgb(00, 200, 5);
-            border-radius: 50px;
-            transition: all 0.1s ease 0s;
-            height: 43px;
+        li>a>button:hover {
+            color: black;
+            background-color: rgba(0, 180, 5, 5);
         }
-        .sign-up-btn-1:hover {
-            background-color: rgba(00, 200, 5, 3);
-        }
+    }
+    
+    button {
+        display: inline-block;
+        font-size: 18px;
+        font-weight: bold;
+        padding: 0px 36px;
+        background-color: rgb(00, 200, 5);
+        border-radius: 50px;
+        transition: all 0.1s ease 0s;
+        height: 43px;
     }
 
     a, button {
         color: black;
-        text-decoration: none;    
+        text-decoration: none; 
+        transition: all 0.1s ease 0s;   
     }
-    
+
+    li>a:hover {
+        color: rgb(0, 180, 5);
+    }
+
 }
 
 // .inner-navbar {

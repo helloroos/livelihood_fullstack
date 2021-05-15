@@ -8,7 +8,14 @@ module.exports = {
         filename: 'bundle.js'
     },
     resolve: {
-        extensions: ['.js', '.jsx', '*']
+        extensions: ['.js', '.jsx', '*'],
+        fallback: { 
+            "querystring": require.resolve("querystring-es3"),
+            "https": require.resolve("https-browserify"),
+            "url": require.resolve("url/"),
+            "http": require.resolve("stream-http"),
+            "buffer": require.resolve("buffer/")
+        }
     },
     module: {
         rules: [

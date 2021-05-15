@@ -15,57 +15,12 @@ class Splash extends React.Component {
   render() {
     if (this.props.currentUser) {
       return(
-        <div className="inner-navbar">
-          <div className="logo">
-            <Link to="/">
-              <h2>Robinhodl</h2>
-              {/* <img src={window.robinhood_favicon_black} /> */}
-              </Link>
-          </div>
-
-          <span>
-            <input />
-          </span>
-
-          <nav>
-            <ul className="navbar">
-                <li><Link to="/cash">Cash</Link></li>
-                <li><Link to="/portfolio">Portfolio</Link></li>
-                <li><Link to="/account">Account</Link></li>
-                <button onClick={this.props.logOut}>Log Out</button>
-            </ul>
-          </nav>
-            
+        <div>            
         </div>
         )
     } else {
       return(
         <div>
-          <div className="outer-navbar">
-            <div className="logo">
-              <Link to="/">
-                <h2>Robinhodl </h2>
-                {/* <img src={window.robinhood_favicon_black} /> */}
-                </Link>
-            </div>
-
-            <nav>
-              <ul className="navbar">
-                <li><Link to="products">Products</Link></li>
-                <li><Link to="learn">Learn</Link></li>
-                <li><Link to="support">Support</Link></li>
-                <li><Link to="whoweare">Who we are</Link></li>
-              </ul>
-            </nav>
-
-            <div className="session-links">
-              <Link to="/login">Log In</Link>
-              <Link to="/signup">
-                <button type="submit" className="sign-up-btn-1">Sign Up</button>
-              </Link>
-            </div>
-          </div>
-
           <div className="sign-up-offer">
 
             <div className="offer">

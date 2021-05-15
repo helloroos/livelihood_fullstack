@@ -40,8 +40,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // TESTING START
     window.store = store;
-    window.dispatch = store.dispatch;
-    window.getState = store.dispatch;
+    // window.dispatch = store.dispatch;
+    // window.getState = store.dispatch;
 
     // const test = <div>This is the DOM</div>;
     // const image = <div><img src={window.cannabisURL} /></div>
