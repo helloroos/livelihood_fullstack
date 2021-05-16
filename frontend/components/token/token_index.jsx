@@ -13,15 +13,22 @@ class TokenIndex extends React.Component {
 
     render() {
         let tokens = this.props.tokens;
+        let tokenItems;
+
         if (Object.keys(tokens).length === 0) {
-            console.log("Loading...");
             return <p>Loading...</p>
+        } else {
+            tokenItems = tokens.map((token) => {
+                return <TokenIndexItem key={token.id} token={token} />
+            })
+            return (
+                <div>
+                    <h1>All tokens</h1>
+                    <ul>{tokenItems}</ul>
+                    {/* <Link to="/tokens/bitcoin">BitCoin</Link> */}
+                </div>
+            )
         }
-        return (
-            <div>
-                <Link to="/tokens/bitcoin">BitCoin</Link>
-            </div>
-        )
     }
 }
 

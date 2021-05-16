@@ -26,7 +26,7 @@ const App = () => {
             <Route path="/portfolio" component={PortfolioContainer} />
             <Route exact path="/tokens" component={TokenIndexContainer} />
             {/* <Route path="/tokens" component={TokenContainer} /> */}
-            <Route exact path="/tokens/bitcoin" component={TokenShowContainer} /> {/** Add in tokenId */}
+            <Route exact path="/tokens/:tokenId" component={TokenShowContainer} /> {/** Add in tokenId */}
             <Route exact path="/" component={ SplashContainer } />
         </Switch>
     </div>

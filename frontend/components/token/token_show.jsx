@@ -60,12 +60,8 @@ class TokenShow extends React.Component {
                                 <header>
                                     <h1>Buy BTC</h1>
                                 </header>
-                                <table>
-                                    <thead><tr>
                                         <td>Amount in USD</td>
                                         <td><input placeholder="$0.00" form="buy_token"/></td>
-                                    </tr></thead>
-                                </table>
                                     <p>Estimated price</p>
                                     <p>Estimated BTC</p>
                                     <button>Order</button>

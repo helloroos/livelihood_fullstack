@@ -27,6 +27,7 @@ class NavBar extends React.Component {
               </div>
 
               <span>
+                  {/* <img src={window.search} /> */}
                   <input type="search" placeholder="Search"/>
               </span>
 
