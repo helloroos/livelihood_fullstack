@@ -10,7 +10,7 @@ class TokenIndexItem extends React.Component {
         const token = this.props.token;
         return (
             <div>
-                <li><Link to={`/tokens/${token.symbol}`}>{token.name}</Link></li>
+                <li><Link to={`/tokens/${token.id}`}>{token.name}</Link></li>
             </div>
         )
     }

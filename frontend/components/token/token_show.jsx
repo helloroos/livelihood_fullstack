@@ -7,12 +7,21 @@ class TokenShow extends React.Component {
     }
 
     componentDidMount() {
-        if (this.props.location.pathname == "/tokens/bitcoin") {
-            this.props.fetchToken;
-        }
+        // if (this.props.location.pathname == "/tokens/bitcoin") {
+        //     this.props.fetchToken;
+        // }
+        let tokenId = this.props.match.params.tokenId;
+        this.props.fetchToken(tokenId);
     }
 
     render() {
+        // let token = this.props.token;
+        // console.log(typeof(token) == undefined);
+        // if (typeof(token) == 'undefined') {
+            
+        // } else {
+            
+        // }
         return (
             <div className="outmost-token-container">
                 <div className="outer-token-container">
@@ -60,8 +69,8 @@ class TokenShow extends React.Component {
                                 <header>
                                     <h1>Buy BTC</h1>
                                 </header>
-                                        <td>Amount in USD</td>
-                                        <td><input placeholder="$0.00" form="buy_token"/></td>
+                                        Amount in USD
+                                        <input placeholder="$0.00" form="buy_token"/>
                                     <p>Estimated price</p>
                                     <p>Estimated BTC</p>
                                     <button>Order</button>
