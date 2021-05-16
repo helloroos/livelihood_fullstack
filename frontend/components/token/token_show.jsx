@@ -51,18 +51,31 @@ class TokenShow extends React.Component {
                             <section>
                             </section>
                         </div>
+
+
+
                         <div className="side-panel">
-                            <h1>Buy BTC</h1>
-                            <form>
-                                <label>Amount in USD
-                                    <input placeholder="$0.00" />
-                                </label>
-                                <p>Estimated price</p>
-                                <p>Estimated BTC</p>
-                                <button>Order</button>
-                                <p>$44 available</p>
-                            </form>
+                            <div className="form">
+                                <form id="buy_token"></form>
+                                <header>
+                                    <h1>Buy BTC</h1>
+                                </header>
+                                <table>
+                                    <thead><tr>
+                                        <td>Amount in USD</td>
+                                        <td><input placeholder="$0.00" form="buy_token"/></td>
+                                    </tr></thead>
+                                </table>
+                                    <p>Estimated price</p>
+                                    <p>Estimated BTC</p>
+                                    <button>Order</button>
+                                    <p>$44 available</p>
+                            </div>
+                            <button>Add to wishlist</button>
                         </div>
+
+
+
                     </div>
                 </div>
 
