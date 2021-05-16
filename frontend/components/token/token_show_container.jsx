@@ -1,13 +1,13 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { fetchToken } from '../../util/token_api_util';
+import { fetchToken } from '../../actions/token_actions';
 import TokenShow from './token_show';
 
-const mSTP = (state) => {
+const mSTP = (state, ownProps) => {
     return {
-        id: state.entities.tokens.id,
-        token: state.entities.tokens.token,
-        symbol: state.entities.tokens.symbol,
+        // id: state.entities.tokens.id.id,
+        token: state.entities.tokens
+        // symbol: state.entities.tokens.id.symbol,
     }
 }
 

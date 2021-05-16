@@ -69,8 +69,8 @@ class NavBar extends React.Component {
                         <Link to="/signup">
                           <button type="submit" 
                                   className="sign-up-btn-1">Sign Up</button>
-                  </Link></li>
-                                  </ul>
+                        </Link></li>
+                    </ul>
                   </div>
               </div>
           </div>

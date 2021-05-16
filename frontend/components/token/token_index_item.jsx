@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 class TokenIndexItem extends React.Component {
     constructor(props) {
         super(props)
+
     }
 
     render() {

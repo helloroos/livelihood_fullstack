@@ -14,3 +14,15 @@ const tokensReducer = (state = {}, action) => {
 };
 
 export default tokensReducer;
+
+let newwwState = {
+    entitites: {
+        tokens: {
+            bitcoin: {
+                id: "bitcoin",
+                symbol: "btc",
+                name: "bitcoin"
+            }
+        }
+    }
+}

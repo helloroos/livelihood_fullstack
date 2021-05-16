@@ -21,12 +21,12 @@ const App = () => {
         <NavBarContainerWithRouter/>
         {/* <Route exact path="/" component={NavBarContainer } /> */}
         <Switch>
-            <AuthRoute exact path="/login" component={ LogInFormContainer } />
-            <AuthRoute exact path="/signup" component={ SignUpFormContainer } />
+            <AuthRoute path="/login" component={ LogInFormContainer } />
+            <AuthRoute path="/signup" component={ SignUpFormContainer } />
             <Route path="/portfolio" component={PortfolioContainer} />
             <Route exact path="/tokens" component={TokenIndexContainer} />
             {/* <Route path="/tokens" component={TokenContainer} /> */}
-            <Route exact path="/tokens/:tokenId" component={TokenShowContainer} /> {/** Add in tokenId */}
+            <Route path="/tokens/:tokenId" component={TokenShowContainer} /> {/** Add in tokenId */}
             <Route exact path="/" component={ SplashContainer } />
         </Switch>
     </div>
