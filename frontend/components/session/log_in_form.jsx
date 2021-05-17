@@ -22,7 +22,7 @@ class LogInForm extends React.Component {
         const user = { email: "iamgroot@marvel.com", password: "password"};
         this.props.logIn(user)
             .then(() => {
-                this.props.history.push('/')})
+                this.props.history.push('/portfolio')})
             .then(() => {
                 this.props.resetErrors
             })

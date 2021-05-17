@@ -1,20 +1,83 @@
 .sign-up-container {
     display: flex;
-    background-color: yellow;
+    // background-color: yellow;
     width: 100%;
     height: 100vh;
     justify-content: flex-end;
-
-
+    
+    
     .form-container {
+        padding: 10px;;
         display: flex;
         width: 50%;
-        background-color: yellowgreen;
+        // background-color: yellowgreen;
+
+        h3 {
+            padding-top: 40px;
+            font-size: 24px;
+            
+            &:last-child {
+                padding-top: 80px;
+            }
+        }
+
+        p {
+            font-size: 15px;
+            padding-top: 20px;
+        }
+
+        form {
+            width: 100%;
+
+            p {
+                font-size: 13px;
+                font-weight: bold;
+                padding-bottom: 10px;
+            }
+            input {
+                border-radius: 3px;
+                border: none;
+                width: 100%;
+                height: 18px;
+                background-color: rgb(245, 245, 245);
+        
+                #short {
+                    width: 45%;
+                }
+        
+                #long {
+                    width: 90%
+                }
+            }
+        }
+
     }
 
-    .info {
-        background-color: lightgray;
-        width: 40%;
+    button {
+        background-color: rgb(00, 200, 5);
+        padding: 6px;
+        width: 120px;
+        font-size: 12px;
+        border-radius: 3px;
+        color: white;
+    }
 
+
+    .info-container {
+        background-color: rgb(245, 245, 245);
+        width: 40%;
+        display: flex;
+        padding: 100px;
+
+        .info {
+            width: 40%;
+            font-size: 15px;
+            line-height: 150%;
+
+            h3 {
+                font-weight: bold;
+                padding-top: 10px;
+            }
+        }
     }
 }
