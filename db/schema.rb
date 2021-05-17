@@ -10,30 +10,37 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_05_17_194313) do
+ActiveRecord::Schema.define(version: 2021_05_17_213151) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "cashes", force: :cascade do |t|
+  create_table "orders", force: :cascade do |t|
+    t.integer "user_id", null: false
+    t.string "token_sym", null: false
+    t.integer "number", null: false
+    t.integer "market_price", null: false
+    t.integer "amount", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "order_type"
+    t.index ["token_sym"], name: "index_orders_on_token_sym"
+    t.index ["user_id"], name: "index_orders_on_user_id"
+  end
+
+  create_table "portfolios", force: :cascade do |t|
+    t.integer "order_id"
+    t.integer "transfer_id"
+    t.integer "user_id", null: false
+  end
+
+  create_table "transfers", force: :cascade do |t|
     t.integer "user_id", null: false
     t.string "transfer_type", null: false
     t.integer "amount", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["user_id"], name: "index_cashes_on_user_id"
-  end
-
-  create_table "orders", force: :cascade do |t|
-    t.integer "user_id", null: false
-    t.string "token_id", null: false
-    t.integer "number", null: false
-    t.integer "market_price", null: false
-    t.integer "total_cost", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["token_id"], name: "index_orders_on_token_id"
-    t.index ["user_id"], name: "index_orders_on_user_id"
+    t.index ["user_id"], name: "index_transfers_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -42,9 +49,8 @@ ActiveRecord::Schema.define(version: 2021_05_17_194313) do
     t.string "password_digest", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "first_name"
-    t.string "last_name"
-    t.date "dob"
+    t.string "first_name", null: false
+    t.string "last_name", null: false
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["session_token"], name: "index_users_on_session_token", unique: true
   end

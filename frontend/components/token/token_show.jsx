@@ -6,8 +6,8 @@ class TokenShow extends React.Component {
 
         this.state = {
             tokens: 0,
-            // price: 0,
-            // cost: 0
+            price: 0,
+            cost: 0
         }
     }
     
