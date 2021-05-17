@@ -3,16 +3,33 @@ import React from 'react';
 class TokenShow extends React.Component {
     constructor(props) {
         super(props)
+
+        this.state = {
+            tokens: 0,
+            // price: 0,
+            // cost: 0
+        }
     }
     
     componentDidMount() {
         let tokenId = this.props.match.params.tokenId;
-        this.props.fetchToken(tokenId);
+        this.interval = setInterval(() => {
+            this.props.fetchToken(tokenId), 1000;
+        });
     }
     
+    componentWillUnmount() {
+        clearInterval(this.interval);
+    }
+
+    handleTokenChange(event) {
+        this.setState(...this.state, { tokens: event.target.value });
+    }
+
     render() {
         let tokenId = this.props.match.params.tokenId;
         let token = this.props.token[tokenId];
+        let total = this.state.tokens * this.state.price;
         if (typeof(token) == "undefined") {
             return <p>Loading...</p>
         } else {
@@ -24,7 +41,7 @@ class TokenShow extends React.Component {
                                 <header>
                                     <h1>{token.token}</h1>
                                     <h1>${token.market_price}</h1>
-                                    <p>+$194.51 (+103.16%) Past 5 Years</p>
+                                    <p>${token.change_one_d} Today</p>
                                 </header>
                                 <section>
                                     <img className="graph-dummy" src={window.graph_dummy} />
@@ -37,13 +54,14 @@ class TokenShow extends React.Component {
                                         <button>5Y</button>
                                     </div>
                                 </section>
-                                <section>
+                                {/* <section>
                                     <div className="your-details">
                                         <div>Your Market Value</div>
                                         <div>Your Average Cost</div>
                                     </div>
-                                </section>
-                                    <div>
+                                </section> */}
+                                    <div className="about">
+                                        <h1>About</h1>
                                         <p>{token.about}</p>
                                     </div>
                                 <section>
@@ -66,14 +84,31 @@ class TokenShow extends React.Component {
                                     <header>
                                         <h1>Buy BTC</h1>
                                     </header>
-                                        Amount in USD
-                                        <input placeholder="$0.00" form="buy_token" />
-                                    <p>Estimated price</p>
-                                    <p>Estimated BTC</p>
-                                    <button>Order</button>
-                                    <p>$44 available</p>
+                                    <div className="tokens">
+                                        <p>Tokens</p>
+                                        <input 
+                                            placeholder="$0.00" 
+                                            form="buy_token" 
+                                            onChange={this.handleTokenChange}
+                                            required/>
+                                    </div>
+                                    <div className="price">
+                                        <p>Market Price</p>
+                                        <p>${token.market_price}</p>
+                                    </div>
+                                    <div className="cost">
+                                        <p>Estimated cost</p>
+                                        <p>${total}</p>
+                                    </div>
+                                    <div className="buying-power">
+                                        <p>$44 available</p>
+                                    </div>
+                                    <div className="button">
+                                        <button>Order</button>
+                                    </div>
+                                    <br />
                                 </div>
-                                <button>Add to wishlist</button>
+                            <button>Add to wishlist</button>
                             </div>
 
 

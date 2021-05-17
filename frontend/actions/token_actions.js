@@ -44,7 +44,13 @@ const simplifyToken = (res) => {
         symbol: res.symbol,
         token: res.name,
         about: res.description.en,
-        market_price: res.market_data.current_price.usd
+        market_price: res.market_data.current_price.usd,
+        change_one_d: res.market_data.price_change_percentage_24h,
+        change_seven_d: res.market_data.price_change_percentage_7d,
+        change_fourteen_d: res.market_data.price_change_percentage_14d,
+        change_thirty_d: res.market_data.price_change_percentage_30d,
+        change_sixty_d: res.market_data.price_change_percentage_60d,
+        change_one_y: res.market_data.price_change_percentage_1y,
     }
 }
 
