@@ -4,57 +4,69 @@ import token_show_container from './token_show_container';
 class TokenShow extends React.Component {
     constructor(props) {
         super(props)
-
         this.tokenId = this.props.match.params.tokenId;
         this.state = {
-            // token: {}, 
-            order_value: 0,
-            orders: [],
-            transfers: []
+            token_sym: "",
+            number: 0,
+            market_price: 0,
+            amount: 0,
+            order_type: "",
+            user_id: 0
         }
-        this.handleOrderChange = this.handleOrderChange.bind(this);
+
+        this.handleChange = this.handleChange.bind(this);
+        this.handleSubmit = this.handleSubmit.bind(this);
         // this.buyingPower = this.buyingPower.bind(this);
     }
 
     componentDidMount() {
         this.props.fetchToken(this.tokenId);
-        // this.interval = setInterval(() => this.setState({ token: this.props.fetchToken(this.tokenId) }), 1000);
-        // this.setState({ 
-        //     token: this.props.fetchToken(this.tokenId),
-        //     orders: this.props.orders,
-        //     transfers: this.props.transfers
-        // });
-    }
-    
-    componentWillUnmount() {
-        // clearInterval(this.interval);
     }
 
-    handleOrderChange(event) {
-        this.setState({ order_value: event.currentTarget.value });
+    handleSubmit(event) {
+        event.preventDefault();
+        const orderDetails = Object.assign({}, this.state);
+        this.props.order(orderDetails);
+    }
+
+    handleChange(event) {
+        // this.setState({ amount: event.currentTarget.value });
+        this.setState(() => {
+            return {
+                token_sym: this.tokenId,
+                number: event.target.value,
+                market_price: this.props.token[this.tokenId].market_price,
+                amount: this.state.number * this.state.market_price,
+                order_type: "buy",
+                user_id: 1
+            }
+        })
     }
 
     // buyingPower() {
     //     let total = 0;
-    //     this.props.transfers.forEach((element) => {
-    //         if (element.transfer_type == "deposit") {
-    //             total = total + element.amount;
-    //         } else {
-    //             total = total - element.amount;
-    //         }
-    //     })
-    //     return total;
+    //     if (this.props.transfers == 'undefined') {
+    //         return null;
+    //     } else {
+    //         this.props.transfers.forEach((element) => {
+    //             if (element.transfer_type == "deposit") {
+    //                 total = total + element.amount;
+    //             } else {
+    //                 total = total - element.amount;
+    //             }
+    //         })
+    //         return total;
+    //     }
     // }
 
     render() {
-        console.log(this.props);
-        console.log(this.state);
         let token = this.props.token[this.tokenId];
         if (typeof(token) == "undefined") {
         // if (Object.keys(token).length == 0) {
             return <p>Loading...</p>
         } else {
-            let total = this.state.order_value * token.market_price;
+            let total = this.state.number * token.market_price;
+            console.log(this.props.order);
             return (
                 <div className="outmost-token-container">
                     <div className="outer-token-container">
@@ -102,34 +114,36 @@ class TokenShow extends React.Component {
 
                             <div className="side-panel">
                                 <div className="form">
-                                    <form id="buy_token"></form>
-                                    <header>
-                                        <h1>Buy BTC</h1>
-                                    </header>
-                                    <div className="tokens">
-                                        <p>Tokens</p>
-                                        <input 
-                                            placeholder="0" 
-                                            // form="buy_token" 
-                                            // value={this.state.order_value}
-                                            onChange={this.handleOrderChange}
-                                            required/>
-                                    </div>
-                                    <div className="price">
-                                        <p>Market Price</p>
-                                        <p>${token.market_price}</p>
-                                    </div>
-                                    <div className="cost">
-                                        <p>Estimated cost</p>
-                                        <p>${total}</p>
-                                    </div>
-                                    <div className="buying-power">
-                                        <p>Buying power</p>
-                                        {/* <p>${this.buyingPower()}</p> */}
-                                    </div>
-                                    <div className="button">
-                                        <button>Order</button>
-                                    </div>
+                                    <form onSubmit={this.handleSubmit}>
+                                        <header>
+                                            <select>
+                                                <option>Buy</option>
+                                                <option>Sell</option>
+                                            </select>
+                                        </header>
+                                        <div className="tokens">
+                                            <p>Tokens</p>
+                                            <input 
+                                                placeholder="0" 
+                                                onChange={this.handleChange}
+                                                required/>
+                                        </div>
+                                        <div className="price">
+                                            <p>Market Price</p>
+                                            <p>${token.market_price}</p>
+                                        </div>
+                                        <div className="cost">
+                                            <p>Estimated cost</p>
+                                            <p>${total}</p>
+                                        </div>
+                                        <div className="buying-power">
+                                            <p>Buying power</p>
+                                            {/* <p>${this.buyingPower()}</p> */}
+                                        </div>
+                                        <div className="button">
+                                            <button>Order</button>
+                                        </div>
+                                    </form>
                                     <br />
                                 </div>
                             <button>Add to wishlist</button>

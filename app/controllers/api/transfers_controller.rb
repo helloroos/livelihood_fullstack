@@ -1,7 +1,7 @@
-class Api::TokensController < ApplicationController
+class Api::TransfersController < ApplicationController
 
     def create
-        @transfer = User.new(transfer_params)
+        @transfer = Transfer.new(transfer_params)
         if @transfer.save
             render json: ["Transfer successful"], status: 200
         else

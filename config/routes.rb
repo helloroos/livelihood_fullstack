@@ -18,8 +18,7 @@ Rails.application.routes.draw do
     resource :session, only: [:create, :destroy]
     resources :users, only: [:create, :show]
     resources :transfers, only: [:create]
-    # resources :tokens, only: [:index, :show]
-    # resources :cash, only: [:create, :update ]
+    resources :orders, only: [:create]
   end
 
 end
