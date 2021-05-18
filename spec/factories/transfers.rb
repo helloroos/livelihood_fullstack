@@ -1,5 +1,5 @@
 FactoryBot.define do
-  factory :token do
+  factory :transfer do
     
   end
 end

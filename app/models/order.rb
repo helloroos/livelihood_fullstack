@@ -1,15 +1,13 @@
 class Order < ApplicationRecord
 
-    validates :user_id, :token_id, :number, 
-        :market_price, :total_cost, presence: true
+    validates :token_sym, :number, :user_id,
+        :market_price, :amount, presence: true
+    validates :order_type, presence: true, 
+        inclusion: { in: ["buy", "sell"] }
 
     belongs_to :user, 
         primary_key: :id,
         foreign_key: :user_id, 
         class_name: :User
 
-    # has_one :token,
-    #     primary_key: :id,
-    #     foreign_key: :token_id,
-    #     class_name: :Token
 end

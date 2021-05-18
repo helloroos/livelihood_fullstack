@@ -1,38 +1,38 @@
 import React from 'react';
+import token_show_container from './token_show_container';
 
 class TokenShow extends React.Component {
     constructor(props) {
         super(props)
 
+        this.tokenId = this.props.match.params.tokenId;
         this.state = {
-            tokens: 0,
-            price: 0,
-            cost: 0
+            token: this.props.fetchToken(this.tokenId), 
+            order_value: 0
         }
+
+        this.handleOrderChange = this.handleOrderChange.bind(this);
     }
-    
+
     componentDidMount() {
-        let tokenId = this.props.match.params.tokenId;
-        this.interval = setInterval(() => {
-            this.props.fetchToken(tokenId), 1000;
-        });
+        // this.interval = setInterval(() => this.setState({ token: this.props.fetchToken(this.tokenId) }), 1000);
     }
     
     componentWillUnmount() {
-        clearInterval(this.interval);
+        // clearInterval(this.interval);
     }
 
-    handleTokenChange(event) {
-        this.setState(...this.state, { tokens: event.target.value });
+    handleOrderChange(event) {
+        this.setState({ order_value: event.currentTarget.value });
     }
 
     render() {
-        let tokenId = this.props.match.params.tokenId;
-        let token = this.props.token[tokenId];
-        let total = this.state.tokens * this.state.price;
+        // let tokenId = this.props.match.params.tokenId;
+        let token = this.props.token[this.tokenId];
         if (typeof(token) == "undefined") {
             return <p>Loading...</p>
         } else {
+            let total = this.state.order_value * token.market_price;
             return (
                 <div className="outmost-token-container">
                     <div className="outer-token-container">
@@ -87,9 +87,10 @@ class TokenShow extends React.Component {
                                     <div className="tokens">
                                         <p>Tokens</p>
                                         <input 
-                                            placeholder="$0.00" 
-                                            form="buy_token" 
-                                            onChange={this.handleTokenChange}
+                                            placeholder="0" 
+                                            // form="buy_token" 
+                                            // value={this.state.order_value}
+                                            onChange={this.handleOrderChange}
                                             required/>
                                     </div>
                                     <div className="price">

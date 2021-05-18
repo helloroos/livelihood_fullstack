@@ -12,9 +12,9 @@ class Portfolio extends React.Component {
                     <div className="feed">
                         FEED
                     </div>
-                    <div className="side-panel">
+                    {/* <div className="side-panel">
                         SIDEPANEL
-                    </div>
+                    </div> */}
                 </div>
             </div>
         )

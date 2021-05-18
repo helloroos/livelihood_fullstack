@@ -1,5 +1,5 @@
 FactoryBot.define do
-  factory :cash do
+  factory :portfolio do
     
   end
 end
