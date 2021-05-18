@@ -5,9 +5,10 @@ import TokenShow from './token_show';
 
 const mSTP = (state, ownProps) => {
     return {
-        // id: state.entities.tokens.id.id,
-        token: state.entities.tokens
-        // symbol: state.entities.tokens.id.symbol,
+        token: state.entities.tokens,
+        orders: state.entities.users[state.session.currentUser].orders,
+        transfers: state.entities.users[state.session.currentUser].transfers
+        // entitites: state.entitites
     }
 }
 

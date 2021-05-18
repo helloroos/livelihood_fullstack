@@ -17,8 +17,9 @@ Rails.application.routes.draw do
   namespace :api, defaults: { format: :json } do
     resource :session, only: [:create, :destroy]
     resources :users, only: [:create, :show]
-    resources :tokens, only: [:index, :show]
-    resources :cash, only: [:create, :update ]
+    resources :transfers, only: [:create]
+    # resources :tokens, only: [:index, :show]
+    # resources :cash, only: [:create, :update ]
   end
 
 end

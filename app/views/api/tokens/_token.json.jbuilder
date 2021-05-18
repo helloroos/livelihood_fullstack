@@ -1,1 +1,1 @@
-json.extract! token, :id, :token, :token_symbol
+# json.extract! token, :id, :token, :token_symbol

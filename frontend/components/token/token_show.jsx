@@ -7,15 +7,23 @@ class TokenShow extends React.Component {
 
         this.tokenId = this.props.match.params.tokenId;
         this.state = {
-            token: this.props.fetchToken(this.tokenId), 
-            order_value: 0
+            // token: {}, 
+            order_value: 0,
+            orders: [],
+            transfers: []
         }
-
         this.handleOrderChange = this.handleOrderChange.bind(this);
+        // this.buyingPower = this.buyingPower.bind(this);
     }
 
     componentDidMount() {
+        this.props.fetchToken(this.tokenId);
         // this.interval = setInterval(() => this.setState({ token: this.props.fetchToken(this.tokenId) }), 1000);
+        // this.setState({ 
+        //     token: this.props.fetchToken(this.tokenId),
+        //     orders: this.props.orders,
+        //     transfers: this.props.transfers
+        // });
     }
     
     componentWillUnmount() {
@@ -26,10 +34,24 @@ class TokenShow extends React.Component {
         this.setState({ order_value: event.currentTarget.value });
     }
 
+    // buyingPower() {
+    //     let total = 0;
+    //     this.props.transfers.forEach((element) => {
+    //         if (element.transfer_type == "deposit") {
+    //             total = total + element.amount;
+    //         } else {
+    //             total = total - element.amount;
+    //         }
+    //     })
+    //     return total;
+    // }
+
     render() {
-        // let tokenId = this.props.match.params.tokenId;
+        console.log(this.props);
+        console.log(this.state);
         let token = this.props.token[this.tokenId];
         if (typeof(token) == "undefined") {
+        // if (Object.keys(token).length == 0) {
             return <p>Loading...</p>
         } else {
             let total = this.state.order_value * token.market_price;
@@ -102,7 +124,8 @@ class TokenShow extends React.Component {
                                         <p>${total}</p>
                                     </div>
                                     <div className="buying-power">
-                                        <p>$44 available</p>
+                                        <p>Buying power</p>
+                                        {/* <p>${this.buyingPower()}</p> */}
                                     </div>
                                     <div className="button">
                                         <button>Order</button>

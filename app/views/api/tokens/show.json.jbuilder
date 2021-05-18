@@ -1,1 +1,1 @@
-json.partial! "api/tokens/token", token: @token
+# json.partial! "api/tokens/token", token: @token
