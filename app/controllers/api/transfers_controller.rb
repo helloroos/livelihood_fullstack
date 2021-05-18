@@ -11,6 +11,10 @@ class Api::TransfersController < ApplicationController
         end
     end
 
+    def index
+        @transfers = Transfer.all
+    end
+
     private
 
     def transfer_params

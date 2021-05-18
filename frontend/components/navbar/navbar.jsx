@@ -8,8 +8,13 @@ class NavBar extends React.Component {
   }
 
   handleLogOut() {
-    this.props.logOut;
-    this.props.resetErrors;
+    this.props.logOut()
+        .then(() => {
+            this.props.history.push('/')
+        })
+        .then(() => {
+            this.props.resetErrors
+        })
   }
 
   render() {
@@ -36,7 +41,7 @@ class NavBar extends React.Component {
                       <li><Link to="/cash">Cash</Link></li>
                       <li><Link to="/portfolio">Portfolio</Link></li>
                       <li><Link to="/account">Account</Link></li>
-                      <button onClick={this.props.logOut}>Log Out</button>
+                      <button onClick={this.handleLogOut}>Log Out</button>
                   </ul>
               </nav>
 
