@@ -30,17 +30,17 @@ class SignUpForm extends React.Component {
         });
     }
 
-    renderErrors() {
-        return (
-            <ul>
-                {this.props.errors.map((error, i) => (
-                    <li key={`error-${i}`}>
-                        {error}
-                    </li>
-                ))}
-            </ul>
-        );
-    }
+    // renderErrors() {
+    //     return (
+    //         <ul>
+    //             {this.props.errors.map((error, i) => (
+    //                 <li key={`error-${i}`}>
+    //                     {error}
+    //                 </li>
+    //             ))}
+    //         </ul>
+    //     );
+    // }
 
     render() {
         return (
@@ -96,7 +96,7 @@ class SignUpForm extends React.Component {
                             </label>
                             <br />
                             <p>Already a user? Log in instead.</p>
-                                    {this.renderErrors()}
+                                    {/* {this.renderErrors()} */}
                             <button type="submit">{this.props.formType}</button>
                         </form>
                     </div>

@@ -34,17 +34,17 @@ class LogInForm extends React.Component {
         });
     }
 
-    renderErrors() {
-        return (
-            <ul>
-                {this.props.errors.map((error, i) => (
-                    <li key={`error-${i}`}>
-                        {error}
-                    </li>
-                ))}
-            </ul>
-        );
-    }
+    // renderErrors() {
+    //     return (
+    //         <ul>
+    //             {this.props.errors.map((error, i) => (
+    //                 <li key={`error-${i}`}>
+    //                     {error}
+    //                 </li>
+    //             ))}
+    //         </ul>
+    //     );
+    // }
 
     render() {
         return(
@@ -77,13 +77,13 @@ class LogInForm extends React.Component {
                                     onChange={this.update('password')} />
                             </label>
                             <br />
-                            <p>Forgot your email or password?</p>
-                            {this.renderErrors()}
-                            <button type="submit">Log In</button>
+                            {/* <p>Forgot your email or password?</p> */}
+                            {/* {this.renderErrors()} */}
+                            <button>Log In</button>
                         </form>
                         <br />
                         <form onSubmit={this.logInDemo}>
-                            <button type="submit">Demo</button>
+                            <button>Demo</button>
                         </form>
                     </div>
                     

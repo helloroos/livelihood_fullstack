@@ -22,14 +22,14 @@ const App = () => {
         <NavBarContainerWithRouter/>
         {/* <Route exact path="/" component={NavBarContainer } /> */}
         <Switch>
-            <AuthRoute path="/login" component={ LogInFormContainer } />
-            <AuthRoute path="/signup" component={ SignUpFormContainer } />
+            <AuthRoute path="/login" component={LogInFormContainer} />
+            <AuthRoute path="/signup" component={SignUpFormContainer} />
             <Route path="/portfolio" component={PortfolioContainer} />
             <Route exact path="/tokens" component={TokenIndexContainer} />
             <Route exact path="/cash" component={CashContainer} />
             {/* <Route path="/tokens" component={TokenContainer} /> */}
             <Route path="/tokens/:tokenId" component={TokenShowContainer} /> {/** Add in tokenId */}
-            <Route exact path="/" component={ SplashContainer } />
+            <Route exact path="/" component={SplashContainer} />
         </Switch>
     </div>
     )
