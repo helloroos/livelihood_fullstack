@@ -1,0 +1,1 @@
+json.extract! @transfers, :user_id, :transfer_type, :amount
