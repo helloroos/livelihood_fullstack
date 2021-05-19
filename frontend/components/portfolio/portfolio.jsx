@@ -5,6 +5,10 @@ class Portfolio extends React.Component {
         super(props)
     }
 
+    componentDidMount() {
+        this.props.fetchTransfers();
+    }
+
     render() {
         console.log(this.props);
         return (
