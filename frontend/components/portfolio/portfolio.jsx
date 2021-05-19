@@ -3,15 +3,18 @@ import React from 'react';
 class Portfolio extends React.Component {
     constructor(props) {
         super(props)
+        this.currentUser = this.props.currentUser;
     }
 
     componentDidMount() {
-        // this.props.fetchTransfers();
-        // this.props.fetchOrders();
+        if (Object.keys(this.props.buyingPower).length == 0) {
+            this.props.fetchUser(this.currentUser);
+        }
     }
 
     render() {
         console.log(this.props);
+        console.log(this.props.currentUser);
         return (
             <div className="outmost-portfolio-container">
                 <div className="outer-portfolio-container">
@@ -33,6 +36,7 @@ class Portfolio extends React.Component {
                             </section>
                             <section className="buying-power">
                                 <h2>Buying Power</h2>
+                                {/* <p>${this.props.buyingPower.buyingPower}</p> */}
                             </section>
                             <section className="news">
                                 <h2>News</h2>

@@ -8,6 +8,8 @@ import { logIn, logOut, resetErrors, signUp } from "./actions/session_actions";
 import { fetchTransfers, makeTransfer } from "./actions/transfer_action";
 import { fetchOrders, makeOrder } from "./actions/order_actions";
 import { fetchToken, fetchTokens } from "./actions/token_actions";
+import { fetchUser } from "./util/user_api_util";
+// import { fetchUser } from "./actions/user_actions";
 // import { logIn, logOut, signUp } from "./util/session_api_util";
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -39,6 +41,7 @@ document.addEventListener('DOMContentLoaded', () => {
     window.makeTransfer = makeTransfer;
     window.makeOrder = makeOrder;
     window.fetchOrders = fetchOrders;
+    window.fetchUser = fetchUser;
 
     // TESTING END
 
