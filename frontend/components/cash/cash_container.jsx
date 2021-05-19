@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { transfer } from '../../actions/transfer_action';
+import { transmakeTransferfer } from '../../actions/transfer_action';
 import Cash from './cash';
 
 const mSTP = (state, ownProps) => {
@@ -11,8 +11,8 @@ const mSTP = (state, ownProps) => {
 
 const mDTP = (dispatch) => {
     return {
-        transfer: (transferDetails) => {
-            dispatch(transfer(transferDetails))
+        makeTransfer: (transferDetails) => {
+            dispatch(makeTransfer(transferDetails))
         }
     }
 }

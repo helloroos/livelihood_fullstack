@@ -10,7 +10,7 @@ class TokenShow extends React.Component {
             number: 0,
             market_price: 0,
             amount: 0,
-            order_type: "",
+            order_type: "Buy",
             user_id: 0
         }
 
@@ -29,18 +29,19 @@ class TokenShow extends React.Component {
         this.props.order(orderDetails);
     }
 
-    handleChange(event) {
-        // this.setState({ amount: event.currentTarget.value });
-        this.setState(() => {
-            return {
-                token_sym: this.tokenId,
-                number: event.target.value,
-                market_price: this.props.token[this.tokenId].market_price,
-                amount: this.state.number * this.state.market_price,
-                order_type: "buy",
-                user_id: 1
-            }
-        })
+    handleChange(field) {
+        return (event) => {
+            this.setState(() => {
+                const value = event.target.value;
+                return {
+                    [field]: value,
+                    token_sym: this.tokenId,
+                    market_price: this.props.token[this.tokenId].market_price,
+                    amount: this.state.number * this.state.market_price,
+                    user_id: 1
+                }
+            })
+        }
     }
 
     // buyingPower() {
@@ -60,6 +61,7 @@ class TokenShow extends React.Component {
     // }
 
     render() {
+        console.log(this.props);
         let token = this.props.token[this.tokenId];
         if (typeof(token) == "undefined") {
         // if (Object.keys(token).length == 0) {
@@ -88,12 +90,6 @@ class TokenShow extends React.Component {
                                         <button>5Y</button>
                                     </div>
                                 </section>
-                                {/* <section>
-                                    <div className="your-details">
-                                        <div>Your Market Value</div>
-                                        <div>Your Average Cost</div>
-                                    </div>
-                                </section> */}
                                     <div className="about">
                                         <h1>About</h1>
                                         <p>{token.about}</p>
@@ -116,7 +112,7 @@ class TokenShow extends React.Component {
                                 <div className="form">
                                     <form onSubmit={this.handleSubmit}>
                                         <header>
-                                            <select>
+                                            <select onChange={this.handleChange('order_type')}>
                                                 <option>Buy</option>
                                                 <option>Sell</option>
                                             </select>
@@ -125,7 +121,7 @@ class TokenShow extends React.Component {
                                             <p>Tokens</p>
                                             <input 
                                                 placeholder="0" 
-                                                onChange={this.handleChange}
+                                                onChange={this.handleChange('number')}
                                                 required/>
                                         </div>
                                         <div className="price">
@@ -148,12 +144,8 @@ class TokenShow extends React.Component {
                                 </div>
                             <button>Add to wishlist</button>
                             </div>
-
-
-
                         </div>
                     </div>
-
                 </div>
             )
         }

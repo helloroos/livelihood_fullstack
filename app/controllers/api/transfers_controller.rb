@@ -3,7 +3,8 @@ class Api::TransfersController < ApplicationController
     def create
         @transfer = Transfer.new(transfer_params)
         if @transfer.save
-            render json: ["Transfer successful"], status: 200
+            # render json: ["Transfer successful"], status: 200
+            render :show
         else
             render json: @transfer.errors.full_messages, status: 422
             # render json: ['ⓘ Unable to log in with provided credentials.'], status: 422

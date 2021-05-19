@@ -1,4 +1,4 @@
-export const transfer = (transfer) => {
+export const makeTransfer = (transfer) => {
     return $.ajax({
         url: "/api/transfers",
         method: "POST",
@@ -11,3 +11,11 @@ export const transfer = (transfer) => {
         }
     })
 }
+
+export const fetchTransfers = () => {
+    return $.ajax({
+        url: '/api/transfers',
+        method: "GET",
+        error: (err) => console.log(err)
+    })
+};

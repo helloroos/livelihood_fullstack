@@ -2,7 +2,7 @@ class Transfer < ApplicationRecord
 
     validates :amount, :user_id, presence: true
     validates :transfer_type, presence: true, 
-        inclusion: { in: ["deposit", "withdraw"] }
+        inclusion: { in: ["Deposit", "Withdraw"] }
 
     belongs_to :user,
         primary_key: :id,

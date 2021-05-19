@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_05_18_143654) do
+ActiveRecord::Schema.define(version: 2021_05_19_014538) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -23,7 +23,7 @@ ActiveRecord::Schema.define(version: 2021_05_18_143654) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "order_type", null: false
-    t.string "user_id", null: false
+    t.integer "user_id", null: false
     t.index ["token_sym"], name: "index_orders_on_token_sym"
   end
 
@@ -38,7 +38,7 @@ ActiveRecord::Schema.define(version: 2021_05_18_143654) do
     t.integer "amount", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "user_id", null: false
+    t.integer "user_id", null: false
   end
 
   create_table "users", force: :cascade do |t|

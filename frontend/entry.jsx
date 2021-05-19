@@ -5,9 +5,9 @@ import Root from "./components/root";
 
 // TESTING -- TO BE REMOVED
 import { logIn, logOut, resetErrors, signUp } from "./actions/session_actions";
-import { transfer } from "./actions/transfer_action";
+import { fetchTransfers, makeTransfer } from "./actions/transfer_action";
 import { order } from "./actions/order_actions";
-// import { fetchToken, fetchTokens } from "./actions/token_actions";
+import { fetchToken, fetchTokens } from "./actions/token_actions";
 // import { logIn, logOut, signUp } from "./util/session_api_util";
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -33,7 +33,10 @@ document.addEventListener('DOMContentLoaded', () => {
     window.logOut = logOut;
     window.resetErrors = resetErrors;
     window.order = order;
-    window.transfer = transfer;
+    window.fetchTokens = fetchTokens;
+    window.fetchToken = fetchToken;
+    window.makeTransfer = makeTransfer;
+    window.fetchTransfers = fetchTransfers;
 
     // TESTING END
 

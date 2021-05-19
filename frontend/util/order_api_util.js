@@ -14,3 +14,11 @@ export const order = (order) => {
         }
     })
 }
+
+// export const fetchOrders = () => {
+//     return $.ajax({
+//         url: '/api/orders',
+//         method: "GET",
+//         error: (err) => console.log(err)
+//     })
+// };

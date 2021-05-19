@@ -18,7 +18,7 @@ Rails.application.routes.draw do
     resource :session, only: [:create, :destroy]
     resources :users, only: [:create, :show]
     resources :transfers, only: [:create, :index]
-    resources :orders, only: [:create]
+    resources :orders, only: [:create, :index]
   end
 
 end

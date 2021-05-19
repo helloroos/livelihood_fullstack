@@ -9,6 +9,11 @@ class Api::OrdersController < ApplicationController
         end
     end
 
+    def index
+        @orders = Order.all
+        render :index
+    end
+
     private
 
     def order_params

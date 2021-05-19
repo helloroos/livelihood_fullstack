@@ -4,7 +4,7 @@ class Cash extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
-            transfer_type: "",
+            transfer_type: "Deposit",
             amount: 0,
             user_id: 0
         }
@@ -15,18 +15,30 @@ class Cash extends React.Component {
     handleSubmit(event) {
         event.preventDefault();
         const transferDetails = Object.assign({}, this.state);
-        this.props.transfer(transferDetails);
+        this.props.makeTransfer(transferDetails);
     }
 
-    handleChange(event) {
-        this.setState(() => {
-            return {
-                transfer_type: "deposit",
-                amount: event.target.value,
-                user_id: 1
-            }
-        })
+    handleChange(field) {
+        return (event) => {
+            let value = event.target.value;
+            this.setState(() => {
+                return {
+                    [field]: value,
+                    user_id: 1
+                }
+            })
+        }
     }
+
+    // handleChange(event) {
+    //     this.setState(() => {
+    //         return {
+    //             transfer_type: "deposit",
+    //             amount: event.target.value,
+    //             user_id: 1
+    //         }
+    //     })
+    // }
 
     render() {
         console.log(this.props);
@@ -47,7 +59,7 @@ class Cash extends React.Component {
                         <div className="side-panel">
                             <form onSubmit={this.handleSubmit}>
                                 <header>
-                                    <select>
+                                    <select onChange={this.handleChange('transfer_type')}>
                                         <option>Deposit</option>
                                         <option>Withdraw</option>
                                     </select>
@@ -70,7 +82,7 @@ class Cash extends React.Component {
                                     <p>Amount</p>
                                     <input
                                         placeholder="$0"
-                                        onChange={this.handleChange}
+                                        onChange={this.handleChange('amount')}
                                         required/>
                                 </div>
                                 <div>

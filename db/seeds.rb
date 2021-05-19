@@ -14,3 +14,10 @@ groot = User.create!(
     email: "iamgroot@marvel.com",
     password: "password"
 )
+
+mantice = User.create!(
+    first_name: "Mantice",
+    last_name: "Brandt",
+    email: "mantice@marvel.com",
+    password: "password"
+)

@@ -6,6 +6,7 @@ class Portfolio extends React.Component {
     }
 
     render() {
+        console.log(this.props);
         return (
             <div className="outmost-portfolio-container">
                 <div className="outer-portfolio-container">
