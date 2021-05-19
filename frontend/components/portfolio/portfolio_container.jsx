@@ -6,7 +6,8 @@ import Portfolio from './portfolio';
 
 const mSTP = (state) => {
     return {
-        transfers: state.entities.transfers
+        transfers: state.entities.transfers,
+        orders: state.entities.orders
     }
 }
 
