@@ -10,8 +10,12 @@ class Api::OrdersController < ApplicationController
     end
 
     def index
-        @orders = Order.all
-        render :index
+        @transfers = current_user.transfers
+        if @orders
+            render :index
+        else
+            render json: ['User not found'], status: 404
+        end
     end
 
     private

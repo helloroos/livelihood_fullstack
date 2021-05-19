@@ -19,10 +19,10 @@ export const logIn = (user) => {
         data: {
             user: {
                 email: user.email,
-                password: user.password,
-                transfers: user.transfers,
-                orders: user.orders,
-                portfolio: user.portfolio
+                password: user.password
+                // transfers: user.transfers,
+                // orders: user.orders,
+                // portfolio: user.portfolio
             }
         }
     })

@@ -8,7 +8,9 @@ import Portfolio from './portfolio';
 const mSTP = (state) => {
     return {
         transfers: state.entities.transfers,
-        orders: state.entities.orders
+        orders: state.entities.orders,
+        // buyingPower: state
+        // currentUser: state.session.currentUser.id
     }
 }
 

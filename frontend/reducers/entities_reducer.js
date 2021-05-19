@@ -1,4 +1,5 @@
 import { combineReducers } from "redux";
+import buyingPowerReducer from "./buying_power_reducer";
 import ordersReducer from "./orders_reducer";
 import tokensReducer from "./tokens_reducer";
 import transfersReducer from "./transfers_reducer";
@@ -8,7 +9,8 @@ const entitiesReducer = combineReducers({
     users: usersReducer,
     tokens: tokensReducer,
     transfers: transfersReducer,
-    orders: ordersReducer
+    orders: ordersReducer,
+    buyingPower: buyingPowerReducer,
 });
 
 export default entitiesReducer;

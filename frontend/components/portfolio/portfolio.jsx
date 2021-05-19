@@ -6,8 +6,8 @@ class Portfolio extends React.Component {
     }
 
     componentDidMount() {
-        this.props.fetchTransfers();
-        this.props.fetchOrders();
+        // this.props.fetchTransfers();
+        // this.props.fetchOrders();
     }
 
     render() {

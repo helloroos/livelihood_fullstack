@@ -17,8 +17,8 @@ const receiveOrders = (orders) => {
     }
 }
 
-export const order = (order) => (dispatch) => {
-    return OrderAPIUtil.order(order)
+export const makeOrder = (orderDetails) => (dispatch) => {
+    return OrderAPIUtil.makeOrder(orderDetails)
         .then(
             (res) => dispatch(receiveOrder(res)),
             (errors) => dispatch(receiveOrder(errors.responseJSON)))

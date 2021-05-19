@@ -12,6 +12,10 @@ class Cash extends React.Component {
         this.handleSubmit = this.handleSubmit.bind(this);
     }
 
+    // componentDidMount() {
+    //     this.props.fetchTransfers();
+    // }
+
     handleSubmit(event) {
         event.preventDefault();
         const transferDetails = Object.assign({}, this.state);

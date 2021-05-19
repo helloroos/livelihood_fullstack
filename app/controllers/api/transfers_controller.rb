@@ -3,18 +3,29 @@ class Api::TransfersController < ApplicationController
     def create
         @transfer = Transfer.new(transfer_params)
         if @transfer.save
-            # render json: ["Transfer successful"], status: 200
             render :show
         else
             render json: @transfer.errors.full_messages, status: 422
-            # render json: ['ⓘ Unable to log in with provided credentials.'], status: 422
-            # 422: not processable
         end
     end
 
     def index
-        @transfers = Transfer.all
-        render :index
+        # @transfers = Transfer.where(user_id: 1)
+        @transfers = current_user.transfers
+        if @transfers
+            render :index
+        else
+            render json: ['User not found'], status: 404
+        end
+    end
+
+    def show
+        @transfer = Transfer.find_by(id: params[:id])
+        if @transfer
+            render :show
+        else
+            render json: ['Transfer not found'], status: 404
+        end
     end
 
     private

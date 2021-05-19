@@ -1,7 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { order } from '../../actions/order_actions';
+import { fetchOrders, makeOrder } from '../../actions/order_actions';
 import { fetchToken } from '../../actions/token_actions';
+import { fetchTransfers } from '../../actions/transfer_action';
 import TokenShow from './token_show';
 
 const mSTP = (state, ownProps) => {
@@ -17,8 +18,14 @@ const mDTP = (dispatch) => {
         fetchToken: (tokenId) => {
             dispatch(fetchToken(tokenId))
         },
-        order: (orderDetails) => {
-            dispatch(order(orderDetails))
+        makeOrder: (orderDetails) => {
+            dispatch(makeOrder(orderDetails))
+        },
+        fetchOrders: () => {
+            dispatch(fetchOrders())
+        },
+        fetchTransfers: () => {
+            dispatch(fetchTransfers())
         }
     }
 }
