@@ -8,13 +8,17 @@ class Cash extends React.Component {
             amount: 0,
             user_id: 0
         }
+        this.currentUser = this.props.currentUser;
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
     }
 
-    // componentDidMount() {
-    //     this.props.fetchTransfers();
-    // }
+    componentDidMount() {
+        if (typeof (this.props.buyingPower) == "undefined") {
+            // if (Object.keys(this.props.buyingPower).length == 0) {
+            this.props.fetchUser(this.currentUser);
+        }
+    }
 
     handleSubmit(event) {
         event.preventDefault();
@@ -45,7 +49,7 @@ class Cash extends React.Component {
     // }
 
     render() {
-        console.log(this.props);
+        const buyingPower = this.props.buyingPower;
         return (
             <div className="outmost-cash-container">
                 <div className="outer-cash-container">
@@ -53,7 +57,7 @@ class Cash extends React.Component {
                         <div className="details">
                             <header>
                                 <h1>Cash</h1>
-                                <h1>$4</h1>
+                                <h1>${buyingPower}</h1>
                             {/* <img src="" alt="" /> */}
                             </header>
                             <section className="history">

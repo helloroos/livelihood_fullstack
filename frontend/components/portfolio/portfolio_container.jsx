@@ -5,12 +5,11 @@ import { fetchTransfers } from '../../actions/transfer_action';
 import { fetchUser } from '../../actions/user_actions';
 import Portfolio from './portfolio';
 
-
 const mSTP = (state) => {
     return {
         transfers: state.entities.transfers,
         orders: state.entities.orders,
-        buyingPower: state.entities.buyingPower,
+        buyingPower: state.entities.buyingPower.buyingPower,
         currentUser: state.session.currentUser.id
     }
 }
