@@ -10,13 +10,12 @@ class Portfolio extends React.Component {
     
     componentDidMount() {
         this.props.fetchUser(this.currentUser);
+        this.props.fetchTokens();
         // if (Object.keys(this.props.buyingPower).length == 0) {
         // }
     }
     
     render() {
-        console.log(this.props);
-
         let allOrders = this.props.orders;
         let uniqOrders = {}
         for (let i = 0; i < allOrders.length; i++) {
@@ -27,7 +26,8 @@ class Portfolio extends React.Component {
                 uniqOrders[allOrders[i].token_sym] -= parseInt([allOrders[i].number]);
             }
         }
-        let assets = Object.entries(uniqOrders)        
+        let assets = Object.entries(uniqOrders).filter(count => count[1] > 0)
+        console.log(this.props);
 
         if (Object.keys(this.props.orders).length == 0) {
             return <p>Loading...</p>
@@ -59,7 +59,12 @@ class Portfolio extends React.Component {
                                 </header>
                                 <ul>
                                     {assets.map((asset) => 
-                                    <AssetDetail key={asset[0]} asset={asset}/>)}
+                                        <AssetDetail 
+                                            key={asset[0]} 
+                                            asset={asset} 
+                                            fetchToken={this.props.fetchToken}
+                                            token={this.props.token}
+                                            tokens={this.props.tokens}/>)}
                                 </ul>
                             </div>
                         </div>

@@ -76,6 +76,6 @@ export const fetchToken = (tokenId) => (dispatch) => {
     return fetch(`https://api.coingecko.com/api/v3/coins/${tokenId}?localization=false&tickers=false&community_data=false&developer_data=false&sparkline=false`)
     .then((res) => res.json())
     .then((res) => simplifyToken(res))
-    .then((res) => dispatch(receiveToken(res)),
-    (errors) => dispatch(receiveErrors(errors.responseJSON)))
+    .then((res) => dispatch(receiveToken(res)))
+    // (errors) => dispatch(receiveErrors(errors.responseJSON)))
 };
