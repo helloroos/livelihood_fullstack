@@ -15,8 +15,6 @@ class PortfolioChart extends React.Component {
         
     render() {
 
-        console.log(this.props);
-
         let allTransfers = this.props.transfers;
         let netTransactions = {}
         for (let i = 0; i < allTransfers.length; i++) {
@@ -30,16 +28,14 @@ class PortfolioChart extends React.Component {
                 netTransactions[date] = netTransactions[date] - parseInt(allTransfers[i].amount);
             }
         }
+
+        // let assetssss = [
+        //     ["1989-11-07", 1000]
+        // ]
         
+
         let allOrders = this.props.orders;
         let netOrders = {}
-        
-        // let netOrderssss = {
-        //     "1989-11-07": {
-        //         bitcoin: 5,
-        //         Ether: 6
-        //     }
-        // }
 
         for (let j = 0; j < allOrders.length; j++) {
 
@@ -60,9 +56,14 @@ class PortfolioChart extends React.Component {
             }
         }
 
-        // let assetssss = [
-        //     ["1989-11-07", 1000]
-        // ]
+        console.log(netOrders);
+
+        // let netOrderssss = {
+        //     "1989-11-07": {
+        //         bitcoin: 5,
+        //         Ether: 6
+        //     }
+        // }
 
         let assets = Object.entries(netTransactions)
         let trans = assets.map((tran) => {
