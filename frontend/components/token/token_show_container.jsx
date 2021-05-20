@@ -7,7 +7,7 @@ import TokenShow from './token_show';
 
 const mSTP = (state, ownProps) => {
     return {
-        token: state.entities.tokens,
+        token: state.entities.tokens.token,
         orders: state.entities.orders,
         transfers: state.entities.transfers,
     }

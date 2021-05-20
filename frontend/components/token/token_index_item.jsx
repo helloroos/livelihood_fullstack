@@ -8,7 +8,6 @@ class TokenIndexItem extends React.Component {
     }
 
     render() {
-        debugger
         const token = this.props.token;
         return (
             <div>
