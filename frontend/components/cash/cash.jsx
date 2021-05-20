@@ -14,8 +14,8 @@ class Cash extends React.Component {
     }
 
     componentDidMount() {
-        if (typeof (this.props.buyingPower) == "undefined") {
-            // if (Object.keys(this.props.buyingPower).length == 0) {
+        // if (typeof (this.props.buyingPower) == "undefined") {
+        if (Object.keys(this.props.transfers).length == 0) {
             this.props.fetchUser(this.currentUser);
         }
     }
@@ -50,6 +50,7 @@ class Cash extends React.Component {
 
     render() {
         const buyingPower = this.props.buyingPower;
+        console.log(this.props);
         return (
             <div className="outmost-cash-container">
                 <div className="outer-cash-container">
@@ -57,7 +58,7 @@ class Cash extends React.Component {
                         <div className="details">
                             <header>
                                 <h1>Cash</h1>
-                                <h1>${buyingPower}</h1>
+                                {/* <h1>${buyingPower}</h1> */}
                             {/* <img src="" alt="" /> */}
                             </header>
                             <section className="history">

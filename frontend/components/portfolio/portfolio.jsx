@@ -1,4 +1,6 @@
 import React from 'react';
+import AssetDetail from './asset_detail';
+import PortfolioChart from './portfolio_chart';
 
 class Portfolio extends React.Component {
     constructor(props) {
@@ -7,14 +9,26 @@ class Portfolio extends React.Component {
     }
     
     componentDidMount() {
-        if (typeof (this.props.buyingPower) == "undefined") {
-        // if (Object.keys(this.props.buyingPower).length == 0) {
+        if (Object.keys(this.props.buyingPower).length == 0) {
             this.props.fetchUser(this.currentUser);
         }
     }
     
     render() {
-        if (typeof (this.props.buyingPower) == "undefined") {
+
+        let allOrders = this.props.orders;
+        let uniqOrders = {}
+        for (let i = 0; i < allOrders.length; i++) {
+            if ([allOrders[i].order_type] == "Buy") {
+                uniqOrders[allOrders[i].token_sym] = 0;
+                uniqOrders[allOrders[i].token_sym] += parseInt([allOrders[i].number]);
+            } else {
+                uniqOrders[allOrders[i].token_sym] -= parseInt([allOrders[i].number]);
+            }
+        }
+        let assets = Object.entries(uniqOrders)        
+
+        if (Object.keys(this.props.orders).length == 0) {
             return <p>Loading...</p>
         } else {
             const buyingPower = this.props.buyingPower;
@@ -27,7 +41,11 @@ class Portfolio extends React.Component {
                                     <h1>${buyingPower}</h1>
                                 </header>
                                 <section>
-                                    <img className="graph-dummy" src={window.graph_dummy} />
+                                    <PortfolioChart 
+                                        fetchUser={this.props.fetchUser}
+                                        currentUser={this.props.currentUser}
+                                        transfers={this.props.transfers} 
+                                        orders={this.props.orders}/>
                                 </section>
                                 <section className="buying-power">
                                     <h2>Buying Power</h2>
@@ -38,6 +56,10 @@ class Portfolio extends React.Component {
                                 <header>
                                     <h3>Cryptocurrencies</h3>
                                 </header>
+                                <ul>
+                                    {assets.map((asset) => 
+                                    <AssetDetail key={asset[0]} asset={asset}/>)}
+                                </ul>
                             </div>
                         </div>
                     </div>

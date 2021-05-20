@@ -25,7 +25,7 @@ class NavBar extends React.Component {
       return (
           <div className="inner-navbar">
               <div className="logo">
-                  <Link to="/">
+                  <Link to="/portfolio">
                       {/* <h2>Robinhodl</h2> */}
                       <img src={window.robinhood_favicon_black} />
                   </Link>

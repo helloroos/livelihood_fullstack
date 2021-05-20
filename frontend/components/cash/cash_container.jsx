@@ -8,7 +8,7 @@ const mSTP = (state, ownProps) => {
     return {
         orders: state.entities.orders,
         transfers: state.entities.transfers,
-        buyingPower: state.entities.buyingPower.buyingPower,
+        buyingPower: state.entities.buyingPower,
         currentUser: state.session.currentUser.id
     }
 }

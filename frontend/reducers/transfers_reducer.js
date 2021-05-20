@@ -8,9 +8,11 @@ const transfersReducer = (state = {}, action) => {
         case RECEIVE_TRANSFER:
             return Object.assign({}, state, { transfers: action.transfer });
             case RECEIVE_CURRENT_USER:
-            return Object.assign({}, state, { transfers: action.currentUser.transfers });
+            return action.currentUser.transfers;
+            // return Object.assign({}, state, { transfers: action.currentUser.transfers });
             case RECEIVE_USER:
-            return Object.assign({}, state, { transfers: action.user.transfers });
+            return action.user.transfers;
+            // return Object.assign({}, state, { transfers: action.user.transfers });
         default:
             return state;
     }

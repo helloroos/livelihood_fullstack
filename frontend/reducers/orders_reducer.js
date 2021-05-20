@@ -10,9 +10,11 @@ const ordersReducer = (state = {}, action) => {
         // case RECEIVE_ORDERS:
         //     return action.orders;
         case RECEIVE_CURRENT_USER:
-            return Object.assign({}, state, { orders: action.currentUser.orders });
+            return action.currentUser.orders;
+            // return Object.assign({}, state, { orders: action.currentUser.orders });
         case RECEIVE_USER:
-            return Object.assign({}, state, { orders: action.user.orders });
+            return action.user.orders;
+            // return Object.assign({}, state, { orders: action.user.orders });
         default:
             return state;
     }
