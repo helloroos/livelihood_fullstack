@@ -28,7 +28,6 @@ class PortfolioChart extends React.Component {
             }
         }
         let assets = Object.entries(newTransfers)
-        console.log(assets);
 
         let trans = assets.map((tran) => {
             return {

@@ -27,7 +27,6 @@ class Portfolio extends React.Component {
             }
         }
         let assets = Object.entries(uniqOrders).filter(count => count[1] > 0)
-        console.log(this.props);
 
         if (Object.keys(this.props.orders).length == 0) {
             return <p>Loading...</p>

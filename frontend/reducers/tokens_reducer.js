@@ -7,7 +7,7 @@ const tokensReducer = (state = {}, action) => {
             return action.tokens;
             // return Object.assign({}, state, { [action.tokens.id]: action.tokens });
         case RECEIVE_TOKEN:
-            return Object.assign({}, state, { [action.token.id]: action.token });
+            return {[action.token.id]: action.token};
         default:
             return state;
     }
