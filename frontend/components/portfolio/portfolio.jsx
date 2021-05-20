@@ -10,9 +10,7 @@ class Portfolio extends React.Component {
     
     componentDidMount() {
         this.props.fetchUser(this.currentUser);
-        // this.props.fetchTokens();
-        // if (Object.keys(this.props.buyingPower).length == 0) {
-        // }
+
     }
     
     render() {
@@ -27,6 +25,8 @@ class Portfolio extends React.Component {
             }
         }
         let assets = Object.entries(uniqOrders).filter(count => count[1] > 0)
+        
+        console.log(assets);
 
         if (Object.keys(this.props.orders).length == 0) {
             return <p>Loading...</p>
@@ -38,7 +38,9 @@ class Portfolio extends React.Component {
                         <div className="feed-container">
                             <div className="feed">
                                 <header>
+                                    <h1>Snapshot</h1>
                                     <h1>${buyingPower}</h1>
+                                    <p></p>
                                 </header>
                                 <section>
                                     <PortfolioChart 

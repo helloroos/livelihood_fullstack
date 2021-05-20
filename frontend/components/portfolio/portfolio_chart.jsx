@@ -1,4 +1,4 @@
-import { LineChart, Line, Tooltip, YAxis, XAxis } from 'recharts';
+import { ResponsiveContainer, LineChart, Line, Tooltip, YAxis, XAxis } from 'recharts';
 import React from 'react';
 
 class PortfolioChart extends React.Component {
@@ -56,11 +56,9 @@ class PortfolioChart extends React.Component {
             }
         }
 
-        console.log(netOrders);
-
         // let netOrderssss = {
         //     "1989-11-07": {
-        //         bitcoin: 5,
+        //         SNX: 5,
         //         Ether: 6
         //     }
         // }
@@ -84,34 +82,81 @@ class PortfolioChart extends React.Component {
         //     }
         // ]
 
+        let test = [];
+        let min = 9245;
+        let max = 15364;
+        for (let i = 0; i < 23; i++) {
+            if (i === 0) {
+                test.push({
+                    date: i,
+                    value: min
+                })   
+            } else if (i === 24) {
+                test.push({
+                    date: i,
+                    value: max
+                })
+            }
+            test.push({
+                date: i,
+                value: randomNum(min, max)
+            })
+        }
+
         if (typeof (this.props.transfers) == "undefined") {
             return <p>Loading...</p>
         } else {
             return (
             <LineChart
-                width={500}
-                height={300}
-                data={trans}
+                width={600}
+                height={250}
+                data={test}
                 margin={{
-                    top: 5,
-                    right: 30,
-                    left: 20,
-                    bottom: 5
+                top: 5,
+                right: 30,
+                left: 20,
+                bottom: 5
                 }}>
-                <XAxis dataKey="date" />
-                <YAxis />
-                <Tooltip />
+                <XAxis 
+                    dataKey="date"
+                    hide={true} />
+                <YAxis 
+                    hide={true} />
+                <Tooltip 
+                    offset={0}
+                    isAnimationActive={false}
+                    allowEscapeViewBox={{ x: true, y: true }}
+                    // position={{ x: 'auto', y: 80 }} 
+                    content={customToolTip} />
                 <Line
                     type="monotone"
                     dataKey="value"
-                    stroke="#8884d8"
-                    activeDot={{ r: 8 }}
+                    stroke="#29c446"    
+                    // stroke="#ff3d12" // if negative
+                    activeDot={{ r: 1 }}
+                    dot={false}
+                    strokeWidth={0.7}
                 />
                 <Line type="monotone" dataKey="uv" stroke="#82ca9d" />
             </LineChart>
         );
         }
     }
+}
+
+function customToolTip({active, payload, label}) {
+    if (active) {
+        return (
+        <div className="tooltip">
+            <h4>{label}</h4>
+        </div>
+        )
+    }
+    return null;
+}
+
+function randomNum(min, max) { 
+    return Math.floor(Math.random() * (max - min + 1) + min)
 }
 
 export default PortfolioChart;
