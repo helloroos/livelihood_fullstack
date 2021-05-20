@@ -7,7 +7,7 @@ import Root from "./components/root";
 import { logIn, logOut, resetErrors, signUp } from "./actions/session_actions";
 import { fetchTransfers, makeTransfer } from "./actions/transfer_action";
 import { fetchOrders, makeOrder } from "./actions/order_actions";
-import { fetchToken, fetchTokens } from "./actions/token_actions";
+import { fetchToken, fetchTokenHistorical, fetchTokens } from "./actions/token_actions";
 import { fetchUser } from "./util/user_api_util";
 // import { fetchUser } from "./actions/user_actions";
 // import { logIn, logOut, signUp } from "./util/session_api_util";
@@ -36,6 +36,7 @@ document.addEventListener('DOMContentLoaded', () => {
     window.resetErrors = resetErrors;
     window.fetchTokens = fetchTokens;
     window.fetchToken = fetchToken;
+    window.fetchTokenHistorical = fetchTokenHistorical;
     window.makeTransfer = makeTransfer;
     window.fetchTransfers = fetchTransfers;
     window.makeTransfer = makeTransfer;

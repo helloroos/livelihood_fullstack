@@ -10,7 +10,7 @@ class Portfolio extends React.Component {
     
     componentDidMount() {
         this.props.fetchUser(this.currentUser);
-        this.props.fetchTokens();
+        // this.props.fetchTokens();
         // if (Object.keys(this.props.buyingPower).length == 0) {
         // }
     }

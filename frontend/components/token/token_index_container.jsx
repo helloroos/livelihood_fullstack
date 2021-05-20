@@ -5,7 +5,8 @@ import TokenIndex from './token_index';
 
 const mSTP = (state) => {
     return {
-        tokens: state.entities.tokens
+        tokens: state.entities.tokens.tokens.tokens
+        // tokens: Object.values(state.entities.tokens.tokens.tokens)
     }
 }
 

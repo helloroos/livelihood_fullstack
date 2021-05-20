@@ -9,29 +9,7 @@ const rootReducer = combineReducers({
     entities: entitiesReducer, 
     errors: errorsReducer,
     session: sessionReducer,
-    ui: uiReducer
+    // ui: uiReducer
 });
 
 export default rootReducer;
-
-let populatedState = {
-    entities: {
-        users: {
-            1: {
-                id: 1,
-                username: 'breakfast'
-            }
-        }
-    },
-    errors: {
-        session: []
-    },
-    session: {
-        currentUser: 1
-        // currentUser: null
-    },
-    ui: {
-        modal: null
-        // modal: modal
-    }
-}

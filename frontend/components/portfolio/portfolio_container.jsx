@@ -10,8 +10,9 @@ const mSTP = (state) => {
         orders: Object.values(state.entities.orders),
         buyingPower: state.entities.buyingPower,
         currentUser: state.session.currentUser.id,
-        tokens: state.entities.tokens,
-        token: state.entities.token
+        tokens: state.entities.tokens.tokens,
+        token: state.entities.tokens.token,
+        // tokenHistoricals: state.entitites.tokens.tokenHistoricals,
     }
 }
 

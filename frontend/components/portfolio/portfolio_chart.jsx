@@ -14,21 +14,57 @@ class PortfolioChart extends React.Component {
     }
         
     render() {
+
+        console.log(this.props);
+
         let allTransfers = this.props.transfers;
-        let newTransfers = {}
+        let netTransactions = {}
         for (let i = 0; i < allTransfers.length; i++) {
             let date = allTransfers[i].created_at.slice(0, 10);
-            if (!newTransfers[date]) {
-                newTransfers[date] = 0;
+            if (!netTransactions[date]) {
+                netTransactions[date] = 0;
             }
             if ([allTransfers[i].transfer_type] == "Deposit") {
-                newTransfers[date] = newTransfers[date] + parseInt(allTransfers[i].amount);
+                netTransactions[date] = netTransactions[date] + parseInt(allTransfers[i].amount);
             } else {
-                newTransfers[date] = newTransfers[date] - parseInt(allTransfers[i].amount);
+                netTransactions[date] = netTransactions[date] - parseInt(allTransfers[i].amount);
             }
         }
-        let assets = Object.entries(newTransfers)
+        
+        let allOrders = this.props.orders;
+        let netOrders = {}
+        
+        // let netOrderssss = {
+        //     "1989-11-07": {
+        //         bitcoin: 5,
+        //         Ether: 6
+        //     }
+        // }
 
+        for (let j = 0; j < allOrders.length; j++) {
+
+            const date = allOrders[j].created_at.slice(0, 10);
+            const token_symbol = allOrders[j].token_sym;
+
+            if (!netOrders[date]) {
+                netOrders[date] = {}
+            }
+            if (!netOrders[date][token_symbol]) {
+                netOrders[date][token_symbol] = 0;
+            }
+
+            if (allOrders[j].order_type == "Buy") {
+                netOrders[date][token_symbol] = netOrders[date][token_symbol] + allOrders[j].number;
+            } else {
+                netOrders[date][token_symbol] = netOrders[date][token_symbol] - allOrders[j].number;
+            }
+        }
+
+        // let assetssss = [
+        //     ["1989-11-07", 1000]
+        // ]
+
+        let assets = Object.entries(netTransactions)
         let trans = assets.map((tran) => {
             return {
                 date: tran[0],
@@ -44,23 +80,7 @@ class PortfolioChart extends React.Component {
         //     {
         //         date: "2021-01-10",
         //         value: "15000"
-        //     },
-        //     {
-        //         date: "2021-02-10",
-        //         value: "25000"
-        //     },
-        //     {
-        //         date: "2021-03-00",
-        //         value: "145000"
-        //     },
-        //     {
-        //         date: "2021-04-25",
-        //         value: "90000"
-        //     },
-        //     {
-        //         date: "2021-05-20",
-        //         value: "110000"
-        //     },
+        //     }
         // ]
 
         if (typeof (this.props.transfers) == "undefined") {

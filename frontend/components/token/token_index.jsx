@@ -14,7 +14,7 @@ class TokenIndex extends React.Component {
     render() {
         let tokens = this.props.tokens;
         let tokenItems;
-        if (Object.keys(tokens).length == 0) {
+        if (typeof this.props.tokens === 'undefined') {
             return <p>Loading...</p>
         } else {
             tokenItems = tokens.map((token) => {
@@ -24,7 +24,6 @@ class TokenIndex extends React.Component {
                 <div>
                     <h1>All tokens</h1>
                     <ul>{tokenItems}</ul>
-                    {/* <Link to="/tokens/bitcoin">BitCoin</Link> */}
                 </div>
             )
         }
@@ -32,7 +31,3 @@ class TokenIndex extends React.Component {
 }
 
 export default TokenIndex;
-
-// Fetch all tokens
-// Iterate over each token and list them on the page
-// Link to each token sub container and pass down props

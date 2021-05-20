@@ -16,8 +16,8 @@ class AssetDetail extends React.Component {
             .then(() => {
                 this.setState(() => {
                     return {
-                        marketPrice: this.props.tokens[this.tokenId].market_price,
-                        priceChange: this.props.tokens[this.tokenId].change_one_d,
+                        marketPrice: this.props.token[this.tokenId].market_price,
+                        priceChange: this.props.token[this.tokenId].change_one_d,
                     }
                 })
             })
