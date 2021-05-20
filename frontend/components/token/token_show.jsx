@@ -16,7 +16,6 @@ class TokenShow extends React.Component {
 
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
-        // this.buyingPower = this.buyingPower.bind(this);
     }
 
     componentDidMount() {
@@ -26,7 +25,7 @@ class TokenShow extends React.Component {
     handleSubmit(event) {
         event.preventDefault();
         const orderDetails = Object.assign({}, this.state);
-        this.props.order(orderDetails);
+        this.props.makeOrder(orderDetails);
     }
 
     handleChange(field) {
@@ -43,22 +42,6 @@ class TokenShow extends React.Component {
             })
         }
     }
-
-    // buyingPower() {
-    //     let total = 0;
-    //     if (this.props.transfers == 'undefined') {
-    //         return null;
-    //     } else {
-    //         this.props.transfers.forEach((element) => {
-    //             if (element.transfer_type == "deposit") {
-    //                 total = total + element.amount;
-    //             } else {
-    //                 total = total - element.amount;
-    //             }
-    //         })
-    //         return total;
-    //     }
-    // }
 
     render() {
         console.log(this.props);

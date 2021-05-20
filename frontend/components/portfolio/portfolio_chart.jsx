@@ -1,38 +1,69 @@
 import { LineChart, Line, Tooltip, YAxis, XAxis } from 'recharts';
 import React from 'react';
 
-const data = [
-    {
-        date: "2021-05-18",
-        value: 4000
-    },
-    {
-        date: "2021-05-19",
-        value: 3000
-    },
-];
-
 class PortfolioChart extends React.Component {
     constructor(props) {
         super(props)
         this.currentUser = this.props.currentUser;
-        this.chartData = this.chartData.bind(this);
     }
 
     componentDidMount() {
         if (typeof (this.props.transfers) == "undefined") {
-            // if (Object.keys(this.props.buyingPower).length == 0) {
             this.props.fetchUser(this.currentUser);
         }
     }
         
-    chartData() {
-        for (const transfer in this.props.transfers.transfers) {
-            console.log(transfer);
-        }
-    }
-        
     render() {
+        let allTransfers = this.props.transfers;
+        let newTransfers = {}
+        for (let i = 0; i < allTransfers.length; i++) {
+            let date = allTransfers[i].created_at.slice(0, 10);
+            if (!newTransfers[date]) {
+                newTransfers[date] = 0;
+            }
+            if ([allTransfers[i].transfer_type] == "Deposit") {
+                newTransfers[date] = newTransfers[date] + parseInt(allTransfers[i].amount);
+            } else {
+                newTransfers[date] = newTransfers[date] - parseInt(allTransfers[i].amount);
+            }
+        }
+        let assets = Object.entries(newTransfers)
+        console.log(assets);
+
+        let trans = assets.map((tran) => {
+            return {
+                date: tran[0],
+                value: tran[1]
+            }
+        })
+
+        // let trans = [
+        //     {
+        //         date: "2021-01-01",
+        //         value: "10000"
+        //     },
+        //     {
+        //         date: "2021-01-10",
+        //         value: "15000"
+        //     },
+        //     {
+        //         date: "2021-02-10",
+        //         value: "25000"
+        //     },
+        //     {
+        //         date: "2021-03-00",
+        //         value: "145000"
+        //     },
+        //     {
+        //         date: "2021-04-25",
+        //         value: "90000"
+        //     },
+        //     {
+        //         date: "2021-05-20",
+        //         value: "110000"
+        //     },
+        // ]
+
         if (typeof (this.props.transfers) == "undefined") {
             return <p>Loading...</p>
         } else {
@@ -40,19 +71,19 @@ class PortfolioChart extends React.Component {
             <LineChart
                 width={500}
                 height={300}
-                data={data}
+                data={trans}
                 margin={{
                     top: 5,
                     right: 30,
                     left: 20,
                     bottom: 5
                 }}>
-                <XAxis dataKey="name" />
+                <XAxis dataKey="date" />
                 <YAxis />
                 <Tooltip />
                 <Line
                     type="monotone"
-                    dataKey="pv"
+                    dataKey="value"
                     stroke="#8884d8"
                     activeDot={{ r: 8 }}
                 />

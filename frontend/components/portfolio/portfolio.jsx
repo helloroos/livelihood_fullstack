@@ -9,12 +9,13 @@ class Portfolio extends React.Component {
     }
     
     componentDidMount() {
-        if (Object.keys(this.props.buyingPower).length == 0) {
-            this.props.fetchUser(this.currentUser);
-        }
+        this.props.fetchUser(this.currentUser);
+        // if (Object.keys(this.props.buyingPower).length == 0) {
+        // }
     }
     
     render() {
+        console.log(this.props);
 
         let allOrders = this.props.orders;
         let uniqOrders = {}

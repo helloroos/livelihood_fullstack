@@ -1,4 +1,4 @@
-export const order = (order) => {
+export const makeOrder = (order) => {
     return $.ajax({
         url: "/api/orders",
         method: "POST",
