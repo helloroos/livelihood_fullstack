@@ -1,4 +1,5 @@
 import React from 'react';
+import TokenChart from './token_chart';
 import token_show_container from './token_show_container';
 
 class TokenShow extends React.Component {
@@ -63,7 +64,8 @@ class TokenShow extends React.Component {
                                     <p>${token.change_one_d} Today</p>
                                 </header>
                                 <section>
-                                    <img className="graph-dummy" src={window.graph_dummy} />
+                                    {/* <img className="graph-dummy" src={window.graph_dummy} /> */}
+                                    <TokenChart/>
                                 </section>
                                     <div className="about">
                                         <h1>About</h1>
