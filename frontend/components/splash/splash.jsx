@@ -42,7 +42,7 @@ class Splash extends React.Component {
 
             <div className="offer-image">
               <img className="offer-image" src={window.offer_image} />
-              {/* <video src={window.offer_video} draggable="false" className="offer-video" autoPlay controlsList="nodownload nofullscreen noremoteplayback" loop muted playsInline preload="auto" /> */}
+              <video src={window.offer_video} draggable="false" className="offer-video" autoPlay controlsList="nodownload nofullscreen noremoteplayback" loop muted playsInline preload="auto" />
             </div>
               
           </div>

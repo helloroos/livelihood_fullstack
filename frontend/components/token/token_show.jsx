@@ -45,14 +45,12 @@ class TokenShow extends React.Component {
     }
 
     render() {
-        console.log(this.props);
         let token = this.props.token[this.tokenId];
         if (typeof(token) == "undefined") {
         // if (Object.keys(token).length == 0) {
             return <p>Loading...</p>
         } else {
             let total = this.state.number * token.market_price;
-            console.log(this.props.order);
             return (
                 <div className="outmost-token-container">
                     <div className="outer-token-container">
@@ -65,7 +63,9 @@ class TokenShow extends React.Component {
                                 </header>
                                 <section>
                                     {/* <img className="graph-dummy" src={window.graph_dummy} /> */}
-                                    <TokenChart/>
+                                    <TokenChart 
+                                        token={this.props.token}
+                                        tokenId={this.props.match.params.tokenId}/>
                                 </section>
                                     <div className="about">
                                         <h1>About</h1>

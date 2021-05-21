@@ -21,22 +21,52 @@ const data = [
     },
 ];
 
+function randomNum(min, max) {
+    return Math.floor(Math.random() * (max - min + 1) + min)
+}
+
 class TokenChart extends React.Component {
     constructor(props) {
         super(props)
-        this.currentUser = this.props.currentUser;
+        // this.currentUser = this.props.currentUser;
+        this.tokenId = this.props.tokenId;
     }
-
+    
     componentDidMount() {
-
+        
     }
-
+    
     render() {
+        console.log(this.props);
+        const token = this.props.token[this.tokenId];
+        
+        let test = [];
+        let max = token.market_price;
+        let min = max * (100 - token.change_one_d);
+
+        for (let i = 0; i < 48; i++) {
+            if (i === 0) {
+                test.push({
+                    date: i,
+                    value: min
+                })
+            } else if (i === 48) {
+                test.push({
+                    date: i,
+                    value: max
+                })
+            }
+            test.push({
+                date: i,
+                value: randomNum(min, max)
+            })
+        }
+
         return (
             <LineChart
                 width={600}
                 height={250}
-                data={data}
+                data={test}
                 margin={{
                     top: 5,
                     right: 30,

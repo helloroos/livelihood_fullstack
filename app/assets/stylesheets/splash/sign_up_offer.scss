@@ -7,6 +7,7 @@
 
     .offer {
         width: 480px;
+        // flex: 1;
 
         h1 {
             font-size: 52px;
@@ -42,7 +43,8 @@
     .offer-image {
         height: 603px;
         width: auto;
-        margin-top: 18px;
+        // margin-right: auto;
+        // margin-top: 18px;
         // height: 80%;
         // display: flex;
         // justify-content: center;
@@ -50,19 +52,24 @@
         // flex-direction: column;
         // margin-left:350px;
 
-        // .offer-image {
-        //     position:absolute;
-        //     z-index:1;
-        //     width: 657px;
-        // }
+        img {
+            position: absolute;
+            z-index: 2;
+            top: 115px;
+            left: 85px;
+            height: 650px;
+            // margin-top: 200px;
+        }
+        
+        video {
+            // margin-top: 200px;
+            position: absolute;
+            z-index: 1;
+            top: 115px;
+            left: 85px;
+            height: 650px;
 
-        // .offer-video{
-        //     width: 653px;
-        //     background-color: transparent;
-        //     position: absolute;
-        //     z-index:0;
-        //     margin-left:2px;
-        // }
+        }
     }
 
 }
