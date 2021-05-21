@@ -17,14 +17,14 @@ end
 
 json.buyingPower summer
 
-final = {
-    bitcoin: {
-        token_sym: "bitcoin",
-        number: 0,
-        market_price: 0,
-        amount: 0
-    }
-}
+# final = {
+#     bitcoin: {
+#         token_sym: "bitcoin",
+#         number: 0,
+#         market_price: 0,
+#         amount: 0
+#     }
+# }
 
 def tokens
     token = {}
