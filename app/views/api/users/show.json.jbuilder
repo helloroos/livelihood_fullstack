@@ -17,6 +17,30 @@ end
 
 json.buyingPower summer
 
+final = {
+    bitcoin: {
+        token_sym: "bitcoin",
+        number: 0,
+        market_price: 0,
+        amount: 0
+    }
+}
+
+def tokens
+    token = {}
+    @user.orders.each do |order|
+        token[order.token_sym] = 0 if !token[order.token_sym]
+        if order.order_type == "Buy"
+            token[order.token_sym] += order.number
+        else
+            token[order.token_sym] -= order.number
+        end
+    end
+    token
+end
+
+json.tokensHeld tokens
+
 json.transfers do
     @user.transfers.each do |transfer|
         json.set! transfer.id do

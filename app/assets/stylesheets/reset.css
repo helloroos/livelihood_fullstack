@@ -54,6 +54,7 @@ a, button,
 input[type="submit"] {
   cursor: pointer;
   border: none;
+  text-decoration: none;
 }
 
 

@@ -24,6 +24,11 @@ class Cash extends React.Component {
         event.preventDefault();
         const transferDetails = Object.assign({}, this.state);
         this.props.makeTransfer(transferDetails);
+        this.setState({
+            transfer_type: "Deposit",
+            amount: 0,
+            user_id: 0
+        });
     }
 
     handleChange(field) {
@@ -38,16 +43,6 @@ class Cash extends React.Component {
         }
     }
 
-    // handleChange(event) {
-    //     this.setState(() => {
-    //         return {
-    //             transfer_type: "deposit",
-    //             amount: event.target.value,
-    //             user_id: 1
-    //         }
-    //     })
-    // }
-
     render() {
         const buyingPower = this.props.buyingPower;
         console.log(this.props);
@@ -58,11 +53,18 @@ class Cash extends React.Component {
                         <div className="details">
                             <header>
                                 <h1>Cash</h1>
-                                {/* <h1>${buyingPower}</h1> */}
-                            {/* <img src="" alt="" /> */}
+                                <h1>{formatter.format(buyingPower)}</h1>
+                                {/* <img src={window.balloon} /> */}
                             </header>
                             <section className="history">
-                                <h2>Recent History</h2>
+                                <div>
+                                    <h2>Recent history</h2>
+                                </div>
+                                <div>
+                                    <ul>
+                                        <li>Transfer</li>
+                                    </ul>
+                                </div>
                             </section>
                         </div>
                         <div className="side-panel">
@@ -90,12 +92,14 @@ class Cash extends React.Component {
                                 <div>
                                     <p>Amount</p>
                                     <input
+                                        value={this.state.value}
                                         placeholder="$0"
                                         onChange={this.handleChange('amount')}
                                         required/>
                                 </div>
                                 <div>
-                                    <button>Transfer</button>
+                                    <button type="submit">Transfer</button>
+                                    {/* <button>Transfer</button> */}
                                 </div>
                             </form>
                         </div>
@@ -107,3 +111,8 @@ class Cash extends React.Component {
 }
 
 export default Cash;
+
+let formatter = new Intl.NumberFormat('en-US', {
+    style: 'currency',
+    currency: 'USD',
+})

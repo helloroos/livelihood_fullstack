@@ -25,23 +25,21 @@ class AssetDetail extends React.Component {
 
     render() {
         let asset = this.props.asset;
+        let priceChange = this.state.priceChange.toFixed(2);
         return (
-            <div>
-                <div>
-                    <div>
-                            <Link to={"/tokens/bitcoin"}>
-                        <span>
-                                <p>{asset[0].toUpperCase()}</p>
-                                <p>{asset[1]} tokens</p>
-                        </span>
-                        <span>
-                            <p>${asset[1] * this.state.marketPrice}</p>
-                            <p>%{this.state.priceChange}</p>
-                        </span>
-                            </Link>
+            <Link to={"/tokens/bitcoin"}>
+                <li className="asset">
+                    <div className="asset-info">
+                        <p className="asset-name">{asset[0].toUpperCase()}</p>
+                        <p>{asset[1]} tokens</p>
                     </div>
-                </div>
-            </div>
+                    <div className="asset-pricing">
+                        <p>{formatter.format(asset[1] * this.state.marketPrice)}</p>
+                        <p className={isPositive(priceChange) ? "green" : "red"}>
+                            {priceChange}%</p>
+                    </div>
+                </li>
+            </Link>
         )
 
         // if (!Array.isArray(this.props.tokens)) {
@@ -55,3 +53,15 @@ class AssetDetail extends React.Component {
 }
 
 export default AssetDetail;
+
+let formatter = new Intl.NumberFormat('en-US', {
+    style: 'currency',
+    currency: 'USD',
+})
+
+let isPositive = (string) => {
+    if (parseFloat(string) > 0) {
+        return true;
+    }
+    return false;
+}

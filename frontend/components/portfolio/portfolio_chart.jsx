@@ -85,13 +85,13 @@ class PortfolioChart extends React.Component {
         let test = [];
         let min = 9245;
         let max = 15364;
-        for (let i = 0; i < 23; i++) {
+        for (let i = 0; i < 48; i++) {
             if (i === 0) {
                 test.push({
                     date: i,
                     value: min
                 })   
-            } else if (i === 24) {
+            } else if (i === 48) {
                 test.push({
                     date: i,
                     value: max
