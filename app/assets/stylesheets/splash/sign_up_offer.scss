@@ -43,6 +43,7 @@
     .offer-image {
         height: 603px;
         width: auto;
+        // display: block;
         // margin-right: auto;
         // margin-top: 18px;
         // height: 80%;
@@ -52,24 +53,24 @@
         // flex-direction: column;
         // margin-left:350px;
 
-        img {
-            position: absolute;
-            z-index: 2;
-            top: 115px;
-            left: 85px;
-            height: 650px;
-            // margin-top: 200px;
-        }
+        // img {
+        //     position: absolute;
+        //     z-index: 2;
+        //     top: 115px;
+        //     left: 85px;
+        //     height: 650px;
+        //     // margin-top: 200px;
+        // }
         
-        video {
-            // margin-top: 200px;
-            position: absolute;
-            z-index: 1;
-            top: 115px;
-            left: 85px;
-            height: 650px;
+        // video {
+        //     // margin-top: 200px;
+        //     position: absolute;
+        //     z-index: 1;
+        //     top: 115px;
+        //     left: 85px;
+        //     height: 650px;
 
-        }
+        // }
     }
 
 }
