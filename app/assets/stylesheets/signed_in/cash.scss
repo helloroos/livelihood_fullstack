@@ -41,7 +41,7 @@
             .history {
                 padding-top: 250px;
                 // background-color: lawngreen;
-                display: flex;
+                // display: flex;
                 // align-items: center;
                 height: 50px;
                 // justify-content: space-between;
@@ -49,6 +49,7 @@
                 h2 {
                     border-bottom: 1px solid #e6e9ed;
                     width: 100%;
+                    display: inline;
                 }
             }
     }

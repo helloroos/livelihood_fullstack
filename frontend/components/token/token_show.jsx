@@ -64,14 +64,6 @@ class TokenShow extends React.Component {
                                 </header>
                                 <section>
                                     <img className="graph-dummy" src={window.graph_dummy} />
-                                    <div>
-                                        <button>1D</button>
-                                        <button>1W</button>
-                                        <button>1M</button>
-                                        <button>3M</button>
-                                        <button>1Y</button>
-                                        <button>5Y</button>
-                                    </div>
                                 </section>
                                     <div className="about">
                                         <h1>About</h1>

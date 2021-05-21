@@ -70,6 +70,14 @@ class Portfolio extends React.Component {
                                         <p>{formatter.format(buyingPower)}</p>
                                     </div>
                                 </section>
+                                <section className="news">
+                                    <div>
+                                        <p>News</p>
+                                    </div>
+                                    <div>
+                                        {/* <p>content here</p> */}
+                                    </div>
+                                </section>
                             </div>
                             <div className="side-panel">
                                 <header>

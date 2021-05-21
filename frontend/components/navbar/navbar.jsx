@@ -41,7 +41,8 @@ class NavBar extends React.Component {
                       <li><Link to="/cash">Cash</Link></li>
                       <li><Link to="/portfolio">Portfolio</Link></li>
                       <li><Link to="/account">Account</Link></li>
-                      <button onClick={this.handleLogOut}>Log Out</button>
+                      <li><Link to="/account" onClick={this.handleLogOut}>Log out</Link></li>
+                      {/* <button onClick={this.handleLogOut}>Log Out</button> */}
                   </ul>
               </nav>
 

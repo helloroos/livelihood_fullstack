@@ -132,11 +132,25 @@
                 padding-bottom: 20px;
                 // padding-top: 20px;
             }
+
+            input {
+                border: none;
+                border-radius: 3px;
+                width: 100%;
+                height: 23px;
+                background-color: rgb(245, 245, 245);
+                // margin-bottom: 20px;
+            }
+
+            select {
+                // appearance: none;
+                // display: block;
+                border: none;
+                width: 100%;
+                font-weight: bold;
+            }
+
         }
     }
-    
-    
-
-
 
 }

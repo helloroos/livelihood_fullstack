@@ -40,12 +40,17 @@
         align-items: center;
         // order: 2;
         // margin-right: auto;
+        background-color: transparent;
         
         img {
             display: inline-block;
-            width: 25px;
-            // height: auto;
+            width: 35px;
+            // &:hover {
+            //     background: rgb(0, 180, 5);
+            // }
+
         }
+        
     }
     
     .navbar {
