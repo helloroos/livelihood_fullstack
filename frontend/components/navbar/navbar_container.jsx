@@ -5,7 +5,7 @@ import NavBar from './navbar';
 const mSTP = (state, ownProps) => {
     return {
         currentUser: state.session.currentUser,
-        route: ownProps.location
+        pathname: ownProps.location.pathname
     }
 };
 

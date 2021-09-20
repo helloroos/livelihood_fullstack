@@ -23,20 +23,20 @@
 
 .outer-navbar, .inner-navbar {
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-start;
     align-items: center;
-    background-color: white;
-    position: sticky;
-    top: 0;
-    height: 60px;
-    width: 100%;
 
+    position: sticky;
+    width: 100%;
+    top: 0;
     font-size: 18px;
+    background-color: white;
+    height: 60px;
 
     .logo {
         display: inline-block;
         font-size: 22px;
-        padding-left: 15px;
+        padding-left: 30px;
         align-items: center;
         // order: 2;
         // margin-right: auto;
@@ -75,27 +75,31 @@
         }
     }
 
-    .session-links {
-        padding-right: 15px;
-        order: 3;
-        // font-size: 17px;
-
-        li {
-            display: inline-block;
+    .session-div {
+        margin-left: auto;
+        
+        .session-links {
             padding-right: 15px;
+            order: 3;
             // font-size: 17px;
-            font-weight: bold;
-            text-align: center;
-            transition: all 0.1s ease 0s;
-
-            // :hover {
-            //     color: rgb(0, 180, 5);
-            // }
-        }
-
-        li>a>button:hover {
-            color: black;
-            background-color: rgba(0, 180, 5, 5);
+    
+            li {
+                display: inline-block;
+                padding-right: 15px;
+                // font-size: 17px;
+                font-weight: bold;
+                text-align: center;
+                transition: all 0.1s ease 0s;
+    
+                // :hover {
+                //     color: rgb(0, 180, 5);
+                // }
+            }
+    
+            li>a>button:hover {
+                color: black;
+                background-color: rgba(0, 180, 5, 5);
+            }
         }
     }
     

@@ -35,7 +35,7 @@ class Splash extends React.Component {
                 </Link>
               </div>
 
-              <div>
+              <div className="disclosure">
                 <p>ⓘ Commissions and Free Token Disclosure</p>
               </div>
             </div>
