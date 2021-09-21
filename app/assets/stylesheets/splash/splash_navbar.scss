@@ -1,7 +1,73 @@
-.outer-navbar {
-    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.2);
+#logged-out-navbar-container {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  position: sticky;
+  top: 0;
+  width: 100%;
+  background-color: white;
+  height: 64px;
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.2);
 
-        button {
+  #logo-container {
+    padding-left: 30px;
+    align-items: center;
+    width: auto;
+
+    a {
+      display: flex;
+      flex-direction: row;
+
+      h2 {
+        font-size: 24px;
+      }
+
+      img, i {
+        width: 25px;
+        height: 25px;
+        margin-left: 5px;
+        align-self: center;
+      }
+    }
+  }
+
+  #navbar-links-container {
+    font-size: 18px;
+    box-shadow: none;
+    display: flex;
+    flex-direction: row;
+
+    a {
+      margin-left: 50px;
+      transition: all 0.1s ease 0s;
+      
+      &:hover {
+        color: rgb(0, 180, 5);
+      }
+    }
+  }
+  
+  #session-container {
+    margin-left: auto;
+    display: flex;
+    flex-direction: row;
+    
+    a {
+      font-weight: bold;
+      text-align: center;
+      transition: all 0.1s ease 0s;
+      align-self: center;
+      white-space: nowrap;
+      margin-left: 25px;
+      font-size: 17px;
+      transition: all 0.1s ease 0s;
+
+      &:hover {
+        color: rgb(0, 180, 5);
+      }
+
+      button {
+        margin-right: 25px;
         display: inline-block;
         font-size: 18px;
         font-weight: bold;
@@ -10,158 +76,96 @@
         border-radius: 50px;
         transition: all 0.1s ease 0s;
         height: 43px;
+
+        &:hover {
+          background-color: rgba(0, 180, 5, 5);
+        }
+      }
     }
+  }
+  
+  a,
+  button {
+    color: black;
+    text-decoration: none;
+  }
 }
 
-.inner-navbar {
-    
-    .navbar {
-        font-size: 13px;
-        font-weight: bold;
-    }
-}
+#logged-in-navbar-container {
+  display: grid;
+  grid-template-columns: 420px 1000px 1fr;
+  grid-template-areas: "logo-container search-container navbar-links-container";
+  align-items: center;
+  position: sticky;
+  top: 0;
+  width: 100%;
+  background-color: white;
+  height: 64px;
 
-.outer-navbar, .inner-navbar {
-    display: flex;
-    justify-content: flex-start;
+  #logo-container {
+    grid-area: logo-container;
+    margin-left: 65px;
     align-items: center;
+    width: auto;
 
-    position: sticky;
-    width: 100%;
-    top: 0;
-    font-size: 18px;
-    background-color: white;
-    height: 60px;
+    a {
+      display: flex;
+      flex-direction: row;
 
-    .logo {
-        display: inline-block;
-        font-size: 22px;
-        padding-left: 30px;
-        align-items: center;
-        // order: 2;
-        // margin-right: auto;
-        background-color: transparent;
-        
-        img {
-            display: inline-block;
-            width: 35px;
-            // &:hover {
-            //     background: rgb(0, 180, 5);
-            // }
-
-        }
-        
+      img {
+        width: 25px;
+        // &:hover {
+        //     background: rgb(0, 180, 5);
+        // }
+      }
     }
-    
-    .navbar {
-        // width: 800px;
-        // font-size: 18px;
-        box-shadow: none;
-        // order: 1;
-        // margin-right: auto;
+  }
 
-        li {
-            display: inline-block;
-            margin: 15px;
-            
-            // a {
-            //     transition: all 0.1s ease 0s;
-                
-            // }
-            
-            // :hover {
-            //     color: rgb(0, 180, 5);
-            // }
-        }
-    }
+  #search-container {
+    grid-area: search-container;
+    display: flex;
+    align-items: center;
+    border-radius: 3px;
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    height: 32px;
+    width: 550px;
+    margin-top: 5px;
+    text-decoration: none;
 
-    .session-div {
-        margin-left: auto;
-        
-        .session-links {
-            padding-right: 15px;
-            order: 3;
-            // font-size: 17px;
-    
-            li {
-                display: inline-block;
-                padding-right: 15px;
-                // font-size: 17px;
-                font-weight: bold;
-                text-align: center;
-                transition: all 0.1s ease 0s;
-    
-                // :hover {
-                //     color: rgb(0, 180, 5);
-                // }
-            }
-    
-            li>a>button:hover {
-                color: black;
-                background-color: rgba(0, 180, 5, 5);
-            }
-        }
-    }
-    
-
-
-    a, button {
-        color: black;
-        text-decoration: none; 
-        transition: all 0.1s ease 0s;   
-    }
-
-    li>a:hover {
-        color: rgb(0, 180, 5);
+    i {
+      margin-left: 10px;
+      color: gray;
     }
 
     input {
-        display: block;
-        width: 100%;
-        width: 380px;
-        border: 1px solid lightgrey;
-        border-radius: 3px;
-        height: 25px;
+      width: 100%;
+      align-self: center;
+      margin-left: 5px;
+      border: none;
+      border-radius: 30px;
     }
+  }
 
+  #navbar-links-container {
+    grid-area: navbar-links-container;
+    font-size: 13px;
+    font-weight: bold;
+    box-shadow: none;
+    display: flex;
+    flex-direction: row;
+    justify-self: end;
+
+    a {
+      margin-right: 65px;
+      align-self: center;
+      white-space: nowrap;
+      color: black;
+      text-decoration: none;
+      transition: all 0.1s ease 0s;
+
+      &:hover {
+        color: rgb(0, 180, 5);
+      }
+    }
+  }
 }
-
-// .inner-navbar {
-//     display: flex;
-//     justify-content: space-between;
-//     align-items: center;
-//     background-color: white;
-//     height: 60px;
-//     width: 100%;
-//     position: sticky;   
-
-
-//     .logo {
-//         display: block;
-//         font-size: 22px;
-//         padding-left: 15px;
-//         align-items: center;
-
-//         img {
-//             width: auto;
-//             height: 25px;
-//         }
-//     }
-
-//         .navbar {
-//         // width: 800px;
-//         font-size: 18px;
-//         box-shadow: none;
-//         margin-right: 18px;
-
-//         li {
-//            display: inline-block;
-//             margin: 15px;
-//             transition: all 0.1s ease 0s;
-            
-//             :hover {
-//                 color: rgb(0, 180, 5);
-//             }
-//         }
-//     }
-// }

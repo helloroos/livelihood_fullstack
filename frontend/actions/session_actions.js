@@ -8,7 +8,6 @@ export const RESET_ERRORS = "RESET_ERRORS";
 
 // ACTION CREATORS
 const receiveCurrentUser = (currentUser) => {
-    debugger
     return {
         type: RECEIVE_CURRENT_USER,
         currentUser: currentUser
