@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react'
+import { Link } from 'react-router-dom';
 
 export default function log_in_form({ logIn, resetErrors, formType, errors }) {
 
@@ -14,35 +15,36 @@ export default function log_in_form({ logIn, resetErrors, formType, errors }) {
       </div>
 
       <div id="form-container">
-        <form>
+        <div id="form-inner-container">
+          <form>
+            <h3>Welcome to Robinhodl</h3>
+            
+            <label>
+              <p>Email</p>
+              <div className="inputs">
+                <input
+                  type="email"
+                  required/>
+              </div>
+            </label>
 
-          <h3>Welcome to Robinhodl</h3>
-          
-          <label>
-            <p>Email</p>
-            <div className="inputs">
-              <input
-                type="email"
-                required/>
-            </div>
-          </label>
+            <label>
+              <p>Password</p>
+              <div className="inputs">
+                <input
+                  type="password"
+                  required/>
+              </div>
+            </label>
 
-          <label>
-            <p>Password</p>
-            <div className="inputs">
-              <input
-                type="password"
-                required/>
-            </div>
-          </label>
+            <p id="sign-up"><Link to="/signup">New to Robinhodl? Sign up instead.</Link></p>
+            {/* {this.renderErrors()} */}
+          </form>
 
-          <p id="sign-up">New to Robinhodl? Sign up instead.</p>
-          {/* {this.renderErrors()} */}
-        </form>
-
-        <div id="session-btns">
-          <button>Sign In</button>
-          <button>Demo</button>
+          <div id="session-btns">
+            <button>Sign In</button>
+            <button>Demo</button>
+          </div>
         </div>
       </div>
     </div>

@@ -22,74 +22,84 @@
         width: 50%;
         display: flex;
         flex-direction: column;
-        align-items: center;
+        align-items: start;
 
-        form {
+        #form-inner-container {
           display: flex;
           flex-direction: column;
-          width: 460px;
-          margin-left: 50px;
+          align-items: center;
 
-          h3 {
-            font-size: 21px;
-            margin: 12px 0;
-          }
-          
-          label {
-            
-            p {
-              font-size: 12px;
-              padding: 9px 0;
-              margin: 0 0 8px;
-            }
-
-            .inputs {
+          form {
             display: flex;
-            align-items: center;
-            border-radius: 3px;
-            border: 1px solid rgba(0, 0, 0, 0.080);
-            height: 30px;
-            margin-top: 5px;
-            text-decoration: none;
-
-              input {
-              width: 100%;
-              align-self: center;
-              margin-left: 5px;
-              border: none;
-              border-radius: 30px;
+            flex-direction: column;
+            width: 460px;
+            margin-left: 50px;
+  
+            h3 {
+              font-size: 21px;
+              margin: 12px 0;
+            }
+            
+            label {
               
-                &:focus {
-                  border: none;
-                  outline: none;
+              p {
+                font-size: 12px;
+                padding: 9px 0;
+                margin: 0 0 8px;
+              }
+  
+              .inputs {
+              display: flex;
+              align-items: center;
+              border-radius: 3px;
+              border: 1px solid rgba(0, 0, 0, 0.080);
+              height: 30px;
+              margin-top: 5px;
+              text-decoration: none;
+  
+                input {
+                width: 100%;
+                align-self: center;
+                margin-left: 5px;
+                border: none;
+                border-radius: 30px;
+                
+                  &:focus {
+                    border: none;
+                    outline: none;
+                  }
+                }
+                
+                &:active { // NEED TO FIX THIS
+                  border: 1 solid greenyellow;
                 }
               }
-              
-              &:active { // NEED TO FIX THIS
-                border: 1 solid greenyellow;
+            }
+  
+            #sign-up {
+              margin: 14px 0;
+
+              a {
+                font-size: 12px;
+                font-weight: bold;
+                color: rgb(0, 180, 5);
               }
             }
           }
-
-          #sign-up {
-            font-size: 12px;
-            font-weight: bold;
-            color: rgb(0, 180, 5);
-            padding: 14px 0;
-          }
-        }
-
-        #session-btns {
-          display: flex;
-          flex-direction: row;
-          margin: 90px 0 0 0;
-
-          button {
-            margin: 10px;
-            padding: 15px 30px;
-            border-radius: 3px;
-            color: white;
-            background-color: #00C805;
+  
+          #session-btns {
+            display: flex;
+            flex-direction: row;
+            margin: 90px 0 0 0;
+            margin-left: 50px;
+  
+            button {
+              margin: 10px;
+              padding: 15px 30px;
+              border-radius: 3px;
+              color: white;
+              background-color: #00C805;
+            }
           }
         }
       }
