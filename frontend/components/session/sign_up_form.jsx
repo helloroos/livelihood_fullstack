@@ -12,9 +12,10 @@ export default function sign_up_form({ signUp, resetErrors, errors }) {
   const handleSubmit = (e) => {
     e.preventDefault();
     signUp(user)
-    .then (() => {
-      window.location.href = "/";
+    .then(() => {
+      history.push('/portfolio')
     })
+    .catch(err => console.log(err))
   }
 
   const update = (e) => {

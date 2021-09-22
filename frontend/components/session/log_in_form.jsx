@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 
 export default function log_in_form({ logIn, resetErrors, formType, errors }) {
 
@@ -7,20 +7,26 @@ export default function log_in_form({ logIn, resetErrors, formType, errors }) {
     document.title = `Log In | Robinhodl`;
   });
 
-  const [user, setUser] = useState({email: "", password: ""})
+  const [user, setUser] = useState({email: "", password: ""});
+  const history = useHistory();
 
   const handleSubmit = (e) => {
     e.preventDefault();
     logIn(user)
-    // .then(() => {
-    //   window.location.href = "/"
-    // })
+    .then(() => {
+      history.push('/portfolio')
+    })
+    .catch(err => console.log(err))
   }
 
   const logInDemo = (e) => {
     e.preventDefault();
     const demo = {email: "iamgroot@marvel.com", password: "password"};
-    logIn(demo);
+    logIn(demo)
+    .then(() => {
+      history.push('/portfolio')
+    })
+    .catch(err => console.log(err))
   }
 
   return (
