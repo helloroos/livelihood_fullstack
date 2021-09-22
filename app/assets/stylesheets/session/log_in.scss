@@ -62,7 +62,6 @@
                 align-self: center;
                 margin-left: 5px;
                 border: none;
-                border-radius: 30px;
                 
                   &:focus {
                     border: none;
@@ -71,7 +70,11 @@
                 }
                 
                 &:active { // NEED TO FIX THIS
-                  border: 1 solid greenyellow;
+                  border: 1 solid rgb(0, 180, 5);
+                }
+
+                &:focus { // NEED TO FIX THIS
+                  border: 1 solid rgb(0, 180, 5);
                 }
               }
             }

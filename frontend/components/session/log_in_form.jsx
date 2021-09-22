@@ -7,6 +7,22 @@ export default function log_in_form({ logIn, resetErrors, formType, errors }) {
     document.title = `Log In | Robinhodl`;
   });
 
+  const [user, setUser] = useState({email: "", password: ""})
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    logIn(user)
+    // .then(() => {
+    //   window.location.href = "/"
+    // })
+  }
+
+  const logInDemo = (e) => {
+    e.preventDefault();
+    const demo = {email: "iamgroot@marvel.com", password: "password"};
+    logIn(demo);
+  }
+
   return (
     <div id="log-in-container">
 
@@ -22,18 +38,14 @@ export default function log_in_form({ logIn, resetErrors, formType, errors }) {
             <label>
               <p>Email</p>
               <div className="inputs">
-                <input
-                  type="email"
-                  required/>
+                <input type="email" onChange={(e) => setUser({...user, email: e.target.value})} value={user.email} required/>
               </div>
             </label>
 
             <label>
               <p>Password</p>
               <div className="inputs">
-                <input
-                  type="password"
-                  required/>
+                <input type="password" onChange={(e) => setUser({ ...user, password: e.target.value })} value={user.password} required/>
               </div>
             </label>
 
@@ -42,8 +54,8 @@ export default function log_in_form({ logIn, resetErrors, formType, errors }) {
           </form>
 
           <div id="session-btns">
-            <button>Sign In</button>
-            <button>Demo</button>
+            <button type="submit" onClick={handleSubmit}>Sign In</button>
+            <button type="submit" onClick={logInDemo}>Demo</button>
           </div>
         </div>
       </div>
