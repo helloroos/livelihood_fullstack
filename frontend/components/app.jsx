@@ -18,7 +18,7 @@ const App = () => {
     const TokenContainerWithRouter = withRouter(TokenShowContainer);
 
     return(
-    <div>
+    <div id="app">
         <NavBarContainerWithRouter/>
         {/* <Route exact path="/" component={NavBarContainer } /> */}
         <Switch>
