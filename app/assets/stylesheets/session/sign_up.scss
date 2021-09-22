@@ -15,16 +15,35 @@
 
       header {
 
-        h3 {
-          font-size: 24px;
+        #logo-container {
+          align-items: center;
+          width: auto;
+          padding: 40px 0 40px 0;
+
+          a {
+            display: flex;
+            flex-direction: row;
+
+            h2 {
+              font-size: 24px;
+              color: black;
+            }
+
+            img, i {
+              width: 25px;
+              height: 25px;
+              margin-left: 5px;
+              align-self: center;
+            }
+          }
         }
 
-        #first-h3 {
-          padding: 40px 0 40px 0;
+        h3 {
+          font-size: 24px;
+          padding: 40px 0 0 0;
         }
 
         #second-h3 {
-          padding: 40px 0 0 0;
         }
         
         #first-p {

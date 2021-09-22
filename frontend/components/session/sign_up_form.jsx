@@ -7,20 +7,11 @@ export default function sign_up_form({ logIn, resetErrors, errors }) {
     document.title = `Sign up | Robinhodl`;
   });
 
-  const [user, setUser] = useState({ email: "", password: "" })
+  const [user, setUser] = useState({ first_name: "", last_name: "", email: "", password: "" })
 
   const handleSubmit = (e) => {
     e.preventDefault();
     logIn(user)
-    // .then(() => {
-    //   window.location.href = "/"
-    // })
-  }
-
-  const logInDemo = (e) => {
-    e.preventDefault();
-    const demo = { email: "iamgroot@marvel.com", password: "password" };
-    logIn(demo);
   }
 
   return (
@@ -29,7 +20,13 @@ export default function sign_up_form({ logIn, resetErrors, errors }) {
         <div id="sign-up-form-inner-container">
           
           <header>
-            <h3 id="first-h3">Robinhodl</h3>
+            <div id="logo-container">
+              <Link to="/portfolio">
+                <h2>Robinhodl</h2>
+                <img src={window.robinhood_favicon_black} />
+                {/* <i class="fas fa-hand-holding-usd"></i> */}
+              </Link>
+            </div>
             <h3 id="second-h3">Make Your Money Move</h3>
             <p id="first-p">Robinhood lets you invest in companies you love,
               commission-free.</p>
@@ -39,35 +36,20 @@ export default function sign_up_form({ logIn, resetErrors, errors }) {
             <p>Please enter your full legal name. Your legal
               name should match any form of government ID.</p>
             <label>
-              <input
-                type="text"
-                className="short"
-                placeholder="First name"
-                required />
+              <input type="text" className="short" placeholder="First name" onChange={(e) => setUser({ ...user, first_name: e.target.value })} value={user.first_name} required />
             </label>
             <label>
-              <input
-                type="text"
-                className="short"
-                id="second-input"
-                placeholder="Last name"
-                required />
+              <input type="text" className="short" id="second-input" placeholder="Last name" onChange={(e) => setUser({ ...user, last_name: e.target.value })} value={user.last_name} required />
             </label>
             <label>
-              <input
-                type="email"
-                placeholder="Email"
-                required />
+              <input type="email" placeholder="Email" onChange={(e) => setUser({ ...user, email: e.target.value })} value={user.email} required />
             </label>
             <label>
-              <input
-                type="password"
-                placeholder="Password (min. 6 characters)"
-                required />
+              <input type="password" placeholder="Password (min. 6 characters)" onChange={(e) => setUser({ ...user, password: e.target.value })} value={user.password} required />
             </label>
 
             <div className="session-btns" id="sign-up-btn-container">
-              <button type="submit">Sign up</button>
+              <button type="submit" onClick={handleSubmit}>Sign up</button>
               <p id="log-in"><Link to="/login">Already a member? Log in instead.</Link></p>
               {/* {this.renderErrors()} */}
             </div>
