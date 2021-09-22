@@ -12,6 +12,9 @@
     // background-color: yellowgreen;
 
     #sign-up-form-inner-container {
+      display: flex;
+      flex-direction: column;
+      height: 100vh;
 
       header {
 
@@ -119,35 +122,55 @@
         }
       }
     }
+
+    #fine-print {
+      width: 80%;
+      margin: auto 0 20px 0;
+      font-size: 12px;
+
+      p {
+        color: lightgray;
+        margin: 0 0 20px 0;
+      }
+      
+      #contact-info {
+        margin: 0 0 20px 0;
+
+        a {
+          color: #00C805;
+          margin: 0 10px 0 0;
+        }
+      }
+    }
   }
 
   button {
-    font-size: 12px;
+    margin: 10px;
+    padding: 15px 45px;
+    border-radius: 3px;
     color: white;
-    background-color: rgb(0, 180, 5);
-    border-radius: 4px;
-    padding-top: 12px;
-    padding-bottom: 12px;
-    padding: 0px 36px;
-    transition: all 0.1s ease 0s;
-    height: 40px;
-    min-width: 115px;
+    background-color: #00C805;
   }
 
-  .info-container {
+  #info-container {
     background-color: rgb(245, 245, 245);
     width: 40%;
     display: flex;
-    padding: 100px;
 
-    .info {
+    #info-content {
+      margin: 150px 0 0 100px;
       width: 40%;
       font-size: 15px;
       line-height: 150%;
 
       h3 {
         font-weight: bold;
-        padding-top: 10px;
+        margin: 40px 0 0 0;
+      }
+      
+      p {
+        line-height: 2;
+        margin: 10px 0 0 0;
       }
     }
   }
