@@ -1,11 +1,10 @@
-.outmost-portfolio-container {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
-}
+#portfolio-container {
+  display: grid;
+  grid-template-columns: 420px 1000px 1fr;
+  grid-template-areas: ". portfolio-content .";
 
-.outer-portfolio-container {
+  #portfolio-content {
+    grid-area: portfolio-content;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -13,118 +12,245 @@
     width: 880px;
     flex: wrap;
     padding-top: 30px;
-    
+  
     .feed-container {
-        display: flex;
-        width: 100%;
-        height: 100vh;
-        justify-content: space-between;
+      display: flex;
+      width: 100%;
+      height: 100vh;
+      justify-content: space-between;
     }
-
-        .feed {
-            width: 620px;
-
-            header {
-                padding-top: 20px;
-                
-                h1 {
-                    font-size: 32px;
-                    padding: 5px;
-                }
-                p {
-                    font-size: 13px;
-                }
-            }
-
-            .chart {
-                border-bottom: 1px solid #e6e9ed;
-            }
-            
-            .buying-power, .news {
-
-                display: flex;
-                align-items: center;
-                height: 80px;
-                justify-content: space-between;
-                border-bottom: 1px solid #e6e9ed;
-
-                div p {
-                    display: flex;
-                    flex: 1;
-                }
-
-                div p:last-child {
-                    margin-right: auto;
-                }
-            }
+  
+    .feed {
+      width: 620px;
+  
+      header {
+        padding-top: 20px;
+  
+        h1 {
+          font-size: 32px;
+          padding: 5px;
         }
-
-    .side-panel {
+        p {
+          font-size: 13px;
+        }
+      }
+  
+      .chart {
+        border-bottom: 1px solid #e6e9ed;
+      }
+  
+      .buying-power,
+      .news {
         display: flex;
         align-items: center;
-        flex-direction: column;
-        position: sticky;
-        width: 220px;
-        height: 60vh;
-        box-shadow: 0 0 10px lightgray;
-        border-radius: 3px;
-        font-size: 13px;
-
-        header {
-            display: flex;
-            align-items: center;
-            height: 50px;
-            width: 100%;
-            padding: 0 25px;
-            font-weight: bold;
-            font-size: 15px;
-            border-bottom: 1px solid #e6e9ed;
-            border-top: 1px solid #e6e9ed;
-            
+        height: 80px;
+        justify-content: space-between;
+        border-bottom: 1px solid #e6e9ed;
+  
+        div p {
+          display: flex;
+          flex: 1;
         }
-                
-        .asset {
-            display: flex;
-            align-items: center;
-            width: 220px;
-            height: 60px;
-            padding: 0px 25px;
-            padding-top: 25px;
-            padding-bottom: 25px;
-            font-size: 12px;
-            color: rgb(112, 112, 112);
-
-            div {
-                display: flex;
-                flex-direction: column;
-                justify-content: space-between;
-                height: 30px;
-                flex: 1;
-
-                .asset-name {
-                    font-weight: bold;
-                    color: black;
-                }
-
-            }
-                
-            div:last-child {
-                margin-right: auto;
-                text-align: end;
-
-                .green {
-                    color: green
-                }
-
-                .red {
-                    color: red
-                }
-            }
-
-            &:hover {
-                background-color: rgba($color: rgba(245, 245, 245, 0.452), $alpha: 1.0);
-
-            }
+  
+        div p:last-child {
+          margin-right: auto;
         }
+      }
     }
+  
+    .side-panel {
+      display: flex;
+      align-items: center;
+      flex-direction: column;
+      position: sticky;
+      width: 220px;
+      height: 60vh;
+      box-shadow: 0 0 10px lightgray;
+      border-radius: 3px;
+      font-size: 13px;
+  
+      header {
+        display: flex;
+        align-items: center;
+        height: 50px;
+        width: 100%;
+        padding: 0 25px;
+        font-weight: bold;
+        font-size: 15px;
+        border-bottom: 1px solid #e6e9ed;
+        border-top: 1px solid #e6e9ed;
+      }
+  
+      .asset {
+        display: flex;
+        align-items: center;
+        width: 220px;
+        height: 60px;
+        padding: 0px 25px;
+        padding-top: 25px;
+        padding-bottom: 25px;
+        font-size: 12px;
+        color: rgb(112, 112, 112);
+  
+        div {
+          display: flex;
+          flex-direction: column;
+          justify-content: space-between;
+          height: 30px;
+          flex: 1;
+  
+          .asset-name {
+            font-weight: bold;
+            color: black;
+          }
+        }
+  
+        div:last-child {
+          margin-right: auto;
+          text-align: end;
+  
+          .green {
+            color: green;
+          }
+  
+          .red {
+            color: red;
+          }
+        }
+  
+        &:hover {
+          background-color: rgba($color: rgba(245, 245, 245, 0.452), $alpha: 1);
+        }
+      }
+    }
+  }
 }
+
+
+// .outmost-portfolio-container {
+//   display: flex;
+//   flex-direction: column;
+//   justify-content: space-between;
+//   align-items: center;
+// }
+
+// .outer-portfolio-container {
+//   display: flex;
+//   flex-direction: row;
+//   justify-content: space-between;
+//   align-items: center;
+//   width: 880px;
+//   flex: wrap;
+//   padding-top: 30px;
+
+//   .feed-container {
+//     display: flex;
+//     width: 100%;
+//     height: 100vh;
+//     justify-content: space-between;
+//   }
+
+//   .feed {
+//     width: 620px;
+
+//     header {
+//       padding-top: 20px;
+
+//       h1 {
+//         font-size: 32px;
+//         padding: 5px;
+//       }
+//       p {
+//         font-size: 13px;
+//       }
+//     }
+
+//     .chart {
+//       border-bottom: 1px solid #e6e9ed;
+//     }
+
+//     .buying-power,
+//     .news {
+//       display: flex;
+//       align-items: center;
+//       height: 80px;
+//       justify-content: space-between;
+//       border-bottom: 1px solid #e6e9ed;
+
+//       div p {
+//         display: flex;
+//         flex: 1;
+//       }
+
+//       div p:last-child {
+//         margin-right: auto;
+//       }
+//     }
+//   }
+
+//   .side-panel {
+//     display: flex;
+//     align-items: center;
+//     flex-direction: column;
+//     position: sticky;
+//     width: 220px;
+//     height: 60vh;
+//     box-shadow: 0 0 10px lightgray;
+//     border-radius: 3px;
+//     font-size: 13px;
+
+//     header {
+//       display: flex;
+//       align-items: center;
+//       height: 50px;
+//       width: 100%;
+//       padding: 0 25px;
+//       font-weight: bold;
+//       font-size: 15px;
+//       border-bottom: 1px solid #e6e9ed;
+//       border-top: 1px solid #e6e9ed;
+//     }
+
+//     .asset {
+//       display: flex;
+//       align-items: center;
+//       width: 220px;
+//       height: 60px;
+//       padding: 0px 25px;
+//       padding-top: 25px;
+//       padding-bottom: 25px;
+//       font-size: 12px;
+//       color: rgb(112, 112, 112);
+
+//       div {
+//         display: flex;
+//         flex-direction: column;
+//         justify-content: space-between;
+//         height: 30px;
+//         flex: 1;
+
+//         .asset-name {
+//           font-weight: bold;
+//           color: black;
+//         }
+//       }
+
+//       div:last-child {
+//         margin-right: auto;
+//         text-align: end;
+
+//         .green {
+//           color: green;
+//         }
+
+//         .red {
+//           color: red;
+//         }
+//       }
+
+//       &:hover {
+//         background-color: rgba($color: rgba(245, 245, 245, 0.452), $alpha: 1);
+//       }
+//     }
+//   }
+// }

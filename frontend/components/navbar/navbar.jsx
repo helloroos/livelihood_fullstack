@@ -15,7 +15,7 @@ export default function navbar({ pathname, logOut, currentUser }) {
         </div>
 
         <div id="search-container">
-          <i class="fas fa-search"></i>
+          <i className="fas fa-search"></i>
           <input type="search" placeholder="Search" />
         </div>
 
