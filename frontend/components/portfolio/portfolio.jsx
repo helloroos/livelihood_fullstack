@@ -1,11 +1,15 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import AssetDetail from './asset_detail';
 import PortfolioChart from './portfolio_chart';
 import { Link } from 'react-router-dom';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 
 // const portfolio = ({ transfers, orders, buyingPower, currentUser, tokens, token, fetchUser, fetchToken, fetchTokens }) => {
-const portfolio = ({ fetchUser, fetchToken, fetchTokens }) => {
+const portfolio = () => {
+
+  useEffect(() => {
+    document.title = `Portfolio | Robinhodl`;
+  });
 
   const transfers = useSelector((state) => Object.values(state.entities.transfers))
   const orders = useSelector((state) => Object.values(state.entities.orders))
@@ -13,6 +17,7 @@ const portfolio = ({ fetchUser, fetchToken, fetchTokens }) => {
   const tokens = useSelector((state) => state.entities.tokens)
   const token = useSelector((state) => state.entities.token)
   const currentUser = useSelector((state) => state.session.currentUser.id)
+  const dispatch = useDispatch();
 
   if (Object.keys(orders) === 0) {
     return null;
@@ -20,8 +25,8 @@ const portfolio = ({ fetchUser, fetchToken, fetchTokens }) => {
     return (
       <div id="portfolio-container">
         <div id="portfolio-content">
-          <div className="feed-container">
-            <div className="feed">
+          <div id="feed-container">
+            <div id="feed">
               <header>
                 <h1>{formatter.format(buyingPower)}</h1>
                 <p>+$215.48 (+1.65%) Today</p>
@@ -50,7 +55,7 @@ const portfolio = ({ fetchUser, fetchToken, fetchTokens }) => {
                 </div>
               </section>
             </div>
-            <div className="side-panel">
+            <div id="side-panel">
               <header>
                 <h3>Cryptocurrencies</h3>
               </header>

@@ -6,7 +6,7 @@ import { Route, withRouter } from 'react-router-dom';
 import LogInFormContainer from "./session/log_in_form_container";
 import SignUpFormContainer from "./session/sign_up_form_container";
 import SplashContainer from "./splash/splash_container";
-import PortfolioContainer from "./portfolio/portfolio_container";
+import portfolio from "./portfolio/portfolio";
 import TokenContainer from "./token/token_index_container";
 import TokenShowContainer from "./token/token_show_container";
 import NavBarContainer from "./navbar/navbar_container";
@@ -24,7 +24,7 @@ const App = () => {
         <Switch>
             <AuthRoute path="/login" component={LogInFormContainer} />
             <AuthRoute path="/signup" component={SignUpFormContainer} />
-            <ProtectedRoute path="/portfolio" component={PortfolioContainer} />
+            <ProtectedRoute path="/portfolio" component={portfolio} />
             <ProtectedRoute exact path="/tokens" component={TokenIndexContainer} />
             <ProtectedRoute exact path="/cash" component={CashContainer} />
             {/* <Route path="/tokens" component={TokenContainer} /> */}

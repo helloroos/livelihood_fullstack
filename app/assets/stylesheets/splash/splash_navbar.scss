@@ -93,7 +93,7 @@
 
 #logged-in-navbar-container {
   display: grid;
-  grid-template-columns: 420px 1000px 1fr;
+  grid-template-columns: 420px 1100px 1fr;
   grid-template-areas: "logo-container search-container navbar-links-container";
   align-items: center;
   position: sticky;
@@ -127,7 +127,7 @@
     align-items: center;
     border-radius: 3px;
     border: 1px solid rgba(0, 0, 0, 0.08);
-    height: 32px;
+    height: 35px;
     width: 550px;
     margin-top: 5px;
     text-decoration: none;
@@ -144,6 +144,11 @@
       border: none;
       border-radius: 30px;
     }
+
+    &:hover {
+      border: 1px solid white;
+      box-shadow: 5px 5px 20px rgb(236, 230, 230);
+    }
   }
 
   #navbar-links-container {
@@ -156,7 +161,7 @@
     justify-self: end;
 
     a {
-      margin-right: 65px;
+      margin-right: 45px;
       align-self: center;
       white-space: nowrap;
       color: black;

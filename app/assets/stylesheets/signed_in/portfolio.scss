@@ -1,6 +1,6 @@
 #portfolio-container {
   display: grid;
-  grid-template-columns: 420px 1000px 1fr;
+  grid-template-columns: 420px 1100px 1fr;
   grid-template-areas: ". portfolio-content .";
 
   #portfolio-content {
@@ -9,19 +9,20 @@
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    width: 880px;
+    width: 1036px;
     flex: wrap;
     padding-top: 30px;
   
-    .feed-container {
+    #feed-container {
       display: flex;
       width: 100%;
       height: 100vh;
       justify-content: space-between;
+      // position: relative;
     }
   
-    .feed {
-      width: 620px;
+    #feed {
+      width: 690px;
   
       header {
         padding-top: 20px;
@@ -58,12 +59,14 @@
       }
     }
   
-    .side-panel {
+    #side-panel {
       display: flex;
       align-items: center;
       flex-direction: column;
-      position: sticky;
-      width: 220px;
+      position: fixed;
+      top: 90px;
+      right: 430px;
+      width: 275px;
       height: 60vh;
       box-shadow: 0 0 10px lightgray;
       border-radius: 3px;
