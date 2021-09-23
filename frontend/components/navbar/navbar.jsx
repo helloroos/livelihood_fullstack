@@ -1,7 +1,13 @@
 import React from 'react';
+import { useSelector, useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
 
-export default function navbar({ pathname, logOut, currentUser }) {
+export default function navbar({pathname}) {
+
+  const currentUser = useSelector((state) => state.session.currentUser)
+  // const pathname = useSelector((state) => ownProps.location.pathname)
+  const dispatch = useDispatch();
+
   if (pathname == "/login" || pathname == "/signup") {
     return null;
   } else if (currentUser) {
@@ -23,7 +29,7 @@ export default function navbar({ pathname, logOut, currentUser }) {
             <Link to="/cash">Cash</Link>
             <Link to="/portfolio">Portfolio</Link>
             <Link to="/account">Account</Link>
-            <Link to="/" onClick={logOut}>Log out</Link>
+            <Link to="/" onClick={() => dispatch(logOut())}>Log out</Link>
           </div>
       </div>
     )
