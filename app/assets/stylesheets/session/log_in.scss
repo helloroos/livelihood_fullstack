@@ -88,20 +88,20 @@
                 color: rgb(0, 180, 5);
               }
             }
-          }
-  
-          #session-btns {
-            display: flex;
-            flex-direction: row;
-            margin: 90px 0 0 0;
-            margin-left: 50px;
-  
-            button {
-              margin: 10px;
-              padding: 15px 30px;
-              border-radius: 3px;
-              color: white;
-              background-color: #00C805;
+            
+            #session-btns {
+              display: flex;
+              flex-direction: row;
+              margin: 90px 0 0 0;
+              margin-left: 50px;
+    
+              button {
+                margin: 10px;
+                padding: 15px 30px;
+                border-radius: 3px;
+                color: white;
+                background-color: #00C805;
+              }
             }
           }
         }

@@ -27,10 +27,15 @@ const portfolio = () => {
         <div id="portfolio-content">
           <div id="feed-container">
             <div id="feed">
+
               <header>
                 <h1>{formatter.format(buyingPower)}</h1>
-                <p>+$215.48 (+1.65%) Today</p>
+                <div id="change-container">
+                  <p id="change">+$215.48 (+1.65%)</p>
+                  <p id="period">Today</p>
+                </div>
               </header>
+
               <section className="chart">
                 <PortfolioChart
                   fetchUser={fetchUser}
@@ -38,6 +43,7 @@ const portfolio = () => {
                   transfers={transfers}
                   orders={orders} />
               </section>
+
               <section className="buying-power">
                 <div>
                   <p>Buying Power</p>
@@ -46,6 +52,7 @@ const portfolio = () => {
                   <p>{formatter.format(buyingPower)}</p>
                 </div>
               </section>
+
               <section className="news">
                 <div>
                   <p>News</p>
@@ -55,6 +62,7 @@ const portfolio = () => {
                 </div>
               </section>
             </div>
+
             <div id="side-panel">
               <header>
                 <h3>Cryptocurrencies</h3>
@@ -86,6 +94,7 @@ const portfolio = () => {
                 </Link>
               </ul>
             </div>
+
           </div>
         </div>
       </div>
@@ -124,17 +133,6 @@ class Portfolio extends React.Component {
       }
     }
     let assets = Object.entries(uniqOrders).filter(count => count[1] > 0)
-
-    console.log(this.props);
-
-    if (Object.keys(this.props.orders).length == 0) {
-      return <p>Loading...</p>
-    } else {
-      const buyingPower = this.props.buyingPower;
-      return (
-        <div></div>
-      )
-    }
   }
 }
 

@@ -6,11 +6,8 @@
   #portfolio-content {
     grid-area: portfolio-content;
     display: flex;
-    flex-direction: row;
-    justify-content: space-between;
     align-items: center;
     width: 1036px;
-    flex: wrap;
     padding-top: 30px;
   
     #feed-container {
@@ -19,45 +16,57 @@
       height: 100vh;
       justify-content: space-between;
       // position: relative;
-    }
-  
-    #feed {
-      width: 690px;
-  
-      header {
-        padding-top: 20px;
-  
-        h1 {
-          font-size: 32px;
-          padding: 5px;
+
+      #feed {
+        width: 690px;
+    
+        header {
+          padding-top: 20px;
+    
+          h1 {
+            font-size: 32px;
+            // padding: 5px;
+          }
+
+          #change-container {
+            display: flex;
+            margin: 10px 0 0 0;
+
+            p {
+              font-size: 13px;
+            }
+            
+            #change {
+              font-weight: bold;
+              margin: 0 5px 0 0;
+            }
+          }
         }
-        p {
-          font-size: 13px;
+    
+        .chart {
+          border-bottom: 1px solid #e6e9ed;
         }
-      }
-  
-      .chart {
-        border-bottom: 1px solid #e6e9ed;
-      }
-  
-      .buying-power,
-      .news {
-        display: flex;
-        align-items: center;
-        height: 80px;
-        justify-content: space-between;
-        border-bottom: 1px solid #e6e9ed;
-  
-        div p {
+    
+        .buying-power,
+        .news {
           display: flex;
-          flex: 1;
-        }
-  
-        div p:last-child {
-          margin-right: auto;
+          align-items: center;
+          height: 80px;
+          justify-content: space-between;
+          border-bottom: 1px solid #e6e9ed;
+    
+          div p {
+            display: flex;
+            flex: 1;
+          }
+    
+          div p:last-child {
+            margin-right: auto;
+          }
         }
       }
     }
+  
   
     #side-panel {
       display: flex;
@@ -65,7 +74,7 @@
       flex-direction: column;
       position: fixed;
       top: 90px;
-      right: 430px;
+      right: 460px;
       width: 275px;
       height: 60vh;
       box-shadow: 0 0 10px lightgray;

@@ -1,32 +1,36 @@
 import React, { useState, useEffect } from 'react'
+import { useSelector, useDispatch } from 'react-redux';
 import { Link, useHistory } from 'react-router-dom';
 
-export default function log_in_form({ logIn, resetErrors, formType, errors }) {
-
+export default function log_in_form() {
+  
   useEffect(() => {
     document.title = `Log In | Robinhodl`;
   });
-
+  
+  const currentUser = useSelector((state) => state.session.currentUser)
+  const errors = useSelector((state) => state.errors.session);
+  const dispatch = useDispatch();
+  
   const [user, setUser] = useState({email: "", password: ""});
   const history = useHistory();
-
+  
   const handleSubmit = (e) => {
     e.preventDefault();
-    logIn(user)
+    dispatch(logIn(demo))
     .then(() => {
-      history.push('/portfolio')
+      history.push('/portfolio');
     })
-    .catch(err => console.log(err))
   }
-
+  
   const logInDemo = (e) => {
     e.preventDefault();
     const demo = {email: "iamgroot@marvel.com", password: "password"};
-    logIn(demo)
+    
+    dispatch(logIn(demo))
     .then(() => {
-      history.push('/portfolio')
+      history.push('/portfolio');
     })
-    .catch(err => console.log(err))
   }
 
   return (
