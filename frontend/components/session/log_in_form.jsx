@@ -38,7 +38,7 @@ export default function log_in_form({ logIn, resetErrors, formType, errors }) {
 
       <div id="form-container">
         <div id="form-inner-container">
-          <form>
+          <form onSubmit={handleSubmit}>
             <h3>Welcome to Robinhodl</h3>
             
             <label>
@@ -57,12 +57,13 @@ export default function log_in_form({ logIn, resetErrors, formType, errors }) {
 
             <p id="sign-up"><Link to="/signup">New to Robinhodl? Sign up instead.</Link></p>
             {/* {this.renderErrors()} */}
-          </form>
 
           <div id="session-btns">
-            <button type="submit" onClick={handleSubmit}>Sign In</button>
+            <button type="submit">Sign In</button>
             <button type="submit" onClick={logInDemo}>Demo</button>
           </div>
+          </form>
+
         </div>
       </div>
     </div>
