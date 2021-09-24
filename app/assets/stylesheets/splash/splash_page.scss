@@ -5,7 +5,7 @@
     button {
       font-size: 18px;
       font-weight: bold;
-      color: black;
+      color: #6a7278;
       padding: 0;
       margin: 0;
       border: none;
@@ -64,6 +64,14 @@
 
       #splash1-disclosure {
         margin: 38px 0 0 0;
+
+        button {
+          color: black;
+
+          &:hover {
+            color: rgb(0, 180, 5);
+          }
+        }
       }
     }
 
@@ -193,10 +201,6 @@
 
       #splash3-disclosure {
         margin: 50px 0 0 0;
-
-        button {
-          color: #6a7278;
-        }
       }
     }
   }
@@ -245,10 +249,6 @@
   
       #splash4-disclosure {
         margin: 65px 0 0 0;
-
-        button {
-          color: #6a7278;
-        }
       }
     }
 
