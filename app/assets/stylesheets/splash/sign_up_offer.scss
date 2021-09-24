@@ -92,6 +92,7 @@
   #splash3-container {
     display: flex;
     justify-content: center;
+    border-bottom: 1px solid black;
 
     #splash3-img-container {
       height: 594;
@@ -178,6 +179,70 @@
           }
         }
       }
+    }
+  }
+  
+  #splash4-container {
+    background-color: rgb(243, 236, 231);
+    height: 527px;
+    display: flex;
+    justify-content: center;
+    // align-items: center;
+    
+    #splash4-text-container {
+      width: 750px;
+      margin: 50px 0 0 0;
+      
+      #splash4-header {
+        h2 {
+          font-size: 32px;
+        }
+        
+        p {
+          font-size: 18px;
+          color: #6A7278;
+          margin: 30px 0 0 0;
+        }
+      }
+      
+      #splash4-sections-container {
+        font-size: 18px;
+        display: flex;
+        margin: 40px 0 0 0;
+        
+        h3 {
+          font-weight: bold;
+        }
+  
+        p {
+          margin: 20px 0 0 0;
+        }
+        
+        .splash4-sections {
+          width: 256px;
+          line-height: 1.5;
+          margin: 25px 0 0 0;
+        }
+      }
+  
+      #splash4-disclosure {
+        margin: 65px 0 0 0;
+  
+        a {
+          font-size: 19px;
+          color: gray;
+          font-weight: bold;
+  
+          &:hover {
+            color: rgb(0, 180, 5);
+          }
+        }
+      }
+    }
+
+    #splash4-img-container {
+      margin: 0 0 0 70px;
+      align-self: center;
     }
   }
 }
