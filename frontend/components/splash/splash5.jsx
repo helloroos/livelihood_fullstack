@@ -1,31 +1,41 @@
-import React, { useState } from 'react'
+import React, { useState } from 'react';
+import Splash5Learn from './splash5_learn';
+import Splash5Manage from './splash5-manage';
+import Splash5Customize from './splash5-customize';
 
 export default function Splash5() {
 
-  const [show1, setShow1] = useState(true);
-  const [show2, setShow2] = useState(false);
-  const [show3, setShow3] = useState(false);
+  const [showLearn, setShowLearn] = useState(true);
+  const [showManage, setShowManage] = useState(false);
+  const [showCustomize, setShowCustomize] = useState(false);
+
+  const openLearn = () => {
+    setShowLearn(true);
+    setShowManage(false);
+    setShowCustomize(false);
+  }
+
+  const openManage = () => {
+    setShowLearn(false);
+    setShowManage(true);
+    setShowCustomize(false);
+  }
+
+  const openCustomize = () => {
+    setShowLearn(false);
+    setShowManage(true);
+    setShowCustomize(true);
+  }
 
   return (
     <div id="splash5-container">
       <div id="splash5-buttons">
-        <button id="1">Learn</button>
-        <button id="2">Manage</button>
-        <button id="3">Customize</button>
+        <button id="learn" onClick={openLearn}>Learn</button>
+        <button id="manage" onClick={openManage}>Manage</button>
+        <button id="customize" onClick={openCustomize}>Customize</button>
       </div>
-      <div id="splash5-inner-container">
-        <div id="splash5-img">
-          <img src={window.learn} alt="learn" />
-        </div>
 
-        <div id="splash5-text-container">
-
-          <div id="splash5-text">
-            <h1>Learn As You Grow</h1>
-            <p>Our goal is to make investing in financial markets more affordable, more intuitive, and more fun, no matter how much experience you have (or don’t have).</p>
-          </div>
-        </div>
-      </div>
+      <Splash5Learn showLearn={showLearn}></Splash5Learn>
 
     </div>
   )
