@@ -1,6 +1,6 @@
 import React from 'react'
 
-export default function Splash6Customize({ showCustomize }) {
+export default function Splash5Customize({ showCustomize }) {
   if (!showCustomize) {
     return null;
   } else {

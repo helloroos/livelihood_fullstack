@@ -2,6 +2,9 @@ import React, { useState } from 'react';
 // import DisclosureModal from './disclosure_modal';
 import Splash6Cash from './splash6_cash';
 import Splash6Gold from './splash6_gold';
+import Splash6Crypto from './splash6_crypto';
+import Splash6Options from './splash6_options';
+import Splash6Stocks from './splash6_stocks';
 
 export default function Splash6({ isOpen, setIsOpen }) {
 
@@ -67,6 +70,12 @@ export default function Splash6({ isOpen, setIsOpen }) {
           <Splash6Cash isOpen={isOpen} setIsOpen={setIsOpen} showCash={showCash}/>
 
           <Splash6Gold isOpen={isOpen} setIsOpen={setIsOpen} showGold={showGold} />
+
+          <Splash6Crypto isOpen={isOpen} setIsOpen={setIsOpen} showCrypto={showCrypto} />
+
+          <Splash6Options isOpen={isOpen} setIsOpen={setIsOpen} showOptions={showOptions} />
+
+          <Splash6Stocks isOpen={isOpen} setIsOpen={setIsOpen} showStocks={showStocks} />
 
         </div>
 

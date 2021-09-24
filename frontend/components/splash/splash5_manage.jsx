@@ -1,6 +1,6 @@
 import React from 'react'
 
-export default function Splash6Manage({ showManage }) {
+export default function Splash5Manage({ showManage }) {
   if (!showManage) {
     return null;
   } else {
