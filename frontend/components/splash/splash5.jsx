@@ -35,7 +35,8 @@ export default function Splash5() {
         <button id="customize" onClick={openCustomize}>Customize</button>
       </div>
 
-      <Splash5Learn showLearn={showLearn}></Splash5Learn>
+      <Splash5Learn showLearn={showLearn}/>
+      <Splash5Manage showManage={showManage}/>
 
     </div>
   )
