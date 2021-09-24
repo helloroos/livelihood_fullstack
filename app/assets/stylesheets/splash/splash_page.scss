@@ -17,6 +17,15 @@
     }
   }
 
+  @keyframes appear {
+    from { 
+      opacity: 0; 
+    }
+    to   { 
+      opacity: 1; 
+    }
+  }
+
   #splash1-container {
     background-color: rgb(195, 245, 60);
     display: flex;
@@ -274,6 +283,7 @@
 
     #splash5-inner-container {
       display: flex;
+      animation: appear 2s;
       
       #splash5-img {
         display: flex;

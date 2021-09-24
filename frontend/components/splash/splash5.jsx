@@ -23,7 +23,7 @@ export default function Splash5() {
 
   const openCustomize = () => {
     setShowLearn(false);
-    setShowManage(true);
+    setShowManage(false);
     setShowCustomize(true);
   }
 
@@ -37,6 +37,7 @@ export default function Splash5() {
 
       <Splash5Learn showLearn={showLearn}/>
       <Splash5Manage showManage={showManage}/>
+      <Splash5Customize showCustomize={showCustomize}/>
 
     </div>
   )
