@@ -1,25 +1,26 @@
 import React, { useState, useEffect } from 'react'
-import { Link } from 'react-router-dom';
+import { useSelector, useDispatch } from 'react-redux';
+import { Link, useHistory } from 'react-router-dom';
 
-export default function sign_up_form({ signUp, resetErrors, errors }) {
+// export default function sign_up_form({ signUp, resetErrors, errors }) {
+export default function sign_up_form() {
 
   useEffect(() => {
     document.title = `Sign up | Robinhodl`;
   });
 
+  const resetErrors = useSelector((state) => state.session.currentUser)
+  const errors = useSelector((state) => state.errors.session);
+  const dispatch = useDispatch();
+  const history = useHistory();
   const [user, setUser] = useState({ first_name: "", last_name: "", email: "", password: "" })
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    signUp(user)
+    dispatch(signUp(user))
     .then(() => {
-      history.push('/portfolio')
+      history.push('/portfolio');
     })
-    .catch(err => console.log(err))
-  }
-
-  const update = (e) => {
-    setUser({ ...user, first_name: e.target.value })
   }
 
   return (
@@ -39,28 +40,29 @@ export default function sign_up_form({ signUp, resetErrors, errors }) {
               commission-free.</p>
           </header>
 
-          <form >
+          <form onSubmit={handleSubmit}>
             <p>Please enter your full legal name. Your legal
               name should match any form of government ID.</p>
             <label>
-              <input type="text" className="short" placeholder="First name" onChange={update} value={user.first_name} required />
+              <input type="text" className="short" placeholder="First name" onChange={(e) => setUser({ ...user, first_name: e.target.value })} value={user.first_name} required />
             </label>
             <label>
-              <input type="text" className="short" id="second-input" placeholder="Last name" onChange={update} value={user.last_name} required />
+              <input type="text" className="short" id="second-input" placeholder="Last name" onChange={(e) => setUser({ ...user, last_name: e.target.value })} value={user.last_name} required />
             </label>
             <label>
-              <input type="email" placeholder="Email" onChange={update} value={user.email} required />
+              <input type="email" placeholder="Email" onChange={(e) => setUser({ ...user, email: e.target.value })} value={user.email} required />
             </label>
             <label>
-              <input type="password" placeholder="Password (min. 6 characters)" onChange={update} value={user.password} required />
+              <input type="password" placeholder="Password (min. 6 characters)" onChange={(e) => setUser({ ...user, password: e.target.value })} value={user.password} required />
             </label>
 
             <div className="session-btns" id="sign-up-btn-container">
-              <button type="submit" onClick={handleSubmit}>Sign up</button>
+              <button type="submit">Sign up</button>
               <p id="log-in"><Link to="/login">Already a member? Log in instead.</Link></p>
               {/* {this.renderErrors()} */}
             </div>
           </form>
+
           <div id="fine-print">
             <p>Robinhodl investments do not involve risk, including the possible loss of principal. Investors do not need to consider their investment objectives and risks carefully before investing.</p>
             <p>Commission-free trading means $0 commission trading on self-directed individual cash or margin brokerage accounts that trade U.S. listed crytp currencies via mobile devices or web. Keep in mind, other fees such as trading (non-commission) fees, Gold subscription fees, wire transfer fees, and paper statement fees do not apply to your brokerage account. Please see Robinhodl’s fee schedule to learn more.</p>

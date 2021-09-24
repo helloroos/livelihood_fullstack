@@ -11,7 +11,6 @@ export default function log_in_form() {
   const currentUser = useSelector((state) => state.session.currentUser)
   const errors = useSelector((state) => state.errors.session);
   const dispatch = useDispatch();
-  
   const [user, setUser] = useState({email: "", password: ""});
   const history = useHistory();
   
