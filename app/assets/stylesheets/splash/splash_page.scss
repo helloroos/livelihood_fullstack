@@ -353,10 +353,12 @@
       #splash6-info {
         width: 450px;
         margin: 0 0 220px 0;
+        animation: appear 2s;
 
         p {
           font-size: 18px;
           line-height: 1.5;
+          height: 200px;
           margin: 85px 0 0 0;
         }
 
@@ -369,7 +371,7 @@
           border-radius: 50px;
           transition: all 0.1s ease 0s;
           height: 46px;
-          margin: 170px 0 0 0;
+          // margin: 170px 0 0 0;
         }
             
         #splash6-disclosure {
@@ -378,6 +380,7 @@
       }
 
       #splash6-img {
+        animation: appear 2s;
 
         img {
           height: 560px;

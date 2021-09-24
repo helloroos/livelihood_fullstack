@@ -6,6 +6,12 @@ import Splash6Crypto from './splash6_crypto';
 import Splash6Options from './splash6_options';
 import Splash6Stocks from './splash6_stocks';
 
+import Splash6CashImg from './splash6_cash_img';
+import Splash6StocksImg from './splash6_stocks_img';
+import Splash6OptionsImg from './splash6_options_img';
+import Splash6GoldImg from './splash6_gold_img';
+import Splash6CryptoImg from './splash6_crypto_img';
+
 export default function Splash6({ isOpen, setIsOpen }) {
 
   const [showCash, setShowCash] = useState(true);
@@ -79,9 +85,11 @@ export default function Splash6({ isOpen, setIsOpen }) {
 
         </div>
 
-        <div id="splash6-img">
-          <img src="https://robinhood.com/us/en/_next/static/images/1x__ea42f9545c170fe8354ebde19dcefbc0.png" alt="cash-mgmt" />
-        </div>
+        <Splash6CashImg isOpen={isOpen} setIsOpen={setIsOpen} showCash={showCash} />
+        <Splash6StocksImg isOpen={isOpen} setIsOpen={setIsOpen} showStocks={showStocks} />
+        <Splash6OptionsImg isOpen={isOpen} setIsOpen={setIsOpen} showOptions={showOptions} />
+        <Splash6GoldImg isOpen={isOpen} setIsOpen={setIsOpen} showGold={showGold} />
+        <Splash6CryptoImg isOpen={isOpen} setIsOpen={setIsOpen} showCrypto={showCrypto} />
       </div>
     </div>
   )
