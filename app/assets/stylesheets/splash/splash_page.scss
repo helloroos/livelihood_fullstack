@@ -257,41 +257,50 @@
       button {
         border: none;
         background-color: black;
-        color: white;
         font-size: 24px;
         margin: 0 0 20px 0;
+        color: #545D61;
 
         &:hover {
           color: rgb(0, 180, 5);
         }
+
+        #1 {
+          color: white;
+
+        }
       }
     }
 
-    #splash5-img {
+    #splash5-inner-container {
       display: flex;
-      justify-content: center;
-      align-items: center;
-      width: 500px;
-    }
-
-    #splash5-text-container {
-      width: 550px;
-      color: white;
-      display: flex;
-      justify-content: center;
-      flex-direction: column;
-
-      #splash5-text {
-        width: 470px;
-        
-        h1 {
-          font-size: 52px;
-        }
-
-        p {
-          font-size: 18px;
-          margin: 20px 0 0 0;
-          line-height: 1.5;
+      
+      #splash5-img {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 500px;
+      }
+  
+      #splash5-text-container {
+        width: 550px;
+        color: white;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+  
+        #splash5-text {
+          width: 470px;
+          
+          h1 {
+            font-size: 52px;
+          }
+  
+          p {
+            font-size: 18px;
+            margin: 20px 0 0 0;
+            line-height: 1.5;
+          }
         }
       }
     }
