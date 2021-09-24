@@ -1,5 +1,22 @@
 #splash-container {
 
+  .disclosures {
+
+    button {
+      font-size: 18px;
+      font-weight: bold;
+      color: black;
+      padding: 0;
+      margin: 0;
+      border: none;
+      background-color: transparent;
+
+      &:hover {
+        color: rgb(0, 180, 5);
+      }
+    }
+  }
+
   #splash1-container {
     background-color: rgb(195, 245, 60);
     display: flex;
@@ -25,7 +42,7 @@
         font-size: 25px;
       }
 
-      button {
+      #sign-up {
         font-size: 18px;
         font-weight: bold;
         padding: 0px 40px;
@@ -36,22 +53,8 @@
         height: 46px;
       }
 
-      #disclosure-container {
+      #splash1-disclosure {
         margin: 38px 0 0 0;
-
-        button {
-          font-size: 18px;
-          font-weight: bold;
-          color: black;
-          padding: 0;
-          margin: 0;
-          border: none;
-          background-color: transparent;
-  
-          &:hover {
-            color: rgb(0, 180, 5);
-          }
-        }
       }
     }
 
@@ -181,16 +184,6 @@
 
       #splash3-disclosure {
         margin: 50px 0 0 0;
-
-        a {
-          font-size: 19px;
-          color: gray;
-          font-weight: bold;
-  
-          &:hover {
-            color: rgb(0, 180, 5);
-          }
-        }
       }
     }
   }
@@ -239,16 +232,6 @@
   
       #splash4-disclosure {
         margin: 65px 0 0 0;
-  
-        a {
-          font-size: 19px;
-          color: gray;
-          font-weight: bold;
-  
-          &:hover {
-            color: rgb(0, 180, 5);
-          }
-        }
       }
     }
 
@@ -373,16 +356,6 @@
             
         #splash6-disclosure {
           margin: 95px 0 0 0;
-
-          a {
-            font-size: 19px;
-            color: gray;
-            font-weight: bold;
-
-            &:hover {
-              color: rgb(0, 180, 5);
-            }
-          }
         }
       }
 
@@ -521,10 +494,8 @@
         #splash7-disclosure {
           margin: 95px 0 0 0;
 
-          a {
-            font-size: 18px;
-            color: gray;
-            font-weight: bold;
+          button {
+            color: #919FA6;
 
             &:hover {
               color: rgb(0, 180, 5);

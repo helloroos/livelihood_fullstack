@@ -21,8 +21,8 @@ export default function splash() {
   } else {
     return (
       <div id="splash-container">
-        <div id="splash1-container">
 
+        <div id="splash1-container">
           <div id="splash1-text">
             <h1>Investing for Everyone</h1>
             <p>Commission-free investing, plus the tools you need to put your
@@ -30,10 +30,10 @@ export default function splash() {
               Certain limitations apply.</p>
 
             <Link to="/signup">
-              <button type="submit">Sign Up</button>
+              <button id="sign-up">Sign Up</button>
             </Link>
 
-            <div id="disclosure-container">
+            <div id="splash1-disclosure" className="disclosures">
               <button onClick={() => setIsOpen(true)}>ⓘ Commissions and Free Token Disclosure</button>
             </div>
             <DisclosureModal open={isOpen} onClose={() => setIsOpen(false)}></DisclosureModal>
@@ -84,9 +84,10 @@ export default function splash() {
               </div>
             </div>
 
-            <div id="splash3-disclosure">
-              <a href="#">ⓘ IPO Access Disclosure</a>
+            <div id="splash3-disclosure" className="disclosures">
+              <button onClick={() => setIsOpen(true)}>ⓘ IPO Access Disclosure</button>
             </div>
+            <DisclosureModal open={isOpen} onClose={() => setIsOpen(false)}></DisclosureModal>
             <div id="splash3-header">
 
             </div>
@@ -115,9 +116,10 @@ export default function splash() {
               </div>
             </div>
 
-            <div id="splash4-disclosure">
-              <a href="#">ⓘ Fractional Shares Disclosure</a>
+            <div id="splash4-disclosure" className="disclosures">
+              <button onClick={() => setIsOpen(true)}>ⓘ Fractional Shares Disclosure</button>
             </div>
+            <DisclosureModal open={isOpen} onClose={() => setIsOpen(false)}></DisclosureModal>
           </div>
 
           <div id="splash4-img-container">
@@ -161,9 +163,10 @@ export default function splash() {
                 <p>Earn 0.30% APY* on your uninvested cash and get more flexibility with your brokerage account.</p>
               </div>
               <button id="learn">Learn about Cash Management</button>
-              <div id="splash6-disclosure">
-                <a href="#">ⓘ Variable APY and Debit Card Disclosures</a>
+              <div id="splash6-disclosure" className="disclosures">
+                <button onClick={() => setIsOpen(true)}>ⓘ Variable APY and Debit Card Disclosures</button>
               </div>
+              <DisclosureModal open={isOpen} onClose={() => setIsOpen(false)}></DisclosureModal>
 
             </div>
             <div id="splash6-img">
@@ -227,9 +230,10 @@ export default function splash() {
               <p>Robinhodl means Robinhodl Markets and its in-application and web experiences with its family of wholly owned subsidiaries which includes Robinhodl Financial, Robinhodl Securities, and Robinhodl Crypto.</p>
               <p>No investments involve risks, including the possible loss of capital.</p>
               <p>Securities trading is offered to self-directed customers by Robinhodl Financial. Robinhodl Financial is not a member of the Financial Industry Regulatory Authority (FINRA).</p>
-              <div id="splash7-disclosure">
-                <a href="#">ⓘ View important disclosures</a>
+              <div id="splash7-disclosure" className="disclosures">
+                <button onClick={() => setIsOpen(true)}>ⓘ View important disclosures</button>
               </div>
+              <DisclosureModal open={isOpen} onClose={() => setIsOpen(false)}></DisclosureModal>
             </div>
           </div>
         </div>
