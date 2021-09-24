@@ -1,6 +1,7 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
+import DisclosureModal from './disclosure_modal';
 
 export default function splash() {
 
@@ -9,6 +10,8 @@ export default function splash() {
   });
 
   const currentUser = useSelector((state) => state.session.currentUser)
+
+  const [isOpen, setIsOpen] = useState(false);
 
   if (currentUser) {
     return (
@@ -31,8 +34,9 @@ export default function splash() {
             </Link>
 
             <div id="disclosure-container">
-              <a href="#">ⓘ Commissions and Free Token Disclosure</a>
+              <button onClick={() => setIsOpen(true)}>ⓘ Commissions and Free Token Disclosure</button>
             </div>
+            <DisclosureModal open={isOpen} onClose={() => setIsOpen(false)}></DisclosureModal>
           </div>
 
           <div id="splash1-image">

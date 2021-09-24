@@ -1,0 +1,25 @@
+#disclosure-modal-container {
+
+  #modal-bg {
+    background-color: rgba(0, 0, 0, 0.7);
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 1000;
+    cursor: pointer;
+  }
+
+  #disclosure-modal {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1000;
+
+    i {
+      cursor: pointer;
+    }
+  }
+}
