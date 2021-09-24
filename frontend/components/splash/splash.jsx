@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react'
 import { useSelector } from 'react-redux';
-import { Link } from 'react-router-dom';
 import DisclosureModal from './disclosure_modal';
+import Splash1 from './splash1';
+import Splash2 from './splash2';
 
 export default function splash() {
 
@@ -22,34 +23,10 @@ export default function splash() {
     return (
       <div id="splash-container">
 
-        <div id="splash1-container">
-          <div id="splash1-text">
-            <h1>Investing for Everyone</h1>
-            <p>Commission-free investing, plus the tools you need to put your
-              money in motion. Sign up and get your first tokens for free.
-              Certain limitations apply.</p>
+        <Splash1 isOpen={isOpen}></Splash1>
+        
+        <Splash2></Splash2>
 
-            <Link to="/signup">
-              <button id="sign-up">Sign Up</button>
-            </Link>
-
-            <div id="splash1-disclosure" className="disclosures">
-              <button onClick={() => setIsOpen(true)}>ⓘ Commissions and Free Token Disclosure</button>
-            </div>
-            <DisclosureModal open={isOpen} onClose={() => setIsOpen(false)}></DisclosureModal>
-          </div>
-
-          <div id="splash1-image">
-            <video src={window.offer_video} draggable="false" className="offer-video" autoPlay controlsList="nodownload nofullscreen noremoteplayback" loop muted playsInline preload="auto" />
-            <img className="offer-image" src={window.offer_image} />
-          </div>
-
-        </div>
-
-        <div id="splash2-container">
-          <p>See my <a href="https://firebasestorage.googleapis.com/v0/b/scroople-25727.appspot.com/o/Michelle%20Roos%20-%20Resume.pdf?alt=media&token=04dc0414-21f1-4d24-af4e-5a49eceb3371"
-            id="resume" class="header-links" target="_blank" download>resume</a> to learn more about me.</p>
-        </div>
 
         <div id="splash3-container">
           <div id="splash3-img-container">
