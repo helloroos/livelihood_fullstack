@@ -7,7 +7,8 @@ import { Route, withRouter } from 'react-router-dom';
 import log_in_form from "./session/log_in_form";
 // import SignUpFormContainer from "./session/sign_up_form_container";
 import sign_up_form from "./session/sign_up_form";
-import SplashContainer from "./splash/splash_container";
+// import SplashContainer from "./splash/splash_container";
+import splash from "./splash/splash";
 import portfolio from "./portfolio/portfolio";
 import TokenContainer from "./token/token_index_container";
 import TokenShowContainer from "./token/token_show_container";
@@ -31,7 +32,7 @@ const App = () => {
             <ProtectedRoute exact path="/cash" component={CashContainer} />
             {/* <Route path="/tokens" component={TokenContainer} /> */}
             <ProtectedRoute path="/tokens/:tokenId" component={TokenShowContainer} /> {/** Add in tokenId */}
-            <Route exact path="/" component={SplashContainer} />
+                <Route exact path="/" component={splash} />
         </Switch>
     </div>
     )
