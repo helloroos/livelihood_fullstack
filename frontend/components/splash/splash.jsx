@@ -5,6 +5,7 @@ import Splash1 from './splash1';
 import Splash2 from './splash2';
 import Splash3 from './splash3';
 import Splash4 from './splash4';
+import Splash5 from './splash5';
 
 export default function splash() {
 
@@ -33,25 +34,9 @@ export default function splash() {
 
         <Splash4 isOpen={isOpen}></Splash4>
 
-        <div id="splash5-container">
-          <div id="splash5-buttons">
-            <button>Learn</button>
-            <button>Manage</button>
-            <button>Customize</button>
-          </div>
+        <Splash5></Splash5>
 
-          <div id="splash5-img">
-            <img src={window.learn} alt="learn" />
-          </div>
 
-          <div id="splash5-text-container">
-
-            <div id="splash5-text">
-              <h1>Learn As You Grow</h1>
-              <p>Our goal is to make investing in financial markets more affordable, more intuitive, and more fun, no matter how much experience you have (or don’t have).</p>
-            </div>
-          </div>
-        </div>
 
         <div id="splash6-container">
           <div id="splash6-inner-container">
@@ -78,8 +63,8 @@ export default function splash() {
               <img src="https://robinhood.com/us/en/_next/static/images/1x__ea42f9545c170fe8354ebde19dcefbc0.png" alt="cash-mgmt" />
             </div>
           </div>
-
         </div>
+        
         <div id="splash7-container">
           <div id="splash7-inner-container">
             
