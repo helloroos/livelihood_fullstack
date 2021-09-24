@@ -165,18 +165,59 @@ export default function splash() {
               <img src="https://robinhood.com/us/en/_next/static/images/1x__ea42f9545c170fe8354ebde19dcefbc0.png" alt="cash-mgmt" />
             </div>
           </div>
+
         </div>
+        <div id="splash7-container">
+          <div id="splash7-inner-container">
+            
+            <div id="footer-links">
+              <div id="links">
+                <div id="col1" className="cols">
+                  <p>Stocks & Funds</p>
+                  <p>Options</p>
+                  <p>Gold</p>
+                  <p>Cash Management</p>
+                  <p>Crypto</p>
+                </div>
+                <div id="col2" className="cols">
+                  <p>Learn</p>
+                  <p>Support</p>
+                  <p>Snacks</p>
+                </div>
+                <div id="col3" className="cols">
+                  <p>About us</p>
+                  <p>Careers</p>
+                  <p>Affiliates</p>
+                  <p>Blog</p>
+                  <p>Investor Relations</p>
+                  <div id="contact-icons">
+                    <i class="fab fa-linkedin"></i>
+                    <i class="fab fa-github-square"></i>
+                    <i class="far fa-file"></i>
+                    <i class="far fa-user"></i>
+                  </div>
+                </div>
+              </div>
 
+              <div id="snacks">
+                <img src={window.snacks} alt="snacks" />
+                <p>The 3-minute newsletter with fresh takes on the financial news you need to start your day.</p>
+                <div id="email-container">
+                  <input type="text" placeholder="email@email.com"/>
+                  <button>Get in touch</button>
+                </div>
 
-        {/* <div className="superbowl-campaign">
-            <video src="https://cdn.robinhood.com/assets/superbowl/superbowl.mp4"></video>
-            <h1>We are all investors</h1>
-            <p>See the campaign ➔</p>
+              </div>
+            </div>
+
+            <div id="tandcs">
+
+            </div>
+            <div id="rights">
+
+            </div>
           </div>
-
-          <div>
-            FOOTER
-          </div> */}
+        </div>
       </div>
     )
   }

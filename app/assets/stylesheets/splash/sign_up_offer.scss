@@ -383,6 +383,102 @@
       }
     }
   }
+
+  #splash7-container {
+    height: 875px;
+    background-color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    
+    #splash7-inner-container {
+      width: 1200px;
+      display: flex;
+      flex-direction: column;
+
+      #footer-links {
+        display: flex;
+        justify-content: space-between;
+
+        #links {
+          display: flex;
+          
+          .cols {
+            width: 186px;
+            display: flex;
+            flex-direction: column;
+
+            p {
+              font-size: 18px;
+              margin: 0 0 25px 0;
+            }
+          }
+
+          #col3 {
+
+            i {
+              margin: 0 25px 0 0;
+            }
+          }
+        }
+
+        #snacks {
+          width: 492px;
+    
+          p {
+            margin: 15px 0 0 0;
+            font-size: 18px;
+            color: #919FA6;
+            line-height: 1.5;
+          }
+    
+          #email-container {
+            border-radius: 30px;
+            height: 60px;
+            width: 440px;
+            background-color: #1E2124;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin: 20px 0 0 0;
+    
+            input {
+              background-color: transparent;
+              border-radius: 30px;
+              outline: none;
+              border: none;
+              margin: 0 0 0 12px;
+    
+              &::placeholder {
+                font-size: 18px;
+              }
+            }
+    
+            button {
+              margin: 0 8px 0 0;
+              display: inline-block;
+              font-size: 18px;
+              font-weight: bold;
+              padding: 0px 36px;
+              background-color: rgb(00, 200, 5);
+              border-radius: 50px;
+              transition: all 0.1s ease 0s;
+              height: 43px;
+    
+              &:hover {
+                background-color: rgba(0, 180, 5, 5);
+              }
+            }
+    
+            &:active {
+              background-color: #2a2d30;
+            }
+          }
+        }
+      }      
+    }
+  }
 }
 
 // .sign-up-offer {
