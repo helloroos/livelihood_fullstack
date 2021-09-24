@@ -3,7 +3,10 @@ import DisclosureModal from './disclosure_modal';
 
 export default function Splash6StocksImg({ showStocks }) {
   if (!showStocks) {
-    return null;
+    return (
+      <div id="splash6-img">
+      </div>
+    )
   } else {
     return (
       <div id="splash6-img">

@@ -2,7 +2,10 @@ import React from 'react'
 
 export default function Splash6OptionsImg({ showOptions }) {
   if (!showOptions) {
-    return null;
+    return (
+      <div id="splash6-img">
+      </div>
+    )
   } else {
     return (
       <div id="splash6-img">

@@ -3,7 +3,10 @@ import DisclosureModal from './disclosure_modal';
 
 export default function Splash6Gold({ showGold, isOpen, setIsOpen }) {
   if (!showGold) {
-    return null;
+    return (
+      <div id="splash6-info">
+      </div>
+    )
   } else {
     return (
       <div id="splash6-info">
