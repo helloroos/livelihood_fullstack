@@ -328,38 +328,36 @@
       align-items: center;
       justify-content: center;
 
-      #splash6-text {
+      h2 {
+        font-size: 36px;
+        margin: 170px 0 0 0;
+      }
 
-        h2 {
-          font-size: 36px;
-        }
+      #splash6-buttons {
+        margin: 30px 0 0 0;
 
-        #splash6-buttons {
-          margin: 30px 0 0 0;
+        button {
+          border: none;
+          background-color: rgb(243, 236, 231);
+          color: #6A7278;
+          padding: 0;
+          margin: 0 20px 0 0;
+          font-size: 24px;
 
-          button {
-            border: none;
-            background-color: rgb(243, 236, 231);
-            color: #6A7278;
-            padding: 0;
-            margin: 0 20px 0 0;
-            font-size: 24px;
-
-            &:hover {
-              color: rgb(0, 180, 5);
-            }
+          &:hover {
+            color: rgb(0, 180, 5);
           }
         }
+      }
 
-        #splash6-info {
-          width: 450px;
-          margin: 0 0 220px 0;
+      #splash6-info {
+        width: 450px;
+        margin: 0 0 220px 0;
 
-          p {
-            font-size: 18px;
-            line-height: 1.5;
-            margin: 70px 0 0 0;
-          }
+        p {
+          font-size: 18px;
+          line-height: 1.5;
+          margin: 85px 0 0 0;
         }
 
         #learn {
@@ -371,10 +369,11 @@
           border-radius: 50px;
           transition: all 0.1s ease 0s;
           height: 46px;
+          margin: 170px 0 0 0;
         }
             
         #splash6-disclosure {
-          margin: 95px 0 0 0;
+          margin: 105px 0 0 0;
         }
       }
 

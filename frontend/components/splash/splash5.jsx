@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import Splash5Learn from './splash5_learn';
-import Splash5Manage from './splash5-manage';
-import Splash5Customize from './splash5-customize';
+import Splash5Manage from './splash5_manage';
+import Splash5Customize from './splash5_customize';
 
 export default function Splash5() {
 
