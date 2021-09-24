@@ -72,54 +72,112 @@
         top: 0;
         left: 0;
       }
-
-      // display: block;
-      // margin-right: auto;
-      // margin-top: 18px;
-      // height: 80%;
-      // display: flex;
-      // justify-content: center;
-      // align-items: center;
-      // flex-direction: column;
-      // margin-left:350px;
-
-      // img {
-      //     position: absolute;
-      //     z-index: 2;
-      //     top: 115px;
-      //     left: 85px;
-      //     height: 650px;
-      //     // margin-top: 200px;
-      // }
-
-      // video {
-      //     // margin-top: 200px;
-      //     position: absolute;
-      //     z-index: 1;
-      //     top: 115px;
-      //     left: 85px;
-      //     height: 650px;
-
-      // }
     }
   }
 
-  .disclaimer {
+  #splash2-container {
     background-color: white;
-    height: 65px;
+    height: 95px;
     display: flex;
     align-items: center;
     justify-content: center;
-    border-bottom-color: rgb(0, 0, 0);
-    border-bottom-style: solid;
-    border-bottom-width: 1px;
-    border-top-color: rgb(0, 0, 0);
-    border-top-style: solid;
-    border-top-width: 1px;
-    text-align: center;
+    border-bottom: 1px solid black;
+    border-top: 1px solid black;
 
     p {
-      display: block;
+      font-size: 18px;
+    }
+  }
+
+  #splash3-container {
+    display: flex;
+    justify-content: center;
+
+    #splash3-img-container {
+      height: 594;
+      width: auto;
+    }
+    
+    #splash3-text-container {
+      width: 600px;
+      margin: 80px 0 0 0;
+
+      #splash3-header {
+        
+        h2 {
+          font-size: 32px;
+        }
+        
+        p {
+          font-size: 18px;
+          margin: 20px 0 0 0;
+          line-height: 1.5;
+        }
+      }
+
+      #splash3-bullets {
+        display: grid;
+        grid-template-columns: 68px 594px;
+        grid-template-rows: 100px 100px 100px;
+        grid-template-areas: 
+        "turn-img turn-text"
+        "first-img first-text"
+        "shot-img shot-text";
+        margin: 40px 0 0 0;
+
+        #turn-img {
+          grid-area: turn-img;
+        }
+
+        #turn-text {
+          grid-area: turn-text;
+          
+          h3 {
+            font-weight: bold;
+            margin: 0 0 10px 0;
+          }
+        }
+
+        #first-img {
+          grid-area: first-img;
+        }
+
+        #first-text {
+          grid-area: first-text;
+          
+          h3 {
+            font-weight: bold;
+            margin: 0 0 10px 0;
+          }
+        }
+
+        #shot-img {
+          grid-area: shot-img;
+        }
+
+        #shot-text {
+          grid-area: shot-text;
+          
+          h3 {
+            font-weight: bold;
+            margin: 0 0 10px 0;
+          }
+        }
+      }
+
+      #splash3-disclosure {
+        margin: 50px 0 0 0;
+
+        a {
+          font-size: 19px;
+          color: gray;
+          font-weight: bold;
+  
+          &:hover {
+            color: rgb(0, 180, 5);
+          }
+        }
+      }
     }
   }
 }
