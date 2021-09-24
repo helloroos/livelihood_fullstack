@@ -2,7 +2,7 @@ import React from 'react'
 import { Link } from 'react-router-dom';
 import DisclosureModal from './disclosure_modal';
 
-export default function Splash1({isOpen}) {
+export default function Splash1({isOpen, setIsOpen }) {
   return (
     <div id="splash1-container">
       <div id="splash1-text">

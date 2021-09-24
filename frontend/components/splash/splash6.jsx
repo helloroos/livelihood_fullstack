@@ -1,7 +1,7 @@
 import React from 'react';
 import DisclosureModal from './disclosure_modal';
 
-export default function Splash6({isOpen}) {
+export default function Splash6({ isOpen, setIsOpen }) {
   return (
     <div id="splash6-container">
       <div id="splash6-inner-container">

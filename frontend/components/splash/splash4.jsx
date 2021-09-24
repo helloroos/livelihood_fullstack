@@ -1,7 +1,7 @@
 import React from 'react';
 import DisclosureModal from './disclosure_modal';
 
-export default function Splash4({isOpen}) {
+export default function Splash4({ isOpen, setIsOpen}) {
   return (
     <div id="splash4-container">
       <div id="splash4-text-container">

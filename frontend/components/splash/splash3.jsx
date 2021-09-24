@@ -1,7 +1,7 @@
 import React from 'react';
 import DisclosureModal from './disclosure_modal';
 
-export default function Splash3({isOpen}) {
+export default function Splash3({ isOpen, setIsOpen }) {
   return (
     <div id="splash3-container">
       <div id="splash3-img-container">
