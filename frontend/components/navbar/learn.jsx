@@ -1,16 +1,20 @@
-import React from 'react';
-import { HashLink } from 'react-router-hash-link';
+import React, { useState } from 'react';
+import DisclosureModal from '../splash/disclosure_modal';
 
 export default function Learn({ showLearn }) {
+
+  const [isOpen, setIsOpen] = useState(false);
+
   if (!showLearn) {
     return null;
   } else {
     return (
       <div id="lower-navbar">
         <div id="lower-links-container">
-          <HashLink to="/splash6-container">Investing Basics</HashLink>
-          <HashLink to="/splash6-container">Library</HashLink>
-          <HashLink to="/splash6-container">Snacks</HashLink>
+          <p onClick={() => setIsOpen(true)}>Investing Basics</p>
+          <p onClick={() => setIsOpen(true)}>Library</p>
+          <p onClick={() => setIsOpen(true)}>Snacks</p>
+          <DisclosureModal open={isOpen} onClose={() => setIsOpen(false)} />
         </div>
       </div>
     )
