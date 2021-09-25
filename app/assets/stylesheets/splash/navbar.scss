@@ -1,99 +1,126 @@
 #logged-out-navbar-container {
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-  position: sticky;
-  top: 0;
-  width: 100%;
-  background-color: white;
-  height: 64px;
-  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.2);
-  z-index: 999;
-
-  #logo-container {
-    padding-left: 30px;
+  
+  #upper-navbar {
+    display: flex;
+    justify-content: flex-start;
     align-items: center;
-    width: auto;
+    position: sticky;
+    top: 0;
+    width: 100%;
+    background-color: white;
+    height: 64px;
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.2);
+    z-index: 999;
 
-    a {
+    #logo-container {
+      padding-left: 30px;
+      align-items: center;
+      width: auto;
+  
+      a {
+        display: flex;
+        flex-direction: row;
+  
+        h2 {
+          font-size: 24px;
+        }
+  
+        img, i {
+          width: 25px;
+          height: 25px;
+          margin-left: 5px;
+          align-self: center;
+        }
+      }
+    }
+  
+    #navbar-links-container {
+      font-size: 18px;
+      box-shadow: none;
       display: flex;
       flex-direction: row;
-
-      h2 {
-        font-size: 24px;
-      }
-
-      img, i {
-        width: 25px;
-        height: 25px;
-        margin-left: 5px;
-        align-self: center;
-      }
-    }
-  }
-
-  #navbar-links-container {
-    font-size: 18px;
-    box-shadow: none;
-    display: flex;
-    flex-direction: row;
-
-    p {
-      margin-left: 50px;
-      transition: all 0.1s ease 0s;
-      cursor: pointer;
-
-      i {
-        font-size: 14px;
-      }
-      
-      &:hover {
-        color: rgb(0, 180, 5);
-      }
-    }
-
-    // a {
-    //   margin-left: 50px;
-    //   transition: all 0.1s ease 0s;
-      
-    //   &:hover {
-    //     color: rgb(0, 180, 5);
-    //   }
-    // }
-  }
   
-  #session-container {
-    margin-left: auto;
-    display: flex;
-    flex-direction: row;
-    
-    a {
-      font-weight: bold;
-      text-align: center;
-      transition: all 0.1s ease 0s;
-      align-self: center;
-      white-space: nowrap;
-      margin-left: 25px;
-      font-size: 17px;
-      transition: all 0.1s ease 0s;
-
-      &:hover {
-        color: rgb(0, 180, 5);
-      }
-
-      button {
-        margin-right: 25px;
-        display: inline-block;
-        font-size: 18px;
-        font-weight: bold;
-        padding: 0px 36px;
-        background-color: rgb(00, 200, 5);
-        border-radius: 50px;
+      p {
+        margin-left: 50px;
         transition: all 0.1s ease 0s;
-        height: 43px;
+        cursor: pointer;
+  
+        i {
+          font-size: 14px;
+        }
+        
+        &:hover {
+          color: rgb(0, 180, 5);
+        }
+      }
+  
+      // a {
+      //   margin-left: 50px;
+      //   transition: all 0.1s ease 0s;
+        
+      //   &:hover {
+      //     color: rgb(0, 180, 5);
+      //   }
+      // }
+    }
+    
+    #session-container {
+      margin-left: auto;
+      display: flex;
+      flex-direction: row;
+      
+      a {
+        font-weight: bold;
+        text-align: center;
+        transition: all 0.1s ease 0s;
+        align-self: center;
+        white-space: nowrap;
+        margin-left: 25px;
+        font-size: 17px;
+        transition: all 0.1s ease 0s;
+  
+        &:hover {
+          color: rgb(0, 180, 5);
+        }
+  
+        button {
+          margin-right: 25px;
+          display: inline-block;
+          font-size: 18px;
+          font-weight: bold;
+          padding: 0px 36px;
+          background-color: rgb(00, 200, 5);
+          border-radius: 50px;
+          transition: all 0.1s ease 0s;
+          height: 43px;
+  
+          &:hover {
+            background-color: rgba(0, 180, 5, 5);
+          }
+        }
+      }
+    }
+  }
+
+  #lower-navbar {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    position: absolute;
+    width: 100%;
+    background-color: white;
+    height: 64px;
+    z-index: 998;
+
+    #lower-links-container {
+      margin: 0 0 0 215px;
+
+      a {
+        font-size: 18px;
+        margin: 0 40px 0 0;
 
         &:hover {
-          background-color: rgba(0, 180, 5, 5);
+          color: rgb(0, 180, 5);
         }
       }
     }

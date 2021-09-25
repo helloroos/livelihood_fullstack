@@ -442,6 +442,10 @@
               
               i {
                 margin: 0 25px 0 0;
+
+                &:hover {
+                  color: rgb(0, 180, 5);
+                }
               }
             }
           }
@@ -545,107 +549,3 @@
     }
   }
 }
-
-// .sign-up-offer {
-//     background-color: rgb(195,245,60);
-//     display: flex;
-//     justify-content: center;
-//     align-items: center;
-//     height: 750px;
-
-//     .offer {
-//         width: 480px;
-//         // flex: 1;
-
-//         h1 {
-//             font-size: 52px;
-//             font-weight: 500;
-//             margin-bottom: 18px;
-//             margin-top: 18px;
-//         }
-
-//         p {
-//             // font-weight: 24px;
-//             line-height: 30px;
-//             margin-bottom: 18px;
-//             margin-top: 18px;
-//             font-size: 20px;
-//         }
-
-//          button {
-//             font-size: 17px;
-//             font-weight: bold;
-//             padding: 0px 36px;
-//             background-color: black;
-//             color: white;
-//             border-radius: 50px;
-//             transition: all 0.1s ease 0s;
-//             height: 43px;
-//         }
-
-//         .sign-up-btn {
-//             margin-bottom: 18px;
-//             margin-top: 18px;
-//         }
-
-//         .disclosure {
-//             p {
-//                 font-size: 15px;
-//                 font-weight: bold;
-//             }
-//         }
-//     }
-
-//     .offer-image {
-//         height: 603px;
-//         width: auto;
-//         // display: block;
-//         // margin-right: auto;
-//         // margin-top: 18px;
-//         // height: 80%;
-//         // display: flex;
-//         // justify-content: center;
-//         // align-items: center;
-//         // flex-direction: column;
-//         // margin-left:350px;
-
-//         // img {
-//         //     position: absolute;
-//         //     z-index: 2;
-//         //     top: 115px;
-//         //     left: 85px;
-//         //     height: 650px;
-//         //     // margin-top: 200px;
-//         // }
-
-//         // video {
-//         //     // margin-top: 200px;
-//         //     position: absolute;
-//         //     z-index: 1;
-//         //     top: 115px;
-//         //     left: 85px;
-//         //     height: 650px;
-
-//         // }
-//     }
-
-// }
-
-// .disclaimer {
-//     background-color: white;
-//     height: 65px;
-//     display: flex;
-//     align-items: center;
-//     justify-content: center;
-//     border-bottom-color: rgb(0,0,0);
-//     border-bottom-style: solid;
-//     border-bottom-width: 1px;
-//     border-top-color: rgb(0,0,0);
-//     border-top-style: solid;
-//     border-top-width: 1px;
-//     text-align: center;
-
-//     p {
-//         display: block;
-//     }
-// }
