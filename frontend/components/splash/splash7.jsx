@@ -16,16 +16,18 @@ export default function Splash7({ isOpen, setIsOpen }) {
               <p>Crypto</p>
             </div>
             <div id="col2" className="cols">
-              <p>Learn</p>
-              <p>Support</p>
-              <p>Snacks</p>
+              <p onClick={() => setIsOpen(true)}>Learn</p>
+              <p onClick={() => setIsOpen(true)}>Support</p>
+              <p onClick={() => setIsOpen(true)}>Snacks</p>
+              <DisclosureModal open={isOpen} onClose={() => setIsOpen(false)}></DisclosureModal>
             </div>
             <div id="col3" className="cols">
-              <p>About us</p>
-              <p>Careers</p>
-              <p>Affiliates</p>
-              <p>Blog</p>
-              <p>Investor Relations</p>
+              <p onClick={() => setIsOpen(true)}>About us</p>
+              <p onClick={() => setIsOpen(true)}>Careers</p>
+              <p onClick={() => setIsOpen(true)}>Affiliates</p>
+              <p onClick={() => setIsOpen(true)}>Blog</p>
+              <p onClick={() => setIsOpen(true)}>Investor Relations</p>
+              <DisclosureModal open={isOpen} onClose={() => setIsOpen(false)}></DisclosureModal>
               <div id="contact-icons">
                 <a href="https://www.linkedin.com/in/roosmichelle/" target="_blank"><i className="fab fa-linkedin"></i></a>
                 <a href="https://github.com/michelleroos" target="_blank"><i className="fab fa-github-square"></i></a>

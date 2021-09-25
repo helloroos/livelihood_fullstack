@@ -429,23 +429,14 @@
             display: flex;
             flex-direction: column;
 
-            p {
+            p, i {
               font-size: 18px;
-              margin: 0 0 25px 0;
-            }
-          }
-
-          #col3 {
-
-            a {
+              margin: 0 25px 25px 0;
+              cursor: pointer;
               color: white;
-              
-              i {
-                margin: 0 25px 0 0;
 
-                &:hover {
-                  color: rgb(0, 180, 5);
-                }
+              &:hover {
+                color: rgb(0, 180, 5);
               }
             }
           }
