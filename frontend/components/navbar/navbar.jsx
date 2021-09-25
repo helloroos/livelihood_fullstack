@@ -45,9 +45,13 @@ export default function navbar({pathname}) {
           </div>
 
         <div id="navbar-links-container">
-            <a href="https://github.com/michelleroos" target="_blank">GitHub</a>
+          <p>Products <i className="fas fa-chevron-down"></i></p>
+          <p>Learn <i className="fas fa-chevron-down"></i></p>
+          <p>Support</p>
+          <p>Who I am <i className="fas fa-chevron-down"></i></p>
+            {/* <a href="https://github.com/michelleroos" target="_blank">GitHub</a>
             <a href="https://www.linkedin.com/in/roosmichelle/" target="_blank">LinkedIn</a>
-            <a href="#" target="_black">Portfolio</a>
+            <a href="#" target="_black">Portfolio</a> */}
           </div>
 
           <div id="session-container">

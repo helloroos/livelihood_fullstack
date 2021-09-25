@@ -74,15 +74,10 @@ export default function Splash6({ isOpen, setIsOpen }) {
           </div>
 
           <Splash6Cash isOpen={isOpen} setIsOpen={setIsOpen} showCash={showCash}/>
-
-          <Splash6Gold isOpen={isOpen} setIsOpen={setIsOpen} showGold={showGold} />
-
-          <Splash6Crypto isOpen={isOpen} setIsOpen={setIsOpen} showCrypto={showCrypto} />
-
-          <Splash6Options isOpen={isOpen} setIsOpen={setIsOpen} showOptions={showOptions} />
-
           <Splash6Stocks isOpen={isOpen} setIsOpen={setIsOpen} showStocks={showStocks} />
-
+          <Splash6Options isOpen={isOpen} setIsOpen={setIsOpen} showOptions={showOptions} />
+          <Splash6Gold isOpen={isOpen} setIsOpen={setIsOpen} showGold={showGold} />
+          <Splash6Crypto isOpen={isOpen} setIsOpen={setIsOpen} showCrypto={showCrypto} />
         </div>
 
         <Splash6CashImg isOpen={isOpen} setIsOpen={setIsOpen} showCash={showCash} />
