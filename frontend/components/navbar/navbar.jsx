@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
 import Products from './products';
+import Learn from './learn';
+import AboutMe from './about_me';
 
 export default function navbar({pathname}) {
 
@@ -16,14 +18,12 @@ export default function navbar({pathname}) {
   const openProducts = () => {
     setShowProducts(!showProducts);
     setShowLearn(false);
-    setShowSupport(false);
     setShowAboutMe(false);
   }
 
   const openLearn = () => {
     setShowLearn(!showLearn);
     setShowProducts(false);
-    setShowSupport(false);
     setShowAboutMe(false);
   }
 
@@ -31,7 +31,6 @@ export default function navbar({pathname}) {
     setShowAboutMe(!showAboutMe);
     setShowLearn(false);
     setShowProducts(false);
-    setShowSupport(false);
   }
 
   if (pathname == "/login" || pathname == "/signup") {
@@ -75,7 +74,7 @@ export default function navbar({pathname}) {
               <p onClick={openProducts}>Products <i className={showProducts ? "fas fa-chevron-up" : "fas fa-chevron-down"}></i></p>
               <p onClick={openLearn}>Learn <i className={showLearn ? "fas fa-chevron-up" : "fas fa-chevron-down"}></i></p>
               <p>Support</p>
-              <p onClick={openAboutMe}>Who I am <i className={showAboutMe ? "fas fa-chevron-down" : "fas fa-chevron-up"}></i></p>
+              <p onClick={openAboutMe}>Who I am <i className={showAboutMe ? "fas fa-chevron-up" : "fas fa-chevron-down"}></i></p>
             </div>
 
             <div id="session-container">
@@ -84,6 +83,8 @@ export default function navbar({pathname}) {
             </div>
           </div>
           <Products showProducts={showProducts}/>
+          <Learn showLearn={showLearn}/>
+          <AboutMe showAboutMe={showAboutMe}/>
         </div>
     )
   }

@@ -8,11 +8,11 @@ export default function Products({showProducts}) {
     return (
       <div id="lower-navbar">
         <div id="lower-links-container">
-          <HashLink to="">Cash Management</HashLink>
-          <HashLink to="">Stocks & Funds</HashLink>
-          <HashLink to="">Options</HashLink>
-          <HashLink to="">Gold</HashLink>
-          <HashLink to="">Crypto</HashLink>
+          <HashLink to="/splash6-container">Cash Management</HashLink>
+          <HashLink to="/splash6-container">Stocks & Funds</HashLink>
+          <HashLink to="/splash6-container">Options</HashLink>
+          <HashLink to="/splash6-container">Gold</HashLink>
+          <HashLink to="/splash6-container">Crypto</HashLink>
         </div>
       </div>
     )
