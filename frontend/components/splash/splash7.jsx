@@ -27,10 +27,10 @@ export default function Splash7({ isOpen, setIsOpen }) {
               <p>Blog</p>
               <p>Investor Relations</p>
               <div id="contact-icons">
-                <i className="fab fa-linkedin"></i>
-                <i className="fab fa-github-square"></i>
-                <i className="far fa-file"></i>
-                <i className="far fa-user"></i>
+                <a href="https://www.linkedin.com/in/roosmichelle/" target="_blank"><i className="fab fa-linkedin"></i></a>
+                <a href="https://github.com/michelleroos" target="_blank"><i className="fab fa-github-square"></i></a>
+                <a href="https://firebasestorage.googleapis.com/v0/b/scroople-25727.appspot.com/o/Michelle%20Roos%20-%20Resume.pdf?alt=media&token=04dc0414-21f1-4d24-af4e-5a49eceb3371" target="_blank"><i className="far fa-file"></i></a>
+                <a href="#" target="_blank"><i className="far fa-user"></i></a>
               </div>
             </div>
           </div>
