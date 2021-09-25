@@ -504,11 +504,12 @@
         align-items: flex-end;
         margin: 40px 0 20px 0;
 
-        a {
+        p {
           color: white;
           font-size: 18px;
           font-weight: bold;
           margin: 0 0 20px 0;
+          cursor: pointer;
 
           &:hover {
             color: rgb(0, 180, 5);

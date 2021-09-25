@@ -49,11 +49,12 @@ export default function Splash7({ isOpen, setIsOpen }) {
         </div>
 
         <div id="tandcs">
-          <a href="#" target="_blank">Check the background of the firm on FINRA’s BrokerCheck</a>
-          <a href="#" target="_blank">Brokerage Customer Relationship Summary</a>
-          <a href="#" target="_blank">Robinhodl Terms & Conditions</a>
-          <a href="#" target="_blank">Disclosure Library</a>
-          <a href="#" target="_blank">Privacy</a>
+          <p onClick={() => setIsOpen(true)} href="#" target="_blank">Check the background of the firm on FINRA’s BrokerCheck</p>
+          <p onClick={() => setIsOpen(true)} href="#" target="_blank">Brokerage Customer Relationship Summary</p>
+          <p onClick={() => setIsOpen(true)} href="#" target="_blank">Robinhodl Terms & Conditions</p>
+          <p onClick={() => setIsOpen(true)} href="#" target="_blank">Disclosure Library</p>
+          <p onClick={() => setIsOpen(true)} href="#" target="_blank">Privacy</p>
+          <DisclosureModal open={isOpen} onClose={() => setIsOpen(false)}></DisclosureModal>
         </div>
         <div id="rights">
           <p>© 2021 Robinhodl. All rights reserved.</p>
