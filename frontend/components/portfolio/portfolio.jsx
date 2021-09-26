@@ -38,23 +38,21 @@ export default function portfolio() {
                 </div>
               </header>
 
-              <section className="chart">
+              <div id="chart-container">
                 <PortfolioChart
                   fetchUser={fetchUser}
                   currentUser={currentUser}
                   transfers={transfers}
                   orders={orders} />
-              </section>
+              </div>
 
-              <section className="buying-power">
-                <div>
-                  <p>Buying Power</p>
-                </div>
-                <div>
-                  <p>{formatter.format(buyingPower)}</p>
-                </div>
-              </section>    
-            <News/>
+              <div id="buying-power-container">
+                <p>Buying Power</p>
+                <p>{formatter.format(buyingPower)}</p>
+              </div>    
+
+              <News/>
+
             </div>
 
             {/* <SidePanel/> */}

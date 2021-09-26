@@ -1,5 +1,4 @@
 #news-container {
-  border-bottom: 1px solid lightgray;
 
   #header {
     display: flex;
@@ -9,7 +8,7 @@
 
     h2 {
       font-size: 24px;
-      // padding: 20px 0 20px 0;
+      padding: 15px
     }
   }
   
@@ -17,7 +16,8 @@
   #article-container {
     border-bottom: 1px solid #e6e9ed;
     // width: 100%;
-    margin: 20px 0 20px 0;
+    // margin: 20px 0 20px 0;
+    padding: 15px;
     
     a {
       display: flex;
