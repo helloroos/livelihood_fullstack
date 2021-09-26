@@ -73,7 +73,7 @@ export default function navbar({pathname}) {
             <div id="navbar-links-container">
               <p onClick={openProducts}>Products <i className={showProducts ? "fas fa-chevron-up" : "fas fa-chevron-down"}></i></p>
               <p onClick={openLearn}>Learn <i className={showLearn ? "fas fa-chevron-up" : "fas fa-chevron-down"}></i></p>
-              <p>Contact</p>
+              <p><Link to="/contact">Contact</Link></p>
               <p onClick={openAboutMe}>Who I am <i className={showAboutMe ? "fas fa-chevron-up" : "fas fa-chevron-down"}></i></p>
             </div>
 

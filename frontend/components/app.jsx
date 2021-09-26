@@ -15,6 +15,7 @@ import TokenShowContainer from "./token/token_show_container";
 import NavBarContainer from "./navbar/navbar_container";
 import TokenIndexContainer from "./token/token_index_container";
 import CashContainer from "./cash/cash_container";
+import Contact from "./contact/contact";
 
 const App = () => {
     const NavBarContainerWithRouter = withRouter(NavBarContainer);
@@ -26,7 +27,8 @@ const App = () => {
         {/* <Route exact path="/" component={NavBarContainer } /> */}
         <Switch>
             <AuthRoute path="/login" component={log_in_form} />
-                <AuthRoute path="/signup" component={sign_up_form} />
+            <AuthRoute path="/signup" component={sign_up_form} />
+            <AuthRoute path="/contact" component={Contact} />
             <ProtectedRoute path="/portfolio" component={portfolio} />
             <ProtectedRoute exact path="/tokens" component={TokenIndexContainer} />
             <ProtectedRoute exact path="/cash" component={CashContainer} />

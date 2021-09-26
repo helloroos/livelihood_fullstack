@@ -16,5 +16,6 @@ bundle.js.map
 .byebug_history
 # Ignore master key for decrypting credentials and more.
 /config/master.key
+/config/keys_dev.js
 
 .DS_Store
