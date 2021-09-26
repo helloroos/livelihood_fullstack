@@ -6,7 +6,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import News from './news';
 
 // const portfolio = ({ transfers, orders, buyingPower, currentUser, tokens, token, fetchUser, fetchToken, fetchTokens }) => {
-const portfolio = () => {
+export default function portfolio() {
 
   useEffect(() => {
     document.title = `Portfolio | Robinhodl`;
@@ -57,7 +57,7 @@ const portfolio = () => {
               <section className="news">
                 <div>
                   <p>News</p>
-                  {/* <News/> */}
+                  <News/>
                 </div>
                 <div>
                   {/* <p>content here</p> */}
@@ -102,41 +102,7 @@ const portfolio = () => {
       </div>
     ) 
   }
-}
-
-export default portfolio;
-
-class Portfolio extends React.Component {
-
-  componentDidMount() {
-    this.props.fetchUser(this.currentUser);
-
-    let allOrders = this.props.orders;
-    for (let i = 0; i < allOrders.length; i++) {
-      let currOrder = allOrders[i];
-
-      if (!this.state[currOrder.token_sym]) {
-        this.setState(() => {
-          return { [currOrder.order_type]: 0 }
-        })
-      }
-    }
-  }
-
-  render() {
-    let allOrders = this.props.orders;
-    let uniqOrders = {}
-    for (let i = 0; i < allOrders.length; i++) {
-      if ([allOrders[i].order_type] == "Buy") {
-        uniqOrders[allOrders[i].token_sym] = 0;
-        uniqOrders[allOrders[i].token_sym] += parseInt([allOrders[i].number]);
-      } else {
-        uniqOrders[allOrders[i].token_sym] -= parseInt([allOrders[i].number]);
-      }
-    }
-    let assets = Object.entries(uniqOrders).filter(count => count[1] > 0)
-  }
-}
+};
 
 // class Portfolio extends React.Component {
 //     constructor(props) {
