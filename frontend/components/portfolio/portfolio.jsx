@@ -1,9 +1,10 @@
 import React, { useEffect } from 'react';
 import AssetDetail from './asset_detail';
 import PortfolioChart from './portfolio_chart';
-import { Link } from 'react-router-dom';
+// import { Link } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import News from './news';
+import SidePanel from './side_panel';
 
 // const portfolio = ({ transfers, orders, buyingPower, currentUser, tokens, token, fetchUser, fetchToken, fetchTokens }) => {
 export default function portfolio() {
@@ -52,50 +53,11 @@ export default function portfolio() {
                 <div>
                   <p>{formatter.format(buyingPower)}</p>
                 </div>
-              </section>
-
-              <section className="news">
-                <div>
-                  <p>News</p>
-                  <News/>
-                </div>
-                <div>
-                  {/* <p>content here</p> */}
-                </div>
-              </section>
+              </section>    
+            <News/>
             </div>
 
-            <div id="side-panel">
-              <header>
-                <h3>Cryptocurrencies</h3>
-              </header>
-              {/* <ul className="asset-container">
-                {assets.map((asset) =>
-                  <AssetDetail
-                    key={asset[0]}
-                    asset={asset}
-                    fetchToken={fetchToken}
-                    token={token}
-                    tokens={tokens} />)}
-              </ul> */}
-              <header>
-                <h3>Watchlist</h3>
-              </header>
-              <ul className="asset-container">
-                <Link to={"/tokens/bitcoin"}>
-                  <li className="asset">
-                    <div className="asset-info">
-                      <p className="asset-name">SNX</p>
-                    </div>
-                    <div className="asset-pricing">
-                      <p>$.08</p>
-                      <p className={isPositive("-5.6") ? "green" : "red"}>
-                        -5.6%</p>
-                    </div>
-                  </li>
-                </Link>
-              </ul>
-            </div>
+            {/* <SidePanel/> */}
 
           </div>
         </div>
@@ -226,9 +188,9 @@ let formatter = new Intl.NumberFormat('en-US', {
   currency: 'USD',
 })
 
-let isPositive = (string) => {
-  if (parseFloat(string) > 0) {
-    return true;
-  }
-  return false;
-}
+// let isPositive = (string) => {
+//   if (parseFloat(string) > 0) {
+//     return true;
+//   }
+//   return false;
+// }
