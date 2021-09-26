@@ -1,4 +1,4 @@
-import * as TokenAPIUtil from '../util/token_api_util';
+// import * as TokenAPIUtil from '../util/token_api_util';
 const CoinGecko = require('coingecko-api');
 const CoinGeckoClient = new CoinGecko();
 
