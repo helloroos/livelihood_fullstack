@@ -3,6 +3,7 @@ import AssetDetail from './asset_detail';
 import PortfolioChart from './portfolio_chart';
 import { Link } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
+import News from './news';
 
 // const portfolio = ({ transfers, orders, buyingPower, currentUser, tokens, token, fetchUser, fetchToken, fetchTokens }) => {
 const portfolio = () => {
@@ -56,6 +57,7 @@ const portfolio = () => {
               <section className="news">
                 <div>
                   <p>News</p>
+                  {/* <News/> */}
                 </div>
                 <div>
                   {/* <p>content here</p> */}

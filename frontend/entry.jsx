@@ -9,6 +9,7 @@ import { fetchTransfers, makeTransfer } from "./actions/transfer_action";
 import { fetchOrders, makeOrder } from "./actions/order_actions";
 import { fetchToken, fetchTokenHistorical, fetchTokens } from "./actions/token_actions";
 import { fetchUser } from "./util/user_api_util";
+import { fetchNews } from "./actions/news_actions";
 // import { fetchUser } from "./actions/user_actions";
 // import { logIn, logOut, signUp } from "./util/session_api_util";
 
@@ -43,6 +44,7 @@ document.addEventListener('DOMContentLoaded', () => {
     window.makeOrder = makeOrder;
     window.fetchOrders = fetchOrders;
     window.fetchUser = fetchUser;
+    window.fetchNews = fetchNews;
 
     // TESTING END
 

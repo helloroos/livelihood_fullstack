@@ -10,8 +10,9 @@ const receiveNews = (news) => {
   }
 }
 
-const fetchNews = () => (dispatch) => {
+export const fetchNews = () => (dispatch) => {
   return fetch(`https://newsapi.org/v2/everything?q=crypto%20AND%20cryptocurrency%20AND%20crypto%20currency&apiKey=${app_key}`)
     .then((res) => res.json())
-    // (errors) => dispatch(receiveErrors(errors.responseJSON))
+    .then((res) => dispatch(receiveNews(res))),
+    (errors) => dispatch(receiveErrors(errors.responseJSON))
 }
