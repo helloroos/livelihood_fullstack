@@ -6,7 +6,6 @@ import { useSelector, useDispatch } from 'react-redux';
 import News from './news';
 import SidePanel from './side_panel';
 
-// const portfolio = ({ transfers, orders, buyingPower, currentUser, tokens, token, fetchUser, fetchToken, fetchTokens }) => {
 export default function portfolio() {
 
   useEffect(() => {
@@ -21,48 +20,91 @@ export default function portfolio() {
   const currentUser = useSelector((state) => state.session.currentUser.id)
   const dispatch = useDispatch();
 
-  if (Object.keys(orders) === 0) {
-    return null;
-  } else {
-    return (
-      <div id="portfolio-container">
-        <div id="portfolio-content">
-          <div id="feed-container">
-            <div id="feed">
+  return (
+    <div id="portfolio-container">
+      <div id="portfolio-content">
+        <div id="feed-container">
+          <div id="feed">
 
-              <header>
-                <h1>{formatter.format(buyingPower)}</h1>
-                <div id="change-container">
-                  <p id="change">+$215.48 (+1.65%)</p>
-                  <p id="period">Today</p>
-                </div>
-              </header>
-
-              <div id="chart-container">
-                <PortfolioChart
-                  fetchUser={fetchUser}
-                  currentUser={currentUser}
-                  transfers={transfers}
-                  orders={orders} />
+            <div id="header-container">
+              <h1>{formatter.format(buyingPower)}</h1>
+              <div id="change-container">
+                <p id="change">+$215.48 (+1.65%)</p>
+                <p id="period">Today</p>
               </div>
-
-              <div id="buying-power-container">
-                <p>Buying Power</p>
-                <p>{formatter.format(buyingPower)}</p>
-              </div>    
-
-              <News/>
-
             </div>
 
-            {/* <SidePanel/> */}
+            <div id="chart-container">
+              <PortfolioChart
+                fetchUser={fetchUser}
+                currentUser={currentUser}
+                transfers={transfers}
+                orders={orders} />
+            </div>
+
+            <div id="buying-power-container">
+              <p>Buying Power</p>
+              <p>{formatter.format(buyingPower)}</p>
+            </div>
+
+            <News />
 
           </div>
+
+          {/* <SidePanel/> */}
+
         </div>
       </div>
-    ) 
-  }
+    </div>
+  )
+
+  // if (Object.keys(orders) === 0) {
+  //   return null;
+  // } else {
+  //   return (
+  //     <div id="portfolio-container">
+  //       <div id="portfolio-content">
+  //         <div id="feed-container">
+  //           <div id="feed">
+
+  //             <div id="header-container">
+  //               <h1>{formatter.format(buyingPower)}</h1>
+  //               <div id="change-container">
+  //                 <p id="change">+$215.48 (+1.65%)</p>
+  //                 <p id="period">Today</p>
+  //               </div>
+  //             </div>
+
+  //             <div id="chart-container">
+  //               <PortfolioChart
+  //                 fetchUser={fetchUser}
+  //                 currentUser={currentUser}
+  //                 transfers={transfers}
+  //                 orders={orders} />
+  //             </div>
+
+  //             <div id="buying-power-container">
+  //               <p>Buying Power</p>
+  //               <p>{formatter.format(buyingPower)}</p>
+  //             </div>    
+
+  //             <News/>
+
+  //           </div>
+
+  //           {/* <SidePanel/> */}
+
+  //         </div>
+  //       </div>
+  //     </div>
+  //   ) 
+  // }
 };
+
+let formatter = new Intl.NumberFormat('en-US', {
+  style: 'currency',
+  currency: 'USD',
+})
 
 // class Portfolio extends React.Component {
 //     constructor(props) {
@@ -181,10 +223,10 @@ export default function portfolio() {
 
 // export default Portfolio;
 
-let formatter = new Intl.NumberFormat('en-US', {
-  style: 'currency',
-  currency: 'USD',
-})
+// let formatter = new Intl.NumberFormat('en-US', {
+//   style: 'currency',
+//   currency: 'USD',
+// })
 
 // let isPositive = (string) => {
 //   if (parseFloat(string) > 0) {
