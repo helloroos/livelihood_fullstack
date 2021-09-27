@@ -1,11 +1,19 @@
 import React, { useEffect, useState } from 'react';
+import { useSelector } from 'react-redux';
 import DisclosureModal from '../splash/disclosure_modal';
+
+const formatter = new Intl.NumberFormat('en-US', {
+  style: 'currency',
+  currency: 'USD',
+})
 
 export default function Cash() {
 
   useEffect(() => {
     document.title = `Cash | Robinhodl`;
   });
+
+  const buyingPower = useSelector((state) => state.entities.buyingPower)
 
   const [isOpen, setIsOpen] = useState(false);
 
@@ -17,7 +25,7 @@ export default function Cash() {
 
           <div id="header">
             <h2>Cash</h2>
-            <h2>$32.22</h2>
+            <h2>{formatter.format(buyingPower)}</h2>
           </div>
 
           <div id="text-img-container">
