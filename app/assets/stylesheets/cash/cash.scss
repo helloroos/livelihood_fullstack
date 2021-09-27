@@ -1,122 +1,247 @@
-.outmost-cash-container {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
-    height: 100vh;
-}
+#cash-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  // height: 100vh;
+  // flex-direction: column;
 
-.outer-cash-container {
+  #inner-cash-container {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    width: 850px;
-    flex: wrap;
-    padding-top: 30px;
+    // width: 850px;
+    // flex: wrap;
+    // padding-top: 30px;\
 
-    .main-details {
+    #cash-mgmt-container {
+      margin: 50px 0 0 0;
+
+      #header {
+
+        h2 {
+          font-size: 32px;
+        }
+
+        h2:first-child {
+          margin: 0 0 15px 0;
+        }
+      }
+
+      #text-img-container {
         display: flex;
+        justify-content: space-between;
+        align-items: center;
         width: 100%;
-        height: 2000px;
-    }
 
-    .details {
-        width: 620px;
-        background-image: url(https://cdn.robinhood.com/assets/robinhood/brand/_next/static/images/balloon__ef7d8a9bb1c7845fcb7a6799c35d513e.svg);
-        background-repeat: no-repeat;
-        background-size: 60%;
-        background-position-x: right;
-        // background-attachment: fixed;
+        #cash-management {
+          width: 60%;
+          // margin: 55px 0 0 0;
 
-            header {
-                padding-top: 20px;
-                
-                h1 {
-                    font-size: 32px;
-                    padding: 5px;
-                }
-            }
-            
-            .history {
-                padding-top: 250px;
-                // background-color: lawngreen;
-                // display: flex;
-                // align-items: center;
-                height: 50px;
-                // justify-content: space-between;
-                
-                h2 {
-                    border-bottom: 1px solid #e6e9ed;
-                    width: 100%;
-                    display: inline;
-                }
-            }
-    }
+          h3 {
+            font-size: 21px;
+            margin: 0 0 25px 0;
+          }
+          
+          p {
+            margin: 0 0 15px 0;
+          }
 
-    .side-panel {
-            display: flex;
-            align-items: center;
-            flex-direction: column;
-            width: 220px;
-            height: 300px;
-            // background-color: yellow;
-            box-shadow: 0 0 10px lightgray;
-            border-radius: 3px;
-            position: sticky;
-            // top: 60px;
-            // margin-left: auto;
+          #disclosure {
             font-size: 13px;
-            // padding: 18px;
+            color: #6a7278;
+            padding: 0;
+            margin: 0 0 15px 0;
+            border: none;
+            background-color: transparent;
+  
+            &:hover {
+              color: rgb(0, 180, 5);
+            }
+          }
 
-            header {
-                // background-color: green;
-                // padding: 6px;
-                // font-weight: bold;
-                // font-size: 15px;
+          #sign-up {
+            // margin: 10px;
+            padding: 15px 100px;
+            border-radius: 3px;
+            color: white;
+            background-color: #00C805;
+            display: block;
+            
+            &:hover {
+              background-color: #0cae11;
+            }
+          }
+        }
 
-            display: flex;
-            align-items: center;
-            height: 50px;
-            width: 100%;
-            // padding: 0 25px;
+        img {
+          width: 300px;
+          height: auto;
+        }
+      }
+
+      #transaction-history-container {
+
+        #header {
+          display: flex;
+          align-items: center;
+          border-bottom: 1px solid #e6e9ed;
+          height: 80px;
+
+          h2 {
+            font-size: 24px;
+            padding: 15px
+          }
+        }
+
+        #transaction-container {
+          border-bottom: 1px solid #e6e9ed;
+          padding: 15px;
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+
+          p {
+            font-size: 13px;
+          }
+          
+          #type {
             font-weight: bold;
-            font-size: 15px;
-            // border-bottom: 1px solid #e6e9ed;
-            // border-top: 1px solid #e6e9ed;
-            }
+            margin: 0 0 10px 0;
+          }
 
-            select {
-                // appearance: none;
-                // display: block;
-                border: none;
-                width: 100%;
-                font-weight: bold;
-            }
-
-            input {
-                border: none;
-                border-radius: 3px;
-                width: 100%;
-                height: 23px;
-                background-color: rgb(245, 245, 245);
-                // margin-bottom: 20px;
-            }
-
-            div {
-                padding-top: 20px;
-
-                p {
-                    padding-bottom: 5px;
-                }
-            }
+          &:hover {
+            background-color: whitesmoke;
+            border-bottom: 1px solid whitesmoke;
+          }
+        }
+      }
     }
-
-    button {
-        background-color: rgb(00, 200, 5);
-        padding: 6px;
-        width: 100%;
-        border-radius: 3px;
-        color: white;
-    }
+  }
 }
+
+
+
+// #cash-container {
+//   display: flex;
+//   // flex-direction: column;
+//   justify-content: center;
+//   // align-items: center;
+//   height: 100vh;
+
+//   #inner-cash-container {
+//     display: flex;
+//     flex-direction: row;
+//     justify-content: space-between;
+//     align-items: center;
+//     // width: 850px;
+//     // flex: wrap;
+//     // padding-top: 30px;
+  
+//     .main-details {
+//       display: flex;
+//       width: 100%;
+//       height: 2000px;
+//     }
+  
+//     .details {
+//       width: 620px;
+//       background-image: url(https://cdn.robinhood.com/assets/robinhood/brand/_next/static/images/balloon__ef7d8a9bb1c7845fcb7a6799c35d513e.svg);
+//       background-repeat: no-repeat;
+//       background-size: 60%;
+//       background-position-x: right;
+//       // background-attachment: fixed;
+  
+//       header {
+//         padding-top: 20px;
+  
+//         h1 {
+//           font-size: 32px;
+//           padding: 5px;
+//         }
+//       }
+  
+//       .history {
+//         padding-top: 250px;
+//         // background-color: lawngreen;
+//         // display: flex;
+//         // align-items: center;
+//         height: 50px;
+//         // justify-content: space-between;
+  
+//         h2 {
+//           border-bottom: 1px solid #e6e9ed;
+//           width: 100%;
+//           display: inline;
+//         }
+//       }
+//     }
+  
+//     .side-panel {
+//       display: flex;
+//       align-items: center;
+//       flex-direction: column;
+//       width: 220px;
+//       height: 300px;
+//       // background-color: yellow;
+//       box-shadow: 0 0 10px lightgray;
+//       border-radius: 3px;
+//       position: sticky;
+//       // top: 60px;
+//       // margin-left: auto;
+//       font-size: 13px;
+//       // padding: 18px;
+  
+//       header {
+//         // background-color: green;
+//         // padding: 6px;
+//         // font-weight: bold;
+//         // font-size: 15px;
+  
+//         display: flex;
+//         align-items: center;
+//         height: 50px;
+//         width: 100%;
+//         // padding: 0 25px;
+//         font-weight: bold;
+//         font-size: 15px;
+//         // border-bottom: 1px solid #e6e9ed;
+//         // border-top: 1px solid #e6e9ed;
+//       }
+  
+//       select {
+//         // appearance: none;
+//         // display: block;
+//         border: none;
+//         width: 100%;
+//         font-weight: bold;
+//       }
+  
+//       input {
+//         border: none;
+//         border-radius: 3px;
+//         width: 100%;
+//         height: 23px;
+//         background-color: rgb(245, 245, 245);
+//         // margin-bottom: 20px;
+//       }
+  
+//       div {
+//         padding-top: 20px;
+  
+//         p {
+//           padding-bottom: 5px;
+//         }
+//       }
+//     }
+  
+//     button {
+//       background-color: rgb(00, 200, 5);
+//       padding: 6px;
+//       width: 100%;
+//       border-radius: 3px;
+//       color: white;
+//     }
+//   }
+// }
+

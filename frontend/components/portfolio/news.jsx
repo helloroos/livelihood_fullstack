@@ -45,13 +45,6 @@ export default function News() {
     }
   }
 
-
-  // const dispatch = useDispatch();
-  
-  // const getNews = () => {
-  //   console.log(dispatch(fetchNews()));
-  // }
-
   const newsFeed = news.map(article => {
     return <h3>{article.title}</h3>
   })
@@ -61,6 +54,8 @@ export default function News() {
       <div id="header">
         <h2>News</h2>
       </div>
+
+
       <div id="article-container">
         <a href="#" target="_blank">
           <div id="text-container">
@@ -103,6 +98,7 @@ export default function News() {
           <img src="https://media.istockphoto.com/photos/coins-of-various-cryptocurrencies-picture-id1034363382?k=20&m=1034363382&s=612x612&w=0&h=sCpRmOSicsJJS73_iNQh16nqeBgFKqU3jjfC4u42D_k=" alt="" />
         </a>
       </div>
+
 
       {/* {news.map((article, i) => {
         return (
@@ -122,6 +118,8 @@ export default function News() {
           </div>
         )
       })} */}
+
+
     </div>
   )
 }
