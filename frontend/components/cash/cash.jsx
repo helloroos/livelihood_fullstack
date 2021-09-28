@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 import DisclosureModal from '../splash/disclosure_modal';
+import CashSidePanel from './cash_side_panel';
 
 const formatter = new Intl.NumberFormat('en-US', {
   style: 'currency',
@@ -59,9 +60,7 @@ export default function Cash() {
           
         </div>
         
-        <div id="side-panel-container">
-          
-        </div>
+        <CashSidePanel/>
       </div>
     </div>
   )
