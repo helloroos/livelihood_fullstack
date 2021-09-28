@@ -54,11 +54,22 @@
     #amount {
 
       input {
-        border: none;
+        border: 1px solid whitesmoke;
         border-radius: 3px;
         background-color: whitesmoke;
         padding: 10px;
         width: 110px;
+
+        &:hover {
+          background-color: white;
+          border: 1px solid lightgray;
+        }
+
+        &:focus {
+          border: 1px solid #00C805;
+          outline: none;
+          background-color: white;
+        }
       }
     }
 
