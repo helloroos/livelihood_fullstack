@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import AssetDetail from './asset_detail';
 import PortfolioChart from './portfolio_chart';
 // import { Link } from 'react-router-dom';
@@ -11,13 +11,29 @@ export default function portfolio() {
   useEffect(() => {
     document.title = `Portfolio | Robinhodl`;
   });
+  
+  const [buyingPower, setBuyingPower] = useState(0);
+
+  const buyingPowerState = useSelector((state) => state.entities.buyingPower.buyingPower)
+
+  useEffect(() => {
+    const data = window.localStorage.getItem('buyingPower')
+    if (data) {
+      setBuyingPower(Number(data))
+    }
+  })
+
+  useEffect(() => {
+    window.localStorage.setItem('buyingPower', JSON.stringify(buyingPowerState))
+  })
+
+  const currentUser = useSelector((state) => state.session.currentUser.id)
 
   const transfers = useSelector((state) => Object.values(state.entities.transfers))
   const orders = useSelector((state) => Object.values(state.entities.orders))
-  const buyingPower = useSelector((state) => state.entities.buyingPower)
+  
   const tokens = useSelector((state) => state.entities.tokens)
   const token = useSelector((state) => state.entities.token)
-  const currentUser = useSelector((state) => state.session.currentUser.id)
   const dispatch = useDispatch();
 
   return (
@@ -51,7 +67,7 @@ export default function portfolio() {
 
           </div>
 
-          {/* <SidePanel/> */}
+          <SidePanel/>
 
         </div>
       </div>
