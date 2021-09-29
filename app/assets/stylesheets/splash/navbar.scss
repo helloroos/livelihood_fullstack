@@ -145,6 +145,7 @@
   width: 100%;
   background-color: white;
   height: 64px;
+  z-index: 1000;
 
   #logo-container {
     grid-area: logo-container;
@@ -175,18 +176,25 @@
     width: 550px;
     margin-top: 5px;
     text-decoration: none;
-
+    background-color: white;
+    
     i {
       margin-left: 10px;
       color: gray;
     }
-
+    
     input {
+      background-color: white;
       width: 100%;
       align-self: center;
       margin-left: 5px;
       border: none;
       border-radius: 30px;
+      
+      &:focus {
+        outline: none;
+        border: none;
+      }
     }
 
     &:hover {

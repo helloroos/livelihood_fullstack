@@ -27,14 +27,13 @@ export default function portfolio() {
     window.localStorage.setItem('buyingPower', JSON.stringify(buyingPowerState))
   })
 
+  const dispatch = useDispatch();
   const currentUser = useSelector((state) => state.session.currentUser.id)
-
   const transfers = useSelector((state) => Object.values(state.entities.transfers))
   const orders = useSelector((state) => Object.values(state.entities.orders))
   
   const tokens = useSelector((state) => state.entities.tokens)
   const token = useSelector((state) => state.entities.token)
-  const dispatch = useDispatch();
 
   return (
     <div id="portfolio-container">
@@ -52,7 +51,7 @@ export default function portfolio() {
 
             <div id="chart-container">
               <PortfolioChart
-                fetchUser={fetchUser}
+                dispatch={dispatch}
                 currentUser={currentUser}
                 transfers={transfers}
                 orders={orders} />
