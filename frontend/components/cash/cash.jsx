@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { useDispatch } from 'react-redux';
 import { useSelector } from 'react-redux';
 import DisclosureModal from '../splash/disclosure_modal';
 import CashSidePanel from './cash_side_panel';
@@ -13,12 +14,23 @@ export default function Cash() {
   useEffect(() => {
     document.title = `Cash | Robinhodl`;
   });
-
-  const buyingPower = useSelector((state) => state.entities.buyingPower)
-
+  
+  const dispatch = useDispatch();
+  const currentUser = useSelector((state) => state.session.currentUser.id)
+  const [buyingPower, setBuyingPower] = useState(0)
+  const [transfers, setTransfers] = useState({})
   const [isOpen, setIsOpen] = useState(false);
+  
+  useEffect(() => {
+    dispatch(fetchUser(currentUser))
+    .then((res) => {
+      setBuyingPower(res.user.buyingPower)
+      setTransfers(res.user.transfers)
+    })
+  }, [currentUser]);
 
-  return (
+  if (buyingPower) {
+    return (
     <div id="cash-container">
       <div id="inner-cash-container">
         
@@ -63,7 +75,10 @@ export default function Cash() {
         <CashSidePanel/>
       </div>
     </div>
-  )
+    )
+  } else {
+    return null;
+  }
 }
 
 
