@@ -11,7 +11,8 @@ import sign_up_form from "./session/sign_up_form";
 import splash from "./splash/splash";
 import portfolio from "./portfolio/portfolio";
 import TokenContainer from "./token/token_index_container";
-import TokenShowContainer from "./token/token_show_container";
+// import TokenShowContainer from "./token/token_show_container";
+import TokenShow from './token/token_show'
 import NavBarContainer from "./navbar/navbar_container";
 import TokenIndexContainer from "./token/token_index_container";
 import CashContainer from "./cash/cash_container";
@@ -19,7 +20,7 @@ import Contact from "./contact/contact";
 
 const App = () => {
     const NavBarContainerWithRouter = withRouter(NavBarContainer);
-    const TokenContainerWithRouter = withRouter(TokenShowContainer);
+    const TokenContainerWithRouter = withRouter(TokenShow);
 
     return(
     <div id="app">
@@ -33,7 +34,7 @@ const App = () => {
             <ProtectedRoute exact path="/tokens" component={TokenIndexContainer} />
             <ProtectedRoute exact path="/cash" component={CashContainer} />
             {/* <Route path="/tokens" component={TokenContainer} /> */}
-            <ProtectedRoute path="/tokens/:tokenId" component={TokenShowContainer} /> {/** Add in tokenId */}
+            <ProtectedRoute path="/tokens/:tokenId" component={TokenShow} /> {/** Add in tokenId */}
                 <Route exact path="/" component={splash} />
         </Switch>
     </div>
