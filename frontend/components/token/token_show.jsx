@@ -3,13 +3,13 @@ import { useSelector } from 'react-redux';
 import { useDispatch } from 'react-redux';
 import TokenChart from './token_chart';
 import token_show_container from './token_show_container';
+import TokenSidePanel from './token_side_panel';
 
 export default function TokenShow(props) {
 
   const [about, setAbout] = useState("")
   const [amount, setAmount] = useState(0)
   const [marketPrice, setMarketPrice] = useState(0)
-  const [number, setNumber] = useState(0)
   const [oneDayChange, setOneDayChange] = useState(0)
   const [orderType, setOrderType] = useState("Buy")
   const [token_sym, setToken_sym] = useState("")
@@ -17,7 +17,8 @@ export default function TokenShow(props) {
 
   const tokenId = props.match.params.tokenId;
   const token = useSelector((state) => state.entities.tokens.token)
-  console.log(token);
+  const buyingPower = useSelector((state) => state.entities.buyingPower)
+  console.log(buyingPower);
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -88,7 +89,7 @@ export default function TokenShow(props) {
               </div>
             </div>
           </div>
-          {/* <SidePanel /> */}
+          <TokenSidePanel marketPrice={marketPrice} buyingPower={buyingPower}/>
         </div>
       </div>
     </div>
@@ -130,57 +131,12 @@ class TokenShowOld extends React.Component {
 
         <div className="details-row">
           <div className="details">
-            <header>
-              <h1>{token.token}</h1>
-              <h1>${token.market_price}</h1>
-              <p>${token.change_one_d} Today</p>
-            </header>
-
-
             <section>
               {/* <img className="graph-dummy" src={window.graph_dummy} /> */}
               <TokenChart
                 token={this.props.token}
                 tokenId={this.props.match.params.tokenId} />
             </section>
-          </div>
-
-
-          <div className="side-panel">
-            <div className="form">
-              <form onSubmit={this.handleSubmit}>
-                <header>
-                  <select onChange={this.handleChange('order_type')}>
-                    <option>Buy</option>
-                    <option>Sell</option>
-                  </select>
-                </header>
-                <div className="tokens">
-                  <p>Tokens</p>
-                  <input
-                    placeholder="0"
-                    onChange={this.handleChange('number')}
-                    required />
-                </div>
-                <div className="price">
-                  <p>Market Price</p>
-                  <p>${token.market_price}</p>
-                </div>
-                <div className="cost">
-                  <p>Estimated cost</p>
-                  <p>${total}</p>
-                </div>
-                <div className="buying-power">
-                  <p>Buying power</p>
-                  {/* <p>${this.buyingPower()}</p> */}
-                </div>
-                <div className="button">
-                  <button>Order</button>
-                </div>
-              </form>
-              <br />
-            </div>
-            <button>Add to wishlist</button>
           </div>
         </div>
       )

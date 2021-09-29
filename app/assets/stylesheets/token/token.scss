@@ -63,11 +63,76 @@
         }
       }
 
-      #side-panel {
+      #side-panel-container {
+      box-shadow: 0 0 10px lightgray;
+      border-radius: 3px;
+      height: 400px;
+      display: flex;
+      flex-direction: column;
+      // justify-content: center;
+        align-items: center;
+        form {
+          margin: 15px 0 0 0;
+          width: 100%;
 
+          #header-container {
+            width: 100%;
+
+            select {
+              border: none;
+              outline: none;
+              width: 100%;
+              font-size: 15px;
+              font-weight: bold;
+              text-indent: -1px;
+            }
+          }
+
+          #tokens-container {
+
+            input {
+              background-color: whitesmoke;
+              border: 1px solid whitesmoke;
+              height: 25px;
+              width: 100px;
+              border-radius: 3px;
+
+              &:hover {
+                background-color: white;
+                border: 1px solid lightgray;
+              }
+
+              &:focus {
+                border: 1px solid #00C805;
+                outline: none;
+                background-color: white;
+              }
+
+              &::placeholder {
+                padding: 5px;
+              }
+            }
+          }
+
+          .side-panel-section {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            padding: 0 0 0 2px;
+          }
+        }
+
+        #add-watchlist {
+          color: white;
+          background-color: #00C805;
+          border-radius: 3px;
+          font-weight: bold;
+          padding: 15px 30px 15px 30px;
+          cursor: auto;
+          width: 218px;
+        }
       }
     }
-
   }
 }
 
