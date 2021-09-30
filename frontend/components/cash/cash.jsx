@@ -72,7 +72,7 @@ export default function Cash() {
           
         </div>
         
-        <CashSidePanel/>
+        <CashSidePanel currentUser={currentUser} dispatch={dispatch}/>
       </div>
     </div>
     )

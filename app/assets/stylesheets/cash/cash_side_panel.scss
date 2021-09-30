@@ -30,7 +30,7 @@
       justify-content: space-between;
       align-items: baseline;
 
-      .select-container{
+      #select-container, #to-container {
         width: 130px;
         height: 35px;
         border: 1px solid lightgray;
@@ -48,6 +48,10 @@
             outline: none;
           }
         }
+      }
+
+      #to-container {
+        cursor: auto;
       }
     }
 
