@@ -11,24 +11,18 @@ export default function portfolio() {
   useEffect(() => {
     document.title = `Portfolio | Robinhodl`;
   });
-  
-  const [buyingPower, setBuyingPower] = useState(0);
-
-  const buyingPowerState = useSelector((state) => state.entities.buyingPower.buyingPower)
-
-  useEffect(() => {
-    const data = window.localStorage.getItem('buyingPower')
-    if (data) {
-      setBuyingPower(Number(data))
-    }
-  })
-
-  useEffect(() => {
-    window.localStorage.setItem('buyingPower', JSON.stringify(buyingPowerState))
-  })
 
   const dispatch = useDispatch();
   const currentUser = useSelector((state) => state.session.currentUser.id)
+  const [buyingPower, setBuyingPower] = useState(0)
+
+  useEffect(() => {
+    dispatch(fetchUser(currentUser))
+      .then((res) => {
+        setBuyingPower(res.user.buyingPower)
+      })
+  }, [currentUser]);
+
   const transfers = useSelector((state) => Object.values(state.entities.transfers))
   const orders = useSelector((state) => Object.values(state.entities.orders))
   

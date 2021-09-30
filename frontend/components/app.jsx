@@ -15,7 +15,8 @@ import TokenContainer from "./token/token_index_container";
 import TokenShow from './token/token_show'
 import NavBarContainer from "./navbar/navbar_container";
 import TokenIndexContainer from "./token/token_index_container";
-import CashContainer from "./cash/cash_container";
+// import CashContainer from "./cash/cash_container";
+import Cash from './cash/cash'
 import Contact from "./contact/contact";
 
 const App = () => {
@@ -32,7 +33,7 @@ const App = () => {
             <AuthRoute path="/contact" component={Contact} />
             <ProtectedRoute path="/portfolio" component={portfolio} />
             <ProtectedRoute exact path="/tokens" component={TokenIndexContainer} />
-            <ProtectedRoute exact path="/cash" component={CashContainer} />
+                <ProtectedRoute exact path="/cash" component={Cash} />
             {/* <Route path="/tokens" component={TokenContainer} /> */}
             <ProtectedRoute path="/tokens/:tokenId" component={TokenShow} /> {/** Add in tokenId */}
                 <Route exact path="/" component={splash} />
