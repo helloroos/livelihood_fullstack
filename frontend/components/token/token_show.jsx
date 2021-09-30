@@ -6,24 +6,33 @@ import token_show_container from './token_show_container';
 import TokenSidePanel from './token_side_panel';
 
 export default function TokenShow(props) {
+  
+    useEffect(() => {
+      document.title = `${tokenId.slice(0, 1).toUpperCase() + tokenId.slice(1).toLowerCase()} | Robinhodl`;
+    });
 
+  const dispatch = useDispatch();
   const [about, setAbout] = useState("")
   const [amount, setAmount] = useState(0)
+  const [buyingPower, setBuyingPower] = useState(0)
   const [marketPrice, setMarketPrice] = useState(0)
   const [oneDayChange, setOneDayChange] = useState(0)
   const [orderType, setOrderType] = useState("Buy")
   const [token_sym, setToken_sym] = useState("")
   const [userId, setUserId] = useState(0)
-
+  
+  const currentUser = useSelector((state) => state.session.currentUser.id)
   const tokenId = props.match.params.tokenId;
-  const token = useSelector((state) => state.entities.tokens.token)
-  const buyingPower = useSelector((state) => state.entities.buyingPower)
-  console.log(buyingPower);
-  const dispatch = useDispatch();
+
+  // const token = useSelector((state) => state.entities.tokens.token)
+  // const buyingPower = useSelector((state) => state.entities.buyingPower)
 
   useEffect(() => {
-    document.title = `${tokenId.slice(0, 1).toUpperCase() + tokenId.slice(1).toLowerCase()} | Robinhodl`;
-  });
+    dispatch(fetchUser(currentUser))
+      .then((res) => {
+        setBuyingPower(res.user.buyingPower)
+      })
+  }, [currentUser]);
 
   useEffect(() => {
     dispatch(fetchToken(tokenId))
@@ -89,7 +98,7 @@ export default function TokenShow(props) {
               </div>
             </div>
           </div>
-          <TokenSidePanel marketPrice={marketPrice} buyingPower={buyingPower}/>
+          <TokenSidePanel marketPrice={marketPrice} buyingPower={buyingPower} dispatch={dispatch} currentUser={currentUser} tokenId={tokenId}/>
         </div>
       </div>
     </div>
