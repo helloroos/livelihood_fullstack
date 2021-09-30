@@ -3,10 +3,6 @@ import React from 'react';
 
 export default function PortfolioChart({ dispatch, currentUser, transfers, orders }) {
 
-  console.log(transfers); // []
-  console.log(orders); // []
-  console.log(currentUser); // 1
-
   let netTransactions = {}
   for (let i = 0; i < transfers.length; i++) {
     let date = transfers[i].created_at.slice(0, 10);

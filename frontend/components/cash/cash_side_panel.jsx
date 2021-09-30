@@ -1,10 +1,13 @@
 import React, { useState } from 'react';
+import { useSelector } from 'react-redux';
 
-export default function CashSidePanel({ currentUser, dispatch }) {
+export default function CashSidePanel({ dispatch }) {
+
+  const currentUser = useSelector((state) => state.session.currentUser.id)
 
   const [transfer, setTransfer] = useState({
-    transfer_type: "",
-    amount: 0,
+    transfer_type: 'deposit',
+    amount: null,
     user_id: currentUser
   });
 
@@ -12,13 +15,14 @@ export default function CashSidePanel({ currentUser, dispatch }) {
 
   const handleTransfer = (e) => {
     e.preventDefault();
-    dispatch(transfer)
+    dispatch(makeTransfer(transfer))
     console.log('transfer clicked');
   }
 
   const changeOption = (val) => {
     if (val === 'deposit') {
       setTo('Robinhodl')
+      setTransfer({ ...transfer, transfer_type: 'withdraw' })
     } else {
       setTo('Universal Bank')
     }
@@ -53,7 +57,7 @@ export default function CashSidePanel({ currentUser, dispatch }) {
           <p>Amount</p>
           <input type="text" placeholder="$0.00" required onChange={(e) => setTransfer({ ...transfer, amount: e.target.value })} />
         </div>
-        <button>Transfer</button>
+        <button id={transfer.amount ? 'green': 'gray'}>Transfer</button>
       </form>
     </div>
   )
