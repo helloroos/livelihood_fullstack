@@ -93,9 +93,10 @@
             input {
               background-color: whitesmoke;
               border: 1px solid whitesmoke;
-              height: 25px;
+              height: 20px;
               width: 100px;
               border-radius: 3px;
+              padding: 5px;
 
               &:hover {
                 background-color: white;
@@ -108,9 +109,9 @@
                 background-color: white;
               }
 
-              &::placeholder {
-                padding: 5px;
-              }
+              // &::placeholder {
+              //   padding: 5px;
+              // }
             }
           }
 

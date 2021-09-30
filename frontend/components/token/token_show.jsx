@@ -98,7 +98,7 @@ export default function TokenShow(props) {
               </div>
             </div>
           </div>
-          <TokenSidePanel marketPrice={marketPrice} buyingPower={buyingPower} dispatch={dispatch} currentUser={currentUser} tokenId={tokenId}/>
+          <TokenSidePanel marketPrice={marketPrice} buyingPower={buyingPower} dispatch={dispatch} tokenId={tokenId}/>
         </div>
       </div>
     </div>

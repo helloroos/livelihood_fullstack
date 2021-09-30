@@ -29,7 +29,22 @@ export default function Cash() {
       })
   }, [currentUser]);
 
+  
   if (buyingPower) {
+    // for (const [key, value] of Object.entries(transfers)) {
+    //   return (
+    //     <div id="transaction-container">
+    //       <div id="transaction-details">
+    //           <p id="type">{key.transfer_type}</p>
+    //           <p id="date">{key.created_at.slice(0, 10)}</p>
+    //       </div>
+    //       <div id="transaction-amount">
+    //         <p id="amount">{key.amount}</p>
+    //       </div>
+    //     </div>
+    //   )
+    // }
+
     return (
       <div id="cash-container">
         <div id="inner-cash-container">
@@ -57,8 +72,7 @@ export default function Cash() {
                 <h2>Recent History</h2>
               </div>
 
-              <div id="transaction-container">
-
+              {/* <div id="transaction-container">
                 <div id="transaction-details">
                   <p id="type">Deposit</p>
                   <p id="date">09-09-2021</p>
@@ -66,7 +80,7 @@ export default function Cash() {
                 <div id="transaction-amount">
                   <p id="amount">$4,500</p>
                 </div>
-              </div>
+              </div> */}
 
             </div>
 

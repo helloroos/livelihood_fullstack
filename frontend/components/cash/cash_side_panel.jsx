@@ -6,7 +6,7 @@ export default function CashSidePanel({ dispatch }) {
   const currentUser = useSelector((state) => state.session.currentUser.id)
 
   const [transfer, setTransfer] = useState({
-    transfer_type: 'deposit',
+    transfer_type: 'Deposit',
     amount: null,
     user_id: currentUser
   });
@@ -22,7 +22,7 @@ export default function CashSidePanel({ dispatch }) {
   const changeOption = (val) => {
     if (val === 'deposit') {
       setTo('Robinhodl')
-      setTransfer({ ...transfer, transfer_type: 'withdraw' })
+      setTransfer({ ...transfer, transfer_type: 'Withdraw' })
     } else {
       setTo('Universal Bank')
     }
@@ -46,10 +46,6 @@ export default function CashSidePanel({ dispatch }) {
           <p>To</p>
           <div id="to-container">
             <p>{to}</p>
-            {/* <select name="from" id="from-select" onChange={(e) => setTransfer({ ...transfer, transfer_type: e.target.value })}>
-              <option value="robinhodl">Robinhodl</option>
-              <option value="universal-bank">Universal Bank</option>
-            </select> */}
           </div>
         </div>
 

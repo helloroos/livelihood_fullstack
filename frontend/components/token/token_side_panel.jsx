@@ -1,10 +1,12 @@
-import React, { useState } from 'react'
+import React, { useState } from 'react';
+import { useSelector } from 'react-redux';
 
-export default function TokenSidePanel({ marketPrice, buyingPower, dispatch, currentUser, tokenId }) {
+export default function TokenSidePanel({ marketPrice, buyingPower, dispatch, tokenId }) {
 
-  // const [number, setNumber] = useState(0)
+  const currentUser = useSelector((state) => state.session.currentUser.id)
+
   const [order, setOrder] = useState({
-    order_type: "",
+    order_type: 'Buy',
     token_sym: tokenId,
     market_price: marketPrice,
     number: 0,
@@ -16,7 +18,7 @@ export default function TokenSidePanel({ marketPrice, buyingPower, dispatch, cur
 
   const handleOrder = (e) => {
     e.preventDefault();
-    dispatch(order)
+    dispatch(makeOrder(order))
   }
 
   const handleWatchlist = () => {
@@ -28,13 +30,13 @@ export default function TokenSidePanel({ marketPrice, buyingPower, dispatch, cur
         <form onSubmit={handleOrder}> 
           <div id="header-container">
             <select onChange={(e) => setOrder({...order, order_type: e.target.value})}>
-              <option>Buy</option>
-              <option>Sell</option>
+              <option value="Buy">Buy</option>
+              <option value="Sell">Sell</option>
             </select>
           </div>
           <div id="tokens-container" className="side-panel-section">
             <p>Tokens</p>
-          <input placeholder="0" required onChange={(e) => setOrder({ ...order, number: e.target.value })}/>
+          <input type="text" placeholder="0" required onChange={(e) => setOrder({ ...order, number: e.target.value })}/>
           </div>
           <div id="price-container" className="side-panel-section">
             <p>Market Price</p>
@@ -48,7 +50,7 @@ export default function TokenSidePanel({ marketPrice, buyingPower, dispatch, cur
             <p>Buying power</p>
             <p>${buyingPower.toLocaleString('en')}</p>
           </div>
-          <button>Order</button>
+          <button id={order.number ? 'green' : 'gray'}>Order</button>
         </form>
       <button id="add-watchlist" onClick={handleWatchlist}>Add to watchlist</button>
     </div>
