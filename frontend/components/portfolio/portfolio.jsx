@@ -9,7 +9,7 @@ import PortfolioSidePanel from './portfolio_side_panel';
 export default function portfolio() {
 
   useEffect(() => {
-    document.title = `Portfolio | Robinhodl`;
+    document.title = ` Portfolio | Robinhodl `;
   });
 
   const dispatch = useDispatch();
