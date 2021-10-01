@@ -1,7 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-export default function SidePanel() {
+export default function PortfolioSidePanel() {
+
   return (
     <div id="side-panel">
       <header>

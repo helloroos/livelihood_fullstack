@@ -4,7 +4,7 @@ import PortfolioChart from './portfolio_chart';
 // import { Link } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import News from './news';
-import SidePanel from './side_panel';
+import PortfolioSidePanel from './portfolio_side_panel';
 
 export default function portfolio() {
 
@@ -65,7 +65,7 @@ export default function portfolio() {
 
           </div>
 
-          <SidePanel/>
+          <PortfolioSidePanel/>
 
         </div>
       </div>

@@ -30,7 +30,6 @@ export default function Cash() {
   //       setTransfers(res.user.transfers)
   //     })
   // }, [currentUser]);
-
   
   if (buyingPower) {
     return (

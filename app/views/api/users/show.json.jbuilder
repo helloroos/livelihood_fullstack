@@ -39,6 +39,16 @@ def tokens
     token
 end
 
+def tokensSimplifyer(tokens)
+    new_tokens = {}
+    i = 0
+    while i < tokens.length
+        new_tokens[i] = 
+        i += 1
+    end
+    return new_tokens
+end
+
 json.tokensHeld tokens
 
 json.transfers do
