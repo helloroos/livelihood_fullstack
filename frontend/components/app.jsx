@@ -4,7 +4,7 @@ import { AuthRoute, ProtectedRoute } from "../util/route_util";
 import { Route, withRouter } from 'react-router-dom';
 
 // import LogInFormContainer from "./session/log_in_form_container";
-import log_in_form from "./session/log_in_form";
+import LogInForm from "./session/log_in_form";
 // import SignUpFormContainer from "./session/sign_up_form_container";
 import sign_up_form from "./session/sign_up_form";
 // import SplashContainer from "./splash/splash_container";
@@ -28,7 +28,7 @@ const App = () => {
         <NavBarContainerWithRouter/>
         {/* <Route exact path="/" component={NavBarContainer } /> */}
         <Switch>
-            <AuthRoute path="/login" component={log_in_form} />
+                <AuthRoute path="/login" component={LogInForm} />
             <AuthRoute path="/signup" component={sign_up_form} />
             <AuthRoute path="/contact" component={Contact} />
             <ProtectedRoute path="/portfolio" component={portfolio} />

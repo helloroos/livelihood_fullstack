@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 
-export default function CashSidePanel({ dispatch }) {
+export default function CashSidePanel() {
 
+  const dispatch = useDispatch();
   const currentUser = useSelector((state) => state.session.currentUserId);
   // const currentUser = useSelector((state) => state.session.currentUser.id);
 

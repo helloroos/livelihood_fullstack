@@ -13,24 +13,26 @@ export default function portfolio() {
   });
 
   const dispatch = useDispatch();
-  const currentUser = useSelector((state) => state.session.currentUserId)
+  const currentUser = useSelector((state) => state.session.currentUserId);
+  const buyingPower = useSelector((state) => state.entities.buyingPower);
+  const transfers = useSelector((state) => state.entities.transfers);
   // const currentUser = useSelector((state) => state.session.currentUser.id)
-  const [buyingPower, setBuyingPower] = useState(0)
-  const [transfers, setTransfers] = useState(null)
 
-  useEffect(() => {
-    dispatch(fetchUser(currentUser))
-      .then((res) => {
-        setBuyingPower(res.user.buyingPower)
-        setTransfers(res.user.transfers)
-      })
-  }, [currentUser]);
+  // const [buyingPower, setBuyingPower] = useState(0)
+  // const [transfers, setTransfers] = useState(null)
 
-  // const transfers = useSelector((state) => Object.values(state.entities.transfers))
-  const orders = useSelector((state) => Object.values(state.entities.orders))
+  // useEffect(() => {
+  //   dispatch(fetchUser(currentUser))
+  //     .then((res) => {
+  //       setBuyingPower(res.user.buyingPower)
+  //       setTransfers(res.user.transfers)
+  //     })
+  // }, [currentUser]);
+
+  // const orders = useSelector((state) => Object.values(state.entities.orders))
   
-  const tokens = useSelector((state) => state.entities.tokens)
-  const token = useSelector((state) => state.entities.token)
+  // const tokens = useSelector((state) => state.entities.tokens)
+  // const token = useSelector((state) => state.entities.token)
 
   return (
     <div id="portfolio-container">
@@ -46,13 +48,13 @@ export default function portfolio() {
               </div>
             </div>
 
-            <div id="chart-container">
+            {/* <div id="chart-container">
               <PortfolioChart
                 dispatch={dispatch}
                 currentUser={currentUser}
                 transfers={transfers}
                 orders={orders} />
-            </div>
+            </div> */}
 
             <div id="buying-power-container">
               <p>Buying Power</p>

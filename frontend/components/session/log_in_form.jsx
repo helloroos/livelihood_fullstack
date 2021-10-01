@@ -2,16 +2,16 @@ import React, { useState, useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux';
 import { Link, useHistory } from 'react-router-dom';
 
-export default function log_in_form() {
+export default function LogInForm() {
   
   useEffect(() => {
     document.title = `Log In | Robinhodl`;
   });
   
+  const dispatch = useDispatch();
   const currentUser = useSelector((state) => state.session.currentUserId)
   // const currentUser = useSelector((state) => state.session.currentUser)
   const errors = useSelector((state) => state.errors.session);
-  const dispatch = useDispatch();
   const [user, setUser] = useState({email: "", password: ""});
   const history = useHistory();
   
