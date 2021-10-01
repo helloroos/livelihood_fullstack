@@ -8,10 +8,11 @@ export default function TokenSidePanel({ marketPrice, buyingPower, dispatch, tok
 
   const [order, setOrder] = useState({
     order_type: 'Buy',
-    token_sym: tokenId,
-    market_price: marketPrice,
-    number: 0,
-    amount: 0,
+    token_sym: 'Havven',
+    // market_price: marketPrice,
+    market_price: 10,
+    number: 5,
+    amount: 50,
     user_id: currentUser
   })
 
@@ -19,20 +20,27 @@ export default function TokenSidePanel({ marketPrice, buyingPower, dispatch, tok
 
   const handleOrder = (e) => {
     e.preventDefault();
+    console.log(order);
     dispatch(makeOrder(order))
   }
 
-  const handleWatchlist = () => {
-    console.log('watchlist');
+  const changeOption = (val) => {
+    if (val === 'sell') {
+      setOrder({ ...order, order_type: 'Sell' })
+    }
   }
+
+  // const handleWatchlist = () => {
+  //   console.log('watchlist');
+  // }
 
   return (
     <div id="side-panel-container">
         <form onSubmit={handleOrder}> 
           <div id="header-container">
-            <select onChange={(e) => setOrder({...order, order_type: e.target.value})}>
-              <option value="Buy">Buy</option>
-              <option value="Sell">Sell</option>
+            <select onChange={(e) => changeOption(e.target.value)}>
+              <option value="buy">Buy</option>
+              <option value="sell">Sell</option>
             </select>
           </div>
           <div id="tokens-container" className="side-panel-section">
@@ -45,7 +53,7 @@ export default function TokenSidePanel({ marketPrice, buyingPower, dispatch, tok
           </div>
           <div id="cost-container" className="side-panel-section">
             <p>Estimated cost</p>
-            <p onChange={(e) => setOrder({ ...order, amount: e.target.value })}>${total.toLocaleString('en')}</p>
+            <p onChange={(e) => setOrder({ ...order, amount: total })}>${total.toLocaleString('en')}</p>
           </div>
           <div id="buying-power-container" className="side-panel-section">
             <p>Buying power</p>

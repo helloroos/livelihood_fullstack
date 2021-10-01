@@ -13,7 +13,6 @@ export default function TokenShow(props) {
 
   const dispatch = useDispatch();
   const [about, setAbout] = useState("")
-  const [amount, setAmount] = useState(0)
   // const [buyingPower, setBuyingPower] = useState(0);
   const buyingPower = useSelector((state) => state.entities.buyingPower);
   const [marketPrice, setMarketPrice] = useState(0)

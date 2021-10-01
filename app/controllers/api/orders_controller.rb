@@ -3,7 +3,8 @@ class Api::OrdersController < ApplicationController
     def create
         @orders = Order.new(order_params)
         if @orders.save
-            render json: ["Order successful"], status: 200
+            # render json: ["Order successful"], status: 200
+            render :show
         else
             render json: @orders.errors.full_messages, status: 422
         end
