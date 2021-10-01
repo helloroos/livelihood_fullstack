@@ -14,26 +14,23 @@ export default function TokenShow(props) {
   const dispatch = useDispatch();
   const [about, setAbout] = useState("")
   const [amount, setAmount] = useState(0)
-  const [buyingPower, setBuyingPower] = useState(0)
+  // const [buyingPower, setBuyingPower] = useState(0);
+  const buyingPower = useSelector((state) => state.entities.buyingPower);
   const [marketPrice, setMarketPrice] = useState(0)
   const [oneDayChange, setOneDayChange] = useState(0)
-  const [orderType, setOrderType] = useState("Buy")
-  const [token_sym, setToken_sym] = useState("")
-  const [userId, setUserId] = useState(0)
   
   const currentUser = useSelector((state) => state.session.currentUserId)
   // const currentUser = useSelector((state) => state.session.currentUser.id)
   const tokenId = props.match.params.tokenId;
 
   // const token = useSelector((state) => state.entities.tokens.token)
-  // const buyingPower = useSelector((state) => state.entities.buyingPower)
 
-  useEffect(() => {
-    dispatch(fetchUser(currentUser))
-      .then((res) => {
-        setBuyingPower(res.user.buyingPower)
-      })
-  }, [currentUser]);
+  // useEffect(() => {
+  //   dispatch(fetchUser(currentUser))
+  //     .then((res) => {
+  //       setBuyingPower(res.user.buyingPower)
+  //     })
+  // }, [currentUser]);
 
   useEffect(() => {
     dispatch(fetchToken(tokenId))
@@ -42,7 +39,7 @@ export default function TokenShow(props) {
       setOneDayChange(res.token.change_one_d)
       setAbout(res.token.about)
     })
-  }, [])
+  }, [tokenId])
 
   return (
     <div id="token-container">

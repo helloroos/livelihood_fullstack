@@ -1,4 +1,5 @@
-import { RECEIVE_TOKEN, RECEIVE_TOKENS, RECEIVE_TOKEN_HISTORICAL } from "../actions/token_actions";
+import { TOKEN_INFO, RECEIVE_TOKENS, RECEIVE_TOKEN_HISTORICAL } from "../actions/token_actions";
+// import { RECEIVE_TOKEN, RECEIVE_TOKENS, RECEIVE_TOKEN_HISTORICAL } from "../actions/token_actions";
 import { combineReducers } from "redux";
 
 const tokensReducer = (state = {}, action) => {
@@ -13,9 +14,13 @@ const tokensReducer = (state = {}, action) => {
 
 const tokenReducer = (state = {}, action) => {
   Object.freeze(state);
+  let newState = Object.assign({}, state);
   switch (action.type) {
-    case RECEIVE_TOKEN:
-      return { [action.token.id]: action.token };
+    case TOKEN_INFO:
+      // return { [action.token.id]: action.token };
+      // return [...state, action.token];
+      newState = action.token;
+      return newState;
     default:
       return state;
   }
