@@ -16,7 +16,8 @@ export default function Cash() {
   });
 
   const dispatch = useDispatch();
-  const currentUser = useSelector((state) => state.session.currentUser.id)
+  const currentUser = useSelector((state) => state.session.currentUserId)
+  // const currentUser = useSelector((state) => state.session.currentUser.id)
   const [buyingPower, setBuyingPower] = useState(0)
   const [transfers, setTransfers] = useState({})
   const [isOpen, setIsOpen] = useState(false);

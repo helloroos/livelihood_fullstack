@@ -9,7 +9,8 @@ export default function sign_up_form() {
     document.title = `Sign up | Robinhodl`;
   });
 
-  const resetErrors = useSelector((state) => state.session.currentUser)
+  const resetErrors = useSelector((state) => state.session.currentUserId)
+  // const resetErrors = useSelector((state) => state.session.currentUser)
   const errors = useSelector((state) => state.errors.session);
   const dispatch = useDispatch();
   const history = useHistory();

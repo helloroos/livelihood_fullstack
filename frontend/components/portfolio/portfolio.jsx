@@ -13,17 +13,20 @@ export default function portfolio() {
   });
 
   const dispatch = useDispatch();
-  const currentUser = useSelector((state) => state.session.currentUser.id)
+  const currentUser = useSelector((state) => state.session.currentUserId)
+  // const currentUser = useSelector((state) => state.session.currentUser.id)
   const [buyingPower, setBuyingPower] = useState(0)
+  const [transfers, setTransfers] = useState(null)
 
   useEffect(() => {
     dispatch(fetchUser(currentUser))
       .then((res) => {
         setBuyingPower(res.user.buyingPower)
+        setTransfers(res.user.transfers)
       })
   }, [currentUser]);
 
-  const transfers = useSelector((state) => Object.values(state.entities.transfers))
+  // const transfers = useSelector((state) => Object.values(state.entities.transfers))
   const orders = useSelector((state) => Object.values(state.entities.orders))
   
   const tokens = useSelector((state) => state.entities.tokens)

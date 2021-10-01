@@ -7,7 +7,8 @@ import AboutMe from './about_me';
 
 export default function navbar({pathname}) {
 
-  const currentUser = useSelector((state) => state.session.currentUser)
+  const currentUser = useSelector((state) => state.session.currentUserId)
+  // const currentUser = useSelector((state) => state.session.currentUser)
   // const pathname = useSelector((state) => ownProps.location.pathname)
   const dispatch = useDispatch();
 
@@ -40,7 +41,7 @@ export default function navbar({pathname}) {
       <div id="logged-in-navbar-container">
         <div id="logo-container">
           <Link to="/portfolio">
-            <img src={window.robinhood_favicon_black} />
+            <img src="https://pbs.twimg.com/profile_images/1267616128022351873/dZJpsWTD_400x400.jpg" />
             {/* <i class="fas fa-hand-holding-usd"></i> */}
           </Link>
         </div>

@@ -1,12 +1,12 @@
-export const makeTransfer = (transfer) => {
+export const makeTransfer = (transferData) => {
   return $.ajax({
     url: "/api/transfers",
     method: "POST",
     data: {
       transfer: {
-        transfer_type: transfer.transfer_type,
-        amount: transfer.amount,
-        user_id: transfer.user_id
+        transfer_type: transferData.transfer_type,
+        amount: transferData.amount,
+        user_id: transferData.user_id
       }
     }
   })

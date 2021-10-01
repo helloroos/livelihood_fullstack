@@ -15,7 +15,8 @@ export default function splash() {
     document.title = `Commisson-free Cryptocurrency Exchange | Robinhodl`;
   });
 
-  const currentUser = useSelector((state) => state.session.currentUser)
+  const currentUser = useSelector((state) => state.session.currentUserId)
+  // const currentUser = useSelector((state) => state.session.currentUser)
 
   const [isOpen, setIsOpen] = useState(false);
 

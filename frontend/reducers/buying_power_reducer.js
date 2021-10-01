@@ -1,18 +1,18 @@
-import { RECEIVE_CURRENT_USER } from "../actions/session_actions";
+import { CURRENT_USER } from "../actions/session_actions";
 import { RECEIVE_USER } from "../actions/user_actions";
 
-const initialState = { buyingPower: 3 }
+const initialState = { buyingPower: 0 }
 
 const buyingPowerReducer = (state = initialState, action) => {
   Object.freeze(state);
-  // let newState = Object.assign({}, state);
+  let newState = 0;
 
   switch (action.type) {
 
-    case RECEIVE_CURRENT_USER:
+    case CURRENT_USER:
       // newState.buyingPower = action.currentUser.buyingPower;
-      // return newState;
-      return Object.assign({}, { buyingPower: action.currentUser.buyingPower });
+      return newState = action.currentUser.buyingPower;
+      // return Object.assign({}, { buyingPower: action.currentUser.buyingPower });
 
     case RECEIVE_USER:
       // newState.buyingPower = action.user.buyingPower;

@@ -3,7 +3,8 @@ import { useSelector } from 'react-redux';
 
 export default function CashSidePanel({ dispatch }) {
 
-  const currentUser = useSelector((state) => state.session.currentUser.id)
+  const currentUser = useSelector((state) => state.session.currentUserId);
+  // const currentUser = useSelector((state) => state.session.currentUser.id);
 
   const [transfer, setTransfer] = useState({
     transfer_type: 'Deposit',

@@ -3,7 +3,8 @@ import { useSelector } from 'react-redux';
 
 export default function TokenSidePanel({ marketPrice, buyingPower, dispatch, tokenId }) {
 
-  const currentUser = useSelector((state) => state.session.currentUser.id)
+  // const currentUser = useSelector((state) => state.session.currentUser.id)
+  const currentUser = useSelector((state) => state.session.currentUserId)
 
   const [order, setOrder] = useState({
     order_type: 'Buy',
@@ -52,7 +53,7 @@ export default function TokenSidePanel({ marketPrice, buyingPower, dispatch, tok
           </div>
           <button id={order.number ? 'green' : 'gray'}>Order</button>
         </form>
-      <button id="add-watchlist" onClick={handleWatchlist}>Add to watchlist</button>
+      {/* <button id="add-watchlist" onClick={handleWatchlist}>Add to watchlist</button> */}
     </div>
   )
 }

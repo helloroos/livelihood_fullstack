@@ -21,7 +21,8 @@ export default function TokenShow(props) {
   const [token_sym, setToken_sym] = useState("")
   const [userId, setUserId] = useState(0)
   
-  const currentUser = useSelector((state) => state.session.currentUser.id)
+  const currentUser = useSelector((state) => state.session.currentUserId)
+  // const currentUser = useSelector((state) => state.session.currentUser.id)
   const tokenId = props.match.params.tokenId;
 
   // const token = useSelector((state) => state.entities.tokens.token)

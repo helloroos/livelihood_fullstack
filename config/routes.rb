@@ -1,13 +1,15 @@
 # == Route Map
 #
-#      Prefix Verb   URI Pattern                 Controller#Action
-#        root GET    /                           static_pages#root
-# api_session DELETE /api/session(.:format)      api/sessions#destroy {:format=>:json}
-#             POST   /api/session(.:format)      api/sessions#create {:format=>:json}
-#   api_users POST   /api/users(.:format)        api/users#create {:format=>:json}
-#    api_user GET    /api/users/:id(.:format)    api/users#show {:format=>:json}
-#  api_tokens GET    /api/tokens(.:format)       api/tokens#index {:format=>:json}
-#   api_token GET    /api/tokens/:id(.:format)   api/tokens#show {:format=>:json}
+# Verb   URI Pattern              Controller#Action
+# GET    /                        static_pages#root
+# DELETE /api/session(.:format)   api/sessions#destroy {:format=>:json}
+# POST   /api/session(.:format)   api/sessions#create {:format=>:json}
+# POST   /api/users(.:format)     api/users#create {:format=>:json}
+# GET    /api/users/:id(.:format) api/users#show {:format=>:json}
+# GET    /api/transfers(.:format) api/transfers#index {:format=>:json}
+# POST   /api/transfers(.:format) api/transfers#create {:format=>:json}
+# GET    /api/orders(.:format)    api/orders#index {:format=>:json}
+# POST   /api/orders(.:format)    api/orders#create {:format=>:json}
 
 Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html

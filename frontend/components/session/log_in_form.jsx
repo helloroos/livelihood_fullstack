@@ -8,7 +8,8 @@ export default function log_in_form() {
     document.title = `Log In | Robinhodl`;
   });
   
-  const currentUser = useSelector((state) => state.session.currentUser)
+  const currentUser = useSelector((state) => state.session.currentUserId)
+  // const currentUser = useSelector((state) => state.session.currentUser)
   const errors = useSelector((state) => state.errors.session);
   const dispatch = useDispatch();
   const [user, setUser] = useState({email: "", password: ""});
