@@ -1,4 +1,4 @@
-export const fetchUser = (userId) => {
+export const getUser = (userId) => {
   return $.ajax({
     url: `/api/users/${userId}`,
     method: "GET",

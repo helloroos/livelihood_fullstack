@@ -1,12 +1,12 @@
 import { CURRENT_USER } from "../actions/session_actions";
 // import { RECEIVE_TRANSFER, RECEIVE_TRANSFERS } from "../actions/transfer_action";
 import { MAKE_TRANSFER, RECEIVE_TRANSFERS } from "../actions/transfer_action";
-import { RECEIVE_USER } from "../actions/user_actions";
+import { GET_USER_INFO } from "../actions/user_actions";
 
 const transfersReducer = (state = [], action) => {
   Object.freeze(state);
   let newState = state.slice();
-
+  let transfers;
   switch (action.type) {
     case MAKE_TRANSFER:
       newState.push(action.transfer);
@@ -19,14 +19,19 @@ const transfersReducer = (state = [], action) => {
       // return Object.assign({}, state, { transfers: action.currentUser.transfers });
       // console.log(action);
       // return [...state, action.currentUser.transfers];
-      const transfers = Object.keys(action.currentUser.transfers);
+      transfers = Object.keys(action.currentUser.transfers);
       transfers.forEach((key) => {
         newState.push(action.currentUser.transfers[key]);
       });
       return newState;
-      case RECEIVE_USER:
+      case GET_USER_INFO:
+      transfers = Object.keys(action.currentUser.transfers);
+      transfers.forEach((key) => {
+        newState.push(action.currentUser.transfers[key]);
+      });
+      return newState;
         // return action.user.transfers;
-        return Object.assign({}, state, { transfers: action.user.transfer });
+        // return Object.assign({}, state, { transfers: action.user.transfer });
     // return Object.assign({}, state, { transfers: action.user.transfers });
     default:
       return state;

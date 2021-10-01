@@ -1,5 +1,5 @@
 import { CURRENT_USER } from "../actions/session_actions";
-import { RECEIVE_USER } from "../actions/user_actions";
+import { GET_USER_INFO } from "../actions/user_actions";
 
 const initialState = { buyingPower: 0 }
 
@@ -14,11 +14,11 @@ const buyingPowerReducer = (state = initialState, action) => {
       return newState = action.currentUser.buyingPower;
       // return Object.assign({}, { buyingPower: action.currentUser.buyingPower });
 
-    case RECEIVE_USER:
+    case GET_USER_INFO:
       // newState.buyingPower = action.user.buyingPower;
       // return newState;
-      return Object.assign({}, { buyingPower: action.user.buyingPower });
-
+      // return Object.assign({}, { buyingPower: action.user.buyingPower });
+      return newState = action.currentUser.buyingPower;
     default:
       return state;
   }

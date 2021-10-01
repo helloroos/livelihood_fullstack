@@ -33,20 +33,6 @@ export default function Cash() {
 
   
   if (buyingPower) {
-    // for (const [key, value] of Object.entries(transfers)) {
-    //   return (
-    //     <div id="transaction-container">
-    //       <div id="transaction-details">
-    //           <p id="type">{key.transfer_type}</p>
-    //           <p id="date">{key.created_at.slice(0, 10)}</p>
-    //       </div>
-    //       <div id="transaction-amount">
-    //         <p id="amount">{key.amount}</p>
-    //       </div>
-    //     </div>
-    //   )
-    // }
-
     return (
       <div id="cash-container">
         <div id="inner-cash-container">
@@ -73,6 +59,20 @@ export default function Cash() {
               <div id="header">
                 <h2>Recent History</h2>
               </div>
+
+              {transfers.map((transfer, i) => {
+                return (
+                  <div id="transaction-container" key={i}>
+                    <div id="transaction-details">
+                      <p id="type">{transfer.transfer_type}</p>
+                      <p id="date">{transfer.created_at.slice(0, 10)}</p>
+                    </div>
+                    <div id="transaction-amount">
+                      <p id="amount">${transfer.amount.toLocaleString('en')}</p>
+                    </div>
+                  </div>
+                )
+              })}
 
               {/* <div id="transaction-container">
                 <div id="transaction-details">

@@ -1,10 +1,11 @@
 import { MAKE_ORDER, RECEIVE_ORDERS } from "../actions/order_actions";
 import { CURRENT_USER } from "../actions/session_actions";
-import { RECEIVE_USER } from "../actions/user_actions";
+import { GET_USER_INFO } from "../actions/user_actions";
 
 const ordersReducer = (state = [], action) => {
   Object.freeze(state);
   let newState = state.slice();
+  let orders;
   switch (action.type) {
     case MAKE_ORDER:
       newState.push(action.order);
@@ -18,14 +19,19 @@ const ordersReducer = (state = [], action) => {
     // //     return action.orders;
     case CURRENT_USER:
       // return newState = Object.entries(action.currentUser.orders)
-      const orders = Object.keys(action.currentUser.orders);
+      orders = Object.keys(action.currentUser.orders);
       orders.forEach((key) => {
         newState.push(action.currentUser.orders[key]);
       });
       return newState;
-    // return action.currentUser.orders;
-    // return Object.assign({}, state, { orders: action.currentUser.orders });
-    // case RECEIVE_USER:
+      // return action.currentUser.orders;
+      // return Object.assign({}, state, { orders: action.currentUser.orders });
+      case GET_USER_INFO:
+      orders = Object.keys(action.currentUser.orders);
+      orders.forEach((key) => {
+        newState.push(action.currentUser.orders[key]);
+      });
+      return newState;
     //   return action.user.orders;
     // return Object.assign({}, state, { orders: action.user.orders });
     default:

@@ -1,17 +1,18 @@
 import * as UserAPIUtil from '../util/user_api_util'
 
-export const RECEIVE_USER = "RECEIVE_USER";
+export const GET_USER_INFO = "GET_USER_INFO";
+// export const RECEIVE_USER = "RECEIVE_USER";
 
-const receiveUser = (user) => {
+const getUserAction = (user) => {
   return {
-    type: RECEIVE_USER,
+    type: GET_USER_INFO,
     user: user
   }
 }
 
-export const fetchUser = (userId) => (dispatch) => {
-  return UserAPIUtil.fetchUser(userId)
+export const getUser = (userId) => (dispatch) => {
+  return UserAPIUtil.getUser(userId)
     .then(
-      (res) => dispatch(receiveUser(res)))
+      (res) => dispatch(getUserAction(res)))
   // (errors) => dispatch(receiveErrors(errors.responseJSON)))
 }
