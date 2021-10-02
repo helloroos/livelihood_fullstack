@@ -11,47 +11,49 @@ const transfersReducer = (state = [], action) => {
     case MAKE_TRANSFER:
       newState.push(action.transfer);
       return newState;
-      // return Object.assign({}, state, { transfers: action.transfer });
-      // return [...state, action.transfer];
-      case CURRENT_USER:
-      // case RECEIVE_CURRENT_USER:
-      // return action.currentUser.transfers;
-      // return Object.assign({}, state, { transfers: action.currentUser.transfers });
-      // console.log(action);
-      // return [...state, action.currentUser.transfers];
+    case CURRENT_USER:
       transfers = Object.keys(action.currentUser.transfers);
       transfers.forEach((key) => {
         newState.push(action.currentUser.transfers[key]);
       });
       return newState;
-      case GET_USER_INFO:
-      transfers = Object.keys(action.user.transfers);
-      transfers.forEach((key) => {
-        newState.push(action.user.transfers[key]);
-      });
+    case GET_USER_INFO:
+      if (action.user.transfers.length !== newState.length) {
+        transfers = Object.keys(action.user.transfers);
+        transfers.forEach((key) => {
+          newState.push(action.user.transfers[key]);
+        });
+      }
       return newState;
+    default:
+        return state;
+    }
+  }
+    
+    // const transfersReducer = (state = {}, action) => {
+      //   Object.freeze(state);
+      //   switch (action.type) {
+        //     case RECEIVE_TRANSFER:
+        // return Object.assign({}, state, { transfers: action.transfer });
+        // return [...state, action.transfer];
+        //       return Object.assign({}, state, { transfers: action.transfer });
+        //     case RECEIVE_CURRENT_USER:
+        //       return action.currentUser.transfers;
+        //     // return Object.assign({}, state, { transfers: action.currentUser.transfers });
+        // case RECEIVE_CURRENT_USER:
+        // return action.currentUser.transfers;
+        // return Object.assign({}, state, { transfers: action.currentUser.transfers });
+        // console.log(action);
+        // return [...state, action.currentUser.transfers];
+        //     case RECEIVE_USER:
         // return action.user.transfers;
         // return Object.assign({}, state, { transfers: action.user.transfer });
-    // return Object.assign({}, state, { transfers: action.user.transfers });
-    default:
-      return state;
-  }
-}
-
-// const transfersReducer = (state = {}, action) => {
-//   Object.freeze(state);
-//   switch (action.type) {
-//     case RECEIVE_TRANSFER:
-//       return Object.assign({}, state, { transfers: action.transfer });
-//     case RECEIVE_CURRENT_USER:
-//       return action.currentUser.transfers;
-//     // return Object.assign({}, state, { transfers: action.currentUser.transfers });
-//     case RECEIVE_USER:
-//       return action.user.transfers;
-//     // return Object.assign({}, state, { transfers: action.user.transfers });
-//     default:
-//       return state;
-//   }
-// }
-
-export default transfersReducer;
+        // return Object.assign({}, state, { transfers: action.user.transfers });
+        //       return action.user.transfers;
+        //     // return Object.assign({}, state, { transfers: action.user.transfers });
+        //     default:
+        //       return state;
+        //   }
+        // }
+        
+        export default transfersReducer;

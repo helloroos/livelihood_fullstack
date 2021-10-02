@@ -13,10 +13,12 @@ const tokensHeldReducer = (state = [], action) => {
       });
       return newState;
     case GET_USER_INFO:
-      tokensHeld = Object.keys(action.user.tokensHeld);
-      tokensHeld.forEach((key) => {
-        newState.push(action.user.tokensHeld[key]);
-      });
+      if (action.user.tokensHeld.length !== newState.length) {
+        tokensHeld = Object.keys(action.user.tokensHeld);
+        tokensHeld.forEach((key) => {
+          newState.push(action.user.tokensHeld[key]);
+        });
+      } 
       return newState;
     default:
       return state;

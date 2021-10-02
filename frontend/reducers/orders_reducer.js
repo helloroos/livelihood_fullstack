@@ -10,33 +10,24 @@ const ordersReducer = (state = [], action) => {
     case MAKE_ORDER:
       newState.push(action.order);
       return newState;
-      // return Object.assign({}, { orders: action.orders });
-    // case RECEIVE_ORDERS:
-    //     return action.orders;
-    // case RECEIVE_ORDER:
-    //   return Object.assign({}, { orders: action.orders });
-    // // case RECEIVE_ORDERS:
-    // //     return action.orders;
     case CURRENT_USER:
-      // return newState = Object.entries(action.currentUser.orders)
       orders = Object.keys(action.currentUser.orders);
       orders.forEach((key) => {
         newState.push(action.currentUser.orders[key]);
       });
       return newState;
-      // return action.currentUser.orders;
-      // return Object.assign({}, state, { orders: action.currentUser.orders });
-      case GET_USER_INFO:
-      orders = Object.keys(action.user.orders);
-      orders.forEach((key) => {
-        newState.push(action.user.orders[key]);
-      });
+    case GET_USER_INFO:
+      if (action.user.orders.length !== newState.length) {
+        orders = Object.keys(action.user.orders);
+        orders.forEach((key) => {
+          newState.push(action.user.orders[key]);
+        });
+      }
       return newState;
-    //   return action.user.orders;
-    // return Object.assign({}, state, { orders: action.user.orders });
+
     default:
       return state;
+    }
   }
-}
-
-export default ordersReducer;
+    
+    export default ordersReducer;
