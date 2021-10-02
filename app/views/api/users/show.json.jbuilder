@@ -26,30 +26,51 @@ json.buyingPower summer
 #     }
 # }
 
+# final = [
+#     {
+#         token_sym: "bitcoin",
+#         number: 0,
+#         market_price: 0,
+#         amount: 0
+#     }
+# ]
+
 def tokens
-    token = {}
+    all_tokens = {}
     @user.orders.each do |order|
-        token[order.token_sym] = 0 if !token[order.token_sym]
+        all_tokens[order.token_sym] = 0 if !all_tokens[order.token_sym]
+        # all_tokens[order["token_sym"]] = "" if !all_tokens[order["token_sym"]]
+        # all_tokens[order["number"]] = 0 if !all_tokens[order["number"]]
         if order.order_type == "Buy"
-            token[order.token_sym] += order.number
+            all_tokens[order.token_sym] += order.number
         else
-            token[order.token_sym] -= order.number
+            all_tokens[order.token_sym] -= order.number
         end
     end
-    token
+    # tokensSimplifyer(all_tokens)
+    # all_tokens.map do |k, v|
+    #     {name: k, amount: v}
+    # end
+    all_tokens
 end
 
-def tokensSimplifyer(tokens)
-    new_tokens = {}
-    i = 0
-    while i < tokens.length
-        new_tokens[i] = 
-        i += 1
+# def tokensSimplifyer(tokens)
+#     new_tokens = {}
+#     new_tokens = tokens.to_a
+#     i = 0
+#     while i < tokens.length
+#         new_tokens[i] = {}
+#         i += 1
+#     end
+#     return new_tokens
+# end
+
+json.tokensHeld do
+    json.array! tokens do |token|
+        json.token_sym token[0]
+        json.number token[1]
     end
-    return new_tokens
 end
-
-json.tokensHeld tokens
 
 json.transfers do
     @user.transfers.each do |transfer|
