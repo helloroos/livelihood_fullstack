@@ -11,6 +11,10 @@ export default function portfolio() {
   useEffect(() => {
     document.title = ` Portfolio | Robinhodl `;
   });
+  
+    useEffect(() => {
+      dispatch(getUser(currentUser))
+    }, [currentUser]);
 
   const dispatch = useDispatch();
   const currentUser = useSelector((state) => state.session.currentUserId);
@@ -20,10 +24,6 @@ export default function portfolio() {
 
   // const [buyingPower, setBuyingPower] = useState(0)
   // const [transfers, setTransfers] = useState(null)
-
-  useEffect(() => {
-    dispatch(getUser(currentUser))
-  }, [currentUser]);
 
   // const orders = useSelector((state) => Object.values(state.entities.orders))
   
@@ -44,13 +44,12 @@ export default function portfolio() {
               </div>
             </div>
 
-            {/* <div id="chart-container">
+            <div id="chart-container">
               <PortfolioChart
                 dispatch={dispatch}
                 currentUser={currentUser}
-                transfers={transfers}
-                orders={orders} />
-            </div> */}
+                transfers={transfers} />
+            </div>
 
             <div id="buying-power-container">
               <p>Buying Power</p>

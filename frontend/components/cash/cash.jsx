@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import DisclosureModal from '../splash/disclosure_modal';
 import CashSidePanel from './cash_side_panel';
 
@@ -14,6 +14,11 @@ export default function Cash() {
     document.title = `Cash | Robinhodl`;
   });
 
+  useEffect(() => {
+    dispatch(getUser(currentUser))
+  }, [transfers]);
+
+  const dispatch = useDispatch();
   const currentUser = useSelector((state) => state.session.currentUserId);
   const buyingPower = useSelector((state) => state.entities.buyingPower);
   const transfers = useSelector((state) => state.entities.transfers);
@@ -60,17 +65,19 @@ export default function Cash() {
               </div>
 
               {transfers.map((transfer, i) => {
-                return (
-                  <div id="transaction-container" key={i}>
-                    <div id="transaction-details">
-                      <p id="type">{transfer.transfer_type}</p>
-                      <p id="date">{transfer.created_at.slice(0, 10)}</p>
+                if (transfer.created_at) {
+                  return (
+                    <div id="transaction-container" key={i}>
+                      <div id="transaction-details">
+                        <p id="type">{transfer.transfer_type}</p>
+                        <p id="date">{transfer.created_at.slice(0, 10)}</p>
+                      </div>
+                      <div id="transaction-amount">
+                        <p id="amount">${transfer.amount.toLocaleString('en')}</p>
+                      </div>
                     </div>
-                    <div id="transaction-amount">
-                      <p id="amount">${transfer.amount.toLocaleString('en')}</p>
-                    </div>
-                  </div>
-                )
+                  )
+                }
               })}
 
               {/* <div id="transaction-container">

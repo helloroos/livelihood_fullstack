@@ -2,77 +2,33 @@ import { ResponsiveContainer, LineChart, Line, Tooltip, YAxis, XAxis, Area, Cart
 import React from 'react';
 import { format, parseISO, subDays } from 'date-fns';
 
-// export default function PortfolioChart({ dispatch, transfers, orders }) {
+// let data = [{
+//   date: "09-10-2021",
+//   value: 2000
+//   },{
+//   date: "09-11-2021",
+//   value: 3000
+//   }, {
+//   date: "09-12-2021",
+//     value: 2500
+//   }];
 
-//   const data = [];
-
-//   for (let num = 30; num >= 0; num--) {
-//     data.push({
-//       date: subDays(new Date(), num).toISOString().slice(0, 10),
-//       value: 1 + Math.random()
-//     })
-//   }
-
-//   return (
-
-//     <LineChart
-//       width={600}
-//       height={250}
-//       data={data}
-//       margin={{
-//         top: 5,
-//         right: 30,
-//         left: 20,
-//         bottom: 5
-//       }}>
-//       <XAxis
-//         dataKey="date"
-//         hide={true} />
-//       <YAxis
-//         hide={true} />
-//       <Tooltip
-//         offset={0}
-//         isAnimationActive={false}
-//         allowEscapeViewBox={{ x: true, y: true }}
-//         // position={{ x: 'auto', y: 80 }} 
-//         content={customToolTip} />
-//       <Line
-//         type="monotone"
-//         dataKey="value"
-//         stroke="#29c446"
-//         // stroke="#ff3d12" // if negative
-//         activeDot={{ r: 1 }}
-//         dot={false}
-//         strokeWidth={0.7}
-//       />
-//       <Line type="monotone" dataKey="uv" stroke="#82ca9d" />
-//     </LineChart>
-//   )
-// }
-
-export default function PortfolioChart({ dispatch, transfers, orders }) {
+export default function PortfolioChart({ transfers }) {
 
   if (!transfers) {
     return null;
   } else {
     
     let data = []
-    // let netTransactions = {}
 
     for (let i = 0; i < transfers.length; i++) {
       let currentDate = transfers[i].created_at.slice(0, 10);
       let currentValue = 0;
 
-      // if (!netTransactions[date]) {
-      //   netTransactions[date] = 0;
-      // }
-
       if ([transfers[i].transfer_type] === "Deposit") {
-        value = value + parseInt(transfers[i].amount);
-        // netTransactions[date] = netTransactions[date] + parseInt(transfers[i].amount);
+        currentValue = currentValue + parseInt(transfers[i].amount);
       } else {
-        value = value - parseInt(transfers[i].amount);
-        // netTransactions[date] = netTransactions[date] - parseInt(transfers[i].amount);
+        currentValue = currentValue - parseInt(transfers[i].amount);
       }
 
       data.push({
@@ -80,36 +36,6 @@ export default function PortfolioChart({ dispatch, transfers, orders }) {
         value: currentValue
       })
     }
-    console.log(transfers);
-  
-    // let netOrders = {}
-    // for (let j = 0; j < orders.length; j++) {
-    
-    //   const date = orders[j].created_at.slice(0, 10);
-    //   const token_symbol = orders[j].token_sym;
-    
-    //   if (!netOrders[date]) {
-    //     netOrders[date] = {}
-    //   }
-  
-    //   if (!netOrders[date][token_symbol]) {
-    //     netOrders[date][token_symbol] = 0;
-    //   }
-    
-    //   if (orders[j].order_type == "Buy") {
-    //     netOrders[date][token_symbol] = netOrders[date][token_symbol] + orders[j].number;
-    //   } else {
-    //     netOrders[date][token_symbol] = netOrders[date][token_symbol] - orders[j].number;
-    //   }
-    // }
-    
-    // let assets = Object.entries(netTransactions)
-    // let trans = assets.map((tran) => {
-    //   return {
-    //     date: tran[0],
-    //     value: tran[1]
-    //   }
-    // })
     
     let test = [];
     let min = 9245;
@@ -134,7 +60,7 @@ export default function PortfolioChart({ dispatch, transfers, orders }) {
   
     return (
       <LineChart
-        width={600}
+        width={690}
         height={250}
         data={data}
         margin={{

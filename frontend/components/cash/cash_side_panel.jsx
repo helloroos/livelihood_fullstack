@@ -9,7 +9,7 @@ export default function CashSidePanel() {
   const [transfer, setTransfer] = useState({
     transfer_type: 'Deposit',
     amount: null,
-    user_id: currentUser
+    user_id: currentUser.id
   });
 
   const [to, setTo] = useState('Robinhodl');
@@ -17,7 +17,6 @@ export default function CashSidePanel() {
   const handleTransfer = (e) => {
     e.preventDefault();
     dispatch(makeTransfer(transfer));
-    // dispatch(getUser(currentUser))
   }
 
   const changeOption = (val) => {
