@@ -10,6 +10,19 @@ export default function TokenShow(props) {
     useEffect(() => {
       document.title = `${tokenId.slice(0, 1).toUpperCase() + tokenId.slice(1).toLowerCase()} | Robinhodl`;
     });
+    
+    useEffect(() => {
+      dispatch(fetchToken(tokenId))
+      .then((res) => {
+        setMarketPrice(res.token.market_price)
+        setOneDayChange(res.token.change_one_d)
+        setAbout(res.token.about)
+      })
+    }, [tokenId])
+
+  useEffect(() => {
+    dispatch(getUser(currentUser))
+  }, [currentUser]);
 
   const dispatch = useDispatch();
   const [about, setAbout] = useState("")
@@ -30,15 +43,6 @@ export default function TokenShow(props) {
   //       setBuyingPower(res.user.buyingPower)
   //     })
   // }, [currentUser]);
-
-  useEffect(() => {
-    dispatch(fetchToken(tokenId))
-    .then((res) => {
-      setMarketPrice(res.token.market_price)
-      setOneDayChange(res.token.change_one_d)
-      setAbout(res.token.about)
-    })
-  }, [tokenId])
 
   return (
     <div id="token-container">

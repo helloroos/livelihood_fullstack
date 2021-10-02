@@ -15,7 +15,7 @@ export default function PortfolioSidePanel() {
       {tokensHeld.map((token, i) => {
         return (
           <div id="portfolio-token-container" key={i}>
-            <Link to={"tokens/bitcoin"}>
+            <Link to={`tokens/${token.token_sym}`}>
               <div id="token-side">
                 <div id="token-name">
                   {token.token_sym.toUpperCase()}

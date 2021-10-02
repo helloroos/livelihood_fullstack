@@ -1,21 +1,31 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useSelector } from 'react-redux';
 
 export default function TokenSidePanel({ marketPrice, buyingPower, dispatch, tokenId }) {
 
+  useEffect(() => {
+    dispatch(fetchToken(tokenId))
+      .then((res) => {
+        setOrder({ ...order, market_price: res.token.market_price })
+      })
+  }, [tokenId])
+
   // const currentUser = useSelector((state) => state.session.currentUser.id)
   const currentUser = useSelector((state) => state.session.currentUserId)
-
+  
   const [order, setOrder] = useState({
     order_type: 'Buy',
-    token_sym: 'Havven',
-    // market_price: marketPrice,
-    market_price: 10,
-    number: 5,
-    amount: 50,
-    user_id: currentUser
+    token_sym: tokenId,
+    market_price: 0,
+    number: 0,
+    amount: 0,
+    user_id: currentUser.id
   })
 
+  if (!marketPrice === 0) {
+    setOrder.market_price(marketPrice)
+  }
+  
   let total = marketPrice * order.number;
 
   const handleOrder = (e) => {
@@ -45,18 +55,22 @@ export default function TokenSidePanel({ marketPrice, buyingPower, dispatch, tok
           </div>
           <div id="tokens-container" className="side-panel-section">
             <p>Tokens</p>
-          <input type="text" placeholder="0" required onChange={(e) => setOrder({ ...order, number: e.target.value })}/>
+            <input type="text" placeholder="0" required onChange={(e) => setOrder({ ...order, number: e.target.value })}/>
           </div>
           <div id="price-container" className="side-panel-section">
             <p>Market Price</p>
+            {/* <input readOnly="readOnly" type="text" value={marketPrice.toLocaleString('en')} onChange={(e) => setOrder({ ...order, market_price: e.target.value })} /> */}
             <p>${marketPrice.toLocaleString('en')}</p>
           </div>
           <div id="cost-container" className="side-panel-section">
             <p>Estimated cost</p>
-            <p onChange={(e) => setOrder({ ...order, amount: total })}>${total.toLocaleString('en')}</p>
+          <input type="text" placeholder="0" required value={total.toLocaleString('en')} onChange={(e) => setOrder({ ...order, amount: e.target.value })} readOnly="readOnly" />
+            {/* <p>${total.toLocaleString('en')}</p> */}
+            {/* <p onChange={(e) => setOrder({ ...order, amount: total })}>${total.toLocaleString('en')}</p> */}
           </div>
           <div id="buying-power-container" className="side-panel-section">
             <p>Buying power</p>
+            {/* <input readOnly="readOnly" type="text" value={buyingPower.toLocaleString('en')}  /> */}
             <p>${buyingPower.toLocaleString('en')}</p>
           </div>
           <button id={order.number ? 'green' : 'gray'}>Order</button>
