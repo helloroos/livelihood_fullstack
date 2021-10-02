@@ -21,13 +21,9 @@ export default function portfolio() {
   // const [buyingPower, setBuyingPower] = useState(0)
   // const [transfers, setTransfers] = useState(null)
 
-  // useEffect(() => {
-  //   dispatch(fetchUser(currentUser))
-  //     .then((res) => {
-  //       setBuyingPower(res.user.buyingPower)
-  //       setTransfers(res.user.transfers)
-  //     })
-  // }, [currentUser]);
+  useEffect(() => {
+    dispatch(getUser(currentUser))
+  }, [currentUser]);
 
   // const orders = useSelector((state) => Object.values(state.entities.orders))
   

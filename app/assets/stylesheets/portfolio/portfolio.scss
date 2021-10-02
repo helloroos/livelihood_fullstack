@@ -67,14 +67,13 @@
       }
     }
   
-  
     #side-panel {
       display: flex;
       align-items: center;
       flex-direction: column;
-      position: fixed;
-      top: 90px;
-      right: 460px;
+      // position: fixed;
+      // top: 90px;
+      // right: 460px;
       width: 275px;
       height: 60vh;
       box-shadow: 0 0 10px lightgray;
@@ -91,6 +90,41 @@
         font-weight: bold;
         font-size: 15px;
         border-bottom: 1px solid #e6e9ed;
+      }
+
+      #portfolio-token-container {
+        width: 100%;
+        
+        a {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          font-size: 13px;
+          height: 55px;
+          width: 100%;
+          color: black;
+
+          #token-side {
+            margin: 0 0 0 40px;
+            
+            #token-name {
+              font-weight: bold;
+              margin: 0 0 10px 0;
+            }
+          }
+          
+          #value-side {
+            margin: 0 40px 0 0;
+            
+            #market-price {
+              margin: 0 0 10px 0;
+            }
+          }
+
+          &:hover {
+            background-color: whitesmoke;
+          }
+        }
       }
   
       .asset {

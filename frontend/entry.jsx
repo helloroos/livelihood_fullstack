@@ -18,7 +18,7 @@ import { getUser } from "./actions/user_actions";
 document.addEventListener('DOMContentLoaded', () => {
     let store;
     if (window.currentUser) {
-        const preloadedState = { session: { currentUser: window.currentUser } };
+        const preloadedState = { session: { currentUserId: window.currentUser } };
         store = configureStore(preloadedState);
         delete window.currentUser;
     } else {

@@ -27,9 +27,9 @@ const ordersReducer = (state = [], action) => {
       // return action.currentUser.orders;
       // return Object.assign({}, state, { orders: action.currentUser.orders });
       case GET_USER_INFO:
-      orders = Object.keys(action.currentUser.orders);
+      orders = Object.keys(action.user.orders);
       orders.forEach((key) => {
-        newState.push(action.currentUser.orders[key]);
+        newState.push(action.user.orders[key]);
       });
       return newState;
     //   return action.user.orders;

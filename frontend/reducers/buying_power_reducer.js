@@ -18,7 +18,7 @@ const buyingPowerReducer = (state = initialState, action) => {
       // newState.buyingPower = action.user.buyingPower;
       // return newState;
       // return Object.assign({}, { buyingPower: action.user.buyingPower });
-      return newState = action.currentUser.buyingPower;
+      return newState = action.user.buyingPower;
     default:
       return state;
   }

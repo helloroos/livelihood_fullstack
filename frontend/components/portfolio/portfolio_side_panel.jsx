@@ -1,13 +1,42 @@
 import React from 'react';
+import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 
 export default function PortfolioSidePanel() {
+
+  const tokensHeld = useSelector((state) => state.entities.tokensHeld);
 
   return (
     <div id="side-panel">
       <header>
         <h3>Cryptocurrencies</h3>
       </header>
+
+      {tokensHeld.map((token, i) => {
+        return (
+          <div id="portfolio-token-container" key={i}>
+            <Link to={"tokens/bitcoin"}>
+              <div id="token-side">
+                <div id="token-name">
+                  {token.token_sym.toUpperCase()}
+                </div>
+                <div id="number-tokens">
+                  {token.number} tokens
+                </div>
+              </div>
+              <div id="value-side">
+                <div id="market-price">
+                  $45
+                </div>
+                <div id="market-change">
+                  5%
+                </div>
+              </div>
+            </Link>
+          </div>
+        )
+      })}
+
       {/* <ul className="asset-container">
                 {assets.map((asset) =>
                   <AssetDetail
@@ -17,7 +46,8 @@ export default function PortfolioSidePanel() {
                     token={token}
                     tokens={tokens} />)}
               </ul> */}
-      <header>
+              
+      {/* <header>
         <h3>Watchlist</h3>
       </header>
       <ul className="asset-container">
@@ -33,7 +63,7 @@ export default function PortfolioSidePanel() {
             </div>
           </li>
         </Link>
-      </ul>
+      </ul> */}
     </div>
   )
 }

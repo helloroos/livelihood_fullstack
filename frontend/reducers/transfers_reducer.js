@@ -25,9 +25,9 @@ const transfersReducer = (state = [], action) => {
       });
       return newState;
       case GET_USER_INFO:
-      transfers = Object.keys(action.currentUser.transfers);
+      transfers = Object.keys(action.user.transfers);
       transfers.forEach((key) => {
-        newState.push(action.currentUser.transfers[key]);
+        newState.push(action.user.transfers[key]);
       });
       return newState;
         // return action.user.transfers;
