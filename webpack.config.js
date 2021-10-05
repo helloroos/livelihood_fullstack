@@ -43,7 +43,7 @@ module.exports = {
   plugins: [
     new webpack.DefinePlugin({
       NODE_ENV: JSON.stringify(process.env.NODE_ENV),
-      NEWS_API: JSON.stringify(process.env.NEWS_API)
+      newsApiKey: JSON.stringify(process.env.NEWS_API)
     })
   ],
 };
