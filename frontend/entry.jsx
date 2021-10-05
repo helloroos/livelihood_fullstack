@@ -4,7 +4,7 @@ import configureStore from "./store/store";
 import Root from "./components/root";
 import "core-js/stable";
 import "regenerator-runtime/runtime";
-require("dotenv").config();
+// require("dotenv").config();
 
 // TESTING -- TO BE REMOVED
 import { logIn, logOut, resetErrors, signUp } from "./actions/session_actions";
