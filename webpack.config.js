@@ -1,6 +1,6 @@
 const path = require('path');
-const webpack = require('webpack')
-const dotenv = require('dotenv')
+const webpack = require('webpack');
+const dotenv = require('dotenv');
 
 module.exports = {
   mode: 'production',
@@ -35,9 +35,15 @@ module.exports = {
     ]
   },
   devtool: 'source-map',
+  // plugins: [
+  //   new webpack.DefinePlugin({
+  //     'process.env': JSON.stringify(dotenv.config().parsed) // it will automatically pick up key values from .env file
+  //   })
+  // ]
   plugins: [
     new webpack.DefinePlugin({
-      'process.env': JSON.stringify(dotenv.config().parsed) // it will automatically pick up key values from .env file
+      NODE_ENV: JSON.stringify(process.env.NODE_ENV),
+      NEWS_API: JSON.stringify(process.env.NEWS_API)
     })
-  ]
+  ],
 };
