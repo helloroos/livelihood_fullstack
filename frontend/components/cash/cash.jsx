@@ -153,7 +153,6 @@ export default function Cash() {
 
 //   render() {
 //     const buyingPower = this.props.buyingPower;
-//     console.log(this.props.transfers);
 //     if (Object.keys(this.props.transfers).length == 0) {
 //       <p>Loading...</p>
 //     } else {

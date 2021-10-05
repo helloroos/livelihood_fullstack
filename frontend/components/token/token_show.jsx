@@ -4,6 +4,7 @@ import { useDispatch } from 'react-redux';
 import TokenChart from './token_chart';
 import token_show_container from './token_show_container';
 import TokenSidePanel from './token_side_panel';
+import TokenNews from './token_news';
 
 export default function TokenShow(props) {
   
@@ -78,26 +79,8 @@ export default function TokenShow(props) {
               <p>Stats go here</p>
             </div> */}
 
-            <div id="news-container">
-              <div id="header">
-                <h2>News</h2>
-              </div>
+            <TokenNews tokenId={tokenId}/>
 
-              <div id="article-container">
-                <a href="#" target="_blank">
-                  <div id="text-container">
-                    <div id="first-row">
-                      <p id="url">www.google.com</p>
-                      <p>09-09-2021</p>
-                    </div>
-                    <div id="second-row">
-                      <h3>Here is a pretty long and decent sized article title that fills out space</h3>
-                    </div>
-                  </div>
-                  <img src="https://media.istockphoto.com/photos/coins-of-various-cryptocurrencies-picture-id1034363382?k=20&m=1034363382&s=612x612&w=0&h=sCpRmOSicsJJS73_iNQh16nqeBgFKqU3jjfC4u42D_k=" alt="" />
-                </a>
-              </div>
-            </div>
           </div>
           <TokenSidePanel marketPrice={marketPrice} buyingPower={buyingPower} dispatch={dispatch} tokenId={tokenId}/>
         </div>

@@ -37,7 +37,6 @@ class TokenChart extends React.Component {
     }
     
     render() {
-        console.log(this.props);
         const token = this.props.token[this.tokenId];
         
         let test = [];

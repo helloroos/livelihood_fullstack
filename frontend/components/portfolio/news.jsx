@@ -55,7 +55,7 @@ export default function News() {
       </div>
 
 
-      <div id="article-container">
+      {/* <div id="article-container">
         <a href="#" target="_blank">
           <div id="text-container">
             <div id="first-row">
@@ -96,10 +96,10 @@ export default function News() {
           </div>
           <img src="https://media.istockphoto.com/photos/coins-of-various-cryptocurrencies-picture-id1034363382?k=20&m=1034363382&s=612x612&w=0&h=sCpRmOSicsJJS73_iNQh16nqeBgFKqU3jjfC4u42D_k=" alt="" />
         </a>
-      </div>
+      </div> */}
 
 
-      {/* {news.map((article, i) => {
+      {news.map((article, i) => {
         return (
           <div id="article-container" key={i}>
             <a href={article.url} target="_blank">
@@ -116,7 +116,7 @@ export default function News() {
             </a>
           </div>
         )
-      })} */}
+      })}
 
 
     </div>

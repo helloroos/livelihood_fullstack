@@ -2,6 +2,7 @@ import React from "react";
 import { Switch } from 'react-router-dom';
 import { AuthRoute, ProtectedRoute } from "../util/route_util";
 import { Route, withRouter } from 'react-router-dom';
+// require("dotenv").config({ path: '../../../config/keys.js' })
 
 // import LogInFormContainer from "./session/log_in_form_container";
 import LogInForm from "./session/log_in_form";

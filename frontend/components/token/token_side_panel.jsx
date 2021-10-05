@@ -30,7 +30,6 @@ export default function TokenSidePanel({ marketPrice, buyingPower, dispatch, tok
 
   const handleOrder = (e) => {
     e.preventDefault();
-    console.log(order);
     dispatch(makeOrder(order))
   }
 
@@ -41,7 +40,6 @@ export default function TokenSidePanel({ marketPrice, buyingPower, dispatch, tok
   }
 
   // const handleWatchlist = () => {
-  //   console.log('watchlist');
   // }
 
   return (

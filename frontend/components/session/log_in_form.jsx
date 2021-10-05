@@ -9,11 +9,13 @@ export default function LogInForm() {
   });
   
   const dispatch = useDispatch();
+  const history = useHistory();
   const currentUser = useSelector((state) => state.session.currentUserId)
   // const currentUser = useSelector((state) => state.session.currentUser)
   const errors = useSelector((state) => state.errors.session);
-  const [user, setUser] = useState({email: "", password: ""});
-  const history = useHistory();
+  // const [user, setUser] = useState({email: "", password: ""});
+  const [user, setUser] = useState({ email: "iamgroot@marvel.com", password: "password"});
+  const [showDemo, setShowDemo] = useState(false);
   
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -26,11 +28,13 @@ export default function LogInForm() {
   const logInDemo = (e) => {
     e.preventDefault();
     const demo = {email: "iamgroot@marvel.com", password: "password"};
-    
-    dispatch(logIn(demo))
-    .then(() => {
-      history.push('/portfolio');
-    })
+    setShowDemo(!showDemo)
+    setTimeout(() => {
+      dispatch(logIn(demo))
+      .then(() => {
+        history.push('/portfolio');
+      })
+    }, 1500);
   }
 
   return (
@@ -48,14 +52,14 @@ export default function LogInForm() {
             <label>
               <p>Email</p>
               <div className="inputs">
-                <input type="email" onChange={(e) => setUser({...user, email: e.target.value})} value={user.email} required/>
+                <input type="email" placeholder={user.email} className={showDemo ? "input-visibility" : ""} onChange={(e) => setUser({...user, email: e.target.value})} value={user.email} required/>
               </div>
             </label>
 
             <label>
               <p>Password</p>
               <div className="inputs">
-                <input type="password" onChange={(e) => setUser({ ...user, password: e.target.value })} value={user.password} required/>
+                <input type="password" placeholder={user.password} className={showDemo ? "input-visibility" : ""} onChange={(e) => setUser({ ...user, password: e.target.value })} value={user.password} required/>
               </div>
             </label>
 
