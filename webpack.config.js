@@ -1,6 +1,7 @@
 const path = require('path');
 const webpack = require('webpack');
 const dotenv = require('dotenv');
+// require('dotenv').config({ path: '/config/keys.js' });
 
 module.exports = {
   mode: 'production',
