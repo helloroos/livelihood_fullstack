@@ -40,10 +40,10 @@ module.exports = {
   //     'process.env': JSON.stringify(dotenv.config().parsed) // it will automatically pick up key values from .env file
   //   })
   // ]
-  plugins: [
-    new webpack.DefinePlugin({
-      NODE_ENV: JSON.stringify(process.env.NODE_ENV),
-      newsApiKey: JSON.stringify(process.env.NEWS_API)
-    })
-  ],
+  // plugins: [
+  //   new webpack.DefinePlugin({
+  //     NODE_ENV: JSON.stringify(process.env.NODE_ENV),
+  //     newsApiKey: JSON.stringify(process.env.NEWS_API)
+  //   })
+  // ],
 };
