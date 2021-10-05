@@ -16,10 +16,12 @@ export default function Cash() {
 
   useEffect(() => {
     dispatch(getUser(currentUser))
+    // setBuyingPower(state.entities.buyingPower)
   }, [transfers]);
 
   const dispatch = useDispatch();
   const currentUser = useSelector((state) => state.session.currentUserId);
+  // const [buyingPower, setBuyingPower] = useState(state.entities.buyingPower)
   const buyingPower = useSelector((state) => state.entities.buyingPower);
   const transfers = useSelector((state) => state.entities.transfers);
   // const currentUser = useSelector((state) => state.session.currentUser.id)

@@ -5,6 +5,7 @@ export default function CashSidePanel() {
 
   const dispatch = useDispatch();
   const currentUser = useSelector((state) => state.session.currentUserId);
+  console.log(currentUser);
 
   const [transfer, setTransfer] = useState({
     transfer_type: 'Deposit',
