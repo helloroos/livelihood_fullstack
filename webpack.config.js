@@ -1,6 +1,9 @@
 const path = require('path');
+const webpack = require('webpack')
+const dotenv = require('dotenv')
 
 module.exports = {
+  mode: 'production',
   context: __dirname,
   entry: './frontend/entry.jsx',
   output: {

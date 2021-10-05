@@ -43,7 +43,6 @@ const transfersReducer = (state = [], action) => {
         // case RECEIVE_CURRENT_USER:
         // return action.currentUser.transfers;
         // return Object.assign({}, state, { transfers: action.currentUser.transfers });
-        // console.log(action);
         // return [...state, action.currentUser.transfers];
         //     case RECEIVE_USER:
         // return action.user.transfers;

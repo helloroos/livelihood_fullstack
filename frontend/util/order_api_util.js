@@ -19,6 +19,6 @@ export const fetchOrders = () => {
   return $.ajax({
     url: '/api/orders',
     method: "GET",
-    error: (err) => console.log(err)
+    // error: (err) => console.log(err)
   })
 };

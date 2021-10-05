@@ -16,6 +16,6 @@ export const fetchTransfers = () => {
   return $.ajax({
     url: '/api/transfers',
     method: "GET",
-    error: (err) => console.log(err)
+    // error: (err) => console.log(err)
   })
 };

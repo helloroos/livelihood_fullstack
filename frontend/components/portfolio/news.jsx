@@ -15,7 +15,7 @@ export default function News() {
         const json = await res.json();
         setNews(json.articles);
       } catch (error) {
-        console.log("error", error);
+        // console.log("error", error);
       }
     }
     fetchData();
