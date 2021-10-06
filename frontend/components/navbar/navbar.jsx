@@ -15,23 +15,34 @@ export default function navbar({pathname}) {
   const [showProducts, setShowProducts] = useState(false);
   const [showLearn, setShowLearn] = useState(false);
   const [showAboutMe, setShowAboutMe] = useState(false);
+  const [showCloseArea, setShowCloseArea] = useState(false);
 
   const openProducts = () => {
     setShowProducts(!showProducts);
+    setShowCloseArea(true);
     setShowLearn(false);
     setShowAboutMe(false);
   }
 
   const openLearn = () => {
     setShowLearn(!showLearn);
+    setShowCloseArea(true);
     setShowProducts(false);
     setShowAboutMe(false);
   }
 
   const openAboutMe = () => {
     setShowAboutMe(!showAboutMe);
+    setShowCloseArea(true);
     setShowLearn(false);
     setShowProducts(false);
+  }
+
+  const closeLowerNav = () => {
+    setShowProducts(false)
+    setShowLearn(false)
+    setShowAboutMe(false)
+    setShowCloseArea(false)
   }
 
   if (pathname == "/login" || pathname == "/signup") {
@@ -61,32 +72,34 @@ export default function navbar({pathname}) {
     )
   } else {
     return (
-        <div id="logged-out-navbar-container">
-          <div id="upper-navbar">
-            <div id="logo-container">
-              <Link to="/">
-                <h2>Robinhodl</h2>
-                <img src={window.robinhood_favicon_black} />
-                {/* <i class="fas fa-feather"></i> */}
-              </Link>
-            </div>
-
-            <div id="navbar-links-container">
-              <p onClick={openProducts}>Products <i className={showProducts ? "fas fa-chevron-up" : "fas fa-chevron-down"}></i></p>
-              <p onClick={openLearn}>Learn <i className={showLearn ? "fas fa-chevron-up" : "fas fa-chevron-down"}></i></p>
-              <p><Link to="/contact">Contact</Link></p>
-              <p onClick={openAboutMe}>Who I am <i className={showAboutMe ? "fas fa-chevron-up" : "fas fa-chevron-down"}></i></p>
-            </div>
-
-            <div id="session-container">
-                <Link to="/login">Log In</Link>
-                <Link to="/signup"><button id="sign-up-btn-1">Sign Up</button></Link>
-            </div>
+      <div id="logged-out-navbar-container">
+        <div id="upper-navbar">
+          <div id="logo-container">
+            <Link to="/">
+              <h2>Robinhodl</h2>
+              <img src={window.robinhood_favicon_black} />
+              {/* <i class="fas fa-feather"></i> */}
+            </Link>
           </div>
-          <Products showProducts={showProducts}/>
-          <Learn showLearn={showLearn}/>
-          <AboutMe showAboutMe={showAboutMe}/>
+
+          <div id="navbar-links-container">
+            <p onClick={openProducts}>Products <i className={showProducts ? "fas fa-chevron-up" : "fas fa-chevron-down"}></i></p>
+            <p onClick={openLearn}>Learn <i className={showLearn ? "fas fa-chevron-up" : "fas fa-chevron-down"}></i></p>
+            <p><Link to="/contact">Contact</Link></p>
+            <p onClick={openAboutMe}>Who I am <i className={showAboutMe ? "fas fa-chevron-up" : "fas fa-chevron-down"}></i></p>
+          </div>
+
+          <div id="session-container">
+              <Link to="/login">Log In</Link>
+              <Link to="/signup"><button id="sign-up-btn-1">Sign Up</button></Link>
+          </div>
         </div>
+        <Products showProducts={showProducts}/>
+        <Learn showLearn={showLearn}/>
+        <AboutMe showAboutMe={showAboutMe}/>
+        <div onClick={closeLowerNav} id={showCloseArea ? "close-lower-navbar" : ""}>
+        </div>
+      </div>
     )
   }
 }

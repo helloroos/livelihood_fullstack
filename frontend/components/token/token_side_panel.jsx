@@ -3,23 +3,16 @@ import { useSelector } from 'react-redux';
 
 export default function TokenSidePanel({ marketPrice, buyingPower, dispatch, tokenId }) {
 
-  useEffect(() => {
-    dispatch(fetchToken(tokenId))
-      .then((res) => {
-        setOrder({ ...order, market_price: res.token.market_price })
-      })
-  }, [tokenId])
-
   // const currentUser = useSelector((state) => state.session.currentUser.id)
   const currentUser = useSelector((state) => state.session.currentUserId)
-  
+
   const [order, setOrder] = useState({
     order_type: 'Buy',
     token_sym: tokenId,
     market_price: 0,
     number: 0,
     amount: 0,
-    user_id: currentUser.id
+    user_id: currentUser
   })
 
   if (!marketPrice === 0) {

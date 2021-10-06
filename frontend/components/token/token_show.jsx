@@ -41,6 +41,13 @@ export default function TokenShow(props) {
     }
     fetchData();
   }, []);
+
+  useEffect(() => {
+    dispatch(fetchToken(tokenId))
+      .then((res) => {
+        setOrder({ ...order, market_price: res.token.market_price })
+      })
+  }, [tokenId])
   
   const dispatch = useDispatch();
   const [about, setAbout] = useState("")
