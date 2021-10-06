@@ -30,7 +30,9 @@
     background-color: rgb(195, 245, 60);
     display: flex;
     justify-content: center;
-    height: 654px;
+    align-items: flex-end;
+    height: 754px;
+    padding: 0 0 50px 0;
     
     #splash1-text {
       margin: 110px 0 0 0;
@@ -89,12 +91,14 @@
         right: 0;
         height: 600px;
         width: 692;
+        z-index: 799;
       }
-
+      
       img {
         position: absolute;
         top: 0;
         left: 0;
+        z-index: 800;
       }
     }
   }
