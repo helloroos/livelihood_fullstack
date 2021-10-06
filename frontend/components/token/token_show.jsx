@@ -5,31 +5,49 @@ import TokenChart from './token_chart';
 import token_show_container from './token_show_container';
 import TokenSidePanel from './token_side_panel';
 import TokenNews from './token_news';
+const app_key = require('../../../config/keys').newsApiKey;
 
 export default function TokenShow(props) {
   
-    useEffect(() => {
-      document.title = `${tokenId.slice(0, 1).toUpperCase() + tokenId.slice(1).toLowerCase()} | Robinhodl`;
-    });
-    
-    useEffect(() => {
-      dispatch(fetchToken(tokenId))
-      .then((res) => {
-        setMarketPrice(res.token.market_price)
-        setOneDayChange(res.token.change_one_d)
-        setAbout(res.token.about)
-      })
-    }, [tokenId])
+  useEffect(() => {
+    document.title = `${tokenId.slice(0, 1).toUpperCase() + tokenId.slice(1).toLowerCase()} | Robinhodl`;
+  });
+  
+  useEffect(() => {
+    dispatch(fetchToken(tokenId))
+    .then((res) => {
+      setMarketPrice(res.token.market_price)
+      setOneDayChange(res.token.change_one_d)
+      setAbout(res.token.about)
+    })
+  }, [tokenId])
 
   useEffect(() => {
     dispatch(getUser(currentUser))
   }, [currentUser]);
 
+  
+  useEffect(() => {
+    const url = `https://newsapi.org/v2/everything?q=${tokenId}&apiKey=${app_key}`
+    
+    const fetchData = async () => {
+      try {
+        const res = await fetch(url);
+        const json = await res.json();
+        setNews(json.articles);
+      } catch (error) {
+        // console.log("error", error);
+      }
+    }
+    fetchData();
+  }, []);
+  
   const dispatch = useDispatch();
   const [about, setAbout] = useState("")
   // const [buyingPower, setBuyingPower] = useState(0);
   const buyingPower = useSelector((state) => state.entities.buyingPower);
   const [marketPrice, setMarketPrice] = useState(0)
+  const [news, setNews] = useState([])
   const [oneDayChange, setOneDayChange] = useState(0)
   
   const currentUser = useSelector((state) => state.session.currentUserId)

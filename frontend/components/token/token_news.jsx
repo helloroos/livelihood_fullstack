@@ -1,25 +1,9 @@
 import React, { useEffect, useState } from 'react';
-// import { useDispatch } from 'react-redux';
-const app_key = require('../../../config/keys').newsApiKey;
+import { useSelector } from 'react-redux';
 
-export default function TokenNews({tokenId}) {
+export default function TokenNews() {
 
-  const [news, setNews] = useState([])
-
-  useEffect(() => {
-    const url = `https://newsapi.org/v2/everything?q=${tokenId}&apiKey=${app_key}`
-
-    const fetchData = async () => {
-      try {
-        const res = await fetch(url);
-        const json = await res.json();
-        setNews(json.articles);
-      } catch (error) {
-        // console.log("error", error);
-      }
-    }
-    fetchData();
-  }, []);
+  const news = useSelector(state => state.entities.news)
 
   const getDomain = (url) => {
     let domain = (new URL(url));
@@ -44,16 +28,18 @@ export default function TokenNews({tokenId}) {
     }
   }
 
-  const newsFeed = news.map(article => {
-    return <h3>{article.title}</h3>
-  })
+  // const newsFeed = news.map(article => {
+  //   return <h3>{article.title}</h3>
+  // })
 
   return (
     <div id="news-container">
       <div id="header">
         <h2>News</h2>
       </div>
-      {/* <div id="article-container">
+
+
+      <div id="article-container">
         <a href="#" target="_blank">
           <div id="text-container">
             <div id="first-row">
@@ -66,10 +52,10 @@ export default function TokenNews({tokenId}) {
           </div>
           <img src="https://media.istockphoto.com/photos/coins-of-various-cryptocurrencies-picture-id1034363382?k=20&m=1034363382&s=612x612&w=0&h=sCpRmOSicsJJS73_iNQh16nqeBgFKqU3jjfC4u42D_k=" alt="" />
         </a>
-      </div> */}
+      </div>
       
       
-      {news.map((article, i) => {
+      {/* {news.map((article, i) => {
         return (
           <div id="article-container" key={i}>
             <a href={article.url} target="_blank">
@@ -86,7 +72,9 @@ export default function TokenNews({tokenId}) {
             </a>
           </div>
         )
-      })}
+      })} */}
+
+
     </div>
   )
 }
