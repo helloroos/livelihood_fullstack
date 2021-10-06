@@ -67,9 +67,10 @@
                     border: none;
                     outline: none;
                   }
-                }
-                &::placeholder {
-                  color: white;
+  
+                  &::placeholder {
+                    color: white;
+                  }
                 }
                 
                 &:active { // NEED TO FIX THIS
@@ -88,8 +89,8 @@
                 // margin: 0 auto; /* Gives that scrolling effect as the typing happens */
                 // letter-spacing: .150em; /* Adjust as needed */
                 animation: 
-                  typing 3.5s steps(40, end),
-                  blink-caret .75s step-end infinite;
+                typing 3.5s steps(40, end),
+                blink-caret .75s step-end infinite;
               }
 
               @keyframes typing {

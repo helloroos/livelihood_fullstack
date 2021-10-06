@@ -5,6 +5,7 @@ import PortfolioChart from './portfolio_chart';
 import { useSelector, useDispatch } from 'react-redux';
 import News from './news';
 import PortfolioSidePanel from './portfolio_side_panel';
+const app_key = require('../../../config/keys').newsApiKey;
 
 export default function portfolio() {
 
@@ -12,13 +13,31 @@ export default function portfolio() {
     document.title = ` Portfolio | Robinhodl `;
   });
   
-    useEffect(() => {
-      dispatch(getUser(currentUser))
-    }, [currentUser]);
+  // Get user info
+  useEffect(() => {
+    dispatch(getUser(currentUser))
+  }, [currentUser]);
 
+  // Get news info
+  useEffect(() => {
+    const url = `https://newsapi.org/v2/everything?q=crypto%20AND%20cryptocurrency%20AND%20crypto%20currency&apiKey=${app_key}`
+    
+    const fetchData = async () => {
+      try {
+        const res = await fetch(url);
+        const json = await res.json();
+        setNews(json.articles);
+      } catch (error) {
+        // console.log("error", error);
+      }
+    }
+    fetchData();
+  }, []);
+  
   const dispatch = useDispatch();
   const currentUser = useSelector((state) => state.session.currentUserId);
   const buyingPower = useSelector((state) => state.entities.buyingPower);
+  const [news, setNews] = useState([])
   const transfers = useSelector((state) => state.entities.transfers);
   // const currentUser = useSelector((state) => state.session.currentUser.id)
 

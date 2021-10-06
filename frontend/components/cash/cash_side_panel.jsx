@@ -17,6 +17,11 @@ export default function CashSidePanel() {
   const handleTransfer = (e) => {
     e.preventDefault();
     dispatch(makeTransfer(transfer));
+    // setTransfer({
+    //   transfer_type: 'Deposit',
+    //   amount: null,
+    //   user_id: currentUser
+    // })
   }
 
   const changeOption = (val) => {
