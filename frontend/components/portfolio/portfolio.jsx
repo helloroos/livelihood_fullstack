@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import AssetDetail from './asset_detail';
 import PortfolioChart from './portfolio_chart';
-// import { Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import News from './news';
 import PortfolioSidePanel from './portfolio_side_panel';
@@ -70,10 +70,12 @@ export default function portfolio() {
                 transfers={transfers} />
             </div>
 
-            <div id="buying-power-container">
+            <Link to="/cash">
+              <div id="buying-power-container">
               <p>Buying Power</p>
               <p>{formatter.format(buyingPower)}</p>
-            </div>
+              </div>
+            </Link>
 
             <News />
 

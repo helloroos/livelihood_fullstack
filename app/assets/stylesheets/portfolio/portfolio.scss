@@ -46,22 +46,30 @@
         #chart-container {
           border-bottom: 1px solid #e6e9ed;
         }
-    
-        #buying-power-container {
-          display: flex;
-          align-items: center;
-          height: 80px;
-          justify-content: space-between;
-          border-bottom: 1px solid #e6e9ed;
-          padding: 0 15px 0 15px;
-    
-          div p {
+
+        a {
+          color: black;
+      
+          #buying-power-container {
             display: flex;
-            flex: 1;
-          }
-    
-          div p:last-child {
-            margin-right: auto;
+            align-items: center;
+            height: 80px;
+            justify-content: space-between;
+            border-bottom: 1px solid #e6e9ed;
+            padding: 0 15px 0 15px;
+      
+            div p {
+              display: flex;
+              flex: 1;
+            }
+            
+            div p:last-child {
+              margin-right: auto;
+            }
+
+            &:hover {
+              background-color: whitesmoke;
+            }
           }
         }
       }
