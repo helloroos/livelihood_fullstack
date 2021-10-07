@@ -14,14 +14,15 @@ import portfolio from "./portfolio/portfolio";
 import TokenContainer from "./token/token_index_container";
 // import TokenShowContainer from "./token/token_show_container";
 import TokenShow from './token/token_show'
-import NavBarContainer from "./navbar/navbar_container";
+// import NavBarContainer from "./navbar/_navbar_container";
+import Navbar from "./navbar/navbar";
 import TokenIndexContainer from "./token/token_index_container";
 // import CashContainer from "./cash/cash_container";
 import Cash from './cash/cash'
 import Contact from "./contact/contact";
 
 const App = () => {
-    const NavBarContainerWithRouter = withRouter(NavBarContainer);
+    const NavBarContainerWithRouter = withRouter(Navbar);
     const TokenContainerWithRouter = withRouter(TokenShow);
 
     return(

@@ -1,16 +1,17 @@
 import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import Products from './products';
 import Learn from './learn';
 import AboutMe from './about_me';
 
-export default function navbar({pathname}) {
+export default function Navbar() {
 
   const currentUser = useSelector((state) => state.session.currentUserId)
   // const currentUser = useSelector((state) => state.session.currentUser)
   // const pathname = useSelector((state) => ownProps.location.pathname)
   const dispatch = useDispatch();
+  let location = useLocation()
 
   const [showProducts, setShowProducts] = useState(false);
   const [showLearn, setShowLearn] = useState(false);
@@ -45,7 +46,7 @@ export default function navbar({pathname}) {
     setShowCloseArea(false)
   }
 
-  if (pathname == "/login" || pathname == "/signup") {
+  if (location.pathname == "/login" || location.pathname == "/signup") {
     return null;
   } else if (currentUser) {
     return (
