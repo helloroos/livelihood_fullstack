@@ -1,33 +1,31 @@
 import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 
-export default function CashSidePanel({dispatch, currentUser}) {
-
-  // const dispatch = useDispatch();
-  // const currentUser = useSelector((state) => state.session.currentUserId);
+// export default function CashSidePanel({dispatch, currentUser}) {
+export default function CashSidePanel({dispatch, currentUser, to, setTo, transfer, setTransfer, handleTransfer, changeOption}) {
   
-  const [to, setTo] = useState('Robinhodl');
+  // const [to, setTo] = useState('Robinhodl');
 
-  const [transfer, setTransfer] = useState({
-    transfer_type: 'Deposit',
-    amount: null,
-    user_id: currentUser
-  });
+  // const [transfer, setTransfer] = useState({
+  //   transfer_type: 'Deposit',
+  //   amount: null,
+  //   user_id: currentUser
+  // });
 
-  const handleTransfer = (e) => {
-    e.preventDefault();
-    dispatch(makeTransfer(transfer));
-  }
+  // const handleTransfer = (e) => {
+  //   e.preventDefault();
+  //   dispatch(makeTransfer(transfer));
+  // }
 
-  const changeOption = (val) => {
-    if (val === 'deposit') {
-      setTo('Robinhodl')
-      setTransfer({ ...transfer, transfer_type: 'Withdraw' })
-      // setTransfer.transfer_type('Withdraw')
-    } else {
-      setTo('Universal Bank')
-    }
-  }
+  // const changeOption = (val) => {
+  //   if (val === 'Deposit') {
+  //     setTo('Robinhodl')
+  //     setTransfer({ ...transfer, transfer_type: 'Withdraw' })
+  //     // setTransfer.transfer_type('Withdraw')
+  //   } else {
+  //     setTo('Universal Bank')
+  //   }
+  // }
 
   return (
     <div id="side-panel-container">
@@ -37,8 +35,8 @@ export default function CashSidePanel({dispatch, currentUser}) {
           <p>From</p>
           <div id="select-container">
             <select name="from" id="from-select" onChange={(e) => changeOption(e.target.value)}>
-              <option value="deposit">Universal Bank</option>
-              <option value="withdraw">Robinhodl</option>
+              <option value="Deposit">Universal Bank</option>
+              <option value="Withdraw">Robinhodl</option>
             </select>
           </div>
         </div>

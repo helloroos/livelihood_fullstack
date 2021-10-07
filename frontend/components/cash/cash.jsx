@@ -22,6 +22,7 @@ export default function Cash() {
   const currentUser = useSelector((state) => state.session.currentUserId);
   const buyingPower = useSelector((state) => state.entities.buyingPower);
   const transfers = useSelector((state) => state.entities.transfers);
+  console.log(transfers);
   const [isOpen, setIsOpen] = useState(false);
 
   function compare(a, b) {
@@ -33,6 +34,33 @@ export default function Cash() {
     }
     return 0;
   }
+
+
+
+  const [to, setTo] = useState('Robinhodl');
+
+  const [transfer, setTransfer] = useState({
+    transfer_type: 'Deposit',
+    amount: null,
+    user_id: currentUser
+  });
+
+  const handleTransfer = (e) => {
+    e.preventDefault();
+    dispatch(makeTransfer(transfer));
+  }
+
+  const changeOption = (val) => {
+    if (val === 'Deposit') {
+      setTo('Robinhodl')
+      setTransfer({ ...transfer, transfer_type: 'Withdraw' })
+      // setTransfer.transfer_type('Withdraw')
+    } else {
+      setTo('Universal Bank')
+    }
+  }
+
+
   
   if (buyingPower) {
     return (
@@ -82,7 +110,8 @@ export default function Cash() {
 
           </div>
 
-          <CashSidePanel dispatch={dispatch} currentUser={currentUser}/>
+          {/* <CashSidePanel dispatch={dispatch} currentUser={currentUser} /> */}
+          <CashSidePanel dispatch={dispatch} currentUser={currentUser} to={to} setTo={setTo} transfer={transfer} setTransfer={setTransfer} handleTransfer={handleTransfer} changeOption={changeOption}/>
         </div>
       </div>
     )
