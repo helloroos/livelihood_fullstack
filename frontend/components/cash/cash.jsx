@@ -36,6 +36,16 @@ export default function Cash() {
   //       setTransfers(res.user.transfers)
   //     })
   // }, [currentUser]);
+
+  function compare(a, b) {
+    if (a.created_at < b.created_at) {
+      return 1;
+    }
+    if (a.created_at > b.created_at) {
+      return -1;
+    }
+    return 0;
+  }
   
   if (buyingPower) {
     return (
@@ -65,7 +75,7 @@ export default function Cash() {
                 <h2>Recent History</h2>
               </div>
 
-              {transfers.map((transfer, i) => {
+              {transfers.sort(compare).map((transfer, i) => {
                 if (transfer.created_at) {
                   return (
                     <div id="transaction-container" key={i}>
@@ -80,16 +90,6 @@ export default function Cash() {
                   )
                 }
               })}
-
-              {/* <div id="transaction-container">
-                <div id="transaction-details">
-                  <p id="type">Deposit</p>
-                  <p id="date">09-09-2021</p>
-                </div>
-                <div id="transaction-amount">
-                  <p id="amount">$4,500</p>
-                </div>
-              </div> */}
 
             </div>
 
