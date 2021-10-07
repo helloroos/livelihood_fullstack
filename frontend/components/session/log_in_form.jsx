@@ -13,13 +13,13 @@ export default function LogInForm() {
   const currentUser = useSelector((state) => state.session.currentUserId)
   // const currentUser = useSelector((state) => state.session.currentUser)
   const errors = useSelector((state) => state.errors.session);
-  // const [user, setUser] = useState({email: "", password: ""});
-  const [user, setUser] = useState({ email: "iamgroot@marvel.com", password: "password"});
+  const [user, setUser] = useState({email: "", password: ""});
+  const [demo, setDemo] = useState({ email: "iamgroot@marvel.com", password: "password"});
   const [showDemo, setShowDemo] = useState(false);
   
   const handleSubmit = (e) => {
     e.preventDefault();
-    dispatch(logIn(demo))
+    dispatch(logIn(user))
     .then(() => {
       history.push('/portfolio');
     })
@@ -52,14 +52,14 @@ export default function LogInForm() {
             <label>
               <p>Email</p>
               <div className="inputs">
-                <input type="email" className={showDemo ? "input-visibility" : "demo-placeholder"} onChange={(e) => setUser({...user, email: e.target.value})} value={user.email} required/>
+                <input type="email" className={showDemo ? "input-visibility" : "demo-placeholder"} onChange={(e) => setUser({...user, email: e.target.value})} value={showDemo ? demo.email : user.email } required/>
               </div>
             </label>
 
             <label>
               <p>Password</p>
               <div className="inputs">
-                <input type="password" className={showDemo ? "input-visibility" : "demo-placeholder"} onChange={(e) => setUser({ ...user, password: e.target.value })} value={user.password} required/>
+                <input type="password" className={showDemo ? "input-visibility" : "demo-placeholder"} onChange={(e) => setUser({ ...user, password: e.target.value })} value={showDemo ? demo.password : user.password } required/>
               </div>
             </label>
 
