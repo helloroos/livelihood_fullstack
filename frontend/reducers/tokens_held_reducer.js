@@ -1,7 +1,10 @@
 import { CURRENT_USER } from "../actions/session_actions";
 import { GET_USER_INFO } from "../actions/user_actions";
+import { LOGOUT_CURRENT_USER } from "../actions/session_actions";
 
-const tokensHeldReducer = (state = [], action) => {
+const initialState = [];
+
+const tokensHeldReducer = (state = initialState, action) => {
   Object.freeze(state);
   let newState = state.slice();
   let tokensHeld;
@@ -20,6 +23,8 @@ const tokensHeldReducer = (state = [], action) => {
         });
       } 
       return newState;
+    case LOGOUT_CURRENT_USER:
+      return initialState;
     default:
       return state;
   }

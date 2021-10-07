@@ -2,8 +2,11 @@ import { CURRENT_USER } from "../actions/session_actions";
 // import { RECEIVE_TRANSFER, RECEIVE_TRANSFERS } from "../actions/transfer_action";
 import { MAKE_TRANSFER, RECEIVE_TRANSFERS } from "../actions/transfer_action";
 import { GET_USER_INFO } from "../actions/user_actions";
+import { LOGOUT_CURRENT_USER } from "../actions/session_actions";
 
-const transfersReducer = (state = [], action) => {
+const initialState = [];
+
+const transfersReducer = (state = initialState, action) => {
   Object.freeze(state);
   let newState = state.slice();
   let transfers;
@@ -25,6 +28,8 @@ const transfersReducer = (state = [], action) => {
         });
       }
       return newState;
+    case LOGOUT_CURRENT_USER:
+      return initialState;
     default:
         return state;
     }

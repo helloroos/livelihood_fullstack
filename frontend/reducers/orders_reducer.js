@@ -1,8 +1,11 @@
 import { MAKE_ORDER, RECEIVE_ORDERS } from "../actions/order_actions";
 import { CURRENT_USER } from "../actions/session_actions";
 import { GET_USER_INFO } from "../actions/user_actions";
+import { LOGOUT_CURRENT_USER } from "../actions/session_actions";
 
-const ordersReducer = (state = [], action) => {
+const initialState = [];
+
+const ordersReducer = (state = initialState, action) => {
   Object.freeze(state);
   let newState = state.slice();
   let orders;
@@ -24,7 +27,8 @@ const ordersReducer = (state = [], action) => {
         });
       }
       return newState;
-
+    case LOGOUT_CURRENT_USER:
+      return initialState;
     default:
       return state;
     }
