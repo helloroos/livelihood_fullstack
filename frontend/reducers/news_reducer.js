@@ -5,9 +5,11 @@ const initialState = {};
 
 const newsReducer = (state = initialState, action) => {
   Object.freeze(state);
+  // let newState = {};
   switch (action.type) {
     case RECEIVE_NEWS:
       return { news: action.news }
+
       // return Object.assign({}, { orders: action.orders });
     case LOGOUT_CURRENT_USER:
       return initialState;
