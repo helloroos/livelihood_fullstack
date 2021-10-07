@@ -30,15 +30,15 @@ const App = () => {
         <NavBarContainerWithRouter/>
         {/* <Route exact path="/" component={NavBarContainer } /> */}
         <Switch>
-                <AuthRoute path="/login" component={LogInForm} />
+            <AuthRoute path="/login" component={LogInForm} />
             <AuthRoute path="/signup" component={sign_up_form} />
             <AuthRoute path="/contact" component={Contact} />
             <ProtectedRoute path="/portfolio" component={portfolio} />
             <ProtectedRoute exact path="/tokens" component={TokenIndexContainer} />
-                <ProtectedRoute exact path="/cash" component={Cash} />
+            <ProtectedRoute exact path="/cash" component={Cash} />
             {/* <Route path="/tokens" component={TokenContainer} /> */}
             <ProtectedRoute path="/tokens/:tokenId" component={TokenShow} /> {/** Add in tokenId */}
-                <Route exact path="/" component={splash} />
+            <Route exact path="/" component={splash} />
         </Switch>
     </div>
     )

@@ -1,38 +1,33 @@
 import React, { useState, useEffect } from 'react';
 import { useSelector } from 'react-redux';
 
-export default function TokenSidePanel({ marketPrice, buyingPower, dispatch, tokenId }) {
+// export default function TokenSidePanel({ marketPrice, buyingPower, dispatch, tokenId, currentUser }) {
+export default function TokenSidePanel({ marketPrice, buyingPower, dispatch, tokenId, currentUser, order, setOrder, handleOrder, changeOption, total }) {
 
-  // const currentUser = useSelector((state) => state.session.currentUser.id)
-  const currentUser = useSelector((state) => state.session.currentUserId)
+  // const [order, setOrder] = useState({
+  //   order_type: 'Buy',
+  //   token_sym: tokenId,
+  //   market_price: 0,
+  //   number: 0,
+  //   amount: 0,
+  //   user_id: currentUser
+  // })
 
-  const [order, setOrder] = useState({
-    order_type: 'Buy',
-    token_sym: tokenId,
-    market_price: 0,
-    number: 0,
-    amount: 0,
-    user_id: currentUser
-  })
-
-  if (!marketPrice === 0) {
-    setOrder.market_price(marketPrice)
-  }
+  // if (!marketPrice === 0) {
+  //   setOrder.market_price(marketPrice)
+  // }
   
-  let total = marketPrice * order.number;
+  // let total = marketPrice * order.number;
 
-  const handleOrder = (e) => {
-    e.preventDefault();
-    dispatch(makeOrder(order))
-  }
+  // const handleOrder = (e) => {
+  //   e.preventDefault();
+  //   dispatch(makeOrder(order))
+  // }
 
-  const changeOption = (val) => {
-    if (val === 'sell') {
-      setOrder({ ...order, order_type: 'Sell' })
-    }
-  }
-
-  // const handleWatchlist = () => {
+  // const changeOption = (val) => {
+  //   if (val === 'sell') {
+  //     setOrder({ ...order, order_type: 'Sell' })
+  //   }
   // }
 
   return (
@@ -40,13 +35,13 @@ export default function TokenSidePanel({ marketPrice, buyingPower, dispatch, tok
         <form onSubmit={handleOrder}> 
           <div id="header-container">
             <select onChange={(e) => changeOption(e.target.value)}>
-              <option value="buy">Buy</option>
-              <option value="sell">Sell</option>
+              <option value="Buy">Buy</option>
+              <option value="Sell">Sell</option>
             </select>
           </div>
           <div id="tokens-container" className="side-panel-section">
             <p>Tokens</p>
-            <input type="text" placeholder="0" required onChange={(e) => setOrder({ ...order, number: e.target.value })}/>
+          <input type="text" placeholder="0" required onChange={(e) => setOrder({ ...order, number: e.target.value, amount: marketPrice * order.number})}/>
           </div>
           <div id="price-container" className="side-panel-section">
             <p>Market Price</p>
@@ -55,8 +50,8 @@ export default function TokenSidePanel({ marketPrice, buyingPower, dispatch, tok
           </div>
           <div id="cost-container" className="side-panel-section">
             <p>Estimated cost</p>
-          <input type="text" placeholder="0" required value={total.toLocaleString('en')} onChange={(e) => setOrder({ ...order, amount: e.target.value })} readOnly="readOnly" />
-            {/* <p>${total.toLocaleString('en')}</p> */}
+          {/* <input type="text" placeholder="0" required value={total.toLocaleString('en')} onChange={(e) => setOrder({ ...order, amount: e.target.value })} readOnly="readOnly" /> */}
+            <p>${total.toLocaleString('en')}</p>
             {/* <p onChange={(e) => setOrder({ ...order, amount: total })}>${total.toLocaleString('en')}</p> */}
           </div>
           <div id="buying-power-container" className="side-panel-section">

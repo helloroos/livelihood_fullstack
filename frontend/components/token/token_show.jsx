@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 import { useDispatch } from 'react-redux';
 import TokenChart from './token_chart';
-import token_show_container from './token_show_container';
 import TokenSidePanel from './token_side_panel';
 import TokenNews from './token_news';
 const app_key = require('../../../config/keys').newsApiKey;
@@ -24,7 +23,7 @@ export default function TokenShow(props) {
 
   useEffect(() => {
     dispatch(getUser(currentUser))
-  }, [currentUser]);
+  }, [orders]);
 
   
   useEffect(() => {
@@ -51,24 +50,47 @@ export default function TokenShow(props) {
   
   const dispatch = useDispatch();
   const [about, setAbout] = useState("")
-  // const [buyingPower, setBuyingPower] = useState(0);
   const buyingPower = useSelector((state) => state.entities.buyingPower);
   const [marketPrice, setMarketPrice] = useState(0)
   const [news, setNews] = useState([])
   const [oneDayChange, setOneDayChange] = useState(0)
-  
+  const orders = useSelector((state) => state.entities.orders);
   const currentUser = useSelector((state) => state.session.currentUserId)
-  // const currentUser = useSelector((state) => state.session.currentUser.id)
   const tokenId = props.match.params.tokenId;
 
-  // const token = useSelector((state) => state.entities.tokens.token)
 
-  // useEffect(() => {
-  //   dispatch(fetchUser(currentUser))
-  //     .then((res) => {
-  //       setBuyingPower(res.user.buyingPower)
-  //     })
-  // }, [currentUser]);
+  // SIDE PANEL
+  const [order, setOrder] = useState({
+    order_type: 'Buy',
+    token_sym: tokenId,
+    market_price: 0,
+    number: 0,
+    amount: 0,
+    user_id: currentUser
+  })
+
+  console.log(order);
+
+  // const [total, setTotal] = useState(0)
+  let total = marketPrice * order.number;
+
+  if (!marketPrice === 0) {
+    setOrder.market_price(marketPrice)
+  }
+
+  const handleOrder = (e) => {
+    e.preventDefault();
+    dispatch(makeOrder(order))
+  }
+
+  const changeOption = (val) => {
+    if (val === 'Sell') {
+      setOrder({ ...order, order_type: 'Sell' })
+    } else {
+      setOrder({ ...order, order_type: 'Buy' })
+    }
+  }
+
 
   return (
     <div id="token-container">
@@ -107,7 +129,8 @@ export default function TokenShow(props) {
             <TokenNews tokenId={tokenId}/>
 
           </div>
-          <TokenSidePanel marketPrice={marketPrice} buyingPower={buyingPower} dispatch={dispatch} tokenId={tokenId}/>
+          {/* <TokenSidePanel marketPrice={marketPrice} buyingPower={buyingPower} dispatch={dispatch} tokenId={tokenId} currentUser={currentUser}/> */}
+          <TokenSidePanel marketPrice={marketPrice} buyingPower={buyingPower} dispatch={dispatch} tokenId={tokenId} currentUser={currentUser} order={order} setOrder={setOrder} handleOrder={handleOrder} changeOption={changeOption} total={total}/>
         </div>
       </div>
     </div>

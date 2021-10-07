@@ -22,7 +22,6 @@ export default function Cash() {
   const currentUser = useSelector((state) => state.session.currentUserId);
   const buyingPower = useSelector((state) => state.entities.buyingPower);
   const transfers = useSelector((state) => state.entities.transfers);
-  console.log(transfers);
   const [isOpen, setIsOpen] = useState(false);
 
   function compare(a, b) {
@@ -54,7 +53,6 @@ export default function Cash() {
     if (val === 'Deposit') {
       setTo('Robinhodl')
       setTransfer({ ...transfer, transfer_type: 'Withdraw' })
-      // setTransfer.transfer_type('Withdraw')
     } else {
       setTo('Universal Bank')
     }

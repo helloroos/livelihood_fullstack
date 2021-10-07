@@ -43,11 +43,11 @@ export default function News() {
         <a href="#" target="_blank">
           <div id="text-container">
             <div id="first-row">
-              <p id="url">www.google.com</p>
+              <p id="url">www.news.com</p>
               <p>09-09-2021</p>
             </div>
             <div id="second-row">
-              <h3>Here is a pretty long and decent sized article title that fills out space</h3>
+              <h3>This is a placeholder article div since newsapi.org does not work in production mode</h3>
             </div>
           </div>
           <img src="https://media.istockphoto.com/photos/coins-of-various-cryptocurrencies-picture-id1034363382?k=20&m=1034363382&s=612x612&w=0&h=sCpRmOSicsJJS73_iNQh16nqeBgFKqU3jjfC4u42D_k=" alt="" />
@@ -61,7 +61,7 @@ export default function News() {
               <p>09-09-2021</p>
             </div>
             <div id="second-row">
-              <h3>Here is a pretty long and decent sized article title that fills out space</h3>
+              <h3>This is a placeholder article div since newsapi.org does not work in production mode</h3>
             </div>
           </div>
           <img src="https://media.istockphoto.com/photos/coins-of-various-cryptocurrencies-picture-id1034363382?k=20&m=1034363382&s=612x612&w=0&h=sCpRmOSicsJJS73_iNQh16nqeBgFKqU3jjfC4u42D_k=" alt="" />
@@ -75,7 +75,7 @@ export default function News() {
               <p>09-09-2021</p>
             </div>
             <div id="second-row">
-              <h3>Here is a pretty long and decent sized article title that fills out space</h3>
+              <h3>This is a placeholder article div since newsapi.org does not work in production mode</h3>
             </div>
           </div>
           <img src="https://media.istockphoto.com/photos/coins-of-various-cryptocurrencies-picture-id1034363382?k=20&m=1034363382&s=612x612&w=0&h=sCpRmOSicsJJS73_iNQh16nqeBgFKqU3jjfC4u42D_k=" alt="" />
