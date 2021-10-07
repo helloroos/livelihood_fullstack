@@ -20,13 +20,7 @@ const ordersReducer = (state = initialState, action) => {
     //   });
     //   return newState;
     case GET_USER_INFO:
-      if (action.user.orders.length !== newState.length) {
-        orders = Object.keys(action.user.orders);
-        orders.forEach((key) => {
-          newState.push(action.user.orders[key]);
-        });
-      }
-      return newState;
+      return Object.values(action.user.orders);
     case LOGOUT_CURRENT_USER:
       return initialState;
     default:
