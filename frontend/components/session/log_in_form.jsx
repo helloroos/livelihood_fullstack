@@ -52,14 +52,14 @@ export default function LogInForm() {
             <label>
               <p>Email</p>
               <div className="inputs">
-                <input type="email" placeholder={user.email} className={showDemo ? "input-visibility" : ""} onChange={(e) => setUser({...user, email: e.target.value})} value={user.email} required/>
+                <input type="email" className={showDemo ? "input-visibility" : "demo-placeholder"} onChange={(e) => setUser({...user, email: e.target.value})} value={user.email} required/>
               </div>
             </label>
 
             <label>
               <p>Password</p>
               <div className="inputs">
-                <input type="password" placeholder={user.password} className={showDemo ? "input-visibility" : ""} onChange={(e) => setUser({ ...user, password: e.target.value })} value={user.password} required/>
+                <input type="password" className={showDemo ? "input-visibility" : "demo-placeholder"} onChange={(e) => setUser({ ...user, password: e.target.value })} value={user.password} required/>
               </div>
             </label>
 
