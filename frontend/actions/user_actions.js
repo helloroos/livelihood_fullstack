@@ -3,6 +3,14 @@ import * as UserAPIUtil from '../util/user_api_util'
 export const GET_USER_INFO = "GET_USER_INFO";
 // export const RECEIVE_USER = "RECEIVE_USER";
 
+// WANT TO RECONFIG TO THIS
+// const getUserAction = (currentUser) => {
+//   return {
+//     type: GET_USER_INFO,
+//     currentUser: currentUser
+//   }
+// }
+
 const getUserAction = (user) => {
   return {
     type: GET_USER_INFO,

@@ -14,12 +14,12 @@ const transfersReducer = (state = initialState, action) => {
     case MAKE_TRANSFER:
       newState.push(action.transfer);
       return newState;
-    case CURRENT_USER:
-      transfers = Object.keys(action.currentUser.transfers);
-      transfers.forEach((key) => {
-        newState.push(action.currentUser.transfers[key]);
-      });
-      return newState;
+    // case CURRENT_USER:
+    //   transfers = Object.keys(action.currentUser.transfers);
+    //   transfers.forEach((key) => {
+    //     newState.push(action.currentUser.transfers[key]);
+    //   });
+    //   return newState;
     case GET_USER_INFO:
       if (action.user.transfers.length !== newState.length) {
         transfers = Object.keys(action.user.transfers);

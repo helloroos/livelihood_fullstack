@@ -8,9 +8,8 @@ const buyingPowerReducer = (state = initialState, action) => {
   let newState = 0;
 
   switch (action.type) {
-
-    case CURRENT_USER:
-      return newState = action.currentUser.buyingPower;
+    // case CURRENT_USER:
+    //   return newState = action.currentUser.buyingPower;
     case GET_USER_INFO:
       return newState = action.user.buyingPower;
     case LOGOUT_CURRENT_USER:

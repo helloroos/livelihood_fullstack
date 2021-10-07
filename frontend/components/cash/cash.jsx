@@ -16,7 +16,6 @@ export default function Cash() {
 
   useEffect(() => {
     dispatch(getUser(currentUser))
-    // setBuyingPower(state.entities.buyingPower)
   }, [transfers]);
 
   const dispatch = useDispatch();

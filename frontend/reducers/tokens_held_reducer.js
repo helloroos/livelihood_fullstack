@@ -9,12 +9,12 @@ const tokensHeldReducer = (state = initialState, action) => {
   let newState = state.slice();
   let tokensHeld;
   switch (action.type) {
-    case CURRENT_USER:
-      tokensHeld = Object.keys(action.currentUser.tokensHeld);
-      tokensHeld.forEach((key) => {
-        newState.push(action.currentUser.tokensHeld[key]);
-      });
-      return newState;
+    // case CURRENT_USER:
+    //   tokensHeld = Object.keys(action.currentUser.tokensHeld);
+    //   tokensHeld.forEach((key) => {
+    //     newState.push(action.currentUser.tokensHeld[key]);
+    //   });
+    //   return newState;
     case GET_USER_INFO:
       if (action.user.tokensHeld.length !== newState.length) {
         tokensHeld = Object.keys(action.user.tokensHeld);
