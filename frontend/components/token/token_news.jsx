@@ -40,7 +40,7 @@ export default function TokenNews() {
 
 
       <div id="article-container">
-        <a href="#" target="_blank">
+        <a href="https://www.linkedin.com/in/roosmichelle/" target="_blank">
           <div id="text-container">
             <div id="first-row">
               <p id="url">www.news.com</p>

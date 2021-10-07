@@ -11,7 +11,7 @@ export default function Navbar() {
   // const currentUser = useSelector((state) => state.session.currentUser)
   // const pathname = useSelector((state) => ownProps.location.pathname)
   const dispatch = useDispatch();
-  let location = useLocation()
+  const location = useLocation()
 
   const [showProducts, setShowProducts] = useState(false);
   const [showLearn, setShowLearn] = useState(false);
@@ -64,10 +64,12 @@ export default function Navbar() {
         </div>
 
         <div id="navbar-links-container">
-            <Link to="/cash">Cash</Link>
-            <Link to="/portfolio">Portfolio</Link>
-            <Link to="/account">Account</Link>
-            <Link to="/" onClick={() => dispatch(logOut())}>Log out</Link>
+          <p onClick={openAboutMe} id="about-me">About me</p>
+          <AboutMe showAboutMe={showAboutMe} location={location} />
+          <p id="divider">|</p>
+          <Link to="/cash">Cash</Link>
+          <Link to="/portfolio">Portfolio</Link>
+          <Link to="/" onClick={() => dispatch(logOut())}>Log out</Link>
           </div>
       </div>
     )
@@ -97,7 +99,7 @@ export default function Navbar() {
         </div>
         <Products showProducts={showProducts}/>
         <Learn showLearn={showLearn}/>
-        <AboutMe showAboutMe={showAboutMe}/>
+        <AboutMe showAboutMe={showAboutMe} location={location}/>
         <div onClick={closeLowerNav} id={showCloseArea ? "close-lower-navbar" : ""}>
         </div>
       </div>

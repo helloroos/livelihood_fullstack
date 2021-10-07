@@ -225,17 +225,45 @@
     flex-direction: row;
     justify-self: end;
 
-    a {
+    a, #about-me {
       margin-right: 45px;
       align-self: center;
       white-space: nowrap;
       color: black;
       text-decoration: none;
       transition: all 0.1s ease 0s;
+      cursor: pointer;
 
+      i {
+        font-size: 9px;
+      }
+      
       &:hover {
         color: rgb(0, 180, 5);
       }
+    }
+
+    #navbar-dropdown {
+      width: 80;
+      height: 100;
+      
+      #dropdown-links-container {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        top: 64px;
+        right: 360px;
+
+        a {
+          margin: 0 0 8px 0;
+        }
+      }
+    }
+    
+    #divider {
+      margin-right: 45px;
+      align-self: center;
+      white-space: nowrap;
     }
   }
 }
