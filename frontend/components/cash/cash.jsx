@@ -20,22 +20,9 @@ export default function Cash() {
 
   const dispatch = useDispatch();
   const currentUser = useSelector((state) => state.session.currentUserId);
-  // const [buyingPower, setBuyingPower] = useState(state.entities.buyingPower)
   const buyingPower = useSelector((state) => state.entities.buyingPower);
   const transfers = useSelector((state) => state.entities.transfers);
-  // const currentUser = useSelector((state) => state.session.currentUser.id)
   const [isOpen, setIsOpen] = useState(false);
-
-  // const [buyingPower, setBuyingPower] = useState(0)
-  // const [transfers, setTransfers] = useState({})
-
-  // useEffect(() => {
-  //   dispatch(fetchUser(currentUser))
-  //     .then((res) => {
-  //       setBuyingPower(res.user.buyingPower)
-  //       setTransfers(res.user.transfers)
-  //     })
-  // }, [currentUser]);
 
   function compare(a, b) {
     if (a.created_at < b.created_at) {
@@ -95,7 +82,7 @@ export default function Cash() {
 
           </div>
 
-          <CashSidePanel />
+          <CashSidePanel dispatch={dispatch} currentUser={currentUser}/>
         </div>
       </div>
     )
