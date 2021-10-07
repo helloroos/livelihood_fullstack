@@ -150,8 +150,11 @@
 
 #logged-in-navbar-container {
   display: grid;
-  grid-template-columns: 420px 1100px 1fr;
+  // grid-template-columns: 420px 1100px 1fr;
+  grid-template-columns: 20% 50% 30%;
   grid-template-areas: "logo-container search-container navbar-links-container";
+  // display: flex;
+  // justify-content: space-between;
   align-items: center;
   position: sticky;
   top: 0;

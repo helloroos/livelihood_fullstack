@@ -1,7 +1,10 @@
 #portfolio-container {
   display: grid;
-  grid-template-columns: 420px 1100px 1fr;
+  // grid-template-columns: 420px 1100px 1fr;
+  grid-template-columns: 20% 60% 20%;
   grid-template-areas: ". portfolio-content .";
+  // display: flex;
+  // justify-content: center;
 
   #portfolio-content {
     grid-area: portfolio-content;
