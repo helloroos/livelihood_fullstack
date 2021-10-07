@@ -6,6 +6,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import News from './news';
 import PortfolioSidePanel from './portfolio_side_panel';
 const app_key = require('../../../config/keys').newsApiKey;
+import Loader from '../loader/loader';
 
 export default function portfolio() {
 
@@ -49,44 +50,51 @@ export default function portfolio() {
   // const tokens = useSelector((state) => state.entities.tokens)
   // const token = useSelector((state) => state.entities.token)
 
-  return (
-    <div id="portfolio-container">
-      <div id="portfolio-content">
-        <div id="feed-container">
-          <div id="feed">
-
-            <div id="header-container">
-              <h1>{formatter.format(buyingPower)}</h1>
-              <div id="change-container">
-                <p id="change">+$215.48 (+1.65%)</p>
-                <p id="period">Today</p>
+  if (!buyingPower) {
+    return (
+      <Loader></Loader>
+    )
+  } else {
+    return (
+      <div id="portfolio-container">
+        <div id="portfolio-content">
+          <div id="feed-container">
+            <div id="feed">
+  
+              <div id="header-container">
+                <h1>{formatter.format(buyingPower)}</h1>
+                <div id="change-container">
+                  <p id="change">+$215.48 (+1.65%)</p>
+                  <p id="period">Today</p>
+                </div>
               </div>
-            </div>
-
-            <div id="chart-container">
-              <PortfolioChart
-                dispatch={dispatch}
-                currentUser={currentUser}
-                transfers={transfers} />
-            </div>
-
-            <Link to="/cash">
-              <div id="buying-power-container">
-              <p>Buying Power</p>
-              <p>{formatter.format(buyingPower)}</p>
+  
+              <div id="chart-container">
+                <PortfolioChart
+                  dispatch={dispatch}
+                  currentUser={currentUser}
+                  transfers={transfers} />
               </div>
-            </Link>
-
-            <News />
-
+  
+              <Link to="/cash">
+                <div id="buying-power-container">
+                <p>Buying Power</p>
+                <p>{formatter.format(buyingPower)}</p>
+                </div>
+              </Link>
+  
+              <News />
+  
+            </div>
+  
+            <PortfolioSidePanel/>
+  
           </div>
-
-          <PortfolioSidePanel/>
-
         </div>
       </div>
-    </div>
-  )
+    )
+  }
+
 
   // if (Object.keys(orders) === 0) {
   //   return null;
