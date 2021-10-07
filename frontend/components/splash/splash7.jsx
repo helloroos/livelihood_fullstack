@@ -1,5 +1,6 @@
 import React from 'react';
 import DisclosureModal from './disclosure_modal';
+import { HashLink } from 'react-router-hash-link';
 
 export default function Splash7({ isOpen, setIsOpen }) {
   return (
@@ -9,16 +10,11 @@ export default function Splash7({ isOpen, setIsOpen }) {
         <div id="footer-links">
           <div id="links">
             <div id="col1" className="cols">
-              {/* <p>Stocks & Funds</p>
-              <p>Options</p>
-              <p>Gold</p>
-              <p>Cash Management</p>
-              <p>Crypto</p> */}
-              <a href="#splash6-container">Cash Management</a>
-              <a href="#splash6-container">Stocks & Funds</a>
-              <a href="#splash6-container">Options</a>
-              <a href="#splash6-container">Gold</a>
-              <a href="#splash6-container">Crypto</a>
+              <HashLink to="/#splash6-container">Cash Management</HashLink>
+              <HashLink to="/#splash6-container">Stocks & Funds</HashLink>
+              <HashLink to="/#splash6-container">Options</HashLink>
+              <HashLink to="/#splash6-container">Gold</HashLink>
+              <HashLink to="/#splash6-container">Crypto</HashLink>
             </div>
             <div id="col2" className="cols">
               <p onClick={() => setIsOpen(true)}>Learn</p>
