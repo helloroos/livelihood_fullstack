@@ -19,8 +19,9 @@ export default function Cash() {
   }, [transfers]);
 
   const dispatch = useDispatch();
-  const currentUser = useSelector((state) => state.session.currentUserId);
   const buyingPower = useSelector((state) => state.entities.buyingPower);
+  const currentUser = useSelector((state) => state.session.currentUserId);
+  console.log(currentUser);
   const transfers = useSelector((state) => state.entities.transfers);
   const [isOpen, setIsOpen] = useState(false);
 
@@ -34,14 +35,12 @@ export default function Cash() {
     return 0;
   }
 
-
-
   const [to, setTo] = useState('Robinhodl');
 
   const [transfer, setTransfer] = useState({
     transfer_type: 'Deposit',
     amount: null,
-    user_id: currentUser.id
+    user_id: currentUser || currentUser.id
   });
 
   const handleTransfer = (e) => {
@@ -109,7 +108,7 @@ export default function Cash() {
           </div>
 
           {/* <CashSidePanel dispatch={dispatch} currentUser={currentUser} /> */}
-          <CashSidePanel dispatch={dispatch} currentUser={currentUser} to={to} setTo={setTo} transfer={transfer} setTransfer={setTransfer} handleTransfer={handleTransfer} changeOption={changeOption}/>
+          <CashSidePanel dispatch={dispatch} currentUser={currentUser} to={to} setTo={setTo} transfer={transfer} setTransfer={setTransfer} handleTransfer={handleTransfer} changeOption={changeOption} transfers={transfers}/>
         </div>
       </div>
     )
