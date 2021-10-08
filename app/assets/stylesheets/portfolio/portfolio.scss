@@ -22,6 +22,7 @@
 
       #feed {
         // width: 690px;
+        width: 65%;
     
         #header-container {
           padding-top: 20px;
@@ -85,7 +86,8 @@
       // position: fixed;
       // top: 90px;
       // right: 460px;
-      width: 275px;
+      width: 25%;
+      // width: 275px;
       height: 60vh;
       box-shadow: 0 0 10px lightgray;
       border-radius: 3px;
@@ -188,6 +190,25 @@
     display: grid;
     grid-template-columns: 10% 70% 20%;
     grid-template-areas: ". portfolio-content .";
+
+    #portfolio-content {
+
+      #feed-container {
+
+        #feed {
+
+          #chart-container {
+
+            .recharts-wrapper {
+
+              .recharts-surface {
+                width: 600px;
+              }
+            }
+          }
+        }
+      }
+    }
   }
 }
 
