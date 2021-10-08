@@ -123,7 +123,7 @@
   }
 }
 
-@media(max-width: 1280px) {
+@media(min-width: 1280px) and (max-width: 1536px) {
   #cash-container {
     display: grid;
     grid-template-columns: 10% 70% 20%;

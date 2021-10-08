@@ -268,7 +268,8 @@
   }
 }
 
-@media(max-width: 1280px) {
+// @media(max-width: 1280px) {
+@media(min-width: 1280px) and (max-width: 1536px) {
   #logged-in-navbar-container {
     display: grid;
     grid-template-areas: "logo-container search-container navbar-links-container";
