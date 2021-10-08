@@ -41,7 +41,7 @@ export default function Cash() {
   const [transfer, setTransfer] = useState({
     transfer_type: 'Deposit',
     amount: null,
-    user_id: currentUser
+    user_id: currentUser.id
   });
 
   const handleTransfer = (e) => {

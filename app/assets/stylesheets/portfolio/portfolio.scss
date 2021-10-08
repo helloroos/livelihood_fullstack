@@ -10,7 +10,7 @@
     grid-area: portfolio-content;
     display: flex;
     align-items: center;
-    width: 1036px;
+    // width: 80%;
     padding-top: 30px;
   
     #feed-container {
@@ -21,7 +21,7 @@
       // position: relative;
 
       #feed {
-        width: 690px;
+        // width: 690px;
     
         #header-container {
           padding-top: 20px;
@@ -180,6 +180,14 @@
         }
       }
     }
+  }
+}
+
+@media(max-width: 1280px) {
+  #portfolio-container {
+    display: grid;
+    grid-template-columns: 10% 70% 20%;
+    grid-template-areas: ". portfolio-content .";
   }
 }
 
