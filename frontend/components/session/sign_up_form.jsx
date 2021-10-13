@@ -72,7 +72,7 @@ export default function sign_up_form() {
               <a href="https://github.com/michelleroos" id="github" target="_blank" className="contact-links">GitHub</a>
               <a href="https://www.linkedin.com/in/roosmichelle/" id="linkedin" target="_blank" className="contact-links">LinkedIn</a>
               {/* <a href="#" id="portfolio" className="contact-links" target="_blank">Portfolio</a> */}
-              <a href="https://firebasestorage.googleapis.com/v0/b/scroople-25727.appspot.com/o/Michelle%20Roos%20-%20Resume.pdf?alt=media&token=04dc0414-21f1-4d24-af4e-5a49eceb3371"
+              <a href="https://firebasestorage.googleapis.com/v0/b/scroople-25727.appspot.com/o/Michelle%20Roos%20-%20Resume.pdf?alt=media&token=694e1ef5-62c6-4973-a3fa-56848d3a85d9"
                 id="resume" className="contact-links" target="_blank" download><i className="far fa-file"></i></a>
             </div>
             <p>© 2021 Michelle Roos. All rights reserved.</p>

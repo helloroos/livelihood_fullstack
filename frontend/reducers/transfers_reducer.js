@@ -8,21 +8,14 @@ const initialState = [];
 
 const transfersReducer = (state = initialState, action) => {
   Object.freeze(state);
-  let newState = state.slice();
-  // let newState = [];
-  let transfers;
   switch (action.type) {
     case MAKE_TRANSFER:
+      let newState = [];
       newState.push(action.transfer);
       return newState;
-    // case CURRENT_USER:
-    //   transfers = Object.keys(action.currentUser.transfers);
-    //   transfers.forEach((key) => {
-    //     newState.push(action.currentUser.transfers[key]);
-    //   });
-    //   return newState;
     case GET_USER_INFO:
-      return Object.values(action.user.transfers);
+      let newArr = Object.values(action.user.transfers);
+      return newArr;
     case LOGOUT_CURRENT_USER:
       return initialState;
     default:

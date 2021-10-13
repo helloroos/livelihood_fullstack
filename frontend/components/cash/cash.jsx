@@ -16,12 +16,13 @@ export default function Cash() {
 
   useEffect(() => {
     dispatch(getUser(currentUser))
-  }, [transfers]);
-
+    // setRerender(!rerender)
+  }, [transfer]);
+  
   const dispatch = useDispatch();
   const buyingPower = useSelector((state) => state.entities.buyingPower);
   const currentUser = useSelector((state) => state.session.currentUserId);
-  console.log(currentUser);
+  // const [rerender, setRerender] = useState(false);
   const transfers = useSelector((state) => state.entities.transfers);
   const [isOpen, setIsOpen] = useState(false);
 
@@ -40,7 +41,7 @@ export default function Cash() {
   const [transfer, setTransfer] = useState({
     transfer_type: 'Deposit',
     amount: null,
-    user_id: currentUser || currentUser.id
+    user_id: currentUser.id || currentUser
   });
 
   const handleTransfer = (e) => {
@@ -56,8 +57,6 @@ export default function Cash() {
       setTo('Universal Bank')
     }
   }
-
-
   
   if (buyingPower) {
     return (

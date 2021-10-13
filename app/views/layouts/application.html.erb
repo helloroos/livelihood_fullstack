@@ -9,6 +9,10 @@
     <%= javascript_include_tag 'application' %>
     <%= favicon_link_tag asset_path('robinhood_favicon.png') %>
     <script src="https://kit.fontawesome.com/bdc91c31f4.js" crossorigin="anonymous"></script>
+    <meta property="og:title" content="Robinhodl" />
+    <meta property='og:image' content="<%= image_url('https://firebasestorage.googleapis.com/v0/b/scroople-25727.appspot.com/o/Screen%20Shot%202021-10-12%20at%2010.33.02.png?alt=media&token=e2547aa2-3453-450e-884f-586051043ed5') %>"/>
+    <meta property="og:description"content="Robinhodl | Commission-free crypto currency trading"/>
+    <meta property="og:url" content="http://robinhodl.app/"/>
   </head>
 
   <body>
@@ -28,6 +32,7 @@
       window.robinhood_favicon = "<%= image_url('robinhood_favicon.png') %>";
       window.favicon_hover = "<%= image_url('favicon_hover.png') %>";
       window.robinhood_favicon_black = "<%= image_url('robinhood_favicon_black.png') %>";
+      window.robinhood_favicon_org = "<%= image_url('robinhood_favicon_org.png') %>";
       window.offer_image = "<%= image_url('offer-img.png') %>";
       window.offer_video = "<%= image_url('offer-video.mp4') %>";
       window.graph_dummy = "<%= image_url('graph-dummy.png') %>";
