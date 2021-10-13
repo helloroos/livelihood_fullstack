@@ -12,7 +12,7 @@ export default function PortfolioSidePanel() {
         <h3>Cryptocurrencies</h3>
       </header>
 
-      {tokensHeld.map((token, i) => {
+      {tokensHeld.filter(token => token.number > 0).map((token, i) => {
         return (
           <div id="portfolio-token-container" key={i}>
             <Link to={`tokens/${token.token_sym}`}>

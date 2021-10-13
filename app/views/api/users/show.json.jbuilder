@@ -47,10 +47,6 @@ def tokens
             all_tokens[order.token_sym] -= order.number
         end
     end
-    # tokensSimplifyer(all_tokens)
-    # all_tokens.map do |k, v|
-    #     {name: k, amount: v}
-    # end
     all_tokens
 end
 

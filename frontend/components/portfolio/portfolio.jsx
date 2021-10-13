@@ -41,15 +41,6 @@ export default function portfolio() {
   const buyingPower = useSelector((state) => state.entities.buyingPower);
   const [news, setNews] = useState([])
   const transfers = useSelector((state) => state.entities.transfers);
-  // const currentUser = useSelector((state) => state.session.currentUser.id)
-
-  // const [buyingPower, setBuyingPower] = useState(0)
-  // const [transfers, setTransfers] = useState(null)
-
-  // const orders = useSelector((state) => Object.values(state.entities.orders))
-  
-  // const tokens = useSelector((state) => state.entities.tokens)
-  // const token = useSelector((state) => state.entities.token)
 
   if (!buyingPower) {
     return (
