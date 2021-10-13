@@ -15,7 +15,7 @@ export default function Navbar() {
   const [showLearn, setShowLearn] = useState(false);
   const [showAboutMe, setShowAboutMe] = useState(false);
   const [showCloseArea, setShowCloseArea] = useState(false);
-  const [showOrgLogo, setShowOrgLogo] = useState(false);
+  const [hoverLogo, setHoverLogo] = useState(false);
 
   const openProducts = () => {
     setShowProducts(!showProducts);
@@ -45,8 +45,8 @@ export default function Navbar() {
     setShowCloseArea(false)
   }
 
-  const showInvertedLogo = () => {
-    setShowOrgLogo(!showOrgLogo)
+  const changeLogo = () => {
+    setHoverLogo(!hoverLogo)
   }
 
   if (location.pathname == "/login" || location.pathname == "/signup") {
@@ -55,11 +55,12 @@ export default function Navbar() {
     return (
       <div id="logged-in-navbar-container">
         <div id="logo-container">
-          <Link to="/portfolio">
+          <Link to="/portfolio" onMouseEnter={changeLogo} onMouseLeave={changeLogo}>
+            {hoverLogo ? <img src="https://firebasestorage.googleapis.com/v0/b/scroople-25727.appspot.com/o/robinhood_favicon_org.png?alt=media&token=5321590b-498d-4ee9-a386-9a9ae3ae96ea" alt="orange-logo" /> : <img src="https://firebasestorage.googleapis.com/v0/b/scroople-25727.appspot.com/o/robinhood_favicon_black.png?alt=media&token=45547e1d-6aea-40ce-8e18-aae8d72970f0" alt="black-logo" />}
             {/* <img src="https://pbs.twimg.com/profile_images/1267616128022351873/dZJpsWTD_400x400.jpg" /> */}
             {/* <img id="fav-black" src={window.robinhood_favicon_black} /> */}
             {/* <img id="fav-org" src={window.robinhood_favicon_org} /> */}
-            <div id={showOrgLogo ? "img-org" : "img-black"}></div>
+            {/* <div id={showOrgLogo ? "img-org" : "img-black"}></div> */}
           </Link>
         </div>
 
