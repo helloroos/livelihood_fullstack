@@ -11,7 +11,7 @@ const entitiesReducer = combineReducers({
     buyingPower: buyingPowerReducer,
     news: newsReducer,
     orders: ordersReducer,
-    tokens: tokensReducers,
+    tokenInfo: tokensReducers,
     tokensHeld: tokensHeldReducer,
     transfers: transfersReducer,
 });

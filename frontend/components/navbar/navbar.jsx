@@ -57,10 +57,6 @@ export default function Navbar() {
         <div id="logo-container">
           <Link to="/portfolio" onMouseEnter={changeLogo} onMouseLeave={changeLogo}>
             {hoverLogo ? <img src="https://firebasestorage.googleapis.com/v0/b/scroople-25727.appspot.com/o/robinhood_favicon_org.png?alt=media&token=5321590b-498d-4ee9-a386-9a9ae3ae96ea" alt="orange-logo" /> : <img src="https://firebasestorage.googleapis.com/v0/b/scroople-25727.appspot.com/o/robinhood_favicon_black.png?alt=media&token=45547e1d-6aea-40ce-8e18-aae8d72970f0" alt="black-logo" />}
-            {/* <img src="https://pbs.twimg.com/profile_images/1267616128022351873/dZJpsWTD_400x400.jpg" /> */}
-            {/* <img id="fav-black" src={window.robinhood_favicon_black} /> */}
-            {/* <img id="fav-org" src={window.robinhood_favicon_org} /> */}
-            {/* <div id={showOrgLogo ? "img-org" : "img-black"}></div> */}
           </Link>
         </div>
 
@@ -70,8 +66,6 @@ export default function Navbar() {
         </div>
 
         <div id="navbar-links-container">
-          {/* <p onClick={openAboutMe} id="about-me">About me</p> */}
-          {/* <AboutMe showAboutMe={showAboutMe} location={location} /> */}
           <a id="i" href="https://www.linkedin.com/in/roosmichelle/" target="_blank"><i className="fab fa-linkedin-in"></i></a>
           <a id="i" href="https://github.com/michelleroos" target="_blank"><i className="fab fa-github"></i></a>
           <a id="i-r" href="https://firebasestorage.googleapis.com/v0/b/scroople-25727.appspot.com/o/Michelle%20Roos%20-%20Resume.pdf?alt=media&token=694e1ef5-62c6-4973-a3fa-56848d3a85d9" target="_blank"><i className="far fa-file"></i></a>

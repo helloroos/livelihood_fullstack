@@ -3,6 +3,7 @@ const CoinGecko = require('coingecko-api');
 const CoinGeckoClient = new CoinGecko();
 
 export const RECEIVE_TOKENS = 'RECEIVE_TOKENS';
+export const RECEIVE_TOKEN_LIST = 'RECEIVE_TOKEN_LIST';
 export const TOKEN_INFO = 'TOKEN_INFO';
 // export const RECEIVE_TOKEN = 'RECEIVE_TOKEN';
 export const RECEIVE_TOKEN_HISTORICAL = 'RECEIVE_TOKEN_HISTORICAL';
@@ -25,6 +26,13 @@ const topTokens = [
   "feg", "oxy", "renbtc", "btmx", "alpha", "celo", "kobe", "erg", "btcst",
   "mir", "reef", "ewt", "srm"
 ]
+
+const receiveTokenList = (tokens) => {
+  return {
+    type: RECEIVE_TOKEN_LIST,
+    tokens: tokens
+  }
+};
 
 const receiveTokens = (tokens) => {
   return {
@@ -84,10 +92,18 @@ const simplifyTokens = (res) => {
 }
 
 export const fetchTokens = () => (dispatch) => {
-  return fetch(`https://api.coingecko.com/api/v3/coins/list?include_platform=false`)
+  return fetch(`https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=250&page=1&sparkline=false`)
     .then((res) => res.json())
     .then((res) => simplifyTokens(res))
     .then((res) => dispatch(receiveTokens(res)),
+    (errors) => dispatch(receiveErrors(errors.responseJSON)))
+  };
+  
+  export const fetchTokenList = () => (dispatch) => {
+    return fetch(`https://api.coingecko.com/api/v3/coins/list?include_platform=false`)
+    .then((res) => res.json())
+    .then((res) => simplifyTokens(res))
+      .then((res) => dispatch(receiveTokenList(res)),
       (errors) => dispatch(receiveErrors(errors.responseJSON)))
 };
 

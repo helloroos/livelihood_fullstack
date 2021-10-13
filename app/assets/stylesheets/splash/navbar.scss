@@ -176,17 +176,6 @@
       img {
         width: 35px;
       }
-      
-      // #img-black {
-      //   width: 35px;
-      //   background: url("https://firebasestorage.googleapis.com/v0/b/scroople-25727.appspot.com/o/robinhood_favicon_black.png?alt=media&token=45547e1d-6aea-40ce-8e18-aae8d72970f0");
-      //   background-color: black;
-      // }
-      
-      // #img-org {
-      //   width: 35px;
-      //   background: url("https://firebasestorage.googleapis.com/v0/b/scroople-25727.appspot.com/o/robinhood_favicon_org.png?alt=media&token=5321590b-498d-4ee9-a386-9a9ae3ae96ea");
-      // }
     }
   }
 
@@ -246,7 +235,7 @@
       cursor: pointer;
 
       i {
-        font-size: 30px;
+        font-size: 15px;
       }
       
       &:hover {
@@ -256,13 +245,6 @@
 
     #i {
       margin: 0 40px 0 0;
-    }
-
-    #i-r {
-
-      i {
-        font-size: 20px;
-      }
     }
 
     #navbar-dropdown {
