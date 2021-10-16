@@ -91,20 +91,29 @@ const simplifyTokens = (res) => {
   return newRes;
 }
 
+// const renameKeys = (res) => {
+//   const keys = Object.keys(res);
+//   keys.map((key) => {
+//     const newKey = res[key].id // bitcoin
+//     return {[newKey]: res[key]}
+//   })
+// }
+
 export const fetchTokens = () => (dispatch) => {
   return fetch(`https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=250&page=1&sparkline=false`)
     .then((res) => res.json())
     .then((res) => simplifyTokens(res))
-    .then((res) => dispatch(receiveTokens(res)),
-    (errors) => dispatch(receiveErrors(errors.responseJSON)))
+    // .then((res) => renameKeys(res))
+    .then((res) => dispatch(receiveTokens(res)))
+    // (errors) => dispatch(receiveErrors(errors.responseJSON)))
   };
   
   export const fetchTokenList = () => (dispatch) => {
     return fetch(`https://api.coingecko.com/api/v3/coins/list?include_platform=false`)
     .then((res) => res.json())
     .then((res) => simplifyTokens(res))
-      .then((res) => dispatch(receiveTokenList(res)),
-      (errors) => dispatch(receiveErrors(errors.responseJSON)))
+    .then((res) => dispatch(receiveTokenList(res)))
+      // (errors) => dispatch(receiveErrors(errors.responseJSON)))
 };
 
 export const fetchToken = (tokenId) => (dispatch) => {
