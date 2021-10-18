@@ -1,12 +1,20 @@
 import * as TransferAPIUtil from '../util/transfer_api_util'
+import { GET_USER_INFO } from './user_actions';
 
 export const MAKE_TRANSFER = "MAKE_TRANSFER";
 export const RECEIVE_TRANSFERS = "RECEIVE_TRANSFERS";
 
+// const makeTransferAction = (transfer) => {
+//   return {
+//     type: MAKE_TRANSFER,
+//     transfer: transfer
+//   }
+// }
+
 const makeTransferAction = (transfer) => {
   return {
-    type: MAKE_TRANSFER,
-    transfer: transfer
+    type: GET_USER_INFO,
+    user: transfer
   }
 }
 

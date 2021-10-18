@@ -2,8 +2,12 @@ class Api::TransfersController < ApplicationController
 
   def create
       @transfer = Transfer.new(transfer_params)
+      @user = current_user
+    #   @transfers = current_user.transfers
       if @transfer.save
-          render :show
+        #   render :show
+        #   render :index
+        render "api/users/show"
       else
           render json: @transfer.errors.full_messages, status: 422
       end

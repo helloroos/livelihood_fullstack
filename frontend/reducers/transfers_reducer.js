@@ -10,12 +10,9 @@ const transfersReducer = (state = initialState, action) => {
   Object.freeze(state);
   switch (action.type) {
     case MAKE_TRANSFER:
-      let newState = [];
-      newState.push(action.transfer);
-      return newState;
+      return Object.values(action.transfer.transfers);
     case GET_USER_INFO:
-      let newArr = Object.values(action.user.transfers);
-      return newArr;
+      return Object.values(action.user.transfers);
     case LOGOUT_CURRENT_USER:
       return initialState;
     default:
