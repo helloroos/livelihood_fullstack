@@ -53,6 +53,7 @@ export default function TokenShow(props) {
   const buyingPower = useSelector((state) => state.entities.buyingPower);
   const [marketPrice, setMarketPrice] = useState(0)
   const [news, setNews] = useState([])
+  const [number, setNumber] = useState("")
   const [oneDayChange, setOneDayChange] = useState(0)
   const orders = useSelector((state) => state.entities.orders);
   const currentUser = useSelector((state) => state.session.currentUserId)
@@ -85,6 +86,7 @@ export default function TokenShow(props) {
       amount: 0,
       user_id: currentUser.id || currentUser
     })
+    setNumber("")
   }
 
   const changeOption = (val) => {
@@ -133,7 +135,7 @@ export default function TokenShow(props) {
 
           </div>
           {/* <TokenSidePanel marketPrice={marketPrice} buyingPower={buyingPower} dispatch={dispatch} tokenId={tokenId} currentUser={currentUser}/> */}
-          <TokenSidePanel marketPrice={marketPrice} buyingPower={buyingPower} dispatch={dispatch} tokenId={tokenId} currentUser={currentUser} order={order} setOrder={setOrder} handleOrder={handleOrder} changeOption={changeOption} total={total}/>
+          <TokenSidePanel marketPrice={marketPrice} buyingPower={buyingPower} dispatch={dispatch} tokenId={tokenId} currentUser={currentUser} number={number} setNumber={setNumber} order={order} setOrder={setOrder} handleOrder={handleOrder} changeOption={changeOption} total={total}/>
         </div>
       </div>
     </div>

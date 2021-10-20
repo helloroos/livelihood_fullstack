@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useSelector } from 'react-redux';
 
-export default function TokenSidePanel({ marketPrice, buyingPower, dispatch, tokenId, currentUser, order, setOrder, handleOrder, changeOption, total }) {
+export default function TokenSidePanel({ marketPrice, buyingPower, dispatch, tokenId, currentUser, number, setNumber, order, setOrder, handleOrder, changeOption, total }) {
 
   return (
     <div id="side-panel-container">
@@ -15,7 +15,8 @@ export default function TokenSidePanel({ marketPrice, buyingPower, dispatch, tok
           <div id="tokens-container" className="side-panel-section">
             <p>Tokens</p>
           {/* <input type="text" placeholder="0" required onChange={(e) => setOrder({ ...order, number: e.target.value, amount: marketPrice * order.number})}/> */}
-          <input type="text" placeholder={order.number} required onChange={(e) => setOrder({ ...order, number: e.target.value, amount: marketPrice * order.number})}/>
+          {/* <input type="text" placeholder={order.number} value={number} required onChange={(e) => setOrder({ ...order, number: e.target.value, amount: marketPrice * order.number })} onChange={(e) => setNumber(e.target.value)}/> */}
+          <input type="text" placeholder="0" required onChange={(e) => setOrder({ ...order, number: e.target.value, amount: marketPrice * order.number })} value={order.number > 0 ? order.number : number } />
           </div>
           <div id="price-container" className="side-panel-section">
             <p>Market Price</p>
