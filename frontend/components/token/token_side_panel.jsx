@@ -1,34 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useSelector } from 'react-redux';
 
-// export default function TokenSidePanel({ marketPrice, buyingPower, dispatch, tokenId, currentUser }) {
 export default function TokenSidePanel({ marketPrice, buyingPower, dispatch, tokenId, currentUser, order, setOrder, handleOrder, changeOption, total }) {
-
-  // const [order, setOrder] = useState({
-  //   order_type: 'Buy',
-  //   token_sym: tokenId,
-  //   market_price: 0,
-  //   number: 0,
-  //   amount: 0,
-  //   user_id: currentUser
-  // })
-
-  // if (!marketPrice === 0) {
-  //   setOrder.market_price(marketPrice)
-  // }
-  
-  // let total = marketPrice * order.number;
-
-  // const handleOrder = (e) => {
-  //   e.preventDefault();
-  //   dispatch(makeOrder(order))
-  // }
-
-  // const changeOption = (val) => {
-  //   if (val === 'sell') {
-  //     setOrder({ ...order, order_type: 'Sell' })
-  //   }
-  // }
 
   return (
     <div id="side-panel-container">
@@ -41,7 +14,8 @@ export default function TokenSidePanel({ marketPrice, buyingPower, dispatch, tok
           </div>
           <div id="tokens-container" className="side-panel-section">
             <p>Tokens</p>
-          <input type="text" placeholder="0" required onChange={(e) => setOrder({ ...order, number: e.target.value, amount: marketPrice * order.number})}/>
+          {/* <input type="text" placeholder="0" required onChange={(e) => setOrder({ ...order, number: e.target.value, amount: marketPrice * order.number})}/> */}
+          <input type="text" placeholder={order.number} required onChange={(e) => setOrder({ ...order, number: e.target.value, amount: marketPrice * order.number})}/>
           </div>
           <div id="price-container" className="side-panel-section">
             <p>Market Price</p>

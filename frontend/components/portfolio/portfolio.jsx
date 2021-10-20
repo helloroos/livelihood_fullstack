@@ -18,7 +18,7 @@ export default function portfolio() {
   useEffect(() => {
     dispatch(getUser(currentUser))
     dispatch(fetchTokens())
-  }, [currentUser]);
+  }, [orders]);
 
   // Get news info
   useEffect(() => {
@@ -40,6 +40,7 @@ export default function portfolio() {
   const currentUser = useSelector((state) => state.session.currentUserId);
   const buyingPower = useSelector((state) => state.entities.buyingPower);
   const [news, setNews] = useState([])
+  const orders = useSelector((state) => state.entities.orders);
   const transfers = useSelector((state) => state.entities.transfers);
 
   if (!buyingPower) {

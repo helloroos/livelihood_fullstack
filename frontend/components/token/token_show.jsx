@@ -58,7 +58,6 @@ export default function TokenShow(props) {
   const currentUser = useSelector((state) => state.session.currentUserId)
   const tokenId = props.match.params.tokenId;
 
-
   // SIDE PANEL
   const [order, setOrder] = useState({
     order_type: 'Buy',
@@ -66,12 +65,9 @@ export default function TokenShow(props) {
     market_price: 0,
     number: 0,
     amount: 0,
-    user_id: currentUser
+    user_id: currentUser.id || currentUser
   })
 
-  console.log(order);
-
-  // const [total, setTotal] = useState(0)
   let total = marketPrice * order.number;
 
   if (!marketPrice === 0) {
@@ -81,6 +77,14 @@ export default function TokenShow(props) {
   const handleOrder = (e) => {
     e.preventDefault();
     dispatch(makeOrder(order))
+    setOrder({
+      order_type: 'Buy',
+      token_sym: tokenId,
+      market_price: 0,
+      number: 0,
+      amount: 0,
+      user_id: currentUser.id || currentUser
+    })
   }
 
   const changeOption = (val) => {
@@ -90,7 +94,6 @@ export default function TokenShow(props) {
       setOrder({ ...order, order_type: 'Buy' })
     }
   }
-
 
   return (
     <div id="token-container">

@@ -1,14 +1,23 @@
 import * as OrderAPIUtil from '../util/order_api_util'
+import { GET_USER_INFO } from './user_actions';
 
 export const MAKE_ORDER = "MAKE_ORDER";
 // export const RECEIVE_ORDER = "RECEIVE_ORDER";
 export const RECEIVE_ORDERS = "RECEIVE_ORDERS";
 
+// const makeOrderAction = (order) => {
+//   return {
+//     type: MAKE_ORDER,
+//     // type: RECEIVE_ORDER,
+//     order: order
+//   }
+// }
+
 const makeOrderAction = (order) => {
   return {
-    type: MAKE_ORDER,
+    type: GET_USER_INFO,
     // type: RECEIVE_ORDER,
-    order: order
+    user: order
   }
 }
 
@@ -23,7 +32,7 @@ export const makeOrder = (orderDetails) => (dispatch) => {
   return OrderAPIUtil.makeOrder(orderDetails)
     .then(
       (res) => dispatch(makeOrderAction(res)),
-      (errors) => dispatch(receiveOrder(errors.responseJSON)))
+      (errors) => dispatch(makeOrderAction(errors.responseJSON)))
 }
 
 export const fetchOrders = (orderDetails) => (dispatch) => {

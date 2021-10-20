@@ -2,9 +2,11 @@ class Api::OrdersController < ApplicationController
 
     def create
         @orders = Order.new(order_params)
+        @user = current_user
         if @orders.save
             # render json: ["Order successful"], status: 200
-            render :show
+            # render :show
+            render "api/users/show"
         else
             render json: @orders.errors.full_messages, status: 422
         end

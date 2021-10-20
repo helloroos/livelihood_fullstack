@@ -13,12 +13,6 @@ const ordersReducer = (state = initialState, action) => {
     case MAKE_ORDER:
       newState.push(action.order);
       return newState;
-    // case CURRENT_USER:
-    //   orders = Object.keys(action.currentUser.orders);
-    //   orders.forEach((key) => {
-    //     newState.push(action.currentUser.orders[key]);
-    //   });
-    //   return newState;
     case GET_USER_INFO:
       return Object.values(action.user.orders);
     case LOGOUT_CURRENT_USER:
