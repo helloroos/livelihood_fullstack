@@ -13,7 +13,7 @@ import splash from "./splash/splash";
 import portfolio from "./portfolio/portfolio";
 import TokenContainer from "./token/token_index_container";
 // import TokenShowContainer from "./token/token_show_container";
-import TokenShow from './token/token_show'
+import TokenShow from './token/token'
 // import NavBarContainer from "./navbar/_navbar_container";
 import Navbar from "./navbar/navbar";
 import TokenIndexContainer from "./token/token_index_container";

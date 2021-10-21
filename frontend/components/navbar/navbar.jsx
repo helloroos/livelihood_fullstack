@@ -49,6 +49,10 @@ export default function Navbar() {
     setHoverLogo(!hoverLogo)
   }
 
+  const tokenSearch = (v) => {
+    console.log(v);
+  }
+
   if (location.pathname == "/login" || location.pathname == "/signup") {
     return null;
   } else if (currentUser) {
@@ -62,7 +66,7 @@ export default function Navbar() {
 
         <div id="search-container">
           <i className="fas fa-search"></i>
-          <input type="search" placeholder="Search" />
+          <input type="search" placeholder="Search" onChange={(e) => tokenSearch(e.target.value)}/>
         </div>
 
         <div id="navbar-links-container">
