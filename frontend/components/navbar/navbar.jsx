@@ -66,7 +66,10 @@ export default function Navbar() {
       return token.name.match(regex);
     });
 
-    if (searchString.length === 0) { matches = [] }
+    if (searchString.length === 0) {
+      matches = []
+      setSearchInput("");
+    }
 
     generateHTML(matches)
   }
@@ -83,7 +86,9 @@ export default function Navbar() {
         </div>
       )}));
     } else {
-      setResetSearch({ result: <div id="no-search"></div>, searchInput: "" })
+      setResult(
+        <div id="no-search"></div>
+      )
     }
   }
 
