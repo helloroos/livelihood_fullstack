@@ -8,7 +8,7 @@ const tokensReducer = (state = [], action) => {
     case RECEIVE_TOKENS:
       return action.tokens;
     case LOGOUT_CURRENT_USER:
-     return {};
+     return [];
     default:
       return state;
   }
@@ -20,7 +20,7 @@ const tokenListReducer = (state = [], action) => {
     case RECEIVE_TOKEN_LIST:
       return action.tokens;
     case LOGOUT_CURRENT_USER:
-     return {};
+     return [];
     default:
       return state;
   }

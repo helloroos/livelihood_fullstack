@@ -25,9 +25,7 @@ export default function portfolio() {
   useEffect(() => {
     dispatch(getUser(currentUser))
     dispatch(fetchTokens())
-  }, [orders]);
-
-  console.log(orders);
+  }, [currentUser]);
 
   // Get news info
   useEffect(() => {

@@ -213,6 +213,20 @@
         }
       }
     }
+
+    #search-list {
+
+      .match {
+
+        a {
+          display: flex;
+
+          h4 {
+            
+          }
+        }
+      }
+    }
     
     &:hover {
       border: 1px solid white;

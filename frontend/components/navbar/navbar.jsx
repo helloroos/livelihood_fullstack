@@ -69,16 +69,19 @@ export default function Navbar() {
 
     if (searchString.length === 0) { matches = [] }
 
-    return generateHTML(matches)
+    console.log(matches);
+    generateHTML(matches)
   }
 
   const generateHTML = (matches) => {
     if (matches && matches.length > 0) {
       setResult(matches.map((match) => {
         return (
-        <div className="match">
-          <h4>${match.symbol.toUpperCase()}</h4>
-          <h4>${match.name}</h4>
+        <div className="match" key={match.symbol}>
+          <Link to={`tokens/${match.id}`}>
+            <h4>${match.symbol.toUpperCase()}</h4>
+            <h4>${match.name}</h4>
+          </Link>
         </div>
       )}));
     } else {
