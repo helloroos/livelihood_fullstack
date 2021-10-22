@@ -215,14 +215,33 @@
     }
 
     #search-list {
+      background-color: white;
 
       .match {
+        margin: 10px 0 0 0;
 
         a {
-          display: flex;
+          display: grid;
+          grid-template-columns: 20% 80%;
+          grid-template-areas: "token-symbol token-name";
+          margin: 0 0 15px 30px;
 
           h4 {
-            
+            color: black;
+            font-size: 13px;
+          }
+
+          #symbol {
+            grid-area: token-symbol;
+          }
+
+          #name {
+            grid-area: token-name;
+          }
+
+          &:hover {
+            font-weight: bold;
+            font-size: 14px;
           }
         }
       }
