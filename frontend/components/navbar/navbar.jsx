@@ -14,6 +14,7 @@ export default function Navbar() {
   const tokens = useSelector((state) => state.entities.tokenInfo.tokens)
 
   const [showProducts, setShowProducts] = useState(false);
+  const [showResults, setShowResults] = useState(false);
   const [showLearn, setShowLearn] = useState(false);
   const [showAboutMe, setShowAboutMe] = useState(false);
   const [showCloseArea, setShowCloseArea] = useState(false);
@@ -86,20 +87,19 @@ export default function Navbar() {
         </div>
       )}));
     } else {
-      setResult(
-        <div id="no-search"></div>
-      )
+      setShowResults(false)
     }
   }
 
   const handleChange = (e) => {
     e.preventDefault();
+    setShowResults(true)
     fetchTokenSearchResult(e.target.value)
     setSearchInput(e.target.value)
   }
 
   const handleClick = () => {
-    setResult(<div id="no-search"></div>)
+    setShowResults(false)
     setSearchInput("")
   }
 
@@ -117,9 +117,9 @@ export default function Navbar() {
         <div id="search-container">
           <div id="search-input">
             <i className="fas fa-search"></i>
-            <input type="search" placeholder="Search" onChange={handleChange} value={searchInput}/>
+            <input type="search" placeholder="Search" onChange={(e) => handleChange(e)} value={searchInput}/>
           </div>
-          <SearchResult tokenSearchResult={result}/>
+          {showResults ? <SearchResult tokenSearchResult={result} /> : <div id="no-search"></div>}
         </div>
 
         <div id="navbar-links-container">
