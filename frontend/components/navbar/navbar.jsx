@@ -120,6 +120,7 @@ export default function Navbar() {
             <input type="search" placeholder="Search" onChange={(e) => handleChange(e)} value={searchInput}/>
           </div>
           {showResults ? <SearchResult tokenSearchResult={result} /> : <div id="no-search"></div>}
+          <div id={showResults ? "search-input-bg" : ""}></div>
         </div>
 
         <div id="navbar-links-container">
