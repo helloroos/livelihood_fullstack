@@ -18,6 +18,7 @@ export default function Navbar() {
   const [showAboutMe, setShowAboutMe] = useState(false);
   const [showCloseArea, setShowCloseArea] = useState(false);
   const [hoverLogo, setHoverLogo] = useState(false);
+  const [searchInput, setSearchInput] = useState("");
   const [result, setResult] = useState(null);
 
   const openProducts = () => {
@@ -57,8 +58,6 @@ export default function Navbar() {
   }, [currentUser]);
 
   const fetchTokenSearchResult = (searchString) => {
-    // const res = await fetch('https://api.coingecko.com/api/v3/coins/list?include_platform=false');
-    // const tokens = await tokens.json();
 
     let matches = [];
     
@@ -69,26 +68,34 @@ export default function Navbar() {
 
     if (searchString.length === 0) { matches = [] }
 
-    console.log(matches);
     generateHTML(matches)
   }
-
+  
   const generateHTML = (matches) => {
     if (matches && matches.length > 0) {
       setResult(matches.map((match) => {
         return (
         <div className="match" key={match.symbol}>
-          <Link to={`/tokens/${match.id}`}>
+          <Link to={`/tokens/${match.id}`} onClick={handleClick}>
             <h4>${match.symbol.toUpperCase()}</h4>
             <h4>${match.name}</h4>
           </Link>
         </div>
       )}));
     } else {
-      return (
-        <div id="no-search"></div>
-      )
+      setResetSearch({ result: <div id="no-search"></div>, searchInput: "" })
     }
+  }
+
+  const handleChange = (e) => {
+    e.preventDefault();
+    fetchTokenSearchResult(e.target.value)
+    setSearchInput(e.target.value)
+  }
+
+  const handleClick = () => {
+    setResult(<div id="no-search"></div>)
+    setSearchInput("")
   }
 
   if (location.pathname == "/login" || location.pathname == "/signup") {
@@ -105,7 +112,7 @@ export default function Navbar() {
         <div id="search-container">
           <div id="search-input">
             <i className="fas fa-search"></i>
-            <input type="search" placeholder="Search" onChange={(e) => fetchTokenSearchResult(e.target.value)}/>
+            <input type="search" placeholder="Search" onChange={handleChange} value={searchInput}/>
           </div>
           <SearchResult tokenSearchResult={result}/>
         </div>

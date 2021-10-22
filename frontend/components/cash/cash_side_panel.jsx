@@ -3,29 +3,6 @@ import { useSelector, useDispatch } from 'react-redux';
 
 // export default function CashSidePanel({dispatch, currentUser}) {
 export default function CashSidePanel({dispatch, currentUser, to, setTo, transfer, setTransfer, handleTransfer, changeOption}) {
-  
-  // const [to, setTo] = useState('Robinhodl');
-
-  // const [transfer, setTransfer] = useState({
-  //   transfer_type: 'Deposit',
-  //   amount: null,
-  //   user_id: currentUser
-  // });
-
-  // const handleTransfer = (e) => {
-  //   e.preventDefault();
-  //   dispatch(makeTransfer(transfer));
-  // }
-
-  // const changeOption = (val) => {
-  //   if (val === 'Deposit') {
-  //     setTo('Robinhodl')
-  //     setTransfer({ ...transfer, transfer_type: 'Withdraw' })
-  //     // setTransfer.transfer_type('Withdraw')
-  //   } else {
-  //     setTo('Universal Bank')
-  //   }
-  // }
 
   return (
     <div id="side-panel-container">
