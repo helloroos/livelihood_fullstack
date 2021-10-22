@@ -1,21 +1,24 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { Link, useLocation } from 'react-router-dom';
 import Products from './products';
 import Learn from './learn';
 import AboutMe from './about_me';
+import SearchResult from './search_result';
 
 export default function Navbar() {
 
   const currentUser = useSelector((state) => state.session.currentUserId)
   const dispatch = useDispatch();
   const location = useLocation()
+  const tokens = useSelector((state) => state.entities.tokenInfo.tokens)
 
   const [showProducts, setShowProducts] = useState(false);
   const [showLearn, setShowLearn] = useState(false);
   const [showAboutMe, setShowAboutMe] = useState(false);
   const [showCloseArea, setShowCloseArea] = useState(false);
   const [hoverLogo, setHoverLogo] = useState(false);
+  const [result, setResult] = useState(null);
 
   const openProducts = () => {
     setShowProducts(!showProducts);
@@ -49,8 +52,40 @@ export default function Navbar() {
     setHoverLogo(!hoverLogo)
   }
 
-  const tokenSearch = (v) => {
-    console.log(v);
+  useEffect(() => {
+    dispatch(fetchTokens())
+  }, [currentUser]);
+
+  const fetchTokenSearchResult = (searchString) => {
+    // const res = await fetch('https://api.coingecko.com/api/v3/coins/list?include_platform=false');
+    // const tokens = await tokens.json();
+
+    let matches = [];
+    
+    matches = tokens.filter(token => {
+      const regex = new RegExp(`^${searchString}`, 'gi')
+      return token.name.match(regex);
+    });
+
+    if (searchString.length === 0) { matches = [] }
+
+    return generateHTML(matches)
+  }
+
+  const generateHTML = (matches) => {
+    if (matches && matches.length > 0) {
+      setResult(matches.map((match) => {
+        return (
+        <div className="match">
+          <h4>${match.symbol.toUpperCase()}</h4>
+          <h4>${match.name}</h4>
+        </div>
+      )}));
+    } else {
+      return (
+        <div id="no-search"></div>
+      )
+    }
   }
 
   if (location.pathname == "/login" || location.pathname == "/signup") {
@@ -65,8 +100,11 @@ export default function Navbar() {
         </div>
 
         <div id="search-container">
-          <i className="fas fa-search"></i>
-          <input type="search" placeholder="Search" onChange={(e) => tokenSearch(e.target.value)}/>
+          <div id="search-input">
+            <i className="fas fa-search"></i>
+            <input type="search" placeholder="Search" onChange={(e) => fetchTokenSearchResult(e.target.value)}/>
+          </div>
+          <SearchResult tokenSearchResult={result}/>
         </div>
 
         <div id="navbar-links-container">
