@@ -78,7 +78,7 @@ export default function Navbar() {
       setResult(matches.map((match) => {
         return (
         <div className="match" key={match.symbol}>
-          <Link to={`tokens/${match.id}`}>
+          <Link to={`/tokens/${match.id}`}>
             <h4>${match.symbol.toUpperCase()}</h4>
             <h4>${match.name}</h4>
           </Link>
