@@ -6,17 +6,17 @@ export default function TokenSidePanel({ marketPrice, buyingPower, dispatch, tok
 
   const orderButton = () => {
     return (
-      <button id={order.number ? 'green' : 'gray'}>Order</button>
+      <button className={order.number ? 'green' : 'gray'}>Order</button>
     )
   }
 
   const transferFundsButton = () => {
     return (
       <div id="warning">
-        <div id="header">
+        {/* <div id="header">
           ⓘ Not Enough Buying Power
-        </div>
-        <Link to="/cash"><button id="deposit-funds">Deposit Funds</button></Link>
+        </div> */}
+        <Link to="/cash"><button id="deposit-funds" className="green">Deposit Funds</button></Link>
         {/* <button id="dismiss">Dismiss</button> */}
       </div>
     )
