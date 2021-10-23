@@ -73,6 +73,11 @@ export default function TokenShow(props) {
   const handleOrder = (e) => {
     e.preventDefault();
     dispatch(makeOrder(order))
+    dispatch(makeTransfer({
+      transfer_type: 'Withdraw',
+      amount: order.amount,
+      user_id: currentUser.id || currentUser
+    }));
     setOrder({
       order_type: 'Buy',
       token_sym: tokenId,
