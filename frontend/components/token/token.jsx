@@ -16,6 +16,7 @@ export default function TokenShow(props) {
   const [news, setNews] = useState([])
   const [number, setNumber] = useState("")
   const [oneDayChange, setOneDayChange] = useState(0)
+  const [ThirtyDayChange, setThirtyDayChange] = useState(0)
   const orders = useSelector((state) => state.entities.orders);
   const currentUser = useSelector((state) => state.session.currentUserId)
   const tokenId = props.match.params.tokenId;
@@ -41,7 +42,8 @@ export default function TokenShow(props) {
     dispatch(fetchToken(tokenId))
     .then((res) => {
       setMarketPrice(res.token.market_price)
-      setOneDayChange(res.token.change_one_d)
+      // setOneDayChange(res.token.change_one_d)
+      setThirtyDayChange(res.token.change_thirty_d)
       setAbout(res.token.about)
       setOrder({ ...order, market_price: res.token.market_price })
     })
@@ -107,8 +109,8 @@ export default function TokenShow(props) {
               <h1>{tokenName}</h1>
               <h1>${marketPrice.toLocaleString('en')}</h1>
               <div id="change-container">
-                <p id="change">${oneDayChange.toLocaleString('en')}</p>
-                <p id="period">One day change</p>
+                <p id="period">30 day change </p>
+                <p id="change">${ThirtyDayChange.toLocaleString('en')}</p>
               </div>
             </div>
 
