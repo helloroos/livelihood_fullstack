@@ -27,7 +27,8 @@ export default function TokenShow(props) {
     market_price: 0,
     number: 0,
     amount: 0,
-    user_id: currentUser.id || currentUser
+    // user_id: currentUser.id || currentUser
+    user_id: parseInt(currentUser.id) || parseInt(currentUser)
   })
 
   let total = marketPrice * order.number;
@@ -98,7 +99,6 @@ export default function TokenShow(props) {
           <div id="feed">
 
             <div id="header-container">
-              {/* <h1>{tokenId.slice(0, 1).toUpperCase() + tokenId.slice(1).toLowerCase()}</h1> */}
               <h1>{tokenName}</h1>
               <h1>${marketPrice.toLocaleString('en')}</h1>
               <div id="change-container">
@@ -129,7 +129,6 @@ export default function TokenShow(props) {
             <TokenNews tokenId={tokenId}/>
 
           </div>
-          {/* <TokenSidePanel marketPrice={marketPrice} buyingPower={buyingPower} dispatch={dispatch} tokenId={tokenId} currentUser={currentUser}/> */}
           <TokenSidePanel marketPrice={marketPrice} buyingPower={buyingPower} dispatch={dispatch} tokenId={tokenId} currentUser={currentUser} number={number} setNumber={setNumber} order={order} setOrder={setOrder} handleOrder={handleOrder} changeOption={changeOption} total={total}/>
         </div>
       </div>
