@@ -1,14 +1,15 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
 
 export default function PortfolioSidePanel() {
 
-  const tokensHeld = useSelector((state) => state.entities.tokensHeld);
-  const marketPrice = useSelector((state) => state.entities.tokenInfo.tokens);
-  const lastDayChange = useSelector((state) => state.entities.tokenInfo.tokens);
+  const tokens = useSelector((state) => state.entities.tokenInfo.tokens);
+  // const tokensHeld = useSelector((state) => state.entities.tokensHeld);
+  const [tokensHeld, setTokensHeld] = useState(useSelector((state) => state.entities.tokensHeld))
 
-  if (!marketPrice) {
+  if (!tokens) {
     return null;
   } else {
     return (
@@ -31,7 +32,7 @@ export default function PortfolioSidePanel() {
                 </div>
                 <div id="value-side">
                   <div id="market-price">
-                    $36
+                    $63
                   </div>
                   <div id="market-change">
                     5%

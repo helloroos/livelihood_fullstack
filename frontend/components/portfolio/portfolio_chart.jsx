@@ -1,6 +1,7 @@
 import { ResponsiveContainer, LineChart, Line, Tooltip, YAxis, XAxis, Area, CartesianGrid, AreaChart } from 'recharts';
-import React from 'react';
+import React, { useState } from 'react';
 import { format, parseISO, subDays } from 'date-fns';
+import { useSelector } from 'react-redux';
 
 // let data = [{
 //   date: "09-10-2021",

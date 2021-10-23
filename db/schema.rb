@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_05_21_132749) do
+ActiveRecord::Schema.define(version: 2021_10_23_195937) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -18,8 +18,8 @@ ActiveRecord::Schema.define(version: 2021_05_21_132749) do
   create_table "orders", force: :cascade do |t|
     t.string "token_sym", null: false
     t.integer "number", null: false
-    t.integer "market_price", null: false
-    t.integer "amount", null: false
+    t.decimal "market_price", null: false
+    t.decimal "amount", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "order_type", null: false
@@ -35,7 +35,7 @@ ActiveRecord::Schema.define(version: 2021_05_21_132749) do
 
   create_table "transfers", force: :cascade do |t|
     t.string "transfer_type", null: false
-    t.integer "amount", null: false
+    t.decimal "amount", null: false
     t.integer "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
