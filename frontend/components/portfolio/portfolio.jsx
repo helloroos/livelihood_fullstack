@@ -5,8 +5,6 @@ import { Link } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import News from '../news/news';
 import PortfolioSidePanel from './portfolio_side_panel';
-const newsApiKey = require('../../../config/keys').newsApiKey;
-const nytApiKey = require('../../../config/keys').nytApiKey;
 import Loader from '../loader/loader';
 
 const formatter = new Intl.NumberFormat('en-US', {
@@ -19,7 +17,6 @@ export default function portfolio() {
   const dispatch = useDispatch();
   const currentUser = useSelector((state) => state.session.currentUserId);
   const buyingPower = useSelector((state) => state.entities.buyingPower);
-  const [news, setNews] = useState([])
   const orders = useSelector((state) => state.entities.orders);
   const transfers = useSelector((state) => state.entities.transfers);
 
@@ -33,23 +30,23 @@ export default function portfolio() {
     dispatch(fetchTokens())
   }, [currentUser]);
 
-  // Get news info
-  useEffect(() => {
-    // const url = `https://newsapi.org/v2/everything?q=crypto%20AND%20cryptocurrency%20AND%20crypto%20currency&apiKey=${app_key}`
-    const url = `https://api.nytimes.com/svc/search/v2/articlesearch.json?q=crypto&api-key=${nytApiKey}`
+  // // Get news info
+  // useEffect(() => {
+  //   // const url = `https://newsapi.org/v2/everything?q=crypto%20AND%20cryptocurrency%20AND%20crypto%20currency&apiKey=${app_key}`
+  //   const url = `https://api.nytimes.com/svc/search/v2/articlesearch.json?q=crypto&api-key=${nytApiKey}`
     
-    const fetchData = async () => {
-      try {
-        const res = await fetch(url);
-        const json = await res.json();
-        console.log(json.response.docs);
-        setNews(json.response.docs);
-      } catch (error) {
-        console.log(error);
-      }
-    }
-    fetchData();
-  }, []);
+  //   const fetchData = async () => {
+  //     try {
+  //       const res = await fetch(url);
+  //       const json = await res.json();
+  //       console.log(json.response.docs);
+  //       setNews(json.response.docs);
+  //     } catch (error) {
+  //       console.log(error);
+  //     }
+  //   }
+  //   fetchData();
+  // }, []);
 
   if (!buyingPower) {
     return (
@@ -84,7 +81,7 @@ export default function portfolio() {
                 </div>
               </Link>
   
-              <News news={news}/>
+              <News />
   
             </div>
   

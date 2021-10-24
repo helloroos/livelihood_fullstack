@@ -4,7 +4,8 @@ import { useDispatch } from 'react-redux';
 import TokenChart from './token_chart';
 import TokenSidePanel from './token_side_panel';
 import TokenNews from './token_news';
-const app_key = require('../../../config/keys').newsApiKey;
+import News from '../news/news';
+// const app_key = require('../../../config/keys').newsApiKey;
 
 export default function TokenShow(props) {
 
@@ -13,7 +14,7 @@ export default function TokenShow(props) {
   const buyingPower = useSelector((state) => state.entities.buyingPower);
   const tokenName = useSelector((state) => state.entities.tokenInfo.token.token);
   const [marketPrice, setMarketPrice] = useState(0)
-  const [news, setNews] = useState([])
+  // const [news, setNews] = useState([])
   const [number, setNumber] = useState("")
   const [oneDayChange, setOneDayChange] = useState(0)
   const [ThirtyDayChange, setThirtyDayChange] = useState(0)
@@ -53,20 +54,20 @@ export default function TokenShow(props) {
     dispatch(getUser(currentUser))
   }, [tokenId]);
 
-  useEffect(() => {
-    const url = `https://newsapi.org/v2/everything?q=${tokenId}&apiKey=${app_key}`
+  // useEffect(() => {
+  //   const url = `https://newsapi.org/v2/everything?q=${tokenId}&apiKey=${app_key}`
     
-    const fetchData = async () => {
-      try {
-        const res = await fetch(url);
-        const json = await res.json();
-        setNews(json.articles);
-      } catch (error) {
-        // console.log("error", error);
-      }
-    }
-    fetchData();
-  }, []);
+  //   const fetchData = async () => {
+  //     try {
+  //       const res = await fetch(url);
+  //       const json = await res.json();
+  //       setNews(json.articles);
+  //     } catch (error) {
+  //       // console.log("error", error);
+  //     }
+  //   }
+  //   fetchData();
+  // }, []);
 
   if (!marketPrice === 0) {
     setOrder.market_price(marketPrice)
@@ -133,7 +134,8 @@ export default function TokenShow(props) {
               <p>Stats go here</p>
             </div> */}
 
-            <TokenNews tokenId={tokenId}/>
+            {/* <TokenNews tokenId={tokenId}/> */}
+            <News tokenId={tokenId}/>
 
           </div>
           <TokenSidePanel marketPrice={marketPrice} buyingPower={buyingPower} dispatch={dispatch} tokenId={tokenId} currentUser={currentUser} number={number} setNumber={setNumber} order={order} setOrder={setOrder} handleOrder={handleOrder} changeOption={changeOption} total={total}/>

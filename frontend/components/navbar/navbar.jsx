@@ -10,7 +10,7 @@ export default function Navbar() {
 
   const currentUser = useSelector((state) => state.session.currentUserId)
   const dispatch = useDispatch();
-  const location = useLocation()
+  const location = useLocation();
   const tokens = useSelector((state) => state.entities.tokenInfo.tokens)
 
   const [showProducts, setShowProducts] = useState(false);

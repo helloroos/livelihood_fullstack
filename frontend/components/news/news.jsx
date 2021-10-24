@@ -1,20 +1,45 @@
 import React, { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
+import { useLocation } from 'react-router-dom';
+const newsApiKey = require('../../../config/keys').newsApiKey;
+const nytApiKey = require('../../../config/keys').nytApiKey;
 
-export default function News({ news }) {
+export default function News({ tokenId }) {
 
-  // const news = useSelector(state => state.entities.news)
+  const location = useLocation();
+  const [news, setNews] = useState([])
+
+  // Get news info
+  useEffect(() => {
+    let query;
+    if (location.pathname == "/portfolio") {
+      console.log(true);
+      query = 'crypto'
+    } else {
+      console.log(false);
+      query = tokenId;
+    }
+    // const url = `https://newsapi.org/v2/everything?q=crypto%20AND%20cryptocurrency%20AND%20crypto%20currency&apiKey=${app_key}`
+    const url = `https://api.nytimes.com/svc/search/v2/articlesearch.json?q=${query}&api-key=${nytApiKey}`
+
+    const fetchData = async () => {
+      try {
+        const res = await fetch(url);
+        const json = await res.json();
+        console.log(json.response.docs);
+        setNews(json.response.docs);
+      } catch (error) {
+        console.log(error);
+      }
+    }
+    fetchData();
+  }, []);
 
   const getDomain = (url) => {
     let domain = (new URL(url));
     domain = domain.hostname;
     return domain;
   }
-
-  // const shortenDate = (date) => {
-  //   let newDate = date.slice(0, 10);
-  //   return newDate;
-  // }
 
   const articleImage = (img) => {
     if (img === null) {
@@ -28,16 +53,11 @@ export default function News({ news }) {
     }
   }
 
-  // const newsFeed = news.map(article => {
-  //   return <h3>{article.title}</h3>
-  // })
-
   return (
     <div id="news-container">
       <div id="header">
         <h2>News</h2>
       </div>
-
 
       {/* <div id="article-container">
         <a href="https://www.linkedin.com/in/roosmichelle/" target="_blank">
