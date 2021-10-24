@@ -4,17 +4,6 @@ import { useSelector } from 'react-redux';
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
 import { format, parseISO, subDays } from 'date-fns';
 
-function customToolTip({ active, payload, label }) {
-  if (active) {
-    return (
-      <div className="tooltip">
-        <h4>{label}</h4>
-      </div>
-    )
-  }
-  return null;
-}
-
 export default function TokenChart() {
 
   const token = useSelector((state) => state.entities.tokenInfo.token);
@@ -40,47 +29,53 @@ export default function TokenChart() {
     }
   }
 
-  console.log(data);
-  return (
-    <div>
-        <LineChart
-          // margin={{
-          //   top: 5,
-          //   right: 30,
-          //   left: 20,
-          //   bottom: 5
-          // }}
-          width={600}
-          height={250}
-          data={data}>
-          <XAxis
-            dataKey="date"
-            // type="number"
-            hide={true} />
-          {/* <Legend /> */}
-          <YAxis
-            dataKey="value"
-            // type="category"
-            hide={true} />
-          <Tooltip
-            offset={0}
-            isAnimationActive={false}
-            allowEscapeViewBox={{ x: true, y: true }}
-            // content={customToolTip}
-            position={{ x: 'auto', y: 80 }} />
-          <Line
-            type="linear"
-            dataKey="value"
-            stroke="#29c446"
-            // stroke="#ff3d12" // if negative
-            activeDot={{ r: 5 }}
-            dot={false}
-            strokeWidth={0.7}
-          />
-        </LineChart>
-      {/* <ResponsiveContainer width="100%" height="100%">
+  const customToolTip = ({ active, payload, label }) => {
+    if (active) {
+      return (
+        <div className="tooltip">
+          <p>{label}</p>
+          <p>${payload[0].value.toLocaleString('en')}</p>
+        </div>
+      )
+    }
+    return null;
+  }
 
-      </ResponsiveContainer> */}
-    </div>
+  return (
+    <LineChart
+      // margin={{
+      //   top: 5,
+      //   right: 30,
+      //   left: 20,
+      //   bottom: 5
+      // }}
+      width={600}
+      height={200}
+      data={data}>
+      <XAxis
+        dataKey="date"
+        hide={true} />
+      <YAxis
+        dataKey="value"
+        hide={true} />
+      <Tooltip
+        // offset={0}
+        // position={{ y: 0 }}
+        isAnimationActive={false}
+        // allowEscapeViewBox={{ x: true, y: true }}
+        content={customToolTip}
+        // wrapperStyle={{ top: 0 }}
+        // position={{ x: 'auto', y: 80 }} 
+        />
+      <Line
+        type="linear"
+        dataKey="value"
+        stroke="#29c446"
+        // stroke="#ff3d12" // if negative
+        activeDot={{ r: 5 }}
+        dot={false}
+        strokeWidth={0.7}
+      />
+    </LineChart>
   )
 }
