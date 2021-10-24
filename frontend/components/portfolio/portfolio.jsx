@@ -3,10 +3,16 @@ import AssetDetail from './asset_detail';
 import PortfolioChart from './portfolio_chart';
 import { Link } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
-import News from './news';
+import News from '../news/news';
 import PortfolioSidePanel from './portfolio_side_panel';
-const app_key = require('../../../config/keys').newsApiKey;
+const newsApiKey = require('../../../config/keys').newsApiKey;
+const nytApiKey = require('../../../config/keys').nytApiKey;
 import Loader from '../loader/loader';
+
+const formatter = new Intl.NumberFormat('en-US', {
+  style: 'currency',
+  currency: 'USD',
+})
 
 export default function portfolio() {
 
@@ -29,15 +35,17 @@ export default function portfolio() {
 
   // Get news info
   useEffect(() => {
-    const url = `https://newsapi.org/v2/everything?q=crypto%20AND%20cryptocurrency%20AND%20crypto%20currency&apiKey=${app_key}`
+    // const url = `https://newsapi.org/v2/everything?q=crypto%20AND%20cryptocurrency%20AND%20crypto%20currency&apiKey=${app_key}`
+    const url = `https://api.nytimes.com/svc/search/v2/articlesearch.json?q=crypto&api-key=${nytApiKey}`
     
     const fetchData = async () => {
       try {
         const res = await fetch(url);
         const json = await res.json();
-        setNews(json.articles);
+        console.log(json.response.docs);
+        setNews(json.response.docs);
       } catch (error) {
-        // console.log("error", error);
+        console.log(error);
       }
     }
     fetchData();
@@ -76,7 +84,7 @@ export default function portfolio() {
                 </div>
               </Link>
   
-              <News />
+              <News news={news}/>
   
             </div>
   
@@ -88,8 +96,3 @@ export default function portfolio() {
     )
   }
 };
-
-const formatter = new Intl.NumberFormat('en-US', {
-  style: 'currency',
-  currency: 'USD',
-})

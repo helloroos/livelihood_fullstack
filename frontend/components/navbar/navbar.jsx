@@ -82,7 +82,7 @@ export default function Navbar() {
         <div className="match" key={match.symbol}>
           <Link to={`/tokens/${match.id}`} onClick={handleClick}>
             <h4 id="token-symbol">${match.symbol.toUpperCase()}</h4>
-            <h4 id="token-name">${match.name}</h4>
+            <h4 id="token-name">{match.name}</h4>
           </Link>
         </div>
       )}));

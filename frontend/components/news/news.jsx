@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 
-export default function News() {
+export default function News({ news }) {
 
-  const news = useSelector(state => state.entities.news)
+  // const news = useSelector(state => state.entities.news)
 
   const getDomain = (url) => {
     let domain = (new URL(url));
@@ -11,10 +11,10 @@ export default function News() {
     return domain;
   }
 
-  const shortenDate = (date) => {
-    let newDate = date.slice(0, 10);
-    return newDate;
-  }
+  // const shortenDate = (date) => {
+  //   let newDate = date.slice(0, 10);
+  //   return newDate;
+  // }
 
   const articleImage = (img) => {
     if (img === null) {
@@ -39,7 +39,7 @@ export default function News() {
       </div>
 
 
-      <div id="article-container">
+      {/* <div id="article-container">
         <a href="https://www.linkedin.com/in/roosmichelle/" target="_blank">
           <div id="text-container">
             <div id="first-row">
@@ -80,27 +80,28 @@ export default function News() {
           </div>
           <img src="https://media.istockphoto.com/photos/coins-of-various-cryptocurrencies-picture-id1034363382?k=20&m=1034363382&s=612x612&w=0&h=sCpRmOSicsJJS73_iNQh16nqeBgFKqU3jjfC4u42D_k=" alt="" />
         </a>
-      </div>
+      </div> */}
 
 
-      {/* {news.map((article, i) => {
+      {news.map((article, i) => {
         return (
           <div id="article-container" key={i}>
-            <a href={article.url} target="_blank">
+            <a href={article.web_url} target="_blank">
               <div id="text-container">
                 <div id="first-row">
-                  <p id="url">{getDomain(article.url)}</p>
-                  <p>{shortenDate(article.publishedAt)}</p>
+                  <p id="url">{getDomain(article.web_url)}</p>
+                  {/* <p>{shortenDate(article.pub_date)}</p> */}
+                  <p>{article.pub_date.slice(0, 10)}</p>
                 </div>
                 <div id="second-row">
-                  <h3>{article.title}</h3>
+                  <h3>{article.headline.main}</h3>
                 </div>
               </div>
-              {articleImage(article.urlToImage)}
+              {articleImage('https://www.nytimes.com/' + article.multimedia[0].url)}
             </a>
           </div>
         )
-      })} */}
+      })}
 
 
     </div>
