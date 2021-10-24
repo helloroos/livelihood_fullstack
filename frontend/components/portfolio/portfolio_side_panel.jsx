@@ -32,10 +32,10 @@ export default function PortfolioSidePanel() {
                 </div>
                 <div id="value-side">
                   <div id="market-price">
-                    $63
+                    {/* $63 */}
                   </div>
                   <div id="market-change">
-                    5%
+                    {/* 5% */}
                   </div>
                 </div>
               </Link>

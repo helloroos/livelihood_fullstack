@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_10_23_195937) do
+ActiveRecord::Schema.define(version: 2021_10_24_202541) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -25,6 +25,13 @@ ActiveRecord::Schema.define(version: 2021_10_23_195937) do
     t.string "order_type", null: false
     t.integer "user_id", null: false
     t.index ["token_sym"], name: "index_orders_on_token_sym"
+  end
+
+  create_table "portfolio_values", force: :cascade do |t|
+    t.integer "user_id", null: false
+    t.decimal "amount", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "portfolios", force: :cascade do |t|

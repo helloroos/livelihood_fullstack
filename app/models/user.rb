@@ -16,6 +16,11 @@ class User < ApplicationRecord
         foreign_key: :user_id, 
         class_name: :Order
 
+    has_many :portfolio_values, 
+        primary_key: :id,
+        foreign_key: :user_id, 
+        class_name: :PortfolioValue
+
     def self.find_by_credentials(email, password)
         user = User.find_by(email: email)
         if user && user.is_password?(password)
