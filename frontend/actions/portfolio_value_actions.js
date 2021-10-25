@@ -1,11 +1,12 @@
 import * as PortfolioValueAPIUtil from '../util/portfolio_value_api_util';
+import { GET_USER_INFO } from './user_actions';
 
 export const UPDATE_PORTFOLIO_VALUE = 'UPDATE_PORTFOLIO_VALUE';
 export const RECEIVE_PORTFOLIO_VALUES = 'RECEIVE_PORTFOLIO_VALUES';
 
 const updatePortfolioValueAction = (portfolioValue) => {
   return {
-    type: UPDATE_PORTFOLIO_VALUE,
+    type: GET_USER_INFO,
     portfolioValue: portfolioValue
   }
 }
