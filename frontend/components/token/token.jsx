@@ -37,9 +37,7 @@ export default function TokenShow(props) {
   
   useEffect(() => {
     document.title = `${tokenId.slice(0, 1).toUpperCase() + tokenId.slice(1).toLowerCase()} | Robinhodl`;
-  });
-  
-  useEffect(() => {
+    dispatch(getUser(currentUser))
     dispatch(fetchToken(tokenId))
     .then((res) => {
       setMarketPrice(res.token.market_price)
@@ -50,24 +48,13 @@ export default function TokenShow(props) {
     })
   }, [tokenId])
 
-  useEffect(() => {
-    dispatch(getUser(currentUser))
-  }, [tokenId]);
+  // useEffect(() => {
+  //   document.title = `${tokenId.slice(0, 1).toUpperCase() + tokenId.slice(1).toLowerCase()} | Robinhodl`;
+  // });
 
   // useEffect(() => {
-  //   const url = `https://newsapi.org/v2/everything?q=${tokenId}&apiKey=${app_key}`
-    
-  //   const fetchData = async () => {
-  //     try {
-  //       const res = await fetch(url);
-  //       const json = await res.json();
-  //       setNews(json.articles);
-  //     } catch (error) {
-  //       // console.log("error", error);
-  //     }
-  //   }
-  //   fetchData();
-  // }, []);
+  //   dispatch(getUser(currentUser))
+  // }, [tokenId]);
 
   if (!marketPrice === 0) {
     setOrder.market_price(marketPrice)
@@ -76,11 +63,19 @@ export default function TokenShow(props) {
   const handleOrder = (e) => {
     e.preventDefault();
     dispatch(makeOrder(order))
-    dispatch(makeTransfer({
-      transfer_type: 'Purchase',
-      amount: order.amount,
-      user_id: currentUser.id || currentUser
-    }));
+    if (order.order_type === 'Buy') {
+      dispatch(makeTransfer({
+        transfer_type: 'Purchase',
+        amount: order.amount,
+        user_id: currentUser.id || currentUser
+      }));
+    } else {
+      dispatch(makeTransfer({
+        transfer_type: 'Sale',
+        amount: order.amount,
+        user_id: currentUser.id || currentUser
+      }));
+    }
     setOrder({
       order_type: 'Buy',
       token_sym: tokenId,

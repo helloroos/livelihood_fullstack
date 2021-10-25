@@ -41,11 +41,11 @@ export default function TokenSidePanel({ marketPrice, buyingPower, dispatch, tok
           </div>
           <div id="cost-container" className="side-panel-section">
             <p>Estimated cost</p>
-            <p>${total.toLocaleString('en')}</p>
+            <p>${isNaN(total) ? 0 : total.toLocaleString('en')}</p>
           </div>
           <div id="buying-power-container" className="side-panel-section">
             <p>Buying power</p>
-            <p>${buyingPower.toLocaleString('en')}</p>
+            <p>${parseInt(buyingPower.toLocaleString('en'))}</p>
           </div>
           {order.amount > buyingPower ? transferFundsButton() : orderButton()}
         </form>

@@ -87,7 +87,7 @@ export default function Cash() {
               </div>
 
               {/* {[...transfers].sort(compare).map((transfer, i) => { */}
-              {[...transfers].sort(compare).filter(transfer => transfer.transfer_type !== 'Purchase').map((transfer, i) => {
+              {[...transfers].sort(compare).filter(transfer => transfer.transfer_type !== 'Purchase' || transfer.transfer_type !== 'Sale').map((transfer, i) => {
                 if (transfer.created_at) {
                   return (
                     <div id="transaction-container" key={i}>
@@ -96,7 +96,7 @@ export default function Cash() {
                         <p id="date">{transfer.created_at.slice(0, 10)}</p>
                       </div>
                       <div id="transaction-amount">
-                        <p id="amount">${transfer.amount.toLocaleString('en')}</p>
+                        <p id="amount">${parseInt(transfer.amount.toLocaleString('en'))}</p>
                       </div>
                     </div>
                   )

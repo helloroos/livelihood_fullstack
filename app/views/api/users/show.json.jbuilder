@@ -6,7 +6,7 @@ end
 def summer
     sum = 0
     @user.transfers.each do |transfer|
-        if transfer.transfer_type == "Deposit"
+        if transfer.transfer_type == "Deposit" || transfer.transfer_type == "Sale"
             sum += transfer.amount
         else
             sum -= transfer.amount
