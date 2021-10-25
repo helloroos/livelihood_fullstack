@@ -77,7 +77,7 @@ export default function TokenShow(props) {
     e.preventDefault();
     dispatch(makeOrder(order))
     dispatch(makeTransfer({
-      transfer_type: 'Withdraw',
+      transfer_type: 'Purchase',
       amount: order.amount,
       user_id: currentUser.id || currentUser
     }));
@@ -135,7 +135,7 @@ export default function TokenShow(props) {
             </div> */}
 
             {/* <TokenNews tokenId={tokenId}/> */}
-            <News tokenId={tokenId}/>
+            <News tokenId={tokenId} tokenName={tokenName}/>
 
           </div>
           <TokenSidePanel marketPrice={marketPrice} buyingPower={buyingPower} dispatch={dispatch} tokenId={tokenId} currentUser={currentUser} number={number} setNumber={setNumber} order={order} setOrder={setOrder} handleOrder={handleOrder} changeOption={changeOption} total={total}/>

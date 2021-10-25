@@ -85,7 +85,7 @@ export default function Cash() {
               </div>
 
               {/* {[...transfers].sort(compare).map((transfer, i) => { */}
-              {[...transfers].sort(compare).map((transfer, i) => {
+              {[...transfers].sort(compare).filter(transfer => transfer.transfer_type !== 'Purchase').map((transfer, i) => {
                 if (transfer.created_at) {
                   return (
                     <div id="transaction-container" key={i}>

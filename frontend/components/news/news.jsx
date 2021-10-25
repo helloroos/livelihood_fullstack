@@ -4,7 +4,7 @@ import { useLocation } from 'react-router-dom';
 const newsApiKey = require('../../../config/keys').newsApiKey;
 const nytApiKey = require('../../../config/keys').nytApiKey;
 
-export default function News({ tokenId }) {
+export default function News({ tokenId, tokenName }) {
 
   const location = useLocation();
   const [news, setNews] = useState([])
@@ -12,10 +12,10 @@ export default function News({ tokenId }) {
   // Get news info
   useEffect(() => {
     let query;
-    if (location.pathname == "/portfolio") {
+    if (location.pathname == "/portfolio" || !tokenName) {
       query = 'crypto'
     } else {
-      query = tokenId;
+      query = tokenName;
     }
     // const url = `https://newsapi.org/v2/everything?q=crypto%20AND%20cryptocurrency%20AND%20crypto%20currency&apiKey=${app_key}`
     const url = `https://api.nytimes.com/svc/search/v2/articlesearch.json?q=${query}&api-key=${nytApiKey}`
