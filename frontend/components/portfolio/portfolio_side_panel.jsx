@@ -3,11 +3,13 @@ import { useSelector } from 'react-redux';
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 
-export default function PortfolioSidePanel() {
+export default function PortfolioSidePanel({ tokensHeld, currentPortfolioValue }) {
 
   const tokens = useSelector((state) => state.entities.tokenInfo.tokens);
   // const tokensHeld = useSelector((state) => state.entities.tokensHeld);
-  const [tokensHeld, setTokensHeld] = useState(useSelector((state) => state.entities.tokensHeld))
+  // const [tokensHeld, setTokensHeld] = useState(useSelector((state) => state.entities.tokensHeld))
+
+  console.log(currentPortfolioValue);
 
   if (!tokens) {
     return null;
@@ -19,6 +21,7 @@ export default function PortfolioSidePanel() {
         </header>
   
         {tokensHeld.filter(token => token.number > 0).map((token, i) => {
+        // {currentPortfolioValue.forEach((token, i) => {
           return (
             <div id="portfolio-token-container" key={i}>
               <Link to={`tokens/${token.token_sym}`}>
@@ -32,10 +35,10 @@ export default function PortfolioSidePanel() {
                 </div>
                 <div id="value-side">
                   <div id="market-price">
-                    {/* $63 */}
+                    {token.current_price}
                   </div>
                   <div id="market-change">
-                    {/* 5% */}
+                    {token.one_day_change}
                   </div>
                 </div>
               </Link>

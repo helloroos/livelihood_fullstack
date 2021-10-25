@@ -16,37 +16,41 @@ export default function portfolio() {
 
   const dispatch = useDispatch();
   const currentUser = useSelector((state) => state.session.currentUserId);
+  const [currentPortfolioValue, setCurrentPortfolioValue] = useState([])
   const buyingPower = useSelector((state) => state.entities.buyingPower);
   const orders = useSelector((state) => state.entities.orders);
+  const tokens = useSelector((state) => state.entities.tokenInfo.tokens);
+  const tokensHeld = useSelector((state) => state.entities.tokensHeld);
   const transfers = useSelector((state) => state.entities.transfers);
-
+  
   useEffect(() => {
     document.title = ` Portfolio | Robinhodl `;
-  });
-  
-  // Get user info
-  useEffect(() => {
     dispatch(getUser(currentUser))
     dispatch(fetchTokens())
+    // generatePortfolioValue();
   }, [currentUser]);
 
-  // // Get news info
-  // useEffect(() => {
-  //   // const url = `https://newsapi.org/v2/everything?q=crypto%20AND%20cryptocurrency%20AND%20crypto%20currency&apiKey=${app_key}`
-  //   const url = `https://api.nytimes.com/svc/search/v2/articlesearch.json?q=crypto&api-key=${nytApiKey}`
-    
-  //   const fetchData = async () => {
-  //     try {
-  //       const res = await fetch(url);
-  //       const json = await res.json();
-  //       console.log(json.response.docs);
-  //       setNews(json.response.docs);
-  //     } catch (error) {
-  //       console.log(error);
-  //     }
-  //   }
-  //   fetchData();
-  // }, []);
+  const generatePortfolioValue = () => {
+    let arr = []
+    tokensHeld.filter(token => token.number > 0).forEach((token, i) => {
+      tokens.forEach(element => {
+        if (token.token_sym === element.id) {
+          arr.push({
+            token_sym: token.token_sym,
+            number: token.number, 
+            value: token.number * element.current_price,
+            current_price: element.current_price,
+            one_day_change: element.price_change_percentage_24h
+          })
+        }
+      });
+    })
+    setCurrentPortfolioValue(arr);
+  }
+
+  console.log(currentPortfolioValue);
+
+  // setInterval(currentPortfolioValue, 1000 * 60 * 60 * 24);
 
   if (!buyingPower) {
     return (
@@ -85,7 +89,7 @@ export default function portfolio() {
   
             </div>
   
-            <PortfolioSidePanel/>
+            <PortfolioSidePanel tokensHeld={tokensHeld} currentPortfolioValue={currentPortfolioValue}/>
   
           </div>
         </div>

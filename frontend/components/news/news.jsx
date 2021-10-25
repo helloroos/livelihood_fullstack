@@ -13,10 +13,8 @@ export default function News({ tokenId }) {
   useEffect(() => {
     let query;
     if (location.pathname == "/portfolio") {
-      console.log(true);
       query = 'crypto'
     } else {
-      console.log(false);
       query = tokenId;
     }
     // const url = `https://newsapi.org/v2/everything?q=crypto%20AND%20cryptocurrency%20AND%20crypto%20currency&apiKey=${app_key}`
@@ -26,7 +24,6 @@ export default function News({ tokenId }) {
       try {
         const res = await fetch(url);
         const json = await res.json();
-        console.log(json.response.docs);
         setNews(json.response.docs);
       } catch (error) {
         console.log(error);

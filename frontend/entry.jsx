@@ -4,17 +4,15 @@ import configureStore from "./store/store";
 import Root from "./components/root";
 import "core-js/stable";
 import "regenerator-runtime/runtime";
-// require("dotenv").config();
 
 // TESTING -- TO BE REMOVED
 import { logIn, logOut, resetErrors, signUp } from "./actions/session_actions";
 import { fetchTransfers, makeTransfer } from "./actions/transfer_action";
 import { fetchOrders, makeOrder } from "./actions/order_actions";
 import { fetchToken, fetchTokenHistorical, fetchTokens } from "./actions/token_actions";
-// import { fetchUser } from "./util/user_api_util";
 import { fetchNews } from "./actions/news_actions";
 import { getUser } from "./actions/user_actions";
-// import { logIn, logOut, signUp } from "./util/session_api_util";
+import { fetchPortfolioValues, updatePortfolioValue } from "./actions/portfolio_value_actions";
 
 document.addEventListener('DOMContentLoaded', () => {
     let store;
@@ -30,9 +28,6 @@ document.addEventListener('DOMContentLoaded', () => {
     window.store = store;
     // window.dispatch = store.dispatch;
     // window.getState = store.dispatch;
-
-    // const test = <div>This is the DOM</div>;
-    // const image = <div><img src={window.cannabisURL} /></div>
     
     window.signUp = signUp;
     window.logIn = logIn;
@@ -48,6 +43,8 @@ document.addEventListener('DOMContentLoaded', () => {
     window.fetchOrders = fetchOrders;
     window.getUser = getUser;
     window.fetchNews = fetchNews;
+    window.updatePortfolioValue = updatePortfolioValue;
+    window.fetchPortfolioValues = fetchPortfolioValues;
 
     // TESTING END
 
