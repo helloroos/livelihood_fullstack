@@ -66,8 +66,8 @@ export default function portfolio() {
               <div id="header-container">
                 <h1>{formatter.format(buyingPower)}</h1>
                 <div id="change-container">
-                  <p id="change">+$215.48 (+1.65%)</p>
-                  <p id="period">Today</p>
+                  {/* <p id="change">+$215.48 (+1.65%)</p> */}
+                  {/* <p id="period">Today</p> */}
                 </div>
               </div>
   

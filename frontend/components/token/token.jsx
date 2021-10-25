@@ -11,6 +11,7 @@ export default function TokenShow(props) {
 
   const dispatch = useDispatch();
   const [about, setAbout] = useState("")
+  const [buy, setBuy] = useState(true)
   const buyingPower = useSelector((state) => state.entities.buyingPower);
   const tokenName = useSelector((state) => state.entities.tokenInfo.token.token);
   const [marketPrice, setMarketPrice] = useState(0)
@@ -48,14 +49,6 @@ export default function TokenShow(props) {
     })
   }, [tokenId])
 
-  // useEffect(() => {
-  //   document.title = `${tokenId.slice(0, 1).toUpperCase() + tokenId.slice(1).toLowerCase()} | Robinhodl`;
-  // });
-
-  // useEffect(() => {
-  //   dispatch(getUser(currentUser))
-  // }, [tokenId]);
-
   if (!marketPrice === 0) {
     setOrder.market_price(marketPrice)
   }
@@ -89,8 +82,10 @@ export default function TokenShow(props) {
 
   const changeOption = (val) => {
     if (val === 'Sell') {
+      setBuy(false)
       setOrder({ ...order, order_type: 'Sell' })
     } else {
+      setBuy(true)
       setOrder({ ...order, order_type: 'Buy' })
     }
   }
@@ -133,7 +128,7 @@ export default function TokenShow(props) {
             <News tokenId={tokenId} tokenName={tokenName}/>
 
           </div>
-          <TokenSidePanel marketPrice={marketPrice} buyingPower={buyingPower} dispatch={dispatch} tokenId={tokenId} currentUser={currentUser} number={number} setNumber={setNumber} order={order} setOrder={setOrder} handleOrder={handleOrder} changeOption={changeOption} total={total}/>
+          <TokenSidePanel marketPrice={marketPrice} buyingPower={buyingPower} dispatch={dispatch} tokenId={tokenId} currentUser={currentUser} number={number} setNumber={setNumber} order={order} setOrder={setOrder} handleOrder={handleOrder} changeOption={changeOption} total={total} buy={buy}/>
         </div>
       </div>
     </div>

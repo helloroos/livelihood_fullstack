@@ -2,11 +2,11 @@ import React, { useState, useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 
-export default function TokenSidePanel({ marketPrice, buyingPower, dispatch, tokenId, currentUser, number, setNumber, order, setOrder, handleOrder, changeOption, total }) {
+export default function TokenSidePanel({ marketPrice, buyingPower, dispatch, tokenId, currentUser, number, setNumber, order, setOrder, handleOrder, changeOption, total, buy }) {
 
   const orderButton = () => {
     return (
-      <button className={order.number ? 'green' : 'gray'}>Order</button>
+      <button className={order.number ? 'green' : 'gray'}>{buy ? 'Order' : 'Sell'}</button>
     )
   }
 
@@ -19,6 +19,18 @@ export default function TokenSidePanel({ marketPrice, buyingPower, dispatch, tok
         <Link to="/cash"><button id="deposit-funds" className="green">Deposit Funds</button></Link>
         {/* <button id="dismiss">Dismiss</button> */}
       </div>
+    )
+  }
+
+  const buyValue = () => {
+    return (
+      order.amount > buyingPower ? transferFundsButton() : orderButton()
+    )
+  }
+
+  const sellValue = () => {
+    return (
+      orderButton()
     )
   }
 
@@ -40,14 +52,15 @@ export default function TokenSidePanel({ marketPrice, buyingPower, dispatch, tok
             <p>${marketPrice.toLocaleString('en')}</p>
           </div>
           <div id="cost-container" className="side-panel-section">
-            <p>Estimated cost</p>
+            <p>Total value</p>
             <p>${isNaN(total) ? 0 : total.toLocaleString('en')}</p>
           </div>
           <div id="buying-power-container" className="side-panel-section">
             <p>Buying power</p>
             <p>${parseInt(buyingPower.toLocaleString('en'))}</p>
           </div>
-          {order.amount > buyingPower ? transferFundsButton() : orderButton()}
+          {buy ? buyValue() : sellValue()}
+          {/* {order.amount > buyingPower ? transferFundsButton() : orderButton()} */}
         </form>
       {/* <button id="add-watchlist" onClick={handleWatchlist}>Add to watchlist</button> */}
     </div>
