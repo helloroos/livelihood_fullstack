@@ -3,7 +3,7 @@ import { useSelector } from 'react-redux';
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 
-export default function PortfolioSidePanel({ tokensHeld, currentPortfolioValue }) {
+export default function PortfolioSidePanel({ tokensHeld, arr }) {
 
   const tokens = useSelector((state) => state.entities.tokenInfo.tokens);
   // const tokensHeld = useSelector((state) => state.entities.tokensHeld);
@@ -12,14 +12,15 @@ export default function PortfolioSidePanel({ tokensHeld, currentPortfolioValue }
   if (!tokens) {
     return null;
   } else {
+    console.log(arr);
     return (
       <div id="side-panel">
         <header>
           <h3>Cryptocurrencies</h3>
         </header>
   
-        {tokensHeld.filter(token => token.number > 0).map((token, i) => {
-        // {currentPortfolioValue.forEach((token, i) => {
+        {/* {tokensHeld.filter(token => token.number > 0).map((token, i) => { */}
+        {arr.map((token, i) => {
           return (
             <div id="portfolio-token-container" key={i}>
               <Link to={`tokens/${token.token_sym}`}>
@@ -33,10 +34,10 @@ export default function PortfolioSidePanel({ tokensHeld, currentPortfolioValue }
                 </div>
                 <div id="value-side">
                   <div id="market-price">
-                    {token.current_price}
+                    ${token.current_price}
                   </div>
                   <div id="market-change">
-                    {token.one_day_change}
+                    {token.one_day_change >= 0 ? parseInt(token.one_day_change) + '%' : '-' + parseInt(token.one_day_change) + '%'}
                   </div>
                 </div>
               </Link>

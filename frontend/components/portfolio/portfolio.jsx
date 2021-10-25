@@ -22,33 +22,47 @@ export default function portfolio() {
   const tokens = useSelector((state) => state.entities.tokenInfo.tokens);
   const tokensHeld = useSelector((state) => state.entities.tokensHeld);
   const transfers = useSelector((state) => state.entities.transfers);
-  console.log(currentPortfolioValue);
   
   useEffect(() => {
     document.title = ` Portfolio | Robinhodl `;
     dispatch(getUser(currentUser))
-    dispatch(fetchTokens())
+    // dispatch(fetchTokens())
   }, [currentUser]);
 
-  const generatePortfolioValue = () => {
-    let arr = []
-    tokensHeld.filter(token => token.number > 0).forEach((token, i) => {
-      tokens.forEach(element => {
-        if (token.token_sym === element.id) {
-          arr.push({
-            token_sym: token.token_sym,
-            number: token.number, 
-            value: token.number * element.current_price,
-            current_price: element.current_price,
-            one_day_change: element.price_change_percentage_24h
-          })
-        }
-      });
-    })
-    console.log(arr);
-  }
+  let arr = []
+  tokensHeld.filter(token => token.number > 0).forEach((token, i) => {
+    tokens.forEach(element => {
+      if (token.token_sym === element.id) {
+        arr.push({
+          token_sym: token.token_sym,
+          number: token.number,
+          value: token.number * element.current_price,
+          current_price: element.current_price,
+          one_day_change: element.price_change_percentage_24h
+        })
+      }
+    });
+  })
 
-  generatePortfolioValue();
+  // const generatePortfolioValue = () => {
+  //   let arr = []
+  //   tokensHeld.filter(token => token.number > 0).forEach((token, i) => {
+  //     tokens.forEach(element => {
+  //       if (token.token_sym === element.id) {
+  //         arr.push({
+  //           token_sym: token.token_sym,
+  //           number: token.number, 
+  //           value: token.number * element.current_price,
+  //           current_price: element.current_price,
+  //           one_day_change: element.price_change_percentage_24h
+  //         })
+  //       }
+  //     });
+  //   })
+  //   return arr;
+  // }
+
+  // generatePortfolioValue();
 
   // setInterval(currentPortfolioValue, 1000 * 60 * 60 * 24);
 
@@ -89,7 +103,7 @@ export default function portfolio() {
   
             </div>
   
-            <PortfolioSidePanel tokensHeld={tokensHeld} currentPortfolioValue={currentPortfolioValue}/>
+            <PortfolioSidePanel tokensHeld={tokensHeld} arr={arr}/>
   
           </div>
         </div>
