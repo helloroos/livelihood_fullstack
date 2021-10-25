@@ -5,12 +5,15 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
 Order.destroy_all
 ApplicationRecord.connection.reset_pk_sequence!('orders')
 Transfer.destroy_all
 ApplicationRecord.connection.reset_pk_sequence!('transfers')
 User.destroy_all
 ApplicationRecord.connection.reset_pk_sequence!('users')
+PortfolioValue.destroy_all
+ApplicationRecord.connection.reset_pk_sequence!('portfolio_values')
 
 groot = User.create!(
     first_name: "Groot",
@@ -30,3 +33,5 @@ order = Order.create!(token_sym: "bitcoin", number: 1, market_price: 500, amount
 
 # transfer = Transfer.create!(transfer_type: "Deposit", amount: 5000, user_id: mantice.id)
 transfer = Transfer.create!(transfer_type: "Deposit", amount: 5000, user_id: User.first.id)
+
+portfolio_value = PortfolioValue.create!({user_id: User.first.id, amount: 5500})

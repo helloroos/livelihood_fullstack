@@ -16,7 +16,7 @@ export default function portfolio() {
 
   const dispatch = useDispatch();
   const currentUser = useSelector((state) => state.session.currentUserId);
-  const [currentPortfolioValue, setCurrentPortfolioValue] = useState([])
+  const currentPortfolioValue = useSelector((state) => state.entities.portfolioValue);
   const buyingPower = useSelector((state) => state.entities.buyingPower);
   const orders = useSelector((state) => state.entities.orders);
   const tokens = useSelector((state) => state.entities.tokenInfo.tokens);
