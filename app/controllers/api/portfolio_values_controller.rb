@@ -2,10 +2,12 @@ class Api::PortfolioValuesController < ApplicationController
 
   def create
     @portfolio_value = PortfolioValue.new(portfolio_value_params)
-    @user = current_user
+    # @portfolio_values = current_user.portfolio_values
+    # @user = current_user
     if @portfolio_value.save
         # render json: ["Order successful"], status: 200
         # render :show
+        # render :index
         render "api/users/show"
     else
         render json: @portfolio_value.errors.full_messages, status: 422
@@ -13,8 +15,8 @@ class Api::PortfolioValuesController < ApplicationController
   end
 
   def index
-    @portfolio_value = current_user.portfolio_values
-    if @portfolio_value
+    @portfolio_values = current_user.portfolio_values
+    if @portfolio_values
         render :index
     else
         render json: ['User not found'], status: 404

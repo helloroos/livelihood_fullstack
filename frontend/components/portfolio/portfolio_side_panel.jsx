@@ -9,8 +9,6 @@ export default function PortfolioSidePanel({ tokensHeld, currentPortfolioValue }
   // const tokensHeld = useSelector((state) => state.entities.tokensHeld);
   // const [tokensHeld, setTokensHeld] = useState(useSelector((state) => state.entities.tokensHeld))
 
-  console.log(currentPortfolioValue);
-
   if (!tokens) {
     return null;
   } else {

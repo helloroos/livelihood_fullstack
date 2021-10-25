@@ -22,12 +22,12 @@ export default function portfolio() {
   const tokens = useSelector((state) => state.entities.tokenInfo.tokens);
   const tokensHeld = useSelector((state) => state.entities.tokensHeld);
   const transfers = useSelector((state) => state.entities.transfers);
+  console.log(currentPortfolioValue);
   
   useEffect(() => {
     document.title = ` Portfolio | Robinhodl `;
     dispatch(getUser(currentUser))
     dispatch(fetchTokens())
-    // generatePortfolioValue();
   }, [currentUser]);
 
   const generatePortfolioValue = () => {
@@ -45,10 +45,10 @@ export default function portfolio() {
         }
       });
     })
-    setCurrentPortfolioValue(arr);
+    console.log(arr);
   }
 
-  console.log(currentPortfolioValue);
+  generatePortfolioValue();
 
   // setInterval(currentPortfolioValue, 1000 * 60 * 60 * 24);
 
