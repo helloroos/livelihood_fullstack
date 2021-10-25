@@ -48,11 +48,13 @@ export default function Cash() {
   }
 
   const changeOption = (val) => {
+    console.log(val);
     if (val === 'Deposit') {
       setTo('Robinhodl')
-      setTransfer({ ...transfer, transfer_type: 'Withdraw' })
+      setTransfer({ ...transfer, transfer_type: 'Deposit' })
     } else {
       setTo('Universal Bank')
+      setTransfer({ ...transfer, transfer_type: 'Withdraw' })
     }
   }
   
