@@ -101,7 +101,7 @@ export default function TokenShow(props) {
               <h1>${marketPrice.toLocaleString('en')}</h1>
               <div id="change-container">
                 <p id="period">30 day change </p>
-                <p id="change">${ThirtyDayChange.toLocaleString('en')}</p>
+                <p id="change">{ThirtyDayChange.toLocaleString('en')}%</p>
               </div>
             </div>
 

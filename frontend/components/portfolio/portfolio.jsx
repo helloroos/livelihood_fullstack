@@ -70,7 +70,9 @@ export default function portfolio() {
   
               <div id="header-container">
                 <button onClick={updatePortfolio}>Update portfolio</button>
-                <h1>{formatter.format(buyingPower)}</h1>
+                {/* <h1>{formatter.format(buyingPower)}</h1> */}
+                {console.log(currentPortfolioValue)}
+                {/* <h1>{parseInt(currentPortfolioValue[i].amount)}</h1> */}
                 <div id="change-container">
                   {/* <p id="change">+$215.48 (+1.65%)</p> */}
                   {/* <p id="period">Today</p> */}
@@ -81,7 +83,8 @@ export default function portfolio() {
                 <PortfolioChart
                   dispatch={dispatch}
                   currentUser={currentUser}
-                  transfers={transfers} />
+                  transfers={transfers} 
+                  currentPortfolioValue={currentPortfolioValue}/>
               </div>
   
               <Link to="/cash">

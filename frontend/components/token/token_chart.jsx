@@ -12,9 +12,19 @@ export default function TokenChart() {
 
   for (let num = 30; num >= 0; num--) {
     if (num === 30) {
+      let past_market_price;
+      let change;
+      if (token.change_thirty_d > 0) {
+        change = (100 + token.change_thirty_d) / 100;
+        past_market_price = token.market_price / change;
+      } else {
+        change = (100 - token.change_thirty_d) / 100;
+        past_market_price = token.market_price / change;
+      }
       data.push({
         date: subDays(new Date(), num).toISOString().slice(0, 10),
-        value: parseInt(token.market_price - token.change_thirty_d)
+        // value: parseInt(token.market_price - token.change_thirty_d)
+        value: parseInt(past_market_price)
       })
     } else if (num === 0) {
       data.push({
