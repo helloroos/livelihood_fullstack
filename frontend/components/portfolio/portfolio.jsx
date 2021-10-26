@@ -54,14 +54,18 @@ export default function portfolio() {
       amount: parseInt(buyingPower) + tokenValue
     }))
   }
-
+  
   // setInterval(currentPortfolioValue, 1000 * 60 * 60 * 24);
-
+  
   if (!buyingPower) {
     return (
       <Loader></Loader>
-    )
-  } else {
+      )
+    } else {
+      let val = 0
+      currentPortfolioValue.forEach((v) => {
+        val = v[0];
+      })
     return (
       <div id="portfolio-container">
         <div id="portfolio-content">
@@ -69,9 +73,9 @@ export default function portfolio() {
             <div id="feed">
   
               <div id="header-container">
-                <button onClick={updatePortfolio}>Update portfolio</button>
-                {/* <h1>{formatter.format(buyingPower)}</h1> */}
-                {console.log(currentPortfolioValue)}
+                {/* <button onClick={updatePortfolio}>Update portfolio</button> */}
+                <h1>{formatter.format(buyingPower)}</h1>
+                {console.log(val)}
                 {/* <h1>{parseInt(currentPortfolioValue[i].amount)}</h1> */}
                 <div id="change-container">
                   {/* <p id="change">+$215.48 (+1.65%)</p> */}

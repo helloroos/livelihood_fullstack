@@ -107,9 +107,6 @@ export default function TokenShow(props) {
 
             <div id="chart-container">
               <TokenChart />
-              {/* <TokenChart
-                token={this.props.token}
-                tokenId={this.props.match.params.tokenId} /> */}
             </div>
 
             <div id="about-container">
@@ -124,7 +121,6 @@ export default function TokenShow(props) {
               <p>Stats go here</p>
             </div> */}
 
-            {/* <TokenNews tokenId={tokenId}/> */}
             <News tokenId={tokenId} tokenName={tokenName}/>
 
           </div>
