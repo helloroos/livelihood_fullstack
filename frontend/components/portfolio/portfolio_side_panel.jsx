@@ -6,8 +6,6 @@ import { Link } from 'react-router-dom';
 export default function PortfolioSidePanel({ tokensHeld, arr }) {
 
   const tokens = useSelector((state) => state.entities.tokenInfo.tokens);
-  // const tokensHeld = useSelector((state) => state.entities.tokensHeld);
-  // const [tokensHeld, setTokensHeld] = useState(useSelector((state) => state.entities.tokensHeld))
 
   if (!tokens) {
     return null;
@@ -36,7 +34,7 @@ export default function PortfolioSidePanel({ tokensHeld, arr }) {
                   <div id="market-price">
                     ${token.current_price}
                   </div>
-                  <div id="market-change">
+                  <div id={parseInt(token.one_day_change) >= 0 ? "market-change positive" : "market-change negative"} >
                     {token.one_day_change >= 0 ? parseInt(token.one_day_change) + '%' : '-' + parseInt(token.one_day_change) + '%'}
                   </div>
                 </div>

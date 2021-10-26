@@ -21,12 +21,12 @@ export default function portfolio() {
   const orders = useSelector((state) => state.entities.orders);
   const tokens = useSelector((state) => state.entities.tokenInfo.tokens);
   const tokensHeld = useSelector((state) => state.entities.tokensHeld);
+  const [portfolio, setPortfolio] = useState([])
   const transfers = useSelector((state) => state.entities.transfers);
   
   useEffect(() => {
     document.title = ` Portfolio | Robinhodl `;
     dispatch(getUser(currentUser))
-    // dispatch(fetchTokens())
   }, [currentUser]);
 
   let arr = []
@@ -44,25 +44,16 @@ export default function portfolio() {
     });
   })
 
-  // const generatePortfolioValue = () => {
-  //   let arr = []
-  //   tokensHeld.filter(token => token.number > 0).forEach((token, i) => {
-  //     tokens.forEach(element => {
-  //       if (token.token_sym === element.id) {
-  //         arr.push({
-  //           token_sym: token.token_sym,
-  //           number: token.number, 
-  //           value: token.number * element.current_price,
-  //           current_price: element.current_price,
-  //           one_day_change: element.price_change_percentage_24h
-  //         })
-  //       }
-  //     });
-  //   })
-  //   return arr;
-  // }
-
-  // generatePortfolioValue();
+  const updatePortfolio = () => {
+    let tokenValue = 0;
+    arr.forEach((token) => {
+      tokenValue += (token.number * token.value);
+    })
+    dispatch(updatePortfolioValue({
+      user_id: parseInt(currentUser.id) || parseInt(currentUser),
+      amount: parseInt(buyingPower) + tokenValue
+    }))
+  }
 
   // setInterval(currentPortfolioValue, 1000 * 60 * 60 * 24);
 
@@ -78,6 +69,7 @@ export default function portfolio() {
             <div id="feed">
   
               <div id="header-container">
+                <button onClick={updatePortfolio}>Update portfolio</button>
                 <h1>{formatter.format(buyingPower)}</h1>
                 <div id="change-container">
                   {/* <p id="change">+$215.48 (+1.65%)</p> */}

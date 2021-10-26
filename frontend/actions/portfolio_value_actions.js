@@ -7,14 +7,14 @@ export const RECEIVE_PORTFOLIO_VALUES = 'RECEIVE_PORTFOLIO_VALUES';
 const updatePortfolioValueAction = (portfolioValue) => {
   return {
     type: GET_USER_INFO,
-    portfolioValue: portfolioValue
+    user: portfolioValue
   }
 }
 
 const receivePortfolioValues = (portfolioValues) => {
   return {
     type: RECEIVE_PORTFOLIO_VALUES,
-    portfolioValues: portfolioValues
+    user: portfolioValues
   }
 }
 

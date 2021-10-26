@@ -3,7 +3,7 @@ class Api::PortfolioValuesController < ApplicationController
   def create
     @portfolio_value = PortfolioValue.new(portfolio_value_params)
     # @portfolio_values = current_user.portfolio_values
-    # @user = current_user
+    @user = current_user
     if @portfolio_value.save
         # render json: ["Order successful"], status: 200
         # render :show

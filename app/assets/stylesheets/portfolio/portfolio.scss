@@ -132,6 +132,14 @@
             #market-price {
               margin: 0 0 10px 0;
             }
+            
+            #positive {
+              color: rgb(0, 180, 5);
+            }
+
+            #negative {
+              color: rgb(253, 75, 30);
+            }
           }
 
           &:hover {
