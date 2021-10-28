@@ -18,7 +18,8 @@ module.exports = {
       "https": require.resolve("https-browserify"),
       "url": require.resolve("url/"),
       "http": require.resolve("stream-http"),
-      "buffer": require.resolve("buffer/")
+      "buffer": require.resolve("buffer/"),
+      "child_process": false,
     }
   },
   module: {

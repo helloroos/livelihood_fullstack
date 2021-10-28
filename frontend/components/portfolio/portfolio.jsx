@@ -6,6 +6,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import News from '../news/news';
 import PortfolioSidePanel from './portfolio_side_panel';
 import Loader from '../loader/loader';
+// const cron = require('../../../node_modules/node-cron/src/node-cron');
 
 const formatter = new Intl.NumberFormat('en-US', {
   style: 'currency',
@@ -55,7 +56,7 @@ export default function portfolio() {
     }))
   }
   
-  // setInterval(currentPortfolioValue, 1000 * 60 * 60 * 24);
+  setInterval(updatePortfolio, 1000 * 60 * 60 * 24);
   
   if (!buyingPower) {
     return (
@@ -75,7 +76,7 @@ export default function portfolio() {
               <div id="header-container">
                 {/* <button onClick={updatePortfolio}>Update portfolio</button> */}
                 <h1>{formatter.format(buyingPower)}</h1>
-                {console.log(val)}
+                {/* {console.log(val)} */}
                 {/* <h1>{parseInt(currentPortfolioValue[i].amount)}</h1> */}
                 <div id="change-container">
                   {/* <p id="change">+$215.48 (+1.65%)</p> */}

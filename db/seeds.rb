@@ -22,8 +22,8 @@ groot = User.create!(
     password: "password"
 )
 
-order = Order.create!(token_sym: "bitcoin", number: 1, market_price: 63238, amount: 63238, order_type: "Buy", user_id: User.first.id)
-
 transfer = Transfer.create!(transfer_type: "Deposit", amount: 100000, user_id: User.first.id)
+order = Order.create!(token_sym: "bitcoin", number: 1, market_price: 58836, amount: 58836, order_type: "Buy", user_id: User.first.id)
+transfer = Transfer.create!(transfer_type: "Purchase", amount: 58836, user_id: User.first.id)
+portfolio_value = PortfolioValue.create!({user_id: User.first.id, amount: 100000})
 
-portfolio_value = PortfolioValue.create!({user_id: User.first.id, amount: 163238})
