@@ -21,9 +21,6 @@ export const logIn = (user) => {
       user: {
         email: user.email,
         password: user.password
-        // transfers: user.transfers,
-        // orders: user.orders,
-        // portfolio: user.portfolio
       }
     }
   })

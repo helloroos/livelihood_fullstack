@@ -30,7 +30,7 @@ export default function portfolio() {
     dispatch(getUser(currentUser))
   }, [currentUser]);
 
-  let arr = []
+  let arr = [];
   tokensHeld.filter(token => token.number > 0).forEach((token, i) => {
     tokens.forEach(element => {
       if (token.token_sym === element.id) {
@@ -45,18 +45,29 @@ export default function portfolio() {
     });
   })
 
+  // const [todaysDate, setTodaysDate] = useState(new Date().toISOString().slice(0, 10));
+  const [todaysDate, setTodaysDate] = useState("2021-11-22");
+  console.log(`tokensHeld: ${tokensHeld}`);
+  console.log(`buyingPower: ${parseInt(buyingPower)}, type: ${typeof buyingPower}`);
+
   const updatePortfolio = () => {
-    let tokenValue = 0;
-    arr.forEach((token) => {
-      tokenValue += (token.number * token.value);
-    })
-    dispatch(updatePortfolioValue({
-      user_id: parseInt(currentUser.id) || parseInt(currentUser),
-      amount: parseInt(buyingPower) + tokenValue
-    }))
-  }
+    if (todaysDate !== new Date().toISOString().slice(0, 10)) {
+      setTodaysDate(new Date().toISOString().slice(0, 10));
+      let tokenValue = 0;
+      arr.forEach((token) => {
+        tokenValue += (token.number * token.value);
+      });
+      console.log(tokenValue);
+      dispatch(updatePortfolioValue({
+        user_id: parseInt(currentUser.id) || parseInt(currentUser),
+        amount: parseInt(buyingPower) + tokenValue
+      }));
+    };
+  };
+
+  updatePortfolio();
   
-  setInterval(updatePortfolio, 1000 * 60 * 60 * 24);
+  // setInterval(updatePortfolio, 1000 * 60 * 60 * 24);
   
   if (!buyingPower) {
     return (

@@ -12,7 +12,7 @@
     align-items: center;
     // width: 80%;
     padding-top: 30px;
-  
+
     #feed-container {
       display: flex;
       width: 100%;
@@ -23,10 +23,10 @@
       #feed {
         // width: 690px;
         width: 65%;
-    
+
         #header-container {
           padding-top: 20px;
-    
+
           h1 {
             font-size: 32px;
             // padding: 5px;
@@ -39,21 +39,28 @@
             p {
               font-size: 13px;
             }
-            
+
             #change {
               font-weight: bold;
               margin: 0 5px 0 0;
             }
           }
         }
-    
+
         #chart-container {
           border-bottom: 1px solid #e6e9ed;
+
+          .recharts-wrapper {
+            p {
+              font-size: 12px;
+              margin: 0 0 5px 0;
+            }
+          }
         }
 
         a {
           color: black;
-      
+
           #buying-power-container {
             display: flex;
             align-items: center;
@@ -61,12 +68,12 @@
             justify-content: space-between;
             border-bottom: 1px solid #e6e9ed;
             padding: 0 15px 0 15px;
-      
+
             div p {
               display: flex;
               flex: 1;
             }
-            
+
             div p:last-child {
               margin-right: auto;
             }
@@ -78,7 +85,7 @@
         }
       }
     }
-  
+
     #side-panel {
       display: flex;
       align-items: center;
@@ -93,7 +100,7 @@
       border-radius: 3px;
       font-size: 13px;
       border: 1px solid #e6e9ed;
-  
+
       header {
         display: flex;
         align-items: center;
@@ -107,7 +114,7 @@
 
       #portfolio-token-container {
         width: 100%;
-        
+
         a {
           display: flex;
           justify-content: space-between;
@@ -119,20 +126,20 @@
 
           #token-side {
             margin: 0 0 0 40px;
-            
+
             #token-name {
               font-weight: bold;
               margin: 0 0 10px 0;
             }
           }
-          
+
           #value-side {
             margin: 0 40px 0 0;
-            
+
             #market-price {
               margin: 0 0 10px 0;
             }
-            
+
             #positive {
               color: rgb(0, 180, 5);
             }
@@ -147,7 +154,7 @@
           }
         }
       }
-  
+
       .asset {
         display: flex;
         align-items: center;
@@ -158,33 +165,33 @@
         padding-bottom: 25px;
         font-size: 12px;
         color: rgb(112, 112, 112);
-  
+
         div {
           display: flex;
           flex-direction: column;
           justify-content: space-between;
           height: 30px;
           flex: 1;
-  
+
           .asset-name {
             font-weight: bold;
             color: black;
           }
         }
-  
+
         div:last-child {
           margin-right: auto;
           text-align: end;
-  
+
           .green {
             color: green;
           }
-  
+
           .red {
             color: red;
           }
         }
-  
+
         &:hover {
           background-color: rgba($color: rgba(245, 245, 245, 0.452), $alpha: 1);
         }
@@ -193,22 +200,17 @@
   }
 }
 
-@media(min-width: 1280px) and (max-width: 1536px) {
+@media (min-width: 1280px) and (max-width: 1536px) {
   #portfolio-container {
     display: grid;
     grid-template-columns: 10% 70% 20%;
     grid-template-areas: ". portfolio-content .";
 
     #portfolio-content {
-
       #feed-container {
-
         #feed {
-
           #chart-container {
-
             .recharts-wrapper {
-
               .recharts-surface {
                 width: 600px;
               }
@@ -219,7 +221,6 @@
     }
   }
 }
-
 
 // .outmost-portfolio-container {
 //   display: flex;

@@ -68,7 +68,7 @@ export default function PortfolioChart({ transfers, currentPortfolioValue }) {
           dot={false}
           strokeWidth={0.7}
         />
-        <Line type="monotone" dataKey="uv" stroke="#82ca9d" />
+        {/* <Line type="monotone" dataKey="uv" stroke="#82ca9d" /> */}
       </LineChart>
     )
   }

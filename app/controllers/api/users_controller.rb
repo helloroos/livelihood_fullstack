@@ -6,20 +6,17 @@ class Api::UsersController < ApplicationController
             log_in!(@user)
             render :show
         else
-            render json: @user.errors.full_messages, status: 422
+            render json: @user.errors.full_messages, status: 422 # 422: not processable
             # render json: ['ⓘ Unable to log in with provided credentials.'], status: 422
-            # 422: not processable
         end
     end
 
     def show
-        # @user = User.find_by(id: params[:id])
         @user = current_user
         if @user
             render :show
         else
             render json: ['User not found'], status: 404
-            # 404: not found
         end
     end
 

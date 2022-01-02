@@ -41,19 +41,16 @@
         }
 
         #chart-container {
-
           .recharts-wrapper {
-
             p {
               font-size: 12px;
               margin: 0 0 5px 0;
             }
           }
-
         }
 
-        #about-container, #stats-container {
-          
+        #about-container,
+        #stats-container {
           h2 {
             border-bottom: 1px solid #e6e9ed;
             font-size: 24px;
@@ -72,12 +69,12 @@
       }
 
       #side-panel-container {
-      box-shadow: 0 0 10px lightgray;
-      border-radius: 3px;
-      height: 400px;
-      display: flex;
-      flex-direction: column;
-      // justify-content: center;
+        box-shadow: 0 0 10px lightgray;
+        border-radius: 3px;
+        height: 400px;
+        display: flex;
+        flex-direction: column;
+        // justify-content: center;
         align-items: center;
         form {
           margin: 15px 0 0 0;
@@ -98,7 +95,6 @@
           }
 
           #tokens-container {
-
             input {
               background-color: whitesmoke;
               border: 1px solid whitesmoke;
@@ -113,7 +109,7 @@
               }
 
               &:focus {
-                border: 1px solid #00C805;
+                border: 1px solid #00c805;
                 outline: none;
                 background-color: white;
               }
@@ -153,7 +149,7 @@
 
         #add-watchlist {
           color: white;
-          background-color: #00C805;
+          background-color: #00c805;
           border-radius: 3px;
           font-weight: bold;
           padding: 15px 30px 15px 30px;
@@ -164,7 +160,6 @@
     }
   }
 }
-
 
 // .outmost-token-container {
 //   display: flex;
