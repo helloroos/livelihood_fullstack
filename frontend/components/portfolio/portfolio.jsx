@@ -40,12 +40,11 @@ export default function portfolio() {
           value: token.number * element.current_price,
           current_price: element.current_price,
           one_day_change: element.price_change_percentage_24h
-        })
-      }
+        });
+      };
     });
-  })
+  });
 
-  // const [todaysDate, setTodaysDate] = useState(new Date().toISOString().slice(0, 10));
   const [todaysDate, setTodaysDate] = useState("2021-11-22");
   console.log(`tokensHeld: ${tokensHeld}`);
   console.log(`buyingPower: ${parseInt(buyingPower)}, type: ${typeof buyingPower}`);
@@ -70,9 +69,7 @@ export default function portfolio() {
   // setInterval(updatePortfolio, 1000 * 60 * 60 * 24);
   
   if (!buyingPower) {
-    return (
-      <Loader></Loader>
-      )
+    return null;
     } else {
       let val = 0
       currentPortfolioValue.forEach((v) => {

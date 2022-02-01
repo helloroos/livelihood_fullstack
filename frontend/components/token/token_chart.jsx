@@ -61,7 +61,7 @@ export default function TokenChart() {
       // }}
       width={600}
       height={200}
-      data={data}>
+      data={dailyData(data)}>
       <XAxis
         dataKey="date"
         hide={true} />

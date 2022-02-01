@@ -17,7 +17,7 @@ class Api::PortfolioValuesController < ApplicationController
   def index
     @portfolio_values = current_user.portfolio_values
     if @portfolio_values
-        render :index
+        render :index # fetch coinGecko here
     else
         render json: ['User not found'], status: 404
     end
