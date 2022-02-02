@@ -11,8 +11,8 @@ export default function Splash3({ isOpen, setIsOpen }) {
 
       <div id="splash3-text-container">
         <div id="splash3-header">
-          <h2>Introducing IPO access</h2>
-          <p>Get in at the IPO price. Now, you can become one of the first public investors in upcoming IPOs.</p>
+          <h2>Introducing NFT access</h2>
+          <p>Get started today with an NFT and become one of the first fake investors.</p>
         </div>
 
         <div id="splash3-bullets">
@@ -26,18 +26,18 @@ export default function Splash3({ isOpen, setIsOpen }) {
           <img src="https://robinhood.com/us/en/_next/static/images/one-first__d86b9ee63a8475364159f2d21ea5f01f.svg" id="first-img" alt="bullet-image" />
           <div className="bullet-text" id="first-text">
             <h3>Be one of the first</h3>
-            <p>Request shares in new companies before their stock starts trading on public exchanges.</p>
+            <p>Request NFTs before they start trading on public Exchanges.</p>
           </div>
 
           <img src="https://robinhood.com/us/en/_next/static/images/fair-shot__fb09db580d0ada2e8626a6e46094bb27.svg" id="shot-img" alt="bullet-image" />
           <div className="bullet-text" id="shot-text">
             <h3>Get a fair shot</h3>
-            <p>While IPO shares are limited, IPO Access gives you the same opportunity to invest, regardless of order size or account value.</p>
+            <p>While NFTs are limited, NFT Access gives you the same opportunity to (not) invest, regardless of order size or account value.</p>
           </div>
         </div>
 
         <div id="splash3-disclosure" className="disclosures">
-          <button onClick={() => setIsOpen(true)}>ⓘ IPO Access Disclosure</button>
+          <button onClick={() => setIsOpen(true)}>ⓘ NFT Access Disclosure</button>
         </div>
         <DisclosureModal open={isOpen} onClose={() => setIsOpen(false)}></DisclosureModal>
         <div id="splash3-header">
