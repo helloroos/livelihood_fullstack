@@ -11,7 +11,7 @@ export default function Splash7({ isOpen, setIsOpen }) {
           <div id="links">
             <div id="col1" className="cols">
               <HashLink to="/#splash6-container">Cash Management</HashLink>
-              <HashLink to="/#splash6-container">Stocks & Funds</HashLink>
+              <HashLink to="/#splash6-container">Blockchains</HashLink>
               <HashLink to="/#splash6-container">Options</HashLink>
               <HashLink to="/#splash6-container">Gold</HashLink>
               <HashLink to="/#splash6-container">Crypto</HashLink>
@@ -43,25 +43,25 @@ export default function Splash7({ isOpen, setIsOpen }) {
             <p>The 3-minute newsletter with fresh takes on the financial news you need to start your day.</p>
             <div id="email-container">
               <input type="text" placeholder="email@email.com" />
-              <button>Get in touch</button>
+              <button>TBA</button>
             </div>
 
           </div>
         </div>
 
         <div id="tandcs">
-          <p onClick={() => setIsOpen(true)} href="#" target="_blank">Check the background of the firm on FINRA’s BrokerCheck</p>
-          <p onClick={() => setIsOpen(true)} href="#" target="_blank">Brokerage Customer Relationship Summary</p>
+          <p onClick={() => setIsOpen(true)} href="#" target="_blank">Check the background of the firm on CryptoCheck</p>
+          <p onClick={() => setIsOpen(true)} href="#" target="_blank">Exchange Customer Relationship Summary</p>
           <p onClick={() => setIsOpen(true)} href="#" target="_blank">Robinhodl Terms & Conditions</p>
           <p onClick={() => setIsOpen(true)} href="#" target="_blank">Disclosure Library</p>
           <p onClick={() => setIsOpen(true)} href="#" target="_blank">Privacy</p>
           <DisclosureModal open={isOpen} onClose={() => setIsOpen(false)}></DisclosureModal>
         </div>
         <div id="rights">
-          <p>© 2021 Robinhodl. All rights reserved.</p>
-          <p>Robinhodl means Robinhodl Markets and its in-application and web experiences with its family of wholly owned subsidiaries which includes Robinhodl Financial, Robinhodl Securities, and Robinhodl Crypto.</p>
-          <p>No investments involve risks, including the possible loss of capital.</p>
-          <p>Securities trading is offered to self-directed customers by Robinhodl Financial. Robinhodl Financial is not a member of the Financial Industry Regulatory Authority (FINRA).</p>
+          <p>c 2022 Robinhodl. No rights actually reserved.</p>
+          <p>Robinhodl means Robinhodl Markets and its in-application and web experiences with its family of wholly owned subsidiaries which includes Robinhodl NFT, Robinhodl Exchange, and Robinhodl Crypto.</p>
+          <p>No investments involve risks, including the possible loss of capital (because this is not a real trading site).</p>
+          <p>Securities trading is offered to self-directed customers by Robinhodl. Robinhodl Financial is not a member of any Regulatory Authorities.</p>
           <div id="splash7-disclosure" className="disclosures">
             <button onClick={() => setIsOpen(true)}>ⓘ View important disclosures</button>
           </div>
