@@ -67,7 +67,7 @@ export default function Splash6({ isOpen, setIsOpen }) {
           <h2>Our Products</h2>
           <div id="splash6-buttons">
             <button onClick={openCash}>Cash Management</button>
-            <button onClick={openStocks}>Stocks & Funds</button>
+            <button onClick={openStocks}>Blockchains</button>
             <button onClick={openOptions}>Options</button>
             <button onClick={openGold}>Gold</button>
             <button onClick={openCrypto}>Crypto</button>

@@ -10,12 +10,12 @@ export default function Splash6Stocks({ showStocks, isOpen, setIsOpen }) {
   } else {
     return (
       <div id="splash6-info">
-        <p>Get mobile access to the markets. Invest commission-free in individual companies or bundles of investments (ETFs).</p>
+        <p>Get mobile access to the markets. Invest commission-free (since it's all fake) in individual blockchains or bundles of investments.</p>
 
-        <button id="learn">Learn about Stocks & Funds</button>
+        <button id="learn">Learn about Blockchains</button>
 
         <div id="splash6-disclosure" className="disclosures">
-          <button onClick={() => setIsOpen(true)}>ⓘ Variable APY and Debit Card Disclosures</button>
+          <button onClick={() => setIsOpen(true)}>ⓘ Blockchain Disclosures</button>
         </div>
 
         <DisclosureModal open={isOpen} onClose={() => setIsOpen(false)}></DisclosureModal>
