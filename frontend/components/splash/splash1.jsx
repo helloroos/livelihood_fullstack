@@ -6,9 +6,9 @@ export default function Splash1({isOpen, setIsOpen }) {
   return (
     <div id="splash1-container">
       <div id="splash1-text">
-        <h1>Investing for Everyone</h1>
-        <p>Commission-free investing, plus the tools you need to put your
-          money in motion. Sign up and get your first tokens for free.
+        <h1>Crypto for Everyone</h1>
+        <p>Simulated investing, plus the tools you need to put your
+          fake money in motion. Sign up and get your first pretend tokens for free.
           Certain limitations apply.</p>
 
         <Link to="/signup">
@@ -16,7 +16,7 @@ export default function Splash1({isOpen, setIsOpen }) {
         </Link>
 
         <div id="splash1-disclosure" className="disclosures">
-          <button onClick={() => setIsOpen(true)}>ⓘ Commissions and Free Token Disclosure</button>
+          <button onClick={() => setIsOpen(true)}>ⓘ Terms of Use and Disclosure</button>
         </div>
         <DisclosureModal open={isOpen} onClose={() => setIsOpen(false)}></DisclosureModal>
       </div>

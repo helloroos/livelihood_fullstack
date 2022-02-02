@@ -19,6 +19,7 @@ export default function splash() {
   // const currentUser = useSelector((state) => state.session.currentUser)
 
   const [isOpen, setIsOpen] = useState(false);
+  const [warning, setWarning] = useState(true);
 
   if (currentUser) {
     return (
