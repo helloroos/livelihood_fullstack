@@ -14,7 +14,7 @@ export default function Splash5Manage({ showManage }) {
 
           <div id="splash5-text">
             <h1>Manage Your Portfolio</h1>
-            <p>Keep your portfolio in your pocket. Everything you need to manage your assets is available in a single app.</p>
+            <p>Keep your portfolio in your pocket. Everything you need to manage your fake assets is available in a single web app.</p>
           </div>
         </div>
       </div>

@@ -14,7 +14,7 @@ export default function Splash5Customize({ showCustomize }) {
 
           <div id="splash5-text">
             <h1>Keep Tabs on Your Money</h1>
-            <p>Set up customized news and notifications to stay on top of your assets as casually or as relentlessly as you like. Controlling the flow of info is up to you.</p>
+            <p>Customized news helps you to stay on top of your fake assets as casually or as relentlessly as you like. Controlling the flow of info is up to you.</p>
           </div>
         </div>
       </div>

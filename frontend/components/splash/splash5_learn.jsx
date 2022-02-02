@@ -14,7 +14,7 @@ export default function Splash5Learn({showLearn}) {
 
           <div id="splash5-text">
             <h1>Learn As You Grow</h1>
-            <p>Our goal is to make investing in financial markets more affordable, more intuitive, and more fun, no matter how much experience you have (or don’t have).</p>
+            <p>Our goal is to showcase the creators skills in Ruby on Rails, HTML, JavaScript, React, Redux, Postgress and CSS. </p>
           </div>
         </div>
       </div>
