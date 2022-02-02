@@ -66,15 +66,15 @@ export default function Cash() {
           <div id="cash-mgmt-container">
 
             <div id="header">
-              <h2>Cash</h2>
+              <h2>Fake Cash</h2>
               <h2>{formatter.format(buyingPower)}</h2>
             </div>
 
             <div id="text-img-container">
               <div id="cash-management">
-                <h3>Cash Management</h3>
-                <p>Invest, spend, pay bills, and earn interest — all through one account.</p>
-                <button id="disclosure" onClick={() => setIsOpen(true)}>ⓘ Variable APY Disclosure</button>
+                <h3>Fake Cash Management</h3>
+                <p>Pretend to invest, spend, pay bills, and earn (no) interest — all through one account.</p>
+                <button id="disclosure" onClick={() => setIsOpen(true)}>ⓘ Fake Disclosure</button>
                 <button id="sign-up" onClick={() => setIsOpen(true)}>Sign Up</button>
                 <DisclosureModal open={isOpen} onClose={() => setIsOpen(false)}></DisclosureModal>
               </div>
