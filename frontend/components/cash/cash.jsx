@@ -86,7 +86,6 @@ export default function Cash() {
                 <h2>Recent History</h2>
               </div>
 
-              {/* {[...transfers].sort(compare).map((transfer, i) => { */}
               {[...transfers].sort(compare).filter(transfer => transfer.transfer_type !== 'Purchase' || transfer.transfer_type !== 'Sale').map((transfer, i) => {
                 if (transfer.created_at) {
                   return (

@@ -1,7 +1,5 @@
 import React, { useState } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
 
-// export default function CashSidePanel({dispatch, currentUser}) {
 export default function CashSidePanel({dispatch, currentUser, to, setTo, transfer, setTransfer, handleTransfer, changeOption}) {
 
   return (
