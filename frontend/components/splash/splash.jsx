@@ -8,6 +8,7 @@ import Splash4 from './splash4';
 import Splash5 from './splash5';
 import Splash6 from './splash6';
 import Splash7 from './splash7';
+import IPModal from "../IP-modal/IPModal";
 
 export default function splash() {
 
@@ -29,6 +30,8 @@ export default function splash() {
   } else {
     return (
       <div id="splash-container">
+
+        {warning && <IPModal/>}
 
         <Splash1 isOpen={isOpen} setIsOpen={setIsOpen}/>
         
