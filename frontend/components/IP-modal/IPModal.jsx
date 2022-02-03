@@ -1,8 +1,13 @@
 import React from 'react';
 
-export default function IPModal() {
+export default function IPModal({ setWarning }) {
+
+  const closeModal = (e) => {
+    if (e.target.id === 'ip-modal-bg') setWarning(false);
+  };
+
   return (
-    <div id="ip-modal-bg">
+    <div id="ip-modal-bg" onClick={closeModal}>
       <div id="ip-modal">
         <div id="notice">
           <h1>Please note</h1>

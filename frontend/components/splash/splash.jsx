@@ -31,7 +31,7 @@ export default function splash() {
     return (
       <div id="splash-container">
 
-        {warning && <IPModal/>}
+        {warning && <IPModal setWarning={setWarning}/>}
 
         <Splash1 isOpen={isOpen} setIsOpen={setIsOpen}/>
         
