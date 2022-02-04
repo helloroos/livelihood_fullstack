@@ -9,9 +9,7 @@ Please note that the app is temporarily down due to Robinhood reporting it for i
 
 ## About the project
 
-Robinhodl is a *nearly* pixel perfect clone of the Robinhood website. The fullstack web app was built over two weeks as part of the App Academy bootcamp curriculum. 
-
-Users can sign up or log in using a demo user functionality. 
+Robinhodl is a *nearly* pixel perfect clone of the Robinhood website. The fullstack web app was built over two weeks as part of the App Academy bootcamp curriculum. It's built with Ruby on Rails and Postgres in the backend, and JavaScript/React, Redux, HTML and SCSS in the front. Robinhodl uses real time crypto-currency data from CoinGecko instead of traditional financial assets. 
 
 ### CRUD
 
@@ -19,9 +17,17 @@ The CRUD paradigm is used to frame user sign up/sign in, buying and selling asse
 
 ## Key features
 
-### Orders
+### Session
+
+Users can sign up or log in using a demo user functionality. 
 
 ### Transfers
+
+Users can transfer fake money to and from the Robinhodl account. 
+
+### Orders
+
+Users can make fake purchases and sales of cryptocurrencies. 
 
 ## Built with
 
