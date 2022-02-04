@@ -1,24 +1,30 @@
-# README
+# Robinhodl 
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## About the project
 
-Things you may want to cover:
+Robinhodl is a nearly pixel perfect clone of the Robinhood website. 
 
-* Ruby version
+## Key features
 
-* System dependencies
+## Built with
 
-* Configuration
+- Ruby on Rails
+- JavaScript
+- React
+- Redux
+- HTML
+- SCSS
+- JQuery
 
-* Database creation
+## Roadmap
+Portfolio value
+Order functionality
 
-* Database initialization
+## Contact
+Michelle Roos
+LinkedIn
+Resume
 
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+## Acknowledgements
+CoinGecko
+Graph
