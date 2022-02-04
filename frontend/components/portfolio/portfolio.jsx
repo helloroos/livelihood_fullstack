@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import News from '../news/news';
 import PortfolioSidePanel from './portfolio_side_panel';
-import Loader from '../loader/loader';
+// import Loader from '../loader/loader';
 // const cron = require('../../../node_modules/node-cron/src/node-cron');
 
 const formatter = new Intl.NumberFormat('en-US', {
