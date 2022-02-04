@@ -17,7 +17,7 @@ Robinhodl is a *nearly* pixel perfect clone of the Robinhood website. The fullst
 
 The CRUD paradigm is used to frame user sign up/sign in, buying and selling assets as well as making cash transfers to and from the account. See below for a code example of transfers.
 
-### HTML markup
+#### HTML markup
 
 ```
     <div id="side-panel-container">
