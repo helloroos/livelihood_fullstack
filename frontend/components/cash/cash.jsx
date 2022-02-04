@@ -17,7 +17,7 @@ export default function Cash() {
   useEffect(() => {
     dispatch(getUser(currentUser))
   }, [transfers]);
-  
+
   const dispatch = useDispatch();
   const buyingPower = useSelector((state) => state.entities.buyingPower);
   const currentUser = useSelector((state) => state.session.currentUserId);
@@ -42,11 +42,6 @@ export default function Cash() {
     user_id: currentUser.id || currentUser
   });
 
-  const handleTransfer = (e) => {
-    e.preventDefault();
-    dispatch(makeTransfer(transfer));
-  }
-
   const changeOption = (val) => {
     console.log(val);
     if (val === 'Deposit') {
@@ -57,7 +52,12 @@ export default function Cash() {
       setTransfer({ ...transfer, transfer_type: 'Withdraw' })
     }
   }
-  
+
+  const handleTransfer = (e) => {
+    e.preventDefault();
+    dispatch(makeTransfer(transfer));
+  }
+
   if (buyingPower) {
     return (
       <div id="cash-container">
@@ -106,7 +106,7 @@ export default function Cash() {
 
           </div>
 
-          <CashSidePanel dispatch={dispatch} currentUser={currentUser} to={to} setTo={setTo} transfer={transfer} setTransfer={setTransfer} handleTransfer={handleTransfer} changeOption={changeOption} transfers={transfers}/>
+          <CashSidePanel dispatch={dispatch} currentUser={currentUser} to={to} setTo={setTo} transfer={transfer} setTransfer={setTransfer} handleTransfer={handleTransfer} changeOption={changeOption} transfers={transfers} />
         </div>
       </div>
     )

@@ -15,19 +15,117 @@ Robinhodl is a *nearly* pixel perfect clone of the Robinhood website. The fullst
 
 ### CRUD
 
-The CRUD paradigm is used to frame user sign up/sign in, buying and selling assets as well as making cash transfers to and from the account.
+The CRUD paradigm is used to frame user sign up/sign in, buying and selling assets as well as making cash transfers to and from the account. See below for a code example of transfers.
 
-### Session
+### HTML markup
 
-Users can sign up or log in using a demo user functionality. 
+```
+    <div id="side-panel-container">
+      <h3>Transfer</h3>
+      <form onSubmit={handleTransfer}>
+        <div id="from" className="options">
+          <p>From</p>
+          <div id="select-container">
+            <select name="from" id="from-select" onChange={(e) => changeOption(e.target.value)}>
+              <option value="Deposit">Universal Bank</option>
+              <option value="Withdraw">Robinhodl</option>
+            </select>
+          </div>
+        </div>
 
-### Transfers
+        <div id="to" className="options">
+          <p>To</p>
+          <div id="to-container">
+            <p>{to}</p>
+          </div>
+        </div>
 
-Users can transfer fake money to and from the Robinhodl account. 
+        <div id="amount" className="options">
+          <p>Amount</p>
+          <input type="text" placeholder="$0.00" required onChange={(e) => setTransfer({ ...transfer, amount: e.target.value })} />
+        </div>
+        <button id={transfer.amount ? 'green': 'gray'}>Transfer</button>
+      </form>
+    </div>
+```
 
-### Orders
+#### The request
 
-Users can make fake purchases and sales of cryptocurrencies. 
+```
+const [transfer, setTransfer] = useState({
+    transfer_type: 'Deposit',
+    amount: null,
+    user_id: currentUser.id || currentUser
+  });
+
+  const changeOption = (val) => {
+    console.log(val);
+    if (val === 'Deposit') {
+      setTo('Robinhodl')
+      setTransfer({ ...transfer, transfer_type: 'Deposit' })
+    } else {
+      setTo('Universal Bank')
+      setTransfer({ ...transfer, transfer_type: 'Withdraw' })
+    }
+  }
+
+  const handleTransfer = (e) => {
+    e.preventDefault();
+    dispatch(makeTransfer(transfer));
+  }
+```
+
+### The action
+
+```
+const makeTransferAction = (transfer) => {
+  return {
+    type: GET_USER_INFO,
+    user: transfer
+  }
+}
+
+const receiveTransfers = (transfers) => {
+  return {
+    type: RECEIVE_TRANSFERS,
+    transfers: transfers
+  }
+}
+
+export const makeTransfer = (transferDetails) => (dispatch) => {
+  return TransferAPIUtil.makeTransfer(transferDetails)
+    .then(
+      (res) => dispatch(makeTransferAction(res)))
+}
+
+export const fetchTransfers = (transferDetails) => (dispatch) => {
+  return TransferAPIUtil.fetchTransfers(transferDetails)
+    .then(
+      (res) => dispatch(receiveTransfers(res)))
+}
+```
+
+#### Reducer
+
+```
+const initialState = [];
+
+const transfersReducer = (state = initialState, action) => {
+  Object.freeze(state);
+  switch (action.type) {
+    case MAKE_TRANSFER:
+      return Object.values(action.transfer.transfers);
+    case GET_USER_INFO:
+      return Object.values(action.user.transfers);
+    case LOGOUT_CURRENT_USER:
+      return initialState;
+    default:
+      return state;
+  }
+}
+
+export default transfersReducer;
+```
 
 ## Built with
 
