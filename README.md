@@ -3,6 +3,8 @@
 ## Live link
 [robinhodl.herokuapp.com](https://robinhodl.herokuapp.com/)
 
+![robinhodl-view](https://github.com/michelleroos/robinhodl_fullstack/blob/main/app/assets/images/gif-login.gif?raw=true)
+
 Please note that the app is temporarily down due to Robinhood reporting it for inappropriate use of IP... The author is currently making it look less pixel perfect clone-y :)
 
 ## About the project
