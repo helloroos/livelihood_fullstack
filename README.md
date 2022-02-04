@@ -139,14 +139,13 @@ export default transfersReducer;
 - PostGres
 
 ## Roadmap
-- [x] Portfolio value
-- [x] Order functionality
-- [ ] Watchlist
+- [x] Portfolio value - update to reflect total daily value (cash value & asset value valued at daily price)
+- [x] Order functionality - fix re-render bug
+- [ ] Watchlist - allow users to watch and unwatch currencies
 
 ## Contact
 Michelle Roos
 - [LinkedIn](https://www.linkedin.com/michelleroos/)
-- Resume
 
 ## Acknowledgements
 - CoinGecko
