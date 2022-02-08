@@ -4,7 +4,7 @@ import { format, parseISO, subDays } from 'date-fns';
 import { useSelector } from 'react-redux';
 
 export default function PortfolioChart({ transfers, currentPortfolioValue }) {
-
+  
   const customToolTip = ({ active, payload, label }) => {
     if (active) {
       return (
