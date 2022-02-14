@@ -1,8 +1,8 @@
 class ApplicationController < ActionController::Base
 
-    helper_method :logged_in?, :current_user
+    helper_method :logged_in?, :current_user # passed to view
     
-    def current_user
+    def current_user # accessible by controllers
         return nil unless session[:session_token]
         @current_user ||= User.find_by(session_token: session[:session_token])
     end

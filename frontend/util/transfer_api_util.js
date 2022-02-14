@@ -1,3 +1,5 @@
+// AJAX - Asynchronous JavaScript And XML
+// Reduce server traffic and increase speed, Enable asynchronous calls
 export const makeTransfer = (transferData) => {
   return $.ajax({
     url: "/api/transfers",
